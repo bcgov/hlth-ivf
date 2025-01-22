@@ -1,0 +1,33 @@
+PRE DEPLOYMENT STEPS
+--------------------
+1. enable digital exp
+ setup-> digital expereince -> Settings-> enable digital experence
+
+2. Create Community site
+   Navigate to all sites -> New
+   Name:IVF Program Portal BC
+   URL:Clinics
+   Template: Customer Service
+
+
+POST DEPLOYMENT STEPS
+---------------------
+1.IVF Program Portal BC site Setup
+  Navigate to Sites->All Sites -> Builder -> Settings -> Theme -> Change -> Select Ember
+       
+2. upload LOGO on site
+   on left pannel click on theme ->Image ->upload image on company logo
+   Change stack header colour
+
+  Stack header -> Background ->Colour -> paste rgb(239, 240, 243)
+
+3. upload image on site
+   on left pannel click on theme ->Image ->upload image on company logo
+
+4. To create community user to remove error on profile
+setup-> Digital exp ->Settings ->Enable Allow using standard external profiles for self-registration, user creation, and login
+
+5. Add profile and permission set on exp site
+Site- > Administartion -> members -> add Profile -> add permission set IVF clinic admin
+
+
