@@ -3,7 +3,15 @@
     <fullName>IVF Application Process</fullName>
     <isActive>true</isActive>
     <values>
+        <fullName>Appeal Requested</fullName>
+        <default>false</default>
+    </values>
+    <values>
         <fullName>Approved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Changes Completed</fullName>
         <default>false</default>
     </values>
     <values>
