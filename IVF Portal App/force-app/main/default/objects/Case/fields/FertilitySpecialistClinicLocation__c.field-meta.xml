@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FertilitySpecialistClinicLocation__c</fullName>
+    <label>Fertility Specialist Clinic Location</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>FertilitySpecialistClinicName__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Blossom Fertility Partner</fullName>
+                <default>false</default>
+                <label>Blossom Fertility Partner</label>
+            </value>
+            <value>
+                <fullName>Oceanview Fertility</fullName>
+                <default>false</default>
+                <label>Oceanview Fertility</label>
+            </value>
+            <value>
+                <fullName>Kelowna</fullName>
+                <default>false</default>
+                <label>Kelowna</label>
+            </value>
+            <value>
+                <fullName>Surrey</fullName>
+                <default>false</default>
+                <label>Surrey</label>
+            </value>
+            <value>
+                <fullName>Vancouver</fullName>
+                <default>false</default>
+                <label>Vancouver</label>
+            </value>
+            <value>
+                <fullName>Victoria</fullName>
+                <default>false</default>
+                <label>Victoria</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Grace</controllingFieldValue>
+            <controllingFieldValue>Pacific Centre For Reproductive Medicine (PCRM)</controllingFieldValue>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Vancouver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pacific Centre For Reproductive Medicine (PCRM)</controllingFieldValue>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Victoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Blossom Fertility Partner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Oceanview Fertility</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Kelowna</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Surrey</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
