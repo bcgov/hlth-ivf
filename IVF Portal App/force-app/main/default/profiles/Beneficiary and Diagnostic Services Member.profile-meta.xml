@@ -12,6 +12,9 @@
         <layout>Case-IVF Application Layout</layout>
         <recordType>Case.IVF_Application</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Contact Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
