@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -11,6 +12,20 @@
                 <behavior>Edit</behavior>
                 <field>ApplicantConsent__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DateOfApplicationSubmission__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>UsingPreviouslyFrozenEmbryo__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ExceptionRequest__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>PrivateInsuranceWaiver__c</field>
@@ -24,20 +39,6 @@
                 <field>EstimatedCostofTreatmentPlan__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ExceptionRequest__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>DateOfApplicationSubmission__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>UsingPreviouslyFrozenEmbryo__c</field>
-            </layoutItems>
-        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -48,11 +49,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>FirstName__c</field>
+                <field>LastName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>FertilitySpecialistClinicName__c</field>
+                <field>PractitionerNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -62,11 +63,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3Surname__c</field>
+                <field>FirstName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PractitionerNumber__c</field>
+                <field>FertilitySpecialistClinicName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -91,23 +92,19 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>PreviouslyReceivedFundingforIVF__c</field>
+                <field>Applicant1DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Applicant1Patient__c</field>
+                <field>PreviouslyReceivedFundingforIVF__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PrivateInsuranceCoverageForIVF__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Applicant1GivenName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>LastName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Applicant1DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -128,8 +125,12 @@
                 <field>Applicant1RequiredDiagnosticsCompleted__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Applicant1Patient__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PrivateInsuranceCoverageForIVF__c</field>
+                <field>Applicant1Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -150,23 +151,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3EnrolledinMedicalSerivcesPlan__c</field>
+                <field>Applicant2EnrolledInMedicalServicesPlan__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3ReceivedFunding__c</field>
+                <field>Applicant2DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Applicant2GivenName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant2Surname__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant2MiddleName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -180,11 +173,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3PersonalHealthNumber__c</field>
+                <field>Applicant2PersonalHealthNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3RequiredDiagnosticsCompleted__c</field>
+                <field>Applicant2RequiredDiagnosticsCompleted__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -192,7 +185,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3DateofBirth__c</field>
+                <field>Applicant2Surname__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant2MiddleName__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -205,23 +202,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient2EnrolledInMedicalServicesPlan__c</field>
+                <field>Applicant3EnrolledinMedicalSerivcesPlan__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2PersonalHealthNumber__c</field>
+                <field>Applicant3DateofBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2ReceivedFunding__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3Patient__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3Surname__c</field>
+                <field>Applicant3GivenName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -235,15 +224,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2RequiredDiagnosticsCompleted__c</field>
+                <field>Applicant3PersonalHealthNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1DateofBirth__c</field>
+                <field>Applicant3Patient__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3GivenName__c</field>
+                <field>Applicant3Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -260,7 +249,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2EnrolledInMedicalServicesPlan__c</field>
+                <field>Patient1EnrolledInMedicalServicesPlan__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -268,15 +257,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1GivenName__c</field>
+                <field>Patient1MiddleName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1Surname__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Patient1Address__c</field>
+                <field>Patient1DateofBirth__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -285,16 +270,20 @@
                 <field>EnrolledInCanadianPublicHealthPlan__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Patient2PersonalHealthNumber__c</field>
+                <behavior>Edit</behavior>
+                <field>Patient1PersonalHealthNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1MiddleName__c</field>
+                <field>Patient1Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient2DateOfBirth__c</field>
+                <field>Patient1GivenName__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient1Address__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -307,11 +296,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3EnrolledInMedicalServicesPlan__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Patient1PersonalHealthNumber__c</field>
+                <field>Patient2EnrolledInMedicalServicesPlan__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -319,7 +304,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient2MiddleName__c</field>
+                <field>Patient2DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -333,11 +318,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2DateOfBirth__c</field>
+                <field>Patient2PersonalHealthNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient2Surname__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient2MiddleName__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -350,15 +339,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1EnrolledInMedicalServicesPlan__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Patient3GivenName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant1Surname__c</field>
+                <field>Patient3EnrolledInMedicalServicesPlan__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient3DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -368,15 +357,19 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Patient3IsThePatientFromOutOfCountry__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Patient3PersonalHealthNumber__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3MiddleName__c</field>
+                <field>Patient3Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3DateOfBirth__c</field>
+                <field>Patient3MiddleName__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -550,7 +543,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
-    <relatedObjects>AccountId</relatedObjects>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>true</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -559,7 +551,7 @@
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hAs000003qlNh</masterLabel>
+        <masterLabel>00hAs000003xjqb</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
