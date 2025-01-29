@@ -705,6 +705,10 @@
         <field>Case.UsingPreviouslyFrozenEmbryo__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout>Case-IVF Application Layout</layout>
+        <recordType>Case.IVF_Application</recordType>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
