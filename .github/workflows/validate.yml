@@ -22,4 +22,4 @@ jobs:
 
       - name: "Validate"
         run: |
-          sf project deploy validate -d force-app/ -l RunLocalTests -w 30
+          sf project deploy validate -d IVF\ Portal\ App/force-app/ -l RunLocalTests -w 30
