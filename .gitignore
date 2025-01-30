@@ -11,6 +11,7 @@
 *.orig
 *.DS_Store
 *.local
+*.tmp
 # Visual Studio Code settings
 .vscode/
 .vscode/settings.json
