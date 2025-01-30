@@ -1,0 +1,23 @@
+# Salesforce specific
+*.log
+*.tmp
+*.class
+*.jar
+*.war
+*.zip
+*.swp
+*.swo
+*.bak
+*.orig
+*.DS_Store
+*.local
+# Visual Studio Code settings
+.vscode/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+# Other files to ignore
+*.env
+*.local
+*.sublime-project
+*.sublime-workspace
