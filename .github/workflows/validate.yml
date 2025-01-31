@@ -7,6 +7,8 @@ on:
     types:
       - opened
       - synchronize
+    paths:
+      - "IVF Portal App/force-app/**"
   push:
     branches:
       - ci-cd-poc
