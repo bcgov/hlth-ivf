@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -159,6 +158,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Applicant2ReceivedFunding__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ap2PrivateInsuranceCoverageForIVF__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Applicant2GivenName__c</field>
             </layoutItems>
             <layoutItems>
@@ -198,55 +205,12 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Applicant 3</label>
+        <label>Additional Patient 1: Gestational Surrogate (Unintended Parent)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant3EnrolledinMedicalSerivcesPlan__c</field>
+                <field>Patient1NotApplicable__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3DateofBirth__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3GivenName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3Address__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3MedicallyEligible__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3PersonalHealthNumber__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3Patient__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3Surname__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant3MiddleName__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Additional Patient 1: Gestational Surrogate</label>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient1EnrolledInMedicalServicesPlan__c</field>
@@ -292,11 +256,19 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Additional Patient 2: Known Egg Donor</label>
+        <label>Additional Patient 2: Known Egg Donor (Unintended Parent)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Patient2NotApplicable__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Patient2EnrolledInMedicalServicesPlan__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Pat2PreviouslyParticipatedInIVFProgram__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -335,11 +307,11 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Additional Patient 3: Known Sperm Donor</label>
+        <label>Additional Patient 3: Known Sperm Donor (Unintended Parent)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3GivenName__c</field>
+                <field>Patient3NotApplicable__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -347,7 +319,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Pat3PreviouslyParticipatedInIVFProgram__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Patient3DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient3GivenName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -403,7 +383,7 @@
                 <field>Status</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Origin</field>
             </layoutItems>
             <layoutItems>
@@ -551,7 +531,7 @@
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hAs000003xjqb</masterLabel>
+        <masterLabel>00hAs000003qlNh</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -116,6 +116,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Ap2PrivateInsuranceCoverageForIVF__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Ap3PrivateInsuranceCoverageForIVF__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Applicant1Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -272,6 +282,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant3MiddleName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Applicant3NotApplicable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -476,6 +491,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Pat2PreviouslyParticipatedInIVFProgram__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Pat3PreviouslyParticipatedInIVFProgram__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Patient1Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -497,6 +522,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient1MiddleName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Patient1NotApplicable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -532,6 +562,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient2MiddleName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Patient2NotApplicable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -572,6 +607,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient3MiddleName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Patient3NotApplicable__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
