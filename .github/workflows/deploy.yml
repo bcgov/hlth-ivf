@@ -1,12 +1,10 @@
 name: Validate pull request
 
 on:
-  pull_request:
+  push:
     branches:
       - develop
-    types:
-      - opened
-      - synchronize
+      - ci-cd-poc
 
 jobs:
   validate-deployment:
@@ -26,3 +24,7 @@ jobs:
       - name: "Validate"
         run: |
           cd "IVF Portal App" && sf project deploy validate -d ./force-app/ -l RunSpecifiedTests --tests "ChangePasswordControllerTest" -w 30
+
+      - name: "Deploy"
+        run: |
+          cd "IVF Portal App" && sf project deploy start -d ./force-app/ -l RunSpecifiedTests --tests "ChangePasswordControllerTest" -w 30
