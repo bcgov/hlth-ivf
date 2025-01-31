@@ -7,6 +7,11 @@ on:
     types:
       - opened
       - synchronize
+  push:
+    branches:
+      - ci-cd-poc
+    paths:
+      - "IVF Portal App/force-app/**"
 
 jobs:
   validate-deployment:
