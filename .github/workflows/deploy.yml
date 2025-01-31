@@ -1,4 +1,4 @@
-name: Validate pull request
+name: Deploy on org
 
 on:
   push:
