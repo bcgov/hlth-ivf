@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Ap2PrivateInsuranceCoverageForIVF__c</fullName>
     <inlineHelpText>Having private insurance coverage for IVF does not render an applicant ineligible for the publicly funded IVF program.</inlineHelpText>
-    <label>Private Insurance Coverage For IVF</label>
+    <label>Private Insurance Coverage for IVF</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
