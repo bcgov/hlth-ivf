@@ -12,6 +12,7 @@
 *.DS_Store
 *.local
 *.tmp
+authFile.json
 # Visual Studio Code settings
 .vscode/
 .vscode/settings.json
