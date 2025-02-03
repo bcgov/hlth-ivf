@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IVF_Community_User_Changes</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    $Profile.Name = &quot;Customer Community Plus Login User&quot;,
+    OR(
+        ISCHANGED(Status),
+        ISCHANGED(PractitionerNumber__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>As a Clinic Admin You Can not make changes.</errorMessage>
+</ValidationRule>
