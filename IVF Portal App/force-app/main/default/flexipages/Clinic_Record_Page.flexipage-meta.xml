@@ -9,9 +9,6 @@
                         <valueListItems>
                             <value>Edit</value>
                         </valueListItems>
-                        <valueListItems>
-                            <value>FeedItem.ContentNote</value>
-                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -104,6 +101,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.PrimaryContact__c</fieldItem>
                 <identifier>RecordPrimaryContact_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PersonEmail</fieldItem>
+                <identifier>RecordPersonEmailField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-c66684d5-a909-4583-98b2-506d96547ea9</name>

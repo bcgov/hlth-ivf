@@ -197,6 +197,7 @@
     </profileActionOverrides>
     <tabs>standard-Case</tabs>
     <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
