@@ -46,7 +46,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Copy_2_of_Case_update</targetReference>
+                <targetReference>Get_Read_only_record_type</targetReference>
             </connector>
             <label>If status for read only</label>
         </rules>
@@ -89,7 +89,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Copy_1_of_Case_update</targetReference>
+                <targetReference>Get_Case_Record_Type</targetReference>
             </connector>
             <label>If status chnge non read only</label>
         </rules>
@@ -116,15 +116,57 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Case_Record_Type</name>
+        <label>Get Case Record Type</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Case_update</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IVF_Application</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Read_only_record_type</name>
+        <label>Get Read only record type</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_2_of_Case_update</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IVF_Application_Read_Only</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Copy_1_of_Case_update</name>
         <label>Copy 1 of Case update</label>
         <locationX>314</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <stringValue>012As000002uG0vIAE</stringValue>
+                <elementReference>Get_Case_Record_Type.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -133,11 +175,11 @@
         <name>Copy_2_of_Case_update</name>
         <label>Case of Case update</label>
         <locationX>50</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <stringValue>012As0000033km9</stringValue>
+                <elementReference>Get_Read_only_record_type.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
