@@ -9,5 +9,5 @@
         ISCHANGED(PractitionerNumber__c)
     )
 )</errorConditionFormula>
-    <errorMessage>As a Clinic Admin You Can not make changes.</errorMessage>
+    <errorMessage>As a clinic admin, you can not make changes to the application in the current status</errorMessage>
 </ValidationRule>
