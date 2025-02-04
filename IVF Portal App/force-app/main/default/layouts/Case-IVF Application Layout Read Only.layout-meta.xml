@@ -52,7 +52,7 @@
                 <field>LastName__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Readonly</behavior>
                 <field>PractitionerNumber__c</field>
             </layoutItems>
             <layoutItems>

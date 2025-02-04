@@ -9,7 +9,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>If_status_for_read_only</name>
-            <conditionLogic>1 AND ( 2 OR 3 OR 4 OR 5)</conditionLogic>
+            <conditionLogic>1 AND ( 2 OR 3 OR 4 OR 5 OR 6)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Status</leftValueReference>
                 <operator>IsChanged</operator>
@@ -45,14 +45,21 @@
                     <stringValue>Appeal Requested</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Changes Requested</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Copy_2_of_Case_update</targetReference>
+                <targetReference>Get_Read_only_record_type</targetReference>
             </connector>
             <label>If status for read only</label>
         </rules>
         <rules>
             <name>If_status_chnge_non_read_only</name>
-            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5)</conditionLogic>
+            <conditionLogic>1 AND (2 OR 3 OR 4 )</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Status</leftValueReference>
                 <operator>IsChanged</operator>
@@ -81,22 +88,15 @@
                     <stringValue>Changes Requested</stringValue>
                 </rightValue>
             </conditions>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Changes Completed</stringValue>
-                </rightValue>
-            </conditions>
             <connector>
-                <targetReference>Copy_1_of_Case_update</targetReference>
+                <targetReference>Get_Case_Record_Type</targetReference>
             </connector>
             <label>If status chnge non read only</label>
         </rules>
     </decisions>
     <environments>Default</environments>
-    <interviewLabel>After Case Insert {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>After Case Insert</label>
+    <interviewLabel>Case After Handler {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Case After Handler</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -116,15 +116,57 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Case_Record_Type</name>
+        <label>Get Case Record Type</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_1_of_Case_update</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IVF_Application</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Read_only_record_type</name>
+        <label>Get Read only record type</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Copy_2_of_Case_update</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IVF_Application_Read_Only</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Copy_1_of_Case_update</name>
         <label>Copy 1 of Case update</label>
         <locationX>314</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <stringValue>012As000002uG0vIAE</stringValue>
+                <elementReference>Get_Case_Record_Type.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -133,11 +175,11 @@
         <name>Copy_2_of_Case_update</name>
         <label>Case of Case update</label>
         <locationX>50</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <stringValue>012As0000033km9</stringValue>
+                <elementReference>Get_Read_only_record_type.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -160,7 +202,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>CasesharerecordInsertList</name>
         <dataType>SObject</dataType>
