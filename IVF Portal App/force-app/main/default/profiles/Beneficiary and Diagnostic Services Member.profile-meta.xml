@@ -45,10 +45,10 @@
         <tab>standard-report</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-     <tabSettings>
+    <tabVisibilities>
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
-    </tabSettings>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Dashboard</tab>
         <visibility>DefaultOn</visibility>
