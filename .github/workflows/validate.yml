@@ -1,0 +1,30 @@
+name: Validate pull request
+
+on:
+  pull_request:
+    branches:
+      - develop
+    types:
+      - opened
+      - synchronize
+    paths:
+      - "IVF Portal App/force-app/**"
+
+jobs:
+  validate-deployment:
+    runs-on: ubuntu-latest
+    container:
+      image: salesforce/cli:latest-slim
+    steps:
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Authenticate using SFDX_AUTH_URL"
+        run: |
+          echo ${{ secrets.SFDX_AUTH_URL_QA }} | sf org login sfdx-url -s -u
+
+      - name: "Validate"
+        run: |
+          cd "IVF Portal App" && sf project deploy validate -d ./force-app/ -l RunSpecifiedTests --tests "ChangePasswordControllerTest" -w 30
