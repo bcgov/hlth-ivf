@@ -20,7 +20,7 @@ jobs:
 
       - name: "Authenticate using SFDX_AUTH_URL"
         run: |
-          echo ${{ secrets.SFDX_AUTH_URL_POC }} | sf org login sfdx-url -s -u
+          echo ${{ secrets.SFDX_AUTH_URL_QA }} | sf org login sfdx-url -s -u
 
       - name: "Validate"
         run: |
