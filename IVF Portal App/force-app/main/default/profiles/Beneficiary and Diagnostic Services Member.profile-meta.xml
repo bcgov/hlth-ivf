@@ -45,6 +45,10 @@
         <tab>standard-report</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+     <tabSettings>
+        <tab>standard-Contact</tab>
+        <visibility>DefaultOn</visibility>
+    </tabSettings>
     <tabVisibilities>
         <tab>standard-Dashboard</tab>
         <visibility>DefaultOn</visibility>
