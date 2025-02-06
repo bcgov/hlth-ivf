@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Applicant_Consent_is_Required_on_Submit</fullName>
+    <active>true</active>
+    <description>Need to check Applicant Consent on Case Submission</description>
+    <errorConditionFormula>AND(
+   NOT(ISNEW()),
+    NOT(ISPICKVAL(ApplicantConsent__c, &quot;Yes&quot;))
+)</errorConditionFormula>
+    <errorMessage>Applicant consent needs to be marked Yes to submit the application</errorMessage>
+</ValidationRule>

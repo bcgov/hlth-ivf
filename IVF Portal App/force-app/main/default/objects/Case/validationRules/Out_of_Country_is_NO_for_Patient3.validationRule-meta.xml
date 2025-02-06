@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Out_of_Country_is_NO_for_Patient3</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(Patient3IsThePatientFromOutOfCountry__c,&quot;No&quot;),
+Patient3NotApplicable__c = False,
+OR(
+ISBLANK(Text(Patient3EnrolledInMedicalServicesPlan__c)),
+ISBLANK(Patient3DateOfBirth__c),
+ISBLANK(Patient3GivenName__c),
+ISBLANK(Patient3Surname__c),
+ISBLANK(Patient3MiddleName__c),
+ISBLANK(Patient3PersonalHealthNumber__c),
+ISBLANK(Text(Patient3Address__CountryCode__s)),
+ISBLANK(Text(Patient3Address__StateCode__s)),
+ISBLANK(Patient3Address__City__s),
+ISBLANK(Patient3Address__Street__s),
+ISBLANK(Patient3Address__PostalCode__s),
+ISBLANK(Text(Pat3PreviouslyParticipatedInIVFProgram__c))
+)
+)</errorConditionFormula>
+    <errorMessage>all Fields are Required to fill in the Additional Patient 3 Section</errorMessage>
+</ValidationRule>

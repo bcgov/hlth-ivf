@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Applicable_for_Patient1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Patient1NotApplicable__c=TRUE,
+NOT(ISNEW()),
+OR(
+NOT(ISBLANK(Text(Patient1EnrolledInMedicalServicesPlan__c))),
+NOT(ISBLANK(Patient1DateofBirth__c)),
+NOT(ISBLANK(Patient1GivenName__c)),
+NOT(ISBLANK(Patient1Surname__c)),
+NOT(ISBLANK(Patient1MiddleName__c)),
+NOT(ISBLANK(Patient1PersonalHealthNumber__c)),
+NOT(ISBLANK(Text(Patient1Address__CountryCode__s))),
+NOT(ISBLANK(Text(Patient1Address__StateCode__s))),
+NOT(ISBLANK(Patient1Address__City__s)),
+NOT(ISBLANK(Patient1Address__Street__s)),
+NOT(ISBLANK(Patient1Address__PostalCode__s)),
+NOT(ISBLANK(Text(PreviouslyParticipatedInIvfProgram__c))),
+NOT(ISBLANK(Text(EnrolledInCanadianPublicHealthPlan__c)))
+)
+)</errorConditionFormula>
+    <errorMessage>Patient1 Details Should not be filled if it is not applicable</errorMessage>
+</ValidationRule>
