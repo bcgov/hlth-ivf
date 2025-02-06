@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <customErrors>
+        <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
+        <name>Error_Message_on_Non_Read_Only</name>
+        <label>Error Message on Non Read Only</label>
+        <locationX>842</locationX>
+        <locationY>539</locationY>
+        <customErrorMessages>
+            <errorMessage>{!Error_Message_on_Non_Read_Only}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
+        <name>Error_Message_on_Read_Only</name>
+        <label>Error Message on Read Only</label>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
+        <customErrorMessages>
+            <errorMessage>{!Error_Message_on_Read_Only}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
     <decisions>
         <name>Status_Change_Check</name>
         <label>Status Change Check</label>
-        <locationX>842</locationX>
+        <locationX>578</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -119,12 +141,15 @@
     <recordLookups>
         <name>Get_Case_Record_Type</name>
         <label>Get Case Record Type</label>
-        <locationX>842</locationX>
+        <locationX>578</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Case_IVF_Application</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Error_Message_on_Non_Read_Only</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
@@ -146,6 +171,9 @@
         <connector>
             <targetReference>Update_Case_IVF_Application_Read_Only</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Error_Message_on_Read_Only</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
@@ -161,7 +189,7 @@
     <recordUpdates>
         <name>Update_Case_IVF_Application</name>
         <label>Update Case IVF Application</label>
-        <locationX>842</locationX>
+        <locationX>578</locationX>
         <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
@@ -185,7 +213,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>716</locationX>
+        <locationX>452</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Status_Change_Check</targetReference>
