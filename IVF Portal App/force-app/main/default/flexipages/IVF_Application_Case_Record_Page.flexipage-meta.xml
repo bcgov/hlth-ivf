@@ -828,26 +828,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3EnrolledinMedicalSerivcesPlan__c</fieldItem>
-                <identifier>RecordApplicant3EnrolledinMedicalSerivcesPlan_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3DateofBirth__c</fieldItem>
-                <identifier>RecordApplicant3DateofBirth_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.PreviouslyReceivedFundingforIVF__c</fieldItem>
                 <identifier>RecordPreviouslyReceivedFundingforIVF_cField3</identifier>
             </fieldInstance>
@@ -862,108 +842,7 @@
                 <identifier>RecordPrivateInsuranceCoverageForIvf_cField3</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3GivenName__c</fieldItem>
-                <identifier>RecordApplicant3GivenName_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3Address__c</fieldItem>
-                <identifier>RecordApplicant3Address_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-4qvnd17ykek</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3MedicallyEligible__c</fieldItem>
-                <identifier>RecordApplicant3MedicallyEligible_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3PersonalHealthNumber__c</fieldItem>
-                <identifier>RecordApplicant3PersonalHealthNumber_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3RequiredDiagnosticsCompleted__c</fieldItem>
-                <identifier>RecordApplicant3RequiredDiagnosticsCompleted_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3Patient__c</fieldItem>
-                <identifier>RecordApplicant3Patient_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3Surname__c</fieldItem>
-                <identifier>RecordApplicant3Surname_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3MiddleName__c</fieldItem>
-                <identifier>RecordApplicant3MiddleName_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant3__c</fieldItem>
-                <identifier>RecordApplicant_3_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!$User.Profile.Name}</leftValue>
-                        <operator>CONTAINS</operator>
-                        <rightValue>Beneficiary and Diagnostic Services Member</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-6mxukpup99q</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
