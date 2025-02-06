@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
-    <decisions>
-        <name>Status_change_check</name>
-        <label>Status change check</label>
+    <customErrors>
+        <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
+        <name>Error_Message_on_Non_Read_Only</name>
+        <label>Error Message on Non Read Only</label>
+        <locationX>842</locationX>
+        <locationY>539</locationY>
+        <customErrorMessages>
+            <errorMessage>{!Error_Message_on_Non_Read_Only}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
+        <name>Error_Message_on_Read_Only</name>
+        <label>Error Message on Read Only</label>
         <locationX>314</locationX>
+        <locationY>539</locationY>
+        <customErrorMessages>
+            <errorMessage>{!Error_Message_on_Read_Only}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Status_Change_Check</name>
+        <label>Status Change Check</label>
+        <locationX>578</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>If_status_for_read_only</name>
+            <name>Status_Change_Read_Only</name>
             <conditionLogic>1 AND ( 2 OR 3 OR 4 OR 5 OR 6)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Status</leftValueReference>
@@ -49,16 +71,16 @@
                 <leftValueReference>$Record.Status</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Changes Requested</stringValue>
+                    <stringValue>Changes Completed</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Read_only_record_type</targetReference>
+                <targetReference>Get_Read_Only_Record_Type</targetReference>
             </connector>
-            <label>If status for read only</label>
+            <label>Status Change Read Only</label>
         </rules>
         <rules>
-            <name>If_status_chnge_non_read_only</name>
+            <name>Status_Change_Non_Read_Only</name>
             <conditionLogic>1 AND (2 OR 3 OR 4 )</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Status</leftValueReference>
@@ -91,7 +113,7 @@
             <connector>
                 <targetReference>Get_Case_Record_Type</targetReference>
             </connector>
-            <label>If status chnge non read only</label>
+            <label>Status Change Non Read Only</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -119,12 +141,15 @@
     <recordLookups>
         <name>Get_Case_Record_Type</name>
         <label>Get Case Record Type</label>
-        <locationX>314</locationX>
+        <locationX>578</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Copy_1_of_Case_update</targetReference>
+            <targetReference>Update_Case_IVF_Application</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Error_Message_on_Non_Read_Only</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
@@ -138,14 +163,17 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Get_Read_only_record_type</name>
-        <label>Get Read only record type</label>
+        <name>Get_Read_Only_Record_Type</name>
+        <label>Get Read Only Record Type</label>
         <locationX>50</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Copy_2_of_Case_update</targetReference>
+            <targetReference>Update_Case_IVF_Application_Read_Only</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Error_Message_on_Read_Only</targetReference>
+        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>DeveloperName</field>
@@ -159,9 +187,9 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Copy_1_of_Case_update</name>
-        <label>Copy 1 of Case update</label>
-        <locationX>314</locationX>
+        <name>Update_Case_IVF_Application</name>
+        <label>Update Case IVF Application</label>
+        <locationX>578</locationX>
         <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
@@ -172,23 +200,23 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Copy_2_of_Case_update</name>
-        <label>Case of Case update</label>
+        <name>Update_Case_IVF_Application_Read_Only</name>
+        <label>Update Case IVF Application Read Only</label>
         <locationX>50</locationX>
         <locationY>539</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
-                <elementReference>Get_Read_only_record_type.Id</elementReference>
+                <elementReference>Get_Read_Only_Record_Type.Id</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>188</locationX>
+        <locationX>452</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Status_change_check</targetReference>
+            <targetReference>Status_Change_Check</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -202,7 +230,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <variables>
         <name>CasesharerecordInsertList</name>
         <dataType>SObject</dataType>
