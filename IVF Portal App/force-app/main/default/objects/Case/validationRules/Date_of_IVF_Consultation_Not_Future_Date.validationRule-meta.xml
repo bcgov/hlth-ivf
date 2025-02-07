@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_IVF_Consultation_Not_Future_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+DateOfIVFConsultation__c &gt; TODAY()
+)</errorConditionFormula>
+    <errorMessage>Future dates are not allowed for IVF Consultation. Only current or past dates are allowed.</errorMessage>
+</ValidationRule>

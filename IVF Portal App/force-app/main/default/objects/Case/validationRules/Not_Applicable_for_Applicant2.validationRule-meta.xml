@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_Applicable_for_Applicant2</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NotApplicable__c =TRUE,
+NOT(ISNEW()),
+OR(
+NOT(ISBLANK(Text(Applicant2EnrolledInMedicalServicesPlan__c))),
+NOT(ISBLANK(Applicant2DateOfBirth__c)),
+NOT(ISBLANK(Applicant2GivenName__c)),
+NOT(ISBLANK(Applicant2Surname__c)),
+NOT(ISBLANK(Applicant2MiddleName__c)),
+NOT(ISBLANK(Applicant2PersonalHealthNumber__c)),
+NOT(ISBLANK(Text(Applicant2Address__CountryCode__s))),
+NOT(ISBLANK(Text(Applicant2Address__StateCode__s))),
+NOT(ISBLANK(Applicant2Address__City__s)),
+NOT(ISBLANK(Applicant2Address__Street__s)),
+NOT(ISBLANK(Applicant2Address__PostalCode__s)),
+NOT(ISBLANK(Text(Applicant2Patient__c))),
+NOT(ISBLANK(Text(Applicant2ReceivedFunding__c))),
+NOT(ISBLANK(Text(Ap2PrivateInsuranceCoverageForIVF__c))),
+NOT(ISBLANK(Text(Applicant2RequiredDiagnosticsCompleted__c))),
+NOT(ISBLANK(Text(Applicant2MedicallyEligible__c)))
+)
+)</errorConditionFormula>
+    <errorMessage>Applicant2 Details Should not be filled if it is not applicable</errorMessage>
+</ValidationRule>

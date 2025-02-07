@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PHN_is_Required_for_Applicant_1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(Applicant1EnrolledinMedicalServicesPlan__c, &quot;Yes&quot;),
+ISBLANK(Applicant1PersonalHealthNumber__c)
+)</errorConditionFormula>
+    <errorMessage>PHN for Applicant 1 is required.</errorMessage>
+</ValidationRule>
