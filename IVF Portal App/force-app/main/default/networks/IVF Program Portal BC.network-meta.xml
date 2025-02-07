@@ -38,6 +38,7 @@
         <permissionSet>IVF_Clinic_Admin</permissionSet>
         <profile>admin</profile>
         <profile>customer community plus login user</profile>
+        <profile>beneficiary and diagnostic services member</profile>
     </networkMemberGroups>
     <networkPageOverrides>
         <changePasswordPageOverrideSetting>Standard</changePasswordPageOverrideSetting>
