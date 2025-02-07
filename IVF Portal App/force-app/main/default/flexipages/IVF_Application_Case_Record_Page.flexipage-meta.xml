@@ -97,6 +97,16 @@
                 <identifier>RecordExceptionRequest_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Pat3PreviouslyParticipatedInIVFProgram__c</fieldItem>
+                <identifier>RecordPat3PreviouslyParticipatedInIVFProgram__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-bb492169-21ce-47e4-9639-c3e1f05ae513</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -379,7 +389,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1PersonalHealthNumber__c</fieldItem>
                 <identifier>RecordApplicant1PersonalHealthNumber_cField</identifier>
@@ -611,9 +621,9 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.PrivateInsuranceCoverageForIVF__c</fieldItem>
-                <identifier>RecordPrivateInsuranceCoverageForIvf_cField2</identifier>
-                 <visibilityRule>
+                <fieldItem>Record.Ap2PrivateInsuranceCoverageForIVF__c</fieldItem>
+                <identifier>RecordAp2PrivateInsuranceCoverageForIVF_cField</identifier>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -647,7 +657,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2Address__c</fieldItem>
                 <identifier>RecordApplicant2Address_cField</identifier>
-                 <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -668,7 +678,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2MedicallyEligible__c</fieldItem>
                 <identifier>RecordApplicant2MedicallyEligible_cField</identifier>
-                 <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -685,7 +695,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2PersonalHealthNumber__c</fieldItem>
                 <identifier>RecordApplicant2PersonalHealthNumber_cField</identifier>
-                 <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -702,7 +712,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2RequiredDiagnosticsCompleted__c</fieldItem>
                 <identifier>RecordApplicant2RequiredDiagnosticsCompleted_cField</identifier>
-                 <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -719,7 +729,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2Patient__c</fieldItem>
                 <identifier>RecordApplicant2Patient_cField</identifier>
-                 <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -753,7 +763,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2MiddleName__c</fieldItem>
                 <identifier>RecordApplicant2MiddleName_cField</identifier>
-                 <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -771,12 +781,13 @@
                 <fieldItem>Record.Applicant2__c</fieldItem>
                 <identifier>RecordApplicant_2_cField</identifier>
                 <visibilityRule>
+                    <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!$User.Profile.Name}</leftValue>
                         <operator>CONTAINS</operator>
                         <rightValue>Beneficiary and Diagnostic Services Member</rightValue>
                     </criteria>
-                     <criteria>
+                    <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
@@ -858,8 +869,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.NotApplicable__c</fieldItem>
-                <identifier>RecordNotApplicable_cField3</identifier>
+                <fieldItem>Record.Patient1NotApplicable__c</fieldItem>
+                <identifier>RecordPatient1NotApplicable_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -870,6 +881,13 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1EnrolledInMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordPatient1EnrolledInMedicalServicesPlan_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -880,14 +898,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.PreviouslyParticipatedInIvfProgram__c</fieldItem>
                 <identifier>RecordPreviouslyParticipatedInIvfProgram_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -897,14 +915,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1MiddleName__c</fieldItem>
                 <identifier>RecordPatient1MiddleName_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -914,14 +932,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1DateofBirth__c</fieldItem>
                 <identifier>RecordPatient1DateofBirth_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <name>Facet-e56df994-4faf-4258-a317-893399f6d3f1</name>
         <type>Facet</type>
@@ -935,31 +953,31 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.EnrolledInCanadianPublicHealthPlan__c</fieldItem>
                 <identifier>RecordEnrolledInCanadianPublicHealthPlan_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1PersonalHealthNumber__c</fieldItem>
                 <identifier>RecordPatient1PersonalHealthNumber_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -969,14 +987,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1Surname__c</fieldItem>
                 <identifier>RecordPatient1Surname_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -986,14 +1004,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1GivenName__c</fieldItem>
                 <identifier>RecordPatient1GivenName_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1003,14 +1021,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1Address__c</fieldItem>
                 <identifier>RecordPatient1Address_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <name>Facet-a7a91e53-f95b-45ed-a239-2a52a44b032b</name>
         <type>Facet</type>
@@ -1046,8 +1064,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.NotApplicable__c</fieldItem>
-                <identifier>RecordNotApplicable_cField4</identifier>
+                <fieldItem>Record.Patient2NotApplicable__c</fieldItem>
+                <identifier>RecordPatient2NotApplicable_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1058,8 +1076,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2EnrolledInMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordPatient2EnrolledInMedicalServicesPlan_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
@@ -1072,6 +1089,7 @@
                         <rightValue>No</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1079,22 +1097,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.PreviouslyParticipatedInIvfProgram__c</fieldItem>
-                <identifier>RecordPreviouslyParticipatedInIvfProgram_cField2</identifier>
-            </fieldInstance>
-            <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
+                <fieldItem>Record.Pat2PreviouslyParticipatedInIVFProgram__c</fieldItem>
+                <identifier>RecordPat2PreviouslyParticipatedInIVFProgram_cField</identifier>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Patient2IsThePatientFromOutOfCountry__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>No</rightValue>
-                    </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1104,14 +1116,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Paitent2GivenName__c</fieldItem>
                 <identifier>RecordPaitent2GivenName_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1121,8 +1133,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2DateOfBirth__c</fieldItem>
                 <identifier>RecordPatient2DateOfBirth_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
@@ -1134,7 +1145,8 @@
                         <operator>EQUAL</operator>
                         <rightValue>No</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <name>Facet-2d400eee-a618-4e9b-961e-2ce068599699</name>
         <type>Facet</type>
@@ -1148,25 +1160,24 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2IsThePatientFromOutOfCountry__c</fieldItem>
                 <identifier>RecordIsThePatientFromOutOfCountry_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2PersonalHealthNumber__c</fieldItem>
                 <identifier>RecordPatient2PersonalHealthNumber_cField2</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
@@ -1178,7 +1189,8 @@
                         <operator>EQUAL</operator>
                         <rightValue>No</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1188,14 +1200,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2Surname__c</fieldItem>
                 <identifier>RecordPatient2Surname_cField</identifier>
-            </fieldInstance>
-             <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1205,8 +1217,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2MiddleName__c</fieldItem>
                 <identifier>RecordPatient2MiddleName_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
@@ -1218,7 +1229,8 @@
                         <operator>EQUAL</operator>
                         <rightValue>No</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1228,8 +1240,7 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2Address__c</fieldItem>
                 <identifier>RecordPatient2Address_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
@@ -1241,7 +1252,8 @@
                         <operator>EQUAL</operator>
                         <rightValue>No</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <name>Facet-f68d3343-b339-4053-9879-1c4f8e0537ec</name>
         <type>Facet</type>
@@ -1277,8 +1289,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.NotApplicable__c</fieldItem>
-                <identifier>RecordNotApplicable_cField5</identifier>
+                <fieldItem>Record.Patient3NotApplicable__c</fieldItem>
+                <identifier>RecordPatient3NotApplicable_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -1289,14 +1301,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3EnrolledInMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordPatient3EnrolledInMedicalServicesPlan_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1304,16 +1316,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.PreviouslyParticipatedInIvfProgram__c</fieldItem>
-                <identifier>RecordPreviouslyParticipatedInIvfProgram_cField3</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <fieldItem>Record.Pat3PreviouslyParticipatedInIVFProgram__c</fieldItem>
+                <identifier>RecordPat3PreviouslyParticipatedInIVFProgram_cField</identifier>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1323,14 +1335,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3GivenName__c</fieldItem>
                 <identifier>RecordPatient3GivenName_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1340,14 +1352,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3Address__c</fieldItem>
                 <identifier>RecordPatient3Address_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <name>Facet-392ee1b0-a80d-474a-9fa3-efb614991b83</name>
         <type>Facet</type>
@@ -1361,31 +1373,31 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3IsThePatientFromOutOfCountry__c</fieldItem>
                 <identifier>RecordPatient3IsThePatientFromOutOfCountry_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3PersonalHealthNumber__c</fieldItem>
                 <identifier>RecordPatient3PersonalHealthNumber_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1395,14 +1407,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3Surname__c</fieldItem>
                 <identifier>RecordPatient3Surname_cField</identifier>
-            </fieldInstance>
-             <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1412,14 +1424,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3MiddleName__c</fieldItem>
                 <identifier>RecordPatient3MiddleName_cField</identifier>
-            </fieldInstance>
-             <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
                 </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
@@ -1429,14 +1441,14 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3DateOfBirth__c</fieldItem>
                 <identifier>RecordPatient3DateOfBirth_cField</identifier>
-            </fieldInstance>
-            <visibilityRule>
+                <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
-            </visibilityRule>
+                </visibilityRule>
+            </fieldInstance>
         </itemInstances>
         <name>Facet-132eaad2-8747-4e0e-b76e-acc538d2b09c</name>
         <type>Facet</type>
@@ -1574,6 +1586,32 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>parentFieldApiName</name>
+                    <value>Case.Id</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListApiName</name>
+                    <value>AttachedContentDocuments</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer2</identifier>
+            </componentInstance>
+        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
