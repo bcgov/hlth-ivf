@@ -6,5 +6,5 @@
     $Profile.Name = &quot;Customer Community Plus Login User&quot;,
     ISCHANGED(Status)
 )</errorConditionFormula>
-    <errorMessage>As a clinic admin, you can not make changes to the application in the current status</errorMessage>
+    <errorMessage>As a clinic admin, you can not manually change the application status.</errorMessage>
 </ValidationRule>
