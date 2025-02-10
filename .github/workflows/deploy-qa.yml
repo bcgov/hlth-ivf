@@ -24,8 +24,8 @@ jobs:
 
       - name: "Validate"
         run: |
-          cd "IVF Portal App" && sf project deploy validate -d ./force-app/ -l RunSpecifiedTests --tests "ChangePasswordControllerTest" -w 30
+          cd "IVF Portal App" && sf project deploy validate -d ./force-app/ -l RunLocalTests -w 30
 
       - name: "Deploy"
         run: |
-          cd "IVF Portal App" && sf project deploy start -d ./force-app/ -l RunSpecifiedTests --tests "ChangePasswordControllerTest" -w 30
+          cd "IVF Portal App" && sf project deploy start -d ./force-app/ -l RunLocalTests -w 30
