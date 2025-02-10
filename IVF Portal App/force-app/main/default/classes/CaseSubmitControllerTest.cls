@@ -1,10 +1,13 @@
-@isTest
+@isTest(seeAllData=false)
 public class CaseSubmitControllerTest {
     
     @testSetup
     static void setupTestData() {
+        Id IVFreadOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
+        Id IVFRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application').getRecordTypeId();
         //  Create a Test Case
         Case testCase = new Case(
+            RecordTypeId=IVFRecordTypeId,
             Status = 'Draft',
             Applicant1GivenName__c='Test',
             Applicant1Surname__c ='surname'
@@ -32,7 +35,6 @@ public class CaseSubmitControllerTest {
 
         //  Ensure the Case is not already Submitted
         System.assertNotEquals('Submitted', testCase.Status);
-
         //  Run the Apex Method
         Test.startTest();
         try{
