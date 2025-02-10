@@ -21,5 +21,5 @@ NOT(ISBLANK(Text(Pat2PreviouslyParticipatedInIVFProgram__c))),
 NOT(ISBLANK(Text(Patient2IsThePatientFromOutOfCountry__c)))
 )
 )</errorConditionFormula>
-    <errorMessage>Patient2 Details Should not be filled if it is not applicable</errorMessage>
+    <errorMessage>Patient 2 Details Should not be filled if it is not applicable</errorMessage>
 </ValidationRule>

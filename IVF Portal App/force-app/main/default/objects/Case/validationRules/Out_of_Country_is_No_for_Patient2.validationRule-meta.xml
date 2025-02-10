@@ -21,5 +21,5 @@ ISBLANK(Patient2Address__PostalCode__s),
 ISBLANK(Text(Pat2PreviouslyParticipatedInIVFProgram__c))
 )
 )</errorConditionFormula>
-    <errorMessage>All fields are required to fill in the Country Patient2</errorMessage>
+    <errorMessage>All fields are required to fill in the Country Patient 2</errorMessage>
 </ValidationRule>

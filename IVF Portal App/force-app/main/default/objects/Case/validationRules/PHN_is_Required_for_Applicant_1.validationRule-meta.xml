@@ -7,5 +7,5 @@ NOT(ISNEW()),
 ISPICKVAL(Applicant1EnrolledinMedicalServicesPlan__c, &quot;Yes&quot;),
 ISBLANK(Applicant1PersonalHealthNumber__c)
 )</errorConditionFormula>
-    <errorMessage>PHN for Applicant 1 is required.</errorMessage>
+    <errorMessage>Personal Health Number for Applicant 1 is required.</errorMessage>
 </ValidationRule>
