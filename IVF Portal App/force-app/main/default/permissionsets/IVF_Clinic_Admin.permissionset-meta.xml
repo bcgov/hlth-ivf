@@ -4,10 +4,6 @@
         <apexClass>CaseSubmitController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>CaseSubmitControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.AccountId</field>

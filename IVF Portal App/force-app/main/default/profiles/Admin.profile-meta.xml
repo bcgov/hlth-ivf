@@ -5,6 +5,14 @@
         <visible>true</visible>
     </applicationVisibilities>
     <custom>false</custom>
+    <classAccesses>
+        <apexClass>CaseSubmitController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CaseSubmitControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
