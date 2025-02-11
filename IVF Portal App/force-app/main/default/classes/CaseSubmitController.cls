@@ -12,8 +12,14 @@ public with sharing class CaseSubmitController {
             if (caseRecord.Status == 'Submitted') {
                 throw new AuraHandledException('This case has already been submitted.');
             }
+            if(caseRecord.Status=='Draft')
+            {
             caseRecord.Status = 'Submitted';
-            //caseRecord.Status = 'Changes Completed';
+            }
+            else if(caseRecord.Status=='Changes Requested')
+            {
+                caseRecord.Status = 'Changes Completed';
+            }
             Id readOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
             
             caseRecord.RecordTypeId =readOnlyRecordTypeId ;// Update the status

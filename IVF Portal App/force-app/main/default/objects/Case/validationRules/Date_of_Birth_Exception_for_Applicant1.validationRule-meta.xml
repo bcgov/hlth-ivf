@@ -3,8 +3,8 @@
     <fullName>Date_of_Birth_Exception_for_Applicant1</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-NOT(ISNEW()),
 ISPICKVAL(AreYouAGestationalCarrier__c, &quot;Yes&quot;),
+ISBLANK(Details__c),
 OR(
             TODAY() - Applicant1DateOfBirth__c &lt; 18 * 365,
             TODAY() - Applicant1DateOfBirth__c &gt; 41 * 365
