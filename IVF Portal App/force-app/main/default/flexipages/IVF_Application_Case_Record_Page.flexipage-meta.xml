@@ -509,23 +509,6 @@
                 <identifier>RecordApplicant1MiddleName_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant1__c</fieldItem>
-                <identifier>RecordApplicant_1_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!$User.Profile.Name}</leftValue>
-                        <operator>CONTAINS</operator>
-                        <rightValue>Beneficiary and Diagnostic Services Member</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-e12f2394-ea10-4721-9bb5-3c1585a74881</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -764,29 +747,6 @@
                 <fieldItem>Record.Applicant2MiddleName__c</fieldItem>
                 <identifier>RecordApplicant2MiddleName_cField</identifier>
                 <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.NotApplicable__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant2__c</fieldItem>
-                <identifier>RecordApplicant_2_cField</identifier>
-                <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
-                    <criteria>
-                        <leftValue>{!$User.Profile.Name}</leftValue>
-                        <operator>CONTAINS</operator>
-                        <rightValue>Beneficiary and Diagnostic Services Member</rightValue>
-                    </criteria>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
@@ -1301,23 +1261,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3EnrolledInMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordPatient3EnrolledInMedicalServicesPlan_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Pat3PreviouslyParticipatedInIVFProgram__c</fieldItem>
-                <identifier>RecordPat3PreviouslyParticipatedInIVFProgram_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
