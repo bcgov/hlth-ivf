@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DateOfApplicationSubmission_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+$Profile.Name =&apos;CBeneficiary and Diagnostic Services Member&apos;,
+ISBLANK(DateOfApplicationSubmission__c)
+)</errorConditionFormula>
+    <errorMessage>Date Of Application Submission is a Required field</errorMessage>
+</ValidationRule>
