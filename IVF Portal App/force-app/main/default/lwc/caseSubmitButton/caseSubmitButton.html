@@ -1,15 +1,11 @@
 <template>
   <div class="custom-submit-container">
-    <lightning-button
-      label="Submit Case"
-      variant="brand"
-      onclick={handleSubmit}
-      disabled={isDisabled}
-    ></lightning-button>
-    <template if:true={isDisabled}>
-      <p class="slds-text-color_success slds-m-top_small">
-        This case has already been submitted.
-      </p>
+    <template if:false={isDisabled}>
+      <lightning-button
+        label="Submit Case"
+        variant="brand"
+        onclick={handleSubmit}
+      ></lightning-button>
     </template>
   </div>
 </template>
