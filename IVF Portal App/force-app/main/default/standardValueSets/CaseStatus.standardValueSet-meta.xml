@@ -11,7 +11,7 @@
         <fullName>Submitted</fullName>
         <default>false</default>
         <label>Submitted</label>
-        <closed>true</closed>
+        <closed>false</closed>
     </standardValue>
     <standardValue>
         <fullName>In Review</fullName>
@@ -47,6 +47,6 @@
         <fullName>Appeal Requested</fullName>
         <default>false</default>
         <label>Appeal Requested</label>
-        <closed>false</closed>
+        <closed>true</closed>
     </standardValue>
 </StandardValueSet>
