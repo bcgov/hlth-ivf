@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>EnrolledInCanadianPublicHealthPlan__c</fullName>
     <inlineHelpText>Gestational surrogates are not required to be enrolled in MSP but must be enrolled in at least another Canadian Provincial/Territorial health plan to participate.  If they are not enrolled in MSP, all costs associated with the IVF services received by the gestational surrogate are not covered by the program and are the responsibility of the applicant.</inlineHelpText>
-    <label>Enrolled In Canadian Public Health Plan?</label>
+    <label>Enrolled in Canadian Public Health Plan?</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
