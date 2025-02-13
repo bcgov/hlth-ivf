@@ -138,7 +138,6 @@ public class CaseSubmitControllerTest {
     }
     @isTest
     static void testSubmitforChangesRequested() {
-        try{
         //  Fetch the Test Case
         Case testCase = [SELECT Id, Status FROM Case LIMIT 1];
         testCase.ApplicantConsent__c='Yes';
@@ -169,6 +168,7 @@ public class CaseSubmitControllerTest {
         testCase.Applicant1MedicallyEligible__c='Yes';
         testCase.Applicant1Patient__c='No';
         testCase.Applicant1PersonalHealthNumber__c='98768';
+        testCase.NotApplicable__c =true;
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
         testCase.Status='Changes Requested';
         update testCase;
@@ -182,12 +182,6 @@ public class CaseSubmitControllerTest {
 
         //  Validate the Case is now "Submitted"
         System.assertEquals('Changes Completed', updatedCase.Status, 'Case status should be updated to Submitted.');
-        Test.stopTest();
-        }
-        catch(Exception e)
-        {
-            System.debug('Exception'+e);
-        }
-               
-    }
+        Test.stopTest();      
+    }  
 }
