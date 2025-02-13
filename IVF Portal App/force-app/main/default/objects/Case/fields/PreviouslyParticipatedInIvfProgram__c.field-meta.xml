@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>PreviouslyParticipatedInIvfProgram__c</fullName>
     <inlineHelpText>Gestational surrogates may participate in the BC publicly funded IVF cycle more than once as a ‘patient’.</inlineHelpText>
-    <label>Previously Participated in IVF Program?</label>
+    <label>Previously participated in IVF Program</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

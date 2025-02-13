@@ -10,7 +10,7 @@
     <filters>
         <field>CASES.RECORDTYPE</field>
         <operation>equals</operation>
-        <value>Case.IVF_Application</value>
+        <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
     </filters>
     <filters>
         <field>CASES.STATUS</field>

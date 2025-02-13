@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Applicant2EnrolledInMedicalServicesPlan__c</fullName>
     <inlineHelpText>To be eligible for BC’s publicly funded IVF program, the applicant(s) must be the intended parent(s) and enrolled in MSP.</inlineHelpText>
-    <label>Enrolled In Medical Services Plan</label>
+    <label>Enrolled in Medical Services Plan</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

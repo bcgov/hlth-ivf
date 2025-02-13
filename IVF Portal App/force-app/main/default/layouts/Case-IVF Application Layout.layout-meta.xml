@@ -79,7 +79,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Applicant 1</label>
+        <label>Applicant 1 (Intended Parent)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -142,7 +142,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Applicant 2</label>
+        <label>Applicant 2 (Intended Parent)</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
