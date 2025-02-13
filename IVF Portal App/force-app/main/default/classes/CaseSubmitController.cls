@@ -15,6 +15,8 @@ public with sharing class CaseSubmitController {
             if(caseRecord.Status=='Draft')
             {
             caseRecord.Status = 'Submitted';
+            caseRecord.DateOfApplicationSubmission__c=Date.Today();
+
             }
             else if(caseRecord.Status=='Changes Requested')
             {
