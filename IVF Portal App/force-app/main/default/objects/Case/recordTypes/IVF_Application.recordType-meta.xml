@@ -251,7 +251,7 @@
         </values>
         <values>
             <fullName>Web</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
     </picklistValues>
     <picklistValues>
