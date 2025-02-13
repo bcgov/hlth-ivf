@@ -13,7 +13,7 @@ export default class CaseSubmitButton extends LightningElement {
   wiredCaseStatus({ data, error }) {
     if (data) {
       
-      this.isDisabled = !(data === 'Draft' || data === 'Changes Requested');
+      this.isDisabled = !(data === 'Draft' || data === 'Changes Requested' || data === 'Submitted');
     } else if (error) {
       console.error('Error fetching Case status:', error);
     }
