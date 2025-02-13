@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -52,7 +51,7 @@
                 <field>LastName__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>PractitionerNumber__c</field>
             </layoutItems>
             <layoutItems>
@@ -512,7 +511,7 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <relatedList>RelatedContentNoteList</relatedList>
+        <relatedList>RelatedCommentsList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>
