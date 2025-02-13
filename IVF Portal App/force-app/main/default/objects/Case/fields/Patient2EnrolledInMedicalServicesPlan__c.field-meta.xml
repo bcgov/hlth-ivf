@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Patient2EnrolledInMedicalServicesPlan__c</fullName>
     <inlineHelpText>Funding coverage is only available for treatments that fall within the IVF program’s scope of coverage and for patients who are enrolled in MSP. A Known Egg Donor who is not enrolled in MSP may participate in the cycle; however, the costs of the IVF services they receive are the responsibility of the applicant(s).</inlineHelpText>
-    <label>Enrolled In Medical Services Plan</label>
+    <label>Enrolled in Medical Services Plan</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

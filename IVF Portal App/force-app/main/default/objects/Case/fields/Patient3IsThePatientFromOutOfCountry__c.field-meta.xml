@@ -4,7 +4,7 @@
     <inlineHelpText>If &quot;Yes&quot; is selected, this indicates the Known Sperm Donor is from outside Canada, and no personal information is required.
 
 If &quot;No&quot; is selected, this indicates the Known Sperm Donor is from Canada, and all fields must be completed before HLTH can initiate the review process.</inlineHelpText>
-    <label>Is The Patient From out of country?</label>
+    <label>Is the patient from out of country?</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
