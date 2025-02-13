@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>DateOfIVFConsultation__c</fullName>
-    <defaultValue>TODAY()</defaultValue>
     <inlineHelpText>Please include the date of consultation where IVF was the recommended treatment pathway. Consultation dates are eligible for the IVF program from March 8, 2024, onwards.</inlineHelpText>
     <label>Date of IVF Consultation</label>
     <required>false</required>
