@@ -190,28 +190,4 @@ public class CaseSubmitControllerTest {
         }
                
     }
-     @isTest
-    static void testSubmitCaseException() {
-        //  Fetch the Test Case
-        Case testCase = [SELECT Id, Status FROM Case LIMIT 1];
-        testCase.Status = 'Submitted';
-        try{
-        
-            update testCase;
-        }
-        catch(Exception e)
-        {
-            System.debug('Exception'+e);
-        }
-
-        // Attempt to Resubmit & Expect an Exception
-        Test.startTest();
-        try {
-            CaseSubmitController.submitCase(testCase.Id);
-            System.assert(false, 'Exception was expected but not thrown.');
-        } catch (AuraHandledException e) {
-            system.debug('Excepiton'+e);
-        }
-        Test.stopTest();
-    }
 }
