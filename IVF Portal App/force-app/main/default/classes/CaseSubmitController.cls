@@ -8,22 +8,23 @@ public with sharing class CaseSubmitController {
     @AuraEnabled
     public static void submitCase(Id caseId) {
         try{
-            Case caseRecord = [SELECT Id, RecordTypeId,Status,DateOfApplicationSubmission__c,origin FROM Case WHERE Id = :caseId LIMIT 1];
-            /*if (caseRecord.Status == 'Submitted') {
+            Case caseRecord = [SELECT Id, Status FROM Case WHERE Id = :caseId LIMIT 1];
+            if (caseRecord.Status == 'Submitted') {
                 throw new AuraHandledException('This case has already been submitted.');
-            }*/
+            }
             if(caseRecord.Status=='Draft')
             {
             caseRecord.Status = 'Submitted';
             caseRecord.DateOfApplicationSubmission__c=Date.Today();
-            caseRecord.origin = 'Portal';
+
             }
             else if(caseRecord.Status=='Changes Requested')
             {
                 caseRecord.Status = 'Changes Completed';
-                Id readOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
-                caseRecord.RecordTypeId =readOnlyRecordTypeId ;// Update the status
             }
+            Id readOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
+            
+            caseRecord.RecordTypeId =readOnlyRecordTypeId ;// Update the status
             update caseRecord;
           }
           catch (DmlException e) {

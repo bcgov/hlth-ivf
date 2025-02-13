@@ -289,7 +289,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.DateOfApplicationSubmission__c</field>
         <readable>true</readable>
     </fieldPermissions>
