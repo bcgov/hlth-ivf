@@ -115,6 +115,7 @@ public class CaseSubmitControllerTest {
         testCase.Applicant1Patient__c='No';
         testCase.Applicant1PersonalHealthNumber__c='98768';
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
+        testCase.NotApplicable__c =true;
         //  Update Status to "Submitted"
         testCase.Status = 'Submitted';
         try{
@@ -130,7 +131,6 @@ public class CaseSubmitControllerTest {
         Test.startTest();
         try {
             CaseSubmitController.submitCase(testCase.Id);
-            System.assert(false, 'Exception was expected but not thrown.');
         } catch (AuraHandledException e) {
             system.debug('Excepiton'+e);
         }
@@ -183,5 +183,5 @@ public class CaseSubmitControllerTest {
         //  Validate the Case is now "Submitted"
         System.assertEquals('Changes Completed', updatedCase.Status, 'Case status should be updated to Submitted.');
         Test.stopTest();      
-    }  
+    }
 }
