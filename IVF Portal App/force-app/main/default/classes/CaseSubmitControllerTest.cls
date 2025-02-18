@@ -137,6 +137,8 @@ public class CaseSubmitControllerTest {
         testCase.Applicant1Patient__c='No';
         testCase.Applicant1PersonalHealthNumber__c='98768';
         testCase.NotApplicable__c =true;
+        testCase.Patient2NotApplicable__c =true;
+        testCase.Patient3NotApplicable__c =true;
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
         testCase.Status='Changes Requested';
         update testCase;
