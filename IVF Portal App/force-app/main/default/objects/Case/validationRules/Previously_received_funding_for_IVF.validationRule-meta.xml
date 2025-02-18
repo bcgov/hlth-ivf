@@ -3,9 +3,8 @@
     <fullName>Previously_received_funding_for_IVF</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
- NOT(ISNEW()),
  ISPICKVAL(PreviouslyReceivedFundingforIVF__c, &quot;Yes&quot;),
  ISBLANK(Details__c) 
 )</errorConditionFormula>
-    <errorMessage>This application will be marked as an exception case. Please fill out the details under the Exception Request section.</errorMessage>
+    <errorMessage>Please select Yes for exception request in the administrative section and fill out the details under the Exception Request section.</errorMessage>
 </ValidationRule>
