@@ -32,12 +32,6 @@
         <closed>false</closed>
     </standardValue>
     <standardValue>
-        <fullName>Approved</fullName>
-        <default>false</default>
-        <label>Approved</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
         <fullName>Not Approved</fullName>
         <default>false</default>
         <label>Not Approved</label>
@@ -47,6 +41,12 @@
         <fullName>Appeal Requested</fullName>
         <default>false</default>
         <label>Appeal Requested</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
         <closed>true</closed>
     </standardValue>
 </StandardValueSet>
