@@ -3,9 +3,8 @@
     <fullName>Details_are_Required_for_Exception_Req</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-NOT(ISNEW()),
 ISPICKVAL(ExceptionRequest__c, &quot;Yes&quot;),
 ISBLANK(Details__c)
 )</errorConditionFormula>
-    <errorMessage>Please fill out the details under the Exception Request section.</errorMessage>
+    <errorMessage>Please select Yes for exception request in the administrative section and fill out the details under the Exception Request section.</errorMessage>
 </ValidationRule>

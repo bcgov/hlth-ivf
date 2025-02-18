@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Fields_for_Applicant2</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+NotApplicable__c = False,
+OR(
+ISBLANK(Text(Applicant2MedicallyEligible__c)),
+ISBLANK(Text(Applicant2EnrolledInMedicalServicesPlan__c)),
+AND(
+ISPICKVAL(Applicant2EnrolledInMedicalServicesPlan__c,&quot;Yes&quot;),
+ISBLANK(Applicant2PersonalHealthNumber__c)
+),
+ISBLANK(Applicant2GivenName__c),
+ISBLANK(Applicant2Surname__c),
+ISBLANK(Applicant2DateOfBirth__c),
+ISBLANK(Text(Applicant2RequiredDiagnosticsCompleted__c)),
+ISBLANK(Text(Applicant2ReceivedFunding__c)),
+ISBLANK(Text(Applicant2Patient__c)),
+ISBLANK(Text(Applicant2Address__StateCode__s)),
+ISBLANK(Text(Applicant2Address__CountryCode__s)),
+ISBLANK(Applicant2Address__City__s),
+ISBLANK(Applicant2Address__Street__s),
+ISBLANK(Applicant2Address__PostalCode__s)
+)
+)</errorConditionFormula>
+    <errorMessage>Applicant 2 is missing one or more required fields:
+Medically Eligible, Enrolled in Medical Services Plan?, PH Number, Date of Birth, Required Diagnostics Completed, Previously Received Funding for IVF?, Given Name, SurName, Patient or Address</errorMessage>
+</ValidationRule>

@@ -3,12 +3,20 @@
     <fullName>Date_of_Birth_Exception_for_Applicant1</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-ISPICKVAL(AreYouAGestationalCarrier__c, &quot;Yes&quot;),
-ISBLANK(Details__c),
-OR(
-            TODAY() - Applicant1DateOfBirth__c &lt; 18 * 365,
-            TODAY() - Applicant1DateOfBirth__c &gt; 41 * 365
-   )
+    ISPICKVAL(AreYouAGestationalCarrier__c, &quot;Yes&quot;),
+    ISBLANK(Details__c),
+    OR(
+        (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) &lt; 18,
+        (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) &gt; 42,
+        AND(
+            (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) = 18,
+            TODAY() &lt; DATE(YEAR(TODAY()), MONTH(Applicant1DateOfBirth__c), DAY(Applicant1DateOfBirth__c))
+        ),
+        AND(
+            (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) = 42,
+            TODAY() &gt;= DATE(YEAR(TODAY()), MONTH(Applicant1DateOfBirth__c), DAY(Applicant1DateOfBirth__c))
+        )
+    )
 )</errorConditionFormula>
-    <errorMessage>This application is marked as an exception case. Please fill out the details under the Exception Request section.</errorMessage>
+    <errorMessage>Applicants who will be the gestational carrier must be between 18-41 years of age at the time of application. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
 </ValidationRule>
