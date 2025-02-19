@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8d4f2210-2716-4414-9c05-f3908256e6df",
+  "appPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
+  "configurationTags" : [ ],
+  "devName" : "Login2__c",
+  "id" : "c621e857-1856-49e8-b1d2-0a034785add6",
+  "label" : "Login Landing Page",
+  "pageAccess" : "Public",
+  "routeType" : "custom-login2",
+  "type" : "route",
+  "urlPrefix" : "login2"
+}

@@ -1,0 +1,484 @@
+{
+  "activeBrandingSetId" : "62ede3cd-273d-4be4-a8c9-387c5af80daf",
+  "customCSS" : ".footer-main {\n    background-color: white;\n    padding: 20px 30px;\n    display: flex;\n    justify-content: space-between; /* Ensures spacing between elements */\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.footer-links {\n    display: flex;\n    flex-direction: column; /* Stack links in a column */\n    text-align: right; /* Aligns text to the right */\n    margin-left: auto; /* Pushes the section to the right */\n}\n\n.footer-column h4 {\n    font-size: 14px;\n    margin-bottom: 8px;\n    font-weight: bold;\n}\n\n.footer-column a {\n    display: block;\n    font-size: 14px;\n    color: #0056b3;\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-column a:hover {\n    text-decoration: underline;\n}\n\n\n\n/* MAIN CONTAINER */\n.container {\n    font-family: Arial, sans-serif;\n    max-width: 100%;\n    margin: 0 auto;\n    background: #ffffff;\n}\n\n/* SMALLER HEADER */\n.header {\n    width: 100%;\n    background: white;\n    padding: 5px 0; /* Reduced padding */\n}\n\n.header-content {\n    display: flex;\n    justify-content: flex-start; /* Align left */\n    align-items: center;\n    max-width: 85%; /* Match the banner width */\n    margin: 0 auto;\n    padding: 0 20px;\n}\n\n/* SMALLER LOGO */\n.logo {\n    width: 120px; /* Reduce logo size */\n    height: auto;\n    margin-right: 10px;\n}\n\n/* PORTAL TITLE ALIGNED WITH BANNER */\n.portal-title {\n    font-size: 18px;\n    font-weight: bold;\n    margin: 0;\n}\n\n/* BANNER CONTAINER */\n.banner-container {\n    position: relative;\n    width: 100%;\n    display: flex;\n    justify-content: center; /* Center the banner */\n    align-items: center;\n    padding: 20px 0;\n}\n\n/* FIX BANNER SIZE */\n.banner {\n    width: 80%; /* Keep it aligned with header */\n    height: 400px; /* Adjust height */\n    object-fit: cover;\n    border-radius: 8px;\n}\n\n/* WELCOME TEXT PROPERLY POSITIONED */\n.welcome-text {\n    position: absolute;\n    bottom: 10%; /* Adjust text placement */\n    left: 10%; /* Align with banner left edge */\n    color: white;\n    font-size: 24px;\n    font-weight: bold;\n    text-align: left;\n    padding: 10px 20px;\n    border-radius: 5px;\n    max-width: 40%; /* Prevent text from exceeding banner */\n}\n\n\n.login-section {\n    text-align: center;\n    padding: 20px;\n    background: white;\n    margin-top: 20px;\n    border-radius: 5px;\n}\n\n.login-button {\n    background: #002147;\n    color: white;\n    border: none;\n    padding: 12px 18px;\n    cursor: pointer;\n    border-radius: 5px;\n    font-size: 16px;\n}",
+  "developerName" : "cypress",
+  "id" : "93d572d7-ae9d-482b-9fdb-84a463f6416d",
+  "label" : "Cypress",
+  "layouts" : {
+    "Home" : "6e0a697d-f714-43fd-a720-a49cfebac56d",
+    "Inner" : "aaf68caf-abfa-4c21-8c12-e66fadd80de6",
+    "Login" : "6a5f293e-7f04-4b6b-8054-5b4aa9c62f34",
+    "ServiceNotAvailable" : "16b4401f-fc0a-43d2-a363-2371fa9615d4"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "salesforceIdentity:loginBody2",
+    "id" : "6a5f293e-7f04-4b6b-8054-5b4aa9c62f34",
+    "label" : "Login",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<div style=\"background-color: #003366; color: white; display: flex; align-items: center; justify-content: center; padding: 20px; height: 100px; text-align: center;\">\n    <span style=\"font-size: 30px; font-weight: bold;\">Log into My IVF Portal BC</span>\n</div>"
+        },
+        "componentName" : "forceCommunity:htmlBlock",
+        "id" : "5c652c0a-bbbf-45bc-870a-7527efd22868",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "c1d5c031-ffe7-4974-890a-12ef5f131e5c",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "id" : "44a1ab25-5523-44a6-ba6e-13e2a4a18988",
+      "regionName" : "content",
+      "type" : "region"
+    }, {
+      "id" : "48b40759-055e-48c0-8522-39ef400be61f",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1440,
+      "headerBgColor" : "rgba(255, 255, 255, 0.8)",
+      "isHeaderPinned" : true,
+      "isHeroUnderHeader" : true,
+      "isPageWidthFixed" : false,
+      "showHeader" : true,
+      "showHero" : false
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "aaf68caf-abfa-4c21-8c12-e66fadd80de6",
+    "label" : "Default",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "background" : "background: rgb(255,255,255)",
+          "backgroundOverlayColor" : "rgba(10, 24, 104, 0.96)",
+          "borderBottomColor" : "rgba(10, 31, 93, 0.59)",
+          "centerAlignLogo" : true,
+          "collapseNavMenu" : true,
+          "containHeader" : false,
+          "containHeaderWidth" : 1258,
+          "dropdownBackgroundColor" : "rgb(152, 129, 129)",
+          "dropdownBackgroundHoverColor" : "",
+          "dropdownBorderColor" : "rgb(174, 162, 162)",
+          "dropdownTextColor" : "",
+          "dropdownTextHoverColor" : "",
+          "headerHeight" : 6,
+          "linkActiveBorderColor" : "",
+          "linkColor" : "rgba(0, 0, 0, 0.8)",
+          "linkHoverColor" : "rgba(0, 0, 0, 0.7)",
+          "linkTextShadowColor" : "rgba(255, 255, 255, 0)",
+          "logoWidth" : 115,
+          "searchStyle" : "expanded",
+          "showAppLauncher" : false,
+          "showNavMenuOnLeft" : true,
+          "showNotifications" : false,
+          "showProfileMenu" : false,
+          "showSearch" : false
+        },
+        "componentName" : "forceCommunity:themeHeaderCompact",
+        "id" : "04847af6-8c1d-4c7e-a0b2-716f48bed010",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "buttonBackgroundColor" : "inherit",
+              "buttonBackgroundHoverColor" : "inherit",
+              "buttonBorderColor" : "transparent",
+              "buttonBorderRadius" : 5,
+              "buttonText" : "Log in",
+              "buttonTextColor" : "#fff",
+              "buttonTextHoverColor" : "#0099de",
+              "customizableUserProfileMenuEditor" : "Default_User_Profile_Menu1",
+              "menuStyleSettings" : ""
+            },
+            "componentName" : "forceCommunity:customizableUserProfileMenu",
+            "id" : "4e1d254b-11db-40e5-96d6-262902af92fa",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "04c0982a-5c1b-4cf4-84a2-5346714fb983",
+          "regionName" : "themeHeaderProfileMenu",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "#fff",
+              "borderColor" : "transparent",
+              "borderRadius" : 5,
+              "borderStyle" : "outline",
+              "buttonColor" : "rgba(255,255,255,1)",
+              "buttonHoverColor" : "rgba(0,0,0,0.2)",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "#000",
+              "placeholderText" : "Search...",
+              "placeholderTextColor" : "#000",
+              "showInputFocusOutline" : true,
+              "showSearchButton" : false,
+              "textColor" : "#000",
+              "typeaheadResultMax" : 6,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearch",
+            "id" : "dc11a846-ac75-465a-bd3a-2c493d69a73a",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "39fc47d4-f961-4ce1-9d92-c85a9d0b8836",
+          "regionName" : "search",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "navAlignment" : "right",
+              "navItemThreshold" : 2,
+              "navigationMenuEditorRefresh" : "Default_User_Profile_Menu1"
+            },
+            "componentName" : "forceCommunity:themeNav",
+            "id" : "83c8bf61-3ff4-4cc7-ad73-3b34dcefbf01",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "4390b080-a65b-434b-9cd2-c551c516e2f1",
+          "regionName" : "nav",
+          "type" : "region"
+        }, {
+          "id" : "a89f4619-a237-490e-ac25-c12394ae1b47",
+          "regionName" : "cartIcon",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "e21ee95a-5f7c-4e3c-a0c0-a7f34a358f32",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "bgImage" : "background: rgb(0,0,0) url(/sfsites/assets/themes/cypress-background.jpg) top center /contain no-repeat",
+          "bgOverlayColor" : "rgba(0, 0, 0, 0.35)",
+          "captionText" : "Welcome to the IVF Program Portal BC",
+          "captionTextColor" : "rgb(255, 255, 255)",
+          "captionTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "contentAlignment" : "left",
+          "contentWidth" : 52,
+          "ctaBtnOneBgColor" : "",
+          "ctaBtnOneBgHoverColor" : "",
+          "ctaBtnOneBorderColor" : "rgba(0, 0, 0, 0)",
+          "ctaBtnOneOpenNewTab" : false,
+          "ctaBtnOneText" : "Learn More",
+          "ctaBtnOneTextColor" : "",
+          "ctaBtnOneTextHoverColor" : "",
+          "ctaBtnOneUrl" : "",
+          "ctaBtnRadius" : 4,
+          "ctaBtnTwoBgColor" : "rgba(255, 255, 255, 0)",
+          "ctaBtnTwoBgHoverColor" : "rgb(255, 255, 255)",
+          "ctaBtnTwoBorderColor" : "rgb(255, 255, 255)",
+          "ctaBtnTwoOpenNewTab" : false,
+          "ctaBtnTwoText" : "Secondary",
+          "ctaBtnTwoTextColor" : "rgb(255, 255, 255)",
+          "ctaBtnTwoTextHoverColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoUrl" : "",
+          "ctaShowBtnOne" : false,
+          "ctaShowBtnTwo" : false,
+          "fixedHeroWidth" : true,
+          "heroHeight" : 113,
+          "heroWidth" : 1121,
+          "showCaption" : false,
+          "showSubtitle" : false,
+          "showTitle" : false,
+          "subtitleText" : "Welcome to the IVF Program Portal BC",
+          "subtitleTextColor" : "rgb(255, 255, 255)",
+          "subtitleTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "titleText" : "Collect bonus rewards.",
+          "titleTextColor" : "rgb(255, 255, 255)",
+          "titleTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "type" : "callToAction"
+        },
+        "componentName" : "forceCommunity:themeHeroStarter",
+        "id" : "754f084f-9324-41b9-a040-ca225ebc6408",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "backgroundColor" : "rgb(255, 255, 255)",
+              "borderColor" : "rgba(0, 0, 0, 0.5)",
+              "borderRadius" : 4,
+              "borderStyle" : "outline",
+              "buttonColor" : "",
+              "buttonHoverColor" : "",
+              "crossObjectTypeaheadApiNames" : "",
+              "iconColor" : "rgb(255, 255, 255)",
+              "placeholderText" : "Ask a question...",
+              "placeholderTextColor" : "rgba(0, 0, 0, 0.6)",
+              "publicDropdownBackgroundColor" : "rgb(255, 255, 255)",
+              "publicDropdownBackgroundHoverColor" : "",
+              "publicDropdownBorderColor" : "rgb(240, 240, 240)",
+              "publicDropdownTextColor" : "",
+              "publicDropdownTextHoverColor" : "",
+              "showInputFocusOutline" : true,
+              "showSearchButton" : true,
+              "textColor" : "rgba(0, 0, 0, 0.8)",
+              "typeaheadResultMax" : 6,
+              "useTypeahead" : true
+            },
+            "componentName" : "forceCommunity:themeSearchHero",
+            "id" : "6ddac00d-017b-40ce-9c78-7db679211406",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "74d150cc-79ec-4900-81ec-ebb9d797cb9a",
+          "regionName" : "search",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "9ecc1ff7-8b7e-41ff-b22d-ef7479cea6c2",
+      "regionName" : "themeHero",
+      "type" : "region"
+    }, {
+      "id" : "9d0c4482-70a5-427b-bc12-4514283824a5",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1515,
+      "headerBgColor" : "rgba(80, 64, 80, 0.9)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "6e0a697d-f714-43fd-a720-a49cfebac56d",
+    "label" : "Home",
+    "regions" : [ {
+      "components" : [ {
+        "componentAttributes" : {
+          "background" : "background: rgb(255,255,255)",
+          "backgroundOverlayColor" : "rgba(101, 102, 224, 0.41)",
+          "borderBottomColor" : "rgba(63, 96, 195, 0.59)",
+          "centerAlignLogo" : true,
+          "collapseNavMenu" : true,
+          "containHeader" : true,
+          "containHeaderWidth" : 1411,
+          "dropdownBackgroundColor" : "rgb(239, 231, 231)",
+          "dropdownBackgroundHoverColor" : "",
+          "dropdownBorderColor" : "rgb(240, 240, 240)",
+          "dropdownTextColor" : "",
+          "dropdownTextHoverColor" : "",
+          "headerHeight" : 15,
+          "linkActiveBorderColor" : "",
+          "linkColor" : "rgba(0, 0, 0, 0.8)",
+          "linkHoverColor" : "rgba(0, 0, 0, 0.7)",
+          "linkTextShadowColor" : "rgba(255, 255, 255, 0)",
+          "logoWidth" : 154,
+          "searchStyle" : "expanded",
+          "showAppLauncher" : true,
+          "showNavMenuOnLeft" : true,
+          "showNotifications" : true,
+          "showProfileMenu" : true,
+          "showSearch" : false
+        },
+        "componentName" : "forceCommunity:themeHeaderCompact",
+        "id" : "57f2baf9-1368-4238-9a3c-0e63fbd2f891",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "buttonBackgroundColor" : "inherit",
+              "buttonBackgroundHoverColor" : "inherit",
+              "buttonBorderColor" : "transparent",
+              "buttonBorderRadius" : 5,
+              "buttonText" : "Log in",
+              "buttonTextColor" : "#fff",
+              "buttonTextHoverColor" : "#0099de",
+              "customizableUserProfileMenuEditor" : "Default_User_Profile_Menu1",
+              "menuStyleSettings" : "{\"selectedMenuStyleSetting\":\"iconOnly\",\"selectedIconSetting\":\"userAvatar\",\"includeCompanyName\":false,\"selectedTextOrientationSetting\":\"right\"}"
+            },
+            "componentName" : "forceCommunity:customizableUserProfileMenu",
+            "id" : "7bf86589-598c-4cbf-8a92-5ddcccc2b852",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "0e111502-02e4-4717-aabf-3fe90b3007d5",
+          "regionName" : "themeHeaderProfileMenu",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "contineActionLabel" : "Ask the community",
+              "continueLabel" : "Don’t see it?",
+              "crossObjectTypeaheadApiNames" : [ {
+                "isPublic" : true,
+                "name" : "FeedItem"
+              } ],
+              "disableCrossObjectRelevance" : false,
+              "enableAutocomplete" : true,
+              "maxNumberOfResults" : 6,
+              "placeholder" : "Search...",
+              "questionResultsFirst" : false,
+              "showContinueAction" : true,
+              "showDetails" : false,
+              "showTopics" : true,
+              "signInActionLabel" : "Sign in to ask the community"
+            },
+            "componentName" : "forceCommunity:searchBox",
+            "id" : "568ef5bf-2423-4922-8b3f-e943e8ae6bfc",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "54a039f4-c479-4ca5-87e7-45205ad3b65a",
+          "regionName" : "search",
+          "type" : "region"
+        }, {
+          "components" : [ {
+            "componentAttributes" : {
+              "navAlignment" : "left",
+              "navItemThreshold" : 8,
+              "navigationMenuEditorRefresh" : ""
+            },
+            "componentName" : "forceCommunity:themeNav",
+            "id" : "f33e1e1a-2b52-43cc-9b9a-12a8f99dcc4c",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "58989279-98b4-44aa-8c44-d06d51cfb340",
+          "regionName" : "nav",
+          "type" : "region"
+        }, {
+          "id" : "7fac4cea-869e-46e9-85b2-b8d6dd2b5c9d",
+          "regionName" : "cartIcon",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "0af832f3-f7fa-4132-bb40-9b7a4b7854f5",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "bgImage" : "background: rgb(0,0,0) url(/sfsites/c/file-asset/ivfcenteringhaziabad18042024?v=1) center center /cover",
+          "bgOverlayColor" : "rgba(0, 0, 0, 0.35)",
+          "captionText" : "Welcome to ",
+          "captionTextColor" : "rgb(255, 255, 255)",
+          "captionTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "contentAlignment" : "center",
+          "contentWidth" : 43,
+          "ctaBtnOneBgColor" : "rgb(1, 51, 102)",
+          "ctaBtnOneBgHoverColor" : "",
+          "ctaBtnOneBorderColor" : "rgba(0, 0, 0, 0)",
+          "ctaBtnOneOpenNewTab" : false,
+          "ctaBtnOneText" : "Learn More",
+          "ctaBtnOneTextColor" : "rgb(238, 241, 244)",
+          "ctaBtnOneTextHoverColor" : "",
+          "ctaBtnOneUrl" : "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/publicly-funded-ivf-program",
+          "ctaBtnRadius" : 4,
+          "ctaBtnTwoBgColor" : "rgba(255, 255, 255, 0)",
+          "ctaBtnTwoBgHoverColor" : "rgb(255, 255, 255)",
+          "ctaBtnTwoBorderColor" : "rgb(255, 255, 255)",
+          "ctaBtnTwoOpenNewTab" : false,
+          "ctaBtnTwoText" : "Secondary",
+          "ctaBtnTwoTextColor" : "rgb(255, 255, 255)",
+          "ctaBtnTwoTextHoverColor" : "rgba(0, 0, 0, 0.8)",
+          "ctaBtnTwoUrl" : "",
+          "ctaShowBtnOne" : true,
+          "ctaShowBtnTwo" : false,
+          "fixedHeroWidth" : true,
+          "heroHeight" : 110,
+          "heroWidth" : 1365,
+          "showCaption" : true,
+          "showSubtitle" : false,
+          "showTitle" : true,
+          "subtitleText" : "Subtitle Content",
+          "subtitleTextColor" : "rgb(255, 255, 255)",
+          "subtitleTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "titleText" : "IVF Program Portal",
+          "titleTextColor" : "rgb(245, 246, 251)",
+          "titleTextShadowColor" : "rgba(0, 0, 0, 0.5)",
+          "type" : "callToAction"
+        },
+        "componentName" : "forceCommunity:themeHeroStarter",
+        "id" : "9c156b14-d807-44e4-8624-be90adb33a44",
+        "regions" : [ {
+          "components" : [ {
+            "componentAttributes" : {
+              "contineActionLabel" : "Ask the community",
+              "continueLabel" : "Don’t see it?",
+              "crossObjectTypeaheadApiNames" : [ {
+                "isPublic" : true,
+                "name" : "FeedItem"
+              } ],
+              "disableCrossObjectRelevance" : false,
+              "enableAutocomplete" : true,
+              "maxNumberOfResults" : 6,
+              "placeholder" : "Search...",
+              "questionResultsFirst" : false,
+              "showContinueAction" : true,
+              "showDetails" : false,
+              "showTopics" : true,
+              "signInActionLabel" : "Sign in to ask the community"
+            },
+            "componentName" : "forceCommunity:searchBox",
+            "id" : "03d9e4e6-6375-418c-bdcb-b43b67bf64af",
+            "renditionMap" : { },
+            "type" : "component"
+          } ],
+          "id" : "92e3fb23-43db-45c2-9d22-ecf5c17b23da",
+          "regionName" : "search",
+          "type" : "region"
+        } ],
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "a626d6ee-e130-4040-99c0-53ef68879399",
+      "regionName" : "themeHero",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "richTextValue" : "<!-- Footer Top Section -->\n<div style=\"background-color: #222; color: white; text-align: left; padding: 20px 5%; font-size: 15px; line-height: 1.8; border-top: 4px solid #FFC72C; border-bottom: 4px solid #FFC72C; width: 100%; margin: 0; box-sizing: border-box;\">\n    <p>\n        The B.C Public Service acknowledges the territories of First Nations around B.C and is grateful to carry out work on these lands.\n        We acknowledge the rights, interests, priorities, and concerns of all Indigenous Peoples - First Nations, Métis, and Inuit -\n        respecting and acknowledging their distinct cultures, histories, rights, laws, and governments.\n    </p>\n</div>\n\n<!-- Footer Main Section -->\n<div style=\"background-color: white; padding: 30px 5%; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;\">\n\n    <!-- Left Section: Logo and Contact Info -->\n    <div style=\"max-width: 500px;\">\n        <img src=\"/sfsites/c/resource/IVFLogo\" alt=\"British Columbia Logo\" style=\"width: 180px; margin-bottom: 10px; display: block;\" />\n        <p style=\"font-size: 15px; color: black; font-weight: normal; line-height: 1.8;\">\n            We can help in over 220 languages and through other accessible options.\n            <a href=\"https://www2.gov.bc.ca/gov/content/home/get-help-with-government-services\" target=\"_blank\" style=\"color: black; text-decoration: underline;\">Call</a>, \n            <a href=\"https://www2.gov.bc.ca/gov/content/home/get-help-with-government-services\" target=\"_blank\" style=\"color: black; text-decoration: underline;\"> email or text us</a>, or \n            <a href=\"https://www2.gov.bc.ca/gov/content/home/services-a-z\" target=\"_blank\" style=\"color: black; text-decoration: underline;\"> find a service centre</a>.\n        </p>\n    </div>\n\n    <!-- Right Section: Footer Links --><!-- Footer Section --><!-- Footer Section -->\n<div style=\"display: flex; flex-direction: row; gap: 50px; text-align: left;\">\n    <div>\n        <h4 style=\"font-size: 15px; margin-bottom: 8px; font-weight: bold; color: black; text-transform: uppercase;\">MORE INFO</h4>\n        <ul style=\"display: flex; flex-direction: column; gap: 5px; padding: 0; margin: 0; list-style: none !important;\">\n            <a href=\"https://www2.gov.bc.ca/gov/content/home\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">Home</a>\n            <a href=\"https://www2.gov.bc.ca/gov/content/about-gov-bc-ca\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">About gov.bc.ca</a>\n            <a href=\"https://www2.gov.bc.ca/gov/content/home/disclaimer\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">Disclaimer</a>\n            <a href=\"https://www2.gov.bc.ca/gov/content/home/privacy\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">Privacy</a>\n        </ul>\n    </div>\n    <div>\n        <h4 style=\"font-size: 15px; margin-bottom: 8px; font-weight: bold; color: black;\">&nbsp;</h4> \n        <ul style=\"display: flex; flex-direction: column; gap: 5px; padding: 0; margin: 0; list-style: none !important;\">\n            <a href=\"https://www2.gov.bc.ca/gov/content/home/accessible-government\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">Accessibility</a>\n            <a href=\"https://www2.gov.bc.ca/gov/content/home/copyright\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">Copyright</a>\n            <a href=\"https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/are-you-eligible\" target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">MSP</a>\n            <a target=\"_blank\" style=\"font-size: 14px; color: black; text-decoration: underline;\">Contact us</a>\n        </ul>\n    </div>\n</div>\n\n\n</div>"
+        },
+        "componentName" : "forceCommunity:htmlBlock",
+        "id" : "35ef7620-3642-4a17-ac84-5a9a477c7186",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "cfdee8d9-6e99-4cfd-802b-0794f5c66047",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1440,
+      "headerBgColor" : "rgba(0, 0, 0, 0)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "16b4401f-fc0a-43d2-a363-2371fa9615d4",
+    "label" : "ServiceNotAvailable",
+    "regions" : [ {
+      "id" : "2d04c2ac-4494-472e-ab32-bbfe463c49eb",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "id" : "de1705da-22d8-4084-b104-5937fbfe92ce",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}

@@ -2,18 +2,18 @@
   "appPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
   "componentName" : "siteforce:sldsOneColLayout",
   "dataProviders" : [ ],
-  "id" : "13e3906b-2fc2-42ac-8889-400a4d2dae55",
-  "label" : "Account Management",
+  "id" : "a3f455fd-c7ab-4da0-bcf6-590bfa32132f",
+  "label" : "My Dashboard",
   "regions" : [ {
-    "id" : "b35006b2-03d0-46e5-9f7a-ff34b1211f56",
+    "id" : "8a694a58-2c32-4d9d-8177-367f3007b5c6",
     "regionName" : "header",
     "type" : "region"
   }, {
-    "id" : "41e772e2-4f84-4ed3-b91e-9a843e9b3b7f",
+    "id" : "0807d7b0-5a04-4080-81e9-e31a330aecb9",
     "regionName" : "content",
     "type" : "region"
   }, {
-    "id" : "f37497b4-51fc-4213-b72c-82789203cae5",
+    "id" : "b81e7bab-cb5f-41f7-a2d4-59d0af09fcaf",
     "regionName" : "footer",
     "type" : "region"
   }, {
@@ -21,18 +21,18 @@
       "componentAttributes" : {
         "customHeadTags" : "",
         "description" : "",
-        "title" : "Account Management"
+        "title" : "My Dashboard"
       },
       "componentName" : "forceCommunity:seoAssistant",
-      "id" : "9ca378b8-93fe-4036-aaba-07261dc44e94",
+      "id" : "c50ce792-fb15-427b-b1a6-13248f87362c",
       "renditionMap" : { },
       "type" : "component"
     } ],
-    "id" : "d0371c5c-e96e-477f-8e4c-2b777d3325c7",
+    "id" : "9b2555b5-665d-4f80-8ba2-9688703e4e9f",
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
   "themeLayoutType" : "Inner",
   "type" : "view",
-  "viewType" : "account-management"
+  "viewType" : "custom-my-dashboard"
 }

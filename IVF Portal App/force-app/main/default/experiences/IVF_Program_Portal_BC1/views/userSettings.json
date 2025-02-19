@@ -12,8 +12,8 @@
     "components" : [ {
       "componentAttributes" : {
         "accountSectionTitle" : "Account",
-        "accountTabName" : "Account Management",
-        "connectedSourcesTabName" : "Connected Sources",
+        "accountTabName" : "",
+        "connectedSourcesTabName" : "",
         "deleteAccountButtonTitle" : "Deactivate My Account",
         "deleteAccountConfirmationPopupBody" : "After you deactivate your account, you'll lose access to this site.",
         "deleteAccountConfirmationPopupButtonTitle" : "Got It",
@@ -24,7 +24,7 @@
         "emailSectionDescText" : "When email notifications are enabled, email me when someone:",
         "hideAccountDeleteSection" : true,
         "hideChatterNotificationSettings" : false,
-        "hideConnectedSources" : false,
+        "hideConnectedSources" : true,
         "hideEmailNotificationSettings" : false,
         "hideProfileVisibilitySettings" : false,
         "id" : "{!recordId}",
