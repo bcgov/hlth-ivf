@@ -1,6 +1,6 @@
 {
   "appPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
-  "componentName" : "siteforce:sldsOneColLayout",
+  "componentName" : "siteforce:sldsTwoCol84SidebarFeaturedLayout",
   "dataProviders" : [ ],
   "id" : "49cfa372-b273-41bc-a78f-d317d997e114",
   "label" : "Error",
@@ -31,7 +31,7 @@
       "componentAttributes" : {
         "customHeadTags" : "",
         "description" : "",
-        "title" : "Error"
+        "title" : "Create New Application"
       },
       "componentName" : "forceCommunity:seoAssistant",
       "id" : "5aa1ec9c-4f76-4927-b025-1358441ab2d7",
@@ -40,6 +40,14 @@
     } ],
     "id" : "e097cdae-5d6e-4469-91d2-e02a81237950",
     "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "00c7633f-8b15-4b9b-b0fe-01575174f6cb",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "id" : "d89cf758-fa2a-4852-a3de-154855981752",
+    "regionName" : "sidebar",
     "type" : "region"
   } ],
   "themeLayoutType" : "Inner",

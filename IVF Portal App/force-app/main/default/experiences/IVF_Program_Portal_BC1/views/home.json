@@ -5,6 +5,30 @@
   "id" : "087bc84d-b033-4a97-849e-7b327b155ce0",
   "label" : "Home",
   "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerBackgroundColor" : "rgb(1, 51, 102)",
+        "bannerPosition" : "top",
+        "bannerSizePercent" : 100,
+        "borderRadius" : 20,
+        "boxShadow" : true,
+        "haveBanner" : false,
+        "iconBackgroundColor" : "rgb(255,255,255)",
+        "iconSize" : "medium",
+        "noImageColor" : "rgba(137, 136, 136, 0.19)",
+        "overlay" : "rgba(0,0,0,0.01)",
+        "templateType" : "default",
+        "tileMenuEditor" : "Default_Navigation1",
+        "titleColor" : "rgb(242, 236, 236)",
+        "titleFontSize" : "medium",
+        "titleHorizontalAlign" : "center"
+      },
+      "componentName" : "community_navigation:tileMenu",
+      "id" : "7be363c3-b020-49e4-9388-de472fcd5b03",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "d546fba3-56ea-4523-8a3c-be0d9a04deb6",
     "regionName" : "header",
     "type" : "region"
@@ -17,38 +41,29 @@
     "regionName" : "content",
     "type" : "region"
   }, {
+    "id" : "02e6679a-0b28-4ef3-a484-8b6307af5835",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
     "components" : [ {
       "componentAttributes" : {
-        "channel" : "DefaultChannel",
-        "title" : ""
+        "richTextValue" : "<p> </p>"
       },
-      "componentName" : "forceCommunity:recommendations",
-      "id" : "022c286f-b50f-4bbc-8267-22a01434c148",
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "2a52aa69-6362-4422-8154-44b5a75d7e3a",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
     }, {
       "componentAttributes" : {
-        "display" : "LEVELS_POINTS",
-        "excludeInternalUsers" : false,
-        "knowledgeLabel" : "Knows about",
-        "numberOfUsers" : 5,
-        "showContextUser" : false,
-        "showTooltip" : false,
-        "showUserRank" : false,
-        "title" : "Leaderboard",
-        "tooltipText" : "Earn points and climb to new levels when you contribute in the experience!"
+        "richTextValue" : "<p> </p>"
       },
-      "componentName" : "forceCommunity:reputationLeaderboard42",
-      "id" : "a146f004-ee85-498c-9cbb-510ec47d1f8a",
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "40716f09-710f-4415-aa86-ef4d2b4c504c",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
     } ],
-    "id" : "02e6679a-0b28-4ef3-a484-8b6307af5835",
-    "regionName" : "sidebar",
-    "type" : "region"
-  }, {
     "id" : "cc0931bc-a1c8-4e6c-aa80-e772c2a3789e",
     "regionName" : "footer",
     "type" : "region"
@@ -68,7 +83,7 @@
     "regionName" : "sfdcHiddenRegion",
     "type" : "region"
   } ],
-  "themeLayoutType" : "Inner",
+  "themeLayoutType" : "Home",
   "type" : "view",
   "viewType" : "home"
 }

@@ -12,7 +12,7 @@
     "components" : [ {
       "componentAttributes" : { },
       "componentName" : "forceCommunity:dashboardList",
-      "id" : "4e6057a5-9b3b-42c3-8bea-5774aab93629",
+      "id" : "0dc04054-2b9f-4852-8833-bb04eb6de7b4",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
