@@ -18,7 +18,7 @@
         "noImageColor" : "rgba(137, 136, 136, 0.19)",
         "overlay" : "rgba(0,0,0,0.01)",
         "templateType" : "default",
-        "tileMenuEditor" : "Default_Navigation1",
+        "tileMenuEditor" : "SFDC_Default_Navigation_IVF_Program_Portal_BC",
         "titleColor" : "rgb(242, 236, 236)",
         "titleFontSize" : "medium",
         "titleHorizontalAlign" : "center"
