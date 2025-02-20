@@ -4,10 +4,44 @@
     <containerType>Network</containerType>
     <label>Default Navigation</label>
     <navigationMenuItem>
-        <label>Topics</label>
-        <position>0</position>
-        <publiclyAvailable>true</publiclyAvailable>
-        <target>ShowMoreTopics</target>
-        <type>NavigationalTopic</type>
+        <label>Create New Application</label>
+        <menuItemBranding>
+            <tileImage>AdobeStock_288590874</tileImage>
+        </menuItemBranding>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/create-new-application</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <defaultListViewId>RecentlyViewedCases</defaultListViewId>
+        <label>View Applications</label>
+        <menuItemBranding>
+            <tileImage>tile_application2</tileImage>
+        </menuItemBranding>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>Case</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>View Clinic Information</label>
+        <menuItemBranding>
+            <tileImage>tile_myClinic1</tileImage>
+        </menuItemBranding>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/comm-my-account</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Dashboard</label>
+        <menuItemBranding>
+            <tileImage>tile_dashboard1</tileImage>
+        </menuItemBranding>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/my-dashboard</target>
+        <type>InternalLink</type>
     </navigationMenuItem>
 </NavigationMenu>

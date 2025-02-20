@@ -52,14 +52,14 @@
           "type" : "component"
         }, {
           "componentAttributes" : {
-            "detailsTabLabel" : "Details",
-            "discussionsTabLabel" : "Feed",
+            "detailsTabLabel" : "Clinic Details",
+            "discussionsTabLabel" : "",
             "recordId" : "{!CurrentUser.accountId}",
-            "relatedTabLabel" : "Related",
+            "relatedTabLabel" : "",
             "showLegacyActivityComposer" : false,
             "tab1Type" : "details",
-            "tab2Type" : "related",
-            "tab3Type" : "chatter",
+            "tab2Type" : "none",
+            "tab3Type" : "none",
             "tab4Type" : "none",
             "timelineTabLabel" : "Activity"
           },

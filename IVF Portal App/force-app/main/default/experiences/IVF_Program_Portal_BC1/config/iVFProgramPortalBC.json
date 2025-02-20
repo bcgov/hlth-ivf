@@ -1,11 +1,24 @@
 {
   "forgotPasswordRouteId" : "177546d4-ab79-4503-8ec0-8c790bef54a5",
   "isAvailableToGuests" : false,
-  "isFilteredComponentsView" : false,
+  "isFilteredComponentsView" : true,
   "isProgressiveRenderingEnabled" : false,
   "loginAppPageId" : "571a5d68-9f3b-4aa6-829d-6b4f519308a5",
   "mainAppPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
   "preferredDomain" : "none",
   "selfRegistrationRouteId" : "fb6c7b6e-085e-48f7-b454-be4eb90364b1",
+  "trustedSitesForScript" : [ {
+    "id" : "0beb7a87-a9c1-4121-9436-6de8bf9c7bba",
+    "isActive" : true,
+    "trustedSiteName" : "T1",
+    "trustedSiteUrl" : "https://bcministryofhealth-ivfportal--ivfdev.sandbox.lightning.force.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "ab464386-6070-4400-8fb3-95a8a2ab0247",
+    "isActive" : true,
+    "trustedSiteName" : "T3",
+    "trustedSiteUrl" : "https://bcministryofhealth-ivfportal--ivfdev.sandbox.lightning.force.com/",
+    "type" : "trustedSitesForScripts"
+  } ],
   "type" : "site"
 }

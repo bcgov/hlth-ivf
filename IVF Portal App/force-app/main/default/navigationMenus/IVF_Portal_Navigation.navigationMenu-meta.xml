@@ -2,40 +2,46 @@
 <NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
     <container>IVF Program Portal BC</container>
     <containerType>Network</containerType>
-    <label>Default User Profile Menu</label>
+    <label>IVF Portal Navigation</label>
     <navigationMenuItem>
-        <label>Profile</label>
+        <label>Create New Application</label>
+        <menuItemBranding>
+            <tileImage>AdobeStock_288590874</tileImage>
+        </menuItemBranding>
         <position>1</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/profile/home</target>
+        <target>/create-new-application</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Settings</label>
+        <defaultListViewId>All_Applications</defaultListViewId>
+        <label>View Applications</label>
+        <menuItemBranding>
+            <tileImage>tile_application2</tileImage>
+        </menuItemBranding>
         <position>2</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/settings/home</target>
-        <type>InternalLink</type>
+        <target>Case</target>
+        <type>SalesforceObject</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Account Information</label>
+        <label>View Clinic Information</label>
+        <menuItemBranding>
+            <tileImage>tile_myClinic1</tileImage>
+        </menuItemBranding>
         <position>3</position>
         <publiclyAvailable>false</publiclyAvailable>
         <target>/comm-my-account</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Contact Support</label>
+        <label>Dashboard</label>
+        <menuItemBranding>
+            <tileImage>tile_dashboard1</tileImage>
+        </menuItemBranding>
         <position>4</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/contactsupport</target>
+        <target>/my-dashboard</target>
         <type>InternalLink</type>
-    </navigationMenuItem>
-    <navigationMenuItem>
-        <label>Log Out</label>
-        <position>5</position>
-        <publiclyAvailable>false</publiclyAvailable>
-        <target>Logout</target>
-        <type>Event</type>
     </navigationMenuItem>
 </NavigationMenu>

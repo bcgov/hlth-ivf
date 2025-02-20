@@ -6,9 +6,11 @@
   "label" : "Login",
   "regions" : [ {
     "components" : [ {
-      "componentAttributes" : { },
-      "componentName" : "salesforceIdentity:communityLogo2",
-      "id" : "f1f860ba-89e9-4b88-a66c-d33d1e487203",
+      "componentAttributes" : {
+        "richTextValue" : "<p><img class=\"sfdcCbImage\" alt=\"\" src=\"{!contentAsset.IVF_Program_Portal_BC_Logo7.1}\" style=\"width: 258.953px; height: 140.953px;\"></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "57da53f4-e1e7-4ff0-8135-d1614a082d75",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
