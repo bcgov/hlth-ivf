@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExceptionRequestIndicator__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( ISPICKVAL( ExceptionRequest__c , &apos;Yes&apos;) ,IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;Red Flag&quot;), &apos;&apos;)</formula>
+    <label>Exception Request</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
