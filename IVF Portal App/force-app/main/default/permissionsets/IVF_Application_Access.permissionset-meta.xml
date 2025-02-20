@@ -304,6 +304,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Days_Since_Submission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Description</field>
         <readable>true</readable>
@@ -351,6 +356,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.FertilitySpecialistClinicName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Final_Decision_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
