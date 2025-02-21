@@ -25,7 +25,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Final_Decision_Date__c</field>
+                <field>FinalDecisionDate__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -43,7 +43,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Days_Since_Submission__c</field>
+                <field>DaysSinceSubmission__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Days_Since_Submission__c</fullName>
+    <fullName>DaysSinceSubmission__c</fullName>
     <externalId>false</externalId>
     <formula>IF(
     AND(
         NOT(ISBLANK(DateOfApplicationSubmission__c)),
-        NOT(ISBLANK(Final_Decision_Date__c))
+        NOT(ISBLANK(FinalDecisionDate__c))
     ), 
-    Final_Decision_Date__c - DateOfApplicationSubmission__c , 
+    FinalDecisionDate__c - DateOfApplicationSubmission__c , 
     NULL
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

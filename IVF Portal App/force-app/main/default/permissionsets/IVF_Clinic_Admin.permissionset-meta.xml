@@ -176,7 +176,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Days_Since_Submission__c</field>
+        <field>Case.DaysSinceSubmission__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -226,7 +226,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Final_Decision_Date__c</field>
+        <field>Case.FinalDecisionDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
