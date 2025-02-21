@@ -97,6 +97,16 @@
                 <identifier>RecordExceptionRequest_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.FinalDecisionDate__c</fieldItem>
+                <identifier>RecordFinalDecisionDate__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-bb492169-21ce-47e4-9639-c3e1f05ae513</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -129,6 +139,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.EstimatedCostofTreatmentPlan__c</fieldItem>
                 <identifier>RecordEstimatedCostOfTreatmentPlan_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.DaysSinceSubmission__c</fieldItem>
+                <identifier>RecordDayssincesubmission__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-5b54b755-3af9-4d0d-9954-70b9cdc9e2eb</name>
