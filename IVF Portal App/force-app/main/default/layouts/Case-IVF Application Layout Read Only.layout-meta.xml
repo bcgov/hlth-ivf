@@ -24,6 +24,10 @@
                 <behavior>Readonly</behavior>
                 <field>ExceptionRequest__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>FinalDecisionDate__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -37,6 +41,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>EstimatedCostofTreatmentPlan__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>DaysSinceSubmission__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
