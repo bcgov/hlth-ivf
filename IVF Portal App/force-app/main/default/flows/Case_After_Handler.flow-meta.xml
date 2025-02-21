@@ -17,7 +17,7 @@
         <name>Error_Message_on_Read_Only</name>
         <label>Error Message on Read Only</label>
         <locationX>314</locationX>
-        <locationY>539</locationY>
+        <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>{!Error_Message_on_Read_Only}</errorMessage>
             <isFieldError>false</isFieldError>
@@ -75,7 +75,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Read_Only_Record_Type</targetReference>
+                <targetReference>Final_date_Update</targetReference>
             </connector>
             <label>Status Change Read Only</label>
         </rules>
@@ -166,7 +166,7 @@
         <name>Get_Read_Only_Record_Type</name>
         <label>Get Read Only Record Type</label>
         <locationX>50</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Case_IVF_Application_Read_Only</targetReference>
@@ -187,6 +187,37 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Final_date_Update</name>
+        <label>Final date Update</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Get_Read_Only_Record_Type</targetReference>
+        </connector>
+        <filterLogic>1 OR 2</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Not Approved</stringValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>FinalDecisionDate__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Case_IVF_Application</name>
         <label>Update Case IVF Application</label>
         <locationX>578</locationX>
@@ -203,7 +234,7 @@
         <name>Update_Case_IVF_Application_Read_Only</name>
         <label>Update Case IVF Application Read Only</label>
         <locationX>50</locationX>
-        <locationY>539</locationY>
+        <locationY>647</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
