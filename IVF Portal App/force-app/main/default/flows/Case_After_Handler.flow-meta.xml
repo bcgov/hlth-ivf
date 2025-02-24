@@ -1,12 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>Duplicate_case_cound</name>
+        <label>Duplicate case cound</label>
+        <locationX>1238</locationX>
+        <locationY>539</locationY>
+        <assignmentItems>
+            <assignToReference>Duplicatecasecounts</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_duplicate_Case_Records</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Check_duplicate_PHN_number</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <name>Duplicate_Applicate_Error_Message</name>
+        <label>Duplicate Applicate Error Message</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <customErrorMessages>
+            <errorMessage>We found duplicate PHN for Applicate 1 (Applicant1PersonalHealthNumber__c ) and Applicate 2 (Applicant2PersonalHealthNumber__c )</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Duplicate_Case_Error_Message</name>
+        <label>Duplicate Case Error Message</label>
+        <locationX>842</locationX>
+        <locationY>755</locationY>
+        <customErrorMessages>
+            <errorMessage>We found duplicate Case with this {!$Record.Applicant1PersonalHealthNumber__c}
+Please check with admin.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
     <customErrors>
         <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
         <name>Error_Message_on_Non_Read_Only</name>
         <label>Error Message on Non Read Only</label>
-        <locationX>842</locationX>
-        <locationY>539</locationY>
+        <locationX>1370</locationX>
+        <locationY>863</locationY>
         <customErrorMessages>
             <errorMessage>{!Error_Message_on_Non_Read_Only}</errorMessage>
             <isFieldError>false</isFieldError>
@@ -16,7 +53,7 @@
         <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
         <name>Error_Message_on_Read_Only</name>
         <label>Error Message on Read Only</label>
-        <locationX>314</locationX>
+        <locationX>578</locationX>
         <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>{!Error_Message_on_Read_Only}</errorMessage>
@@ -24,11 +61,70 @@
         </customErrorMessages>
     </customErrors>
     <decisions>
+        <name>Check_duplicate_PHN_number</name>
+        <label>Check duplicate PHN number</label>
+        <locationX>1238</locationX>
+        <locationY>647</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_Duplicate_Exist</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Duplicatecasecounts</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Duplicate_Case_Error_Message</targetReference>
+            </connector>
+            <label>If Duplicate Exist</label>
+        </rules>
+        <rules>
+            <name>If_No_duplicate</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Duplicatecasecounts</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case_Record_Type</targetReference>
+            </connector>
+            <label>If No duplicate</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Status_Change_Check</name>
         <label>Status Change Check</label>
-        <locationX>578</locationX>
+        <locationX>974</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Duplicate_Applicate_check</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Applicant1PersonalHealthNumber__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Applicant2PersonalHealthNumber__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Submitted</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Duplicate_Applicate_Error_Message</targetReference>
+            </connector>
+            <label>Duplicate Applicate check</label>
+        </rules>
         <rules>
             <name>Status_Change_Read_Only</name>
             <conditionLogic>1 AND ( 2 OR 3 OR 4 OR 5 OR 6)</conditionLogic>
@@ -111,7 +207,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Case_Record_Type</targetReference>
+                <targetReference>Get_duplicate_Case_Records</targetReference>
             </connector>
             <label>Status Change Non Read Only</label>
         </rules>
@@ -141,8 +237,8 @@
     <recordLookups>
         <name>Get_Case_Record_Type</name>
         <label>Get Case Record Type</label>
-        <locationX>578</locationX>
-        <locationY>431</locationY>
+        <locationX>1106</locationX>
+        <locationY>755</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Case_IVF_Application</targetReference>
@@ -163,9 +259,44 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_duplicate_Case_Records</name>
+        <label>Get duplicate Case Records</label>
+        <locationX>1238</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Duplicate_case_cound</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Applicant1PersonalHealthNumber__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Applicant1PersonalHealthNumber__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Draft</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Read_Only_Record_Type</name>
         <label>Get Read Only Record Type</label>
-        <locationX>50</locationX>
+        <locationX>314</locationX>
         <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -189,7 +320,7 @@
     <recordUpdates>
         <name>Final_date_Update</name>
         <label>Final date Update</label>
-        <locationX>50</locationX>
+        <locationX>314</locationX>
         <locationY>431</locationY>
         <connector>
             <targetReference>Get_Read_Only_Record_Type</targetReference>
@@ -220,8 +351,8 @@
     <recordUpdates>
         <name>Update_Case_IVF_Application</name>
         <label>Update Case IVF Application</label>
-        <locationX>578</locationX>
-        <locationY>539</locationY>
+        <locationX>1106</locationX>
+        <locationY>863</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
             <value>
@@ -233,7 +364,7 @@
     <recordUpdates>
         <name>Update_Case_IVF_Application_Read_Only</name>
         <label>Update Case IVF Application Read Only</label>
-        <locationX>50</locationX>
+        <locationX>314</locationX>
         <locationY>647</locationY>
         <inputAssignments>
             <field>RecordTypeId</field>
@@ -244,7 +375,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>452</locationX>
+        <locationX>848</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Status_Change_Check</targetReference>
@@ -277,5 +408,20 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
         <objectType>CaseShare</objectType>
+    </variables>
+    <variables>
+        <name>Duplicatecasecounts</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>TodayDate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
     </variables>
 </Flow>
