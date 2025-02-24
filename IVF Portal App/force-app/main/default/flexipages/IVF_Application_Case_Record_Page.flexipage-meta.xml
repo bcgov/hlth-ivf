@@ -597,8 +597,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.PreviouslyReceivedFundingforIVF__c</fieldItem>
-                <identifier>RecordPreviouslyReceivedFundingforIVF_cField2</identifier>
+                <fieldItem>Record.Applicant2ReceivedFunding__c</fieldItem>
+                <identifier>RecordApplicant2ReceivedFunding_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
