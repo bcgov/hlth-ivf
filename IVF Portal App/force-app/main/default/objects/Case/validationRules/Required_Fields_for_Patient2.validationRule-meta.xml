@@ -5,13 +5,12 @@
     <errorConditionFormula>AND(
 Patient2NotApplicable__c = FALSE,
 NOT(ISNEW()),
+AND(
+ISPICKVAL(Patient2IsThePatientFromOutOfCountry__c,&quot;No&quot;),
 OR(
 ISBLANK(Paitent2GivenName__c),
 ISBLANK(Patient2Surname__c),
 ISBLANK(Text(Pat2PreviouslyParticipatedInIVFProgram__c)),
-AND(
-ISPICKVAL(Patient2IsThePatientFromOutOfCountry__c,&quot;No&quot;),
-OR(
 ISBLANK(Text(Patient2EnrolledInMedicalServicesPlan__c)),
 AND(
 ISPICKVAL(Patient2EnrolledInMedicalServicesPlan__c,&quot;Yes&quot;),
@@ -23,7 +22,6 @@ ISBLANK(Text(Patient2Address__CountryCode__s)),
 ISBLANK(Patient2Address__City__s),
 ISBLANK(Patient2Address__Street__s),
 ISBLANK(Patient2Address__PostalCode__s)
-)
 )
 )
 )</errorConditionFormula>
