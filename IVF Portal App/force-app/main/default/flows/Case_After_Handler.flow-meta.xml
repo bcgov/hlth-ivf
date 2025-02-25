@@ -1416,7 +1416,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>CasesharerecordInsertList</name>
         <dataType>SObject</dataType>
@@ -1440,4 +1440,5 @@
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
+    
 </Flow>
