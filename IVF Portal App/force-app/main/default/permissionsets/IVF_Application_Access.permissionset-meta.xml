@@ -195,6 +195,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Applicant1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Applicant2Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -256,6 +261,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant2Surname__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Applicant2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
