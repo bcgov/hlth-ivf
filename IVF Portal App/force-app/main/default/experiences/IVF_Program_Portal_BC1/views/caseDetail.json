@@ -27,7 +27,7 @@
         "showLegacyActivityComposer" : true,
         "tab1Type" : "details",
         "tab2Type" : "related",
-        "tab3Type" : "none",
+        "tab3Type" : "chatter",
         "tab4Type" : "none",
         "timelineTabLabel" : "Activity"
       },
