@@ -9,7 +9,7 @@
         <recordType>Account.Clinic</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-IVF Application Layout</layout>
+        <layout>Case-Case Layout</layout>
         <recordType>Case.IVF_Application</recordType>
     </layoutAssignments>
     <layoutAssignments>
