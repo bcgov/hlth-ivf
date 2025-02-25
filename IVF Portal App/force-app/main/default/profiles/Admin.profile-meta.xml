@@ -659,7 +659,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Case-IVF Application Layout</layout>
+        <layout>Case-Case Layout</layout>
         <recordType>Case.IVF_Application</recordType>
     </layoutAssignments>
     <objectPermissions>
