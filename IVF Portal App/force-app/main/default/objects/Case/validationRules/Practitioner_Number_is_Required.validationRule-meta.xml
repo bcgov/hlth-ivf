@@ -4,7 +4,10 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
-ISBLANK(PractitionerNumber__c)
+OR(
+ISBLANK(PractitionerNumber__c),
+LEN(PractitionerNumber__c) &lt;&gt; 5
+)
 )</errorConditionFormula>
-    <errorMessage>Practitioner Number is Required</errorMessage>
+    <errorMessage>Practitioner Number is required and it is 5 digits alphanumeric code.</errorMessage>
 </ValidationRule>
