@@ -135,8 +135,9 @@ public class CaseSubmitControllerTest {
         testCase.Applicant1GivenName__c='Test';
         testCase.Applicant1MedicallyEligible__c='Yes';
         testCase.Applicant1Patient__c='No';
-        testCase.Applicant1PersonalHealthNumber__c='98768';
+        testCase.Applicant1PersonalHealthNumber__c='9876854321';
         testCase.NotApplicable__c =true;
+        testCase.Patient1NotApplicable__c =true;
         testCase.Patient2NotApplicable__c =true;
         testCase.Patient3NotApplicable__c =true;
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);

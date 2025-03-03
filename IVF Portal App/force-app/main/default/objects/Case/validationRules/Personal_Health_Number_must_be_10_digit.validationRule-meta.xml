@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Personal_Health_Number_must_be_10_digit</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND(
+    NOT(ISBLANK(Applicant1PersonalHealthNumber__c)),
+    OR(
+        LEN(Applicant1PersonalHealthNumber__c) &lt;&gt; 10,
+        NOT(REGEX(Applicant1PersonalHealthNumber__c, &quot;[0-9]+&quot;))
+    )
+),
+AND(
+    NOT(ISBLANK(Applicant2PersonalHealthNumber__c)),
+    OR(
+        LEN(Applicant2PersonalHealthNumber__c) &lt;&gt; 10,
+        NOT(REGEX(Applicant2PersonalHealthNumber__c, &quot;[0-9]+&quot;))
+    )
+),
+AND(
+    NOT(ISBLANK(Patient1PersonalHealthNumber__c)),
+    OR(
+        LEN(Patient1PersonalHealthNumber__c) &lt;&gt; 10,
+        NOT(REGEX(Patient1PersonalHealthNumber__c, &quot;[0-9]+&quot;))
+    )
+),
+AND(
+    NOT(ISBLANK(Patient2PersonalHealthNumber__c)),
+    OR(
+        LEN(Patient2PersonalHealthNumber__c) &lt;&gt; 10,
+        NOT(REGEX(Patient2PersonalHealthNumber__c, &quot;[0-9]+&quot;))
+    )
+),
+AND(
+    NOT(ISBLANK(Patient3PersonalHealthNumber__c)),
+    OR(
+        LEN(Patient3PersonalHealthNumber__c) &lt;&gt; 10,
+        NOT(REGEX(Patient3PersonalHealthNumber__c, &quot;[0-9]+&quot;))
+    )
+)
+)</errorConditionFormula>
+    <errorMessage>Personal Health Number should be 10 digit number</errorMessage>
+</ValidationRule>
