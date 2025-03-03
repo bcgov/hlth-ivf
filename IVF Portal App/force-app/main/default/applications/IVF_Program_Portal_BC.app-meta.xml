@@ -76,7 +76,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Clinic</recordType>
         <type>Flexipage</type>
-        <profile>Beneficiary and Diagnostic Services Member</profile>
+        <profile>MoH Standard User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -85,7 +85,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>Account.Clinic</recordType>
         <type>Flexipage</type>
-        <profile>Beneficiary and Diagnostic Services Member</profile>
+        <profile>MoH Standard User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -130,7 +130,7 @@
         <pageOrSobjectType>Case</pageOrSobjectType>
         <recordType>Case.IVF_Application</recordType>
         <type>Flexipage</type>
-        <profile>Beneficiary and Diagnostic Services Member</profile>
+        <profile>MoH Standard User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -139,7 +139,7 @@
         <pageOrSobjectType>Case</pageOrSobjectType>
         <recordType>Case.IVF_Application</recordType>
         <type>Flexipage</type>
-        <profile>Beneficiary and Diagnostic Services Member</profile>
+        <profile>MoH Standard User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -166,7 +166,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>PersonAccount.PersonAccount</recordType>
         <type>Flexipage</type>
-        <profile>Beneficiary and Diagnostic Services Member</profile>
+        <profile>MoH Standard User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
@@ -175,7 +175,7 @@
         <pageOrSobjectType>Account</pageOrSobjectType>
         <recordType>PersonAccount.PersonAccount</recordType>
         <type>Flexipage</type>
-        <profile>Beneficiary and Diagnostic Services Member</profile>
+        <profile>MoH Standard User</profile>
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
