@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Case Changes Requested Email</name>
+    <style>none</style>
+    <subject>IVF Application {!Case.CaseNumber} Status Updated to {!Case.Status}</subject>
+    <textOnly>&lt;html&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is to notify you that the IVF Application &lt;b&gt;{!Case.CaseNumber}&lt;/b&gt; Status is updated to &lt;b&gt;{!Case.Status}&lt;/b&gt;. Please review the Application by clicking the below link and take appropriate action.&lt;/p&gt;
+    
+    &lt;p&gt;
+      &lt;a href=&quot;{!Case.Link}&quot; target=&quot;_blank&quot;&gt;{!Case.CaseNumber}&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

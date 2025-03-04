@@ -6,5 +6,5 @@
 ISPICKVAL(ExceptionRequest__c, &quot;Yes&quot;),
 ISBLANK(Details__c)
 )</errorConditionFormula>
-    <errorMessage>Please select Yes for exception request in the administrative section and fill out the details under the Exception Request section.</errorMessage>
+    <errorMessage>Please fill out the details under the Exception Request section since this application is marked &quot;Yes&quot; for exception request</errorMessage>
 </ValidationRule>
