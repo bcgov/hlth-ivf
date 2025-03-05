@@ -140,6 +140,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Allow_Duplicate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Applicant1Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
