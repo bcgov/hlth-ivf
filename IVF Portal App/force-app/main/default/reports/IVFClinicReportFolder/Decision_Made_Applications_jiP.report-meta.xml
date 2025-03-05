@@ -31,7 +31,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>IVF_Application_Case_Record_Page__c</reportType>
+    <reportType>IVF_Application_Case_Record_Type__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>

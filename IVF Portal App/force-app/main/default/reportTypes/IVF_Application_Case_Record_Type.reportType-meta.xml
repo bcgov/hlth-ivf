@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
     <baseObject>Case</baseObject>
-    <category>employee</category>
-    <deployed>false</deployed>
+    <category>accounts</category>
+    <deployed>true</deployed>
     <description>IVF Clinic Reports</description>
-    <label>IVF Application Case Record Page</label>
+    <label>IVF Application Case Record Type</label>
     <sections>
         <columns>
             <checkedByDefault>false</checkedByDefault>
@@ -404,11 +404,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Applicant2MedicallyEligible__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Applicant3PersonalHealthNumber__c</field>
             <table>Case</table>
         </columns>
         <columns>
