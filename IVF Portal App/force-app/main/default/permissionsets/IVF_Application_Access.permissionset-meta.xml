@@ -876,10 +876,18 @@
     </tabSettings>
     <tabSettings>
         <tab>standard-Account</tab>
-    <visibility>Visible</visibility>
+        <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
         <tab>standard-Contact</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>standard-Dashboard</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>standard-report</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
