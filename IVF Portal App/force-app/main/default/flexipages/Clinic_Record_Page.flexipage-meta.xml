@@ -65,8 +65,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.IsActive</fieldItem>
-                <identifier>RecordIsActiveField</identifier>
+                <fieldItem>Record.Email__c</fieldItem>
+                <identifier>RecordEmail_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-30513165-e2ec-4ac6-91c2-0fef1bc7d056</name>
@@ -101,16 +101,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.PrimaryContact__c</fieldItem>
                 <identifier>RecordPrimaryContact_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.PersonEmail</fieldItem>
-                <identifier>RecordPersonEmailField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-c66684d5-a909-4583-98b2-506d96547ea9</name>
@@ -161,8 +151,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.PersonMailingAddress</fieldItem>
-                <identifier>RecordPersonMailingAddressField</identifier>
+                <fieldItem>Record.ShippingAddress</fieldItem>
+                <identifier>RecordShippingAddressField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f58d44ae-b367-4af0-8bbe-3ee0aacbe653</name>

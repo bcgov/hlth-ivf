@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>sai.chiluveru@pbcsolutions.ca</email>
+    <name>BDSB Admin Queue</name>
+    <queueMembers>
+        <users>
+            <user>e9740ef9-32c1-413e-8884-410864488665@gov.bc.ca</user>
+            <user>nikhil.sharma@pbcsolutions.ca</user>
+            <user>sai.chiluveru@pbcsolutions.ca</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>
