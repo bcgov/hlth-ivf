@@ -29,7 +29,7 @@
         <field>RECORDTYPE</field>
         <sortOrder>Desc</sortOrder>
     </groupingsDown>
-    <name>Beneficiaries by clinics</name>
+    <name>Applicants by clinics</name>
     <params>
         <name>co</name>
         <value>1</value>

@@ -24,7 +24,7 @@
         <field>PC_ADDRESS2_CITY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Beneficiaries by cities</name>
+    <name>Applicants by cities</name>
     <params>
         <name>co</name>
         <value>1</value>
