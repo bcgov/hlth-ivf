@@ -4,10 +4,10 @@
         <field>ACCOUNT.NAME</field>
     </columns>
     <columns>
-        <field>PC_ADDRESS2_STATE</field>
+        <field>ADDRESS1_STATE</field>
     </columns>
     <columns>
-        <field>PC_ADDRESS2_COUNTRY</field>
+        <field>ADDRESS1_COUNTRY</field>
     </columns>
     <filter>
         <criteriaItems>
@@ -21,7 +21,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>PC_ADDRESS2_CITY</field>
+        <field>ADDRESS1_CITY</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Applicants by cities</name>
