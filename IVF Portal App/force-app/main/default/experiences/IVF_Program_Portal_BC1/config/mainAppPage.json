@@ -1,7 +1,7 @@
 {
   "cmsSettings" : { },
   "currentThemeId" : "93d572d7-ae9d-482b-9fdb-84a463f6416d",
-  "headMarkup" : null,
+  "headMarkup" : "<style>\n    @font-face {\n        font-family: 'BC Sans';\n        src: url('{!URLFOR($Resource.BCSans)}') format('opentype'); /* Use 'woff2' if applicable */\n        font-weight: normal;\n        font-style: normal;\n    }\n    body, p, h1, h2, h3, h4, h5, h6, a, button, input, textarea {\n        font-family: 'BC Sans', sans-serif !important;\n    }\n</style>",
   "id" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
   "isLockerServiceEnabled" : true,
   "isRelaxedCSPLevel" : false,
