@@ -64,7 +64,7 @@
 
             <!-- Main Content -->
             <div class="main-content">
-                <img src="{!$Resource.LoginImage}" alt="IVF Portal Banner" />
+                <img src="{!$Resource.LandingPageImage}" alt="IVF Portal Banner" />
                 <div class="overlay-box"></div>
             </div>
 
