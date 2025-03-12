@@ -3,8 +3,7 @@
     <fullName>Applicants</fullName>
     <columns>ACCOUNT.NAME</columns>
     <columns>PersonalHealthNumber__c</columns>
-    <columns>ACCOUNT.PHONE1</columns>
-    <columns>PC_EMAIL</columns>
+    <columns>ACCOUNT.ADDRESS1_ZIP</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>IS_PERSON_ACCOUNT</field>
