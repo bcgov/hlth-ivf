@@ -1,0 +1,83 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    <html>
+        <head>
+            <style>
+                @font-face {
+    font-family: 'BC Sans';
+    src: url('{!URLFOR($Resource.BCSans)}') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+                body {
+                    font-family: 'BC Sans', sans-serif;
+                }
+                .header {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: white;
+                    padding: 10px;
+                    color: black;
+                }
+                .main-content {
+                    text-align: center;
+                    padding: 10px;
+                }
+                .main-content img {
+                    width: 80%;
+                    max-width: 1200px;
+                    height: 400px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+                .overlay-box {
+                    margin-top: -40px;
+                    background: rgba(255, 255, 255, 0.8);
+                    display: inline-block;
+                    padding: 10px 0;
+                    border-radius: 8px;
+                }
+                .login-section {
+                    text-align: center;
+                    padding: 10px;
+                    margin-top: 10px;
+                    border-radius: 5px;
+                }
+                .login-button {
+                    background: #002147;
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    font-family: 'BC Sans', sans-serif;
+                }
+            </style>
+        </head>
+        <body>
+            <!-- Header Section -->
+            <div class="header">
+                <img src="{!$Resource.IVFLogo}" alt="British Columbia Logo" style="width: 200px; height: auto; display: block;" />
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <img src="{!$Resource.LandingPageImage}" alt="IVF Portal Banner" />
+                <div class="overlay-box"></div>
+            </div>
+
+            <!-- Login Section -->
+            <div class="login-section">
+                <h2>Welcome to the IVF Program Portal BC</h2>
+                <h5>Use Your BC Provider ID to access the IVF Program Portal</h5>
+                
+                <!-- Clickable Login Button -->
+                <a href="https://common-logon-test.hlth.gov.bc.ca/auth/realms/moh_applications/protocol/openid-connect" target="_blank">
+                    <button class="login-button">Log in</button>
+                </a>
+            </div>
+        </body>
+    </html>
+</apex:page>
