@@ -5,12 +5,7 @@
     <errorConditionFormula>AND(
     $Profile.Name = &quot;Customer Community Plus Login User&quot;,
     ISCHANGED(Status),
-    NOT(
-        OR(
-            AND(TEXT(PRIORVALUE(Status)) = &quot;Draft&quot;, TEXT(Status) = &quot;Submitted&quot;),
-            AND(TEXT(PRIORVALUE(Status)) = &quot;Changes Requested&quot;, TEXT(Status) = &quot;Changes Completed&quot;)
-        )
-    )
+NOT($Setup.Bypass_Validation_Context__c.Enabled__c)
 )</errorConditionFormula>
     <errorMessage>As a clinic administrator, you do not have permission to modify the status of an application.</errorMessage>
 </ValidationRule>
