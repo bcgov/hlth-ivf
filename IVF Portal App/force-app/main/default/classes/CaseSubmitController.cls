@@ -1,4 +1,4 @@
-public with sharing class CaseSubmitController {
+public without sharing class CaseSubmitController {
     @AuraEnabled(cacheable=true)
     public static String getCaseStatus(Id caseId) {
         Case caseRecord = [SELECT Status FROM Case WHERE Id = :caseId LIMIT 1];
@@ -7,11 +7,12 @@ public with sharing class CaseSubmitController {
 
     @AuraEnabled
     public static void submitCase(Id caseId) {
+        Bypass_Validation_Context__c bypassSetting = null;
         try{
+            bypassSetting = Bypass_Validation_Context__c.getOrgDefaults();
+            bypassSetting.Enabled__c = true;
+            upsert bypassSetting;
             Case caseRecord = [SELECT Id, RecordTypeId,Status,DateOfApplicationSubmission__c,origin FROM Case WHERE Id = :caseId LIMIT 1];
-            /*if (caseRecord.Status == 'Submitted') {
-                throw new AuraHandledException('This case has already been submitted.');
-            }*/
             if(caseRecord.Status=='Draft')
             {
             caseRecord.Status = 'Submitted';
@@ -33,6 +34,12 @@ public with sharing class CaseSubmitController {
                 errorMessages.add(e.getDmlMessage(i));
             }
             throw new AuraHandledException(String.join(errorMessages, ' | '));
+        }
+        finally {
+            if (bypassSetting != null) {
+                    bypassSetting.Enabled__c = false;
+                    update bypassSetting;
+            }
         }
             
     }
