@@ -3,6 +3,16 @@
     <fullName>PrimaryContact__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <label>Primary Contact</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Contact.AccountId</field>
+            <operation>equals</operation>
+            <valueField>$Source.Id</valueField>
+        </filterItems>
+        <infoMessage>Can select contacts only tagged to this particular clinic</infoMessage>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>Contact</referenceTo>
     <relationshipLabel>Accounts</relationshipLabel>
     <relationshipName>Accounts</relationshipName>
