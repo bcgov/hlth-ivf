@@ -115,6 +115,13 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Allow_Duplicate__c</fieldItem>
                 <identifier>RecordAllow_Duplicate_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Status}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Draft</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-bb492169-21ce-47e4-9639-c3e1f05ae513</name>
@@ -1648,7 +1655,7 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
-         <itemInstances>
+        <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
                     <name>active</name>
@@ -1666,7 +1673,7 @@
                 <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
-       <itemInstances>
+        <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
                     <name>active</name>
