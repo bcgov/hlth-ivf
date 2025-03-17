@@ -57,7 +57,7 @@
             </style>
         </head>
         <body>
-            <div class="header">
+                        <div class="header">
                 <img src="{!$Resource.IVFLogo}" alt="British Columbia Logo" style="width: 200px; height: auto; display: block;" />
             </div>
             
@@ -74,7 +74,7 @@
                            margin-bottom: 10px;
                            text-align: center;
                            ">
-                    Welcome to IVF Program Portal BC
+                    Welcome to the IVF Program Portal BC
                 </h2>
                 <p style="
                           font-size: 14px;
@@ -89,7 +89,7 @@
                 <a href="https://common-logon-test.hlth.gov.bc.ca/auth/realms/moh_applications/protocol/openid-connect" target="_blank">
                     <button class="login-button">Login</button>
                 </a>
-            </div>            
+            </div>
         </body>
     </html>
 </apex:page>
