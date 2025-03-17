@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PHN_is_Required_for_Patient1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(Patient1EnrolledInMedicalServicesPlan__c, &quot;Yes&quot;),
+ISBLANK(Patient1PersonalHealthNumber__c)
+)</errorConditionFormula>
+    <errorMessage>Additional patient 1: Gestational Surrogate’s PHN is required if enrolled in MSP.</errorMessage>
+</ValidationRule>

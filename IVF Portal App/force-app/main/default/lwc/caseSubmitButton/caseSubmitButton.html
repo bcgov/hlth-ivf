@@ -1,0 +1,11 @@
+<template>
+  <div class="custom-submit-container">
+    <template if:false={isDisabled}>
+      <lightning-button
+        label="Submit Case"
+        variant="brand"
+        onclick={handleSubmit}
+      ></lightning-button>
+    </template>
+  </div>
+</template>

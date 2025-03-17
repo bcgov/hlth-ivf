@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_Clinics</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PrimaryContact__c</columns>
+    <columns>ACCOUNT.IS_ACTIVE</columns>
+    <columns>PC_EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Clinic</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.IS_ACTIVE</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>Inactive Clinics</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

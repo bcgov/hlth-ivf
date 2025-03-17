@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IVF Application Process</fullName>
+    <isActive>true</isActive>
+    <values>
+        <fullName>Appeal Requested</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Approved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Changes Completed</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Changes Requested</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Draft</fullName>
+        <default>true</default>
+    </values>
+    <values>
+        <fullName>In Review</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Not Approved</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Submitted</fullName>
+        <default>false</default>
+    </values>
+</BusinessProcess>

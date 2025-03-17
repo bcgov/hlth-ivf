@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Practitioner_Number_is_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+OR(
+ISBLANK(PractitionerNumber__c),
+LEN(PractitionerNumber__c) &lt;&gt; 5
+)
+)</errorConditionFormula>
+    <errorMessage>Practitioner Number is required and it is 5 digits alphanumeric code.</errorMessage>
+</ValidationRule>

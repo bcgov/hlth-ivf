@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_Changes_Restricted</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    $Profile.Name = &quot;Customer Community Plus Login User&quot;,
+    ISCHANGED(Status),
+NOT($Setup.Bypass_Validation_Context__c.Enabled__c)
+)</errorConditionFormula>
+    <errorMessage>As a clinic administrator, you do not have permission to modify the status of an application.</errorMessage>
+</ValidationRule>

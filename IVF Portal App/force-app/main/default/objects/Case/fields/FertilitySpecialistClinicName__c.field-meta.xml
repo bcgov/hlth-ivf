@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FertilitySpecialistClinicName__c</fullName>
+    <inlineHelpText>Select the clinic location where primary treatment will occur.</inlineHelpText>
+    <label>Fertility Specialist Clinic Name</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Grace</fullName>
+                <default>false</default>
+                <label>Grace</label>
+            </value>
+            <value>
+                <fullName>Olive</fullName>
+                <default>false</default>
+                <label>Olive</label>
+            </value>
+            <value>
+                <fullName>Pacific Centre For Reproductive Medicine (PCRM)</fullName>
+                <default>false</default>
+                <label>Pacific Centre For Reproductive Medicine (PCRM)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

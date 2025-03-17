@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EMSP_Required_for_Patient1_When_Enrolled</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(EnrolledInCanadianPublicHealthPlan__c, &quot;Yes&quot;),
+ISBLANK(TEXT(Patient1EnrolledInMedicalServicesPlan__c)) 
+)</errorConditionFormula>
+    <errorMessage>Is the additional patient 1 (unintended parent)  &quot;Enrolled in MSP&quot; is a required field.</errorMessage>
+</ValidationRule>

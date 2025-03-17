@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmbryoTransferLocation__c</fullName>
+    <inlineHelpText>Select the clinic where the embryo transfer will occur.</inlineHelpText>
+    <label>Embryo Transfer Location</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>FertilitySpecialistClinicName__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Olive Vancouver</fullName>
+                <default>false</default>
+                <label>Olive Vancouver</label>
+            </value>
+            <value>
+                <fullName>Olive Victoria</fullName>
+                <default>false</default>
+                <label>Olive Victoria</label>
+            </value>
+            <value>
+                <fullName>GraceVancouver</fullName>
+                <default>false</default>
+                <label>Grace Vancouver</label>
+            </value>
+            <value>
+                <fullName>PCRM Vancouver</fullName>
+                <default>false</default>
+                <label>PCRM Vancouver</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Grace</controllingFieldValue>
+            <valueName>GraceVancouver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pacific Centre For Reproductive Medicine (PCRM)</controllingFieldValue>
+            <valueName>PCRM Vancouver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Olive Vancouver</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Olive</controllingFieldValue>
+            <valueName>Olive Victoria</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

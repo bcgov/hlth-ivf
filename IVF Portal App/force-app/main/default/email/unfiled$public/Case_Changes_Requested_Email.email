@@ -1,0 +1,9 @@
+<html>
+  <body>
+    <p>This is to notify you that the IVF Application <b>{!Case.CaseNumber}</b> Status is updated to <b>{!Case.Status}</b>. Please review the Application by clicking the below link and take appropriate action.</p>
+    
+    <p>
+      <a href="https://bcministryofhealth-ivfportal--ivfdev.sandbox.my.site.com/clinics/s/case/{!Case.Id}/detail" target="_blank">{!Case.CaseNumber}</a>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exception_Request_is_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISBLANK(Text(ExceptionRequest__c))
+)</errorConditionFormula>
+    <errorMessage>Exception Request is Required</errorMessage>
+</ValidationRule>

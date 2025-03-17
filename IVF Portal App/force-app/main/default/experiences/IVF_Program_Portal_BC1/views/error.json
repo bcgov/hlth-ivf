@@ -1,0 +1,56 @@
+{
+  "appPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
+  "componentName" : "siteforce:sldsTwoCol84SidebarFeaturedLayout",
+  "dataProviders" : [ ],
+  "id" : "49cfa372-b273-41bc-a78f-d317d997e114",
+  "label" : "Error",
+  "regions" : [ {
+    "id" : "3ee84fe1-b79b-4201-ac68-72fdcd60d445",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<div style='text-align: center;'>Invalid Page</div>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "d8ec7ef3-1c84-4c31-9cda-df8936068307",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d8bac69f-f9f6-4736-b910-c91504def091",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c46d574c-e0f3-4477-9522-91c91ab920c6",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Create New Application"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5aa1ec9c-4f76-4927-b025-1358441ab2d7",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e097cdae-5d6e-4469-91d2-e02a81237950",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "00c7633f-8b15-4b9b-b0fe-01575174f6cb",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "id" : "d89cf758-fa2a-4852-a3de-154855981752",
+    "regionName" : "sidebar",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "error"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EMSP_Required_for_Applicant1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISBLANK(Text(Applicant1EnrolledinMedicalServicesPlan__c))
+)</errorConditionFormula>
+    <errorMessage>Enrolled in Medical Services Plan? is Required for Applicant 1</errorMessage>
+</ValidationRule>

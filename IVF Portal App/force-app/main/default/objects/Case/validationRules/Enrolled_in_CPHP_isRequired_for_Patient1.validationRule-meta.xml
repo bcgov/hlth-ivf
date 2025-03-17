@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrolled_in_CPHP_isRequired_for_Patient1</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Patient1NotApplicable__c=False,
+NOT(ISNEW()),
+NOT(ISBLANK(Text(EnrolledInCanadianPublicHealthPlan__c))),
+NOT(ISPICKVAL(EnrolledInCanadianPublicHealthPlan__c, &quot;Yes&quot;))
+)</errorConditionFormula>
+    <errorMessage>Additional patient 1 (unintended parent) should be enrolled in a Canadian Public Health Plan in order to be eligible.</errorMessage>
+</ValidationRule>

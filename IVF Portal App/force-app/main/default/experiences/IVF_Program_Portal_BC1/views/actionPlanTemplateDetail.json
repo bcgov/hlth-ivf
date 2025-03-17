@@ -1,0 +1,125 @@
+{
+  "appPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "51b5d1b6-edd6-4e37-8a46-45dd2b6563cc",
+  "label" : "Action Plan Template Detail",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "runtime_industries_actionplan:highlightsPanel",
+      "id" : "28514fd8-69dd-432e-b27a-54de3d4b7c29",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5bfe7c73-9ecc-4e4d-8fd4-81b1ed54edf5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "d9cb810d-3e7b-42de-8ac7-a939e9d992aa",
+          "activeTab" : "tab1",
+          "tabs" : [ {
+            "UUID" : "c5bf3ecf-3525-4be9-8770-c7bab17b9887",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ {
+              "attributes" : { },
+              "fqn" : "runtime_industries_actionplan:taskManager"
+            }, {
+              "attributes" : { },
+              "fqn" : "runtime_industries_actionplan:checklistItemManager"
+            } ],
+            "tabKey" : "tab1",
+            "tabName" : "Items"
+          }, {
+            "UUID" : "0b04934c-74c2-4977-9d16-e3b731ec9510",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ {
+              "attributes" : { },
+              "fqn" : "forceCommunity:recordDetail"
+            } ],
+            "tabKey" : "tab2",
+            "tabName" : "Details"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabLayout",
+      "id" : "d9cb810d-3e7b-42de-8ac7-a939e9d992aa",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "actionPlanTemplateTaskFieldSelection" : [ ],
+            "fieldSelection" : [ ]
+          },
+          "componentName" : "runtime_industries_actionplan:taskManager",
+          "id" : "23698376-39cc-4162-9955-2bc8fdfd1e39",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "runtime_industries_actionplan:checklistItemManager",
+          "id" : "34606def-94cd-43b8-ac41-20128cc3049b",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c5bf3ecf-3525-4be9-8770-c7bab17b9887",
+        "regionLabel" : "Items",
+        "regionName" : "tab1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:recordDetail",
+          "id" : "691ca75f-b2ba-4195-9161-dab32a9ca2ad",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "0b04934c-74c2-4977-9d16-e3b731ec9510",
+        "regionLabel" : "Details",
+        "regionName" : "tab2",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d85a6bde-6e82-4d1f-95f0-f0fe920f4e1b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "1101e025-fab8-45c8-96ef-7ede4656ea41",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "256bc859-df20-4d0b-9ce7-30f8ba3ece17",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3a631a5b-a298-4f8c-a868-de01919e2d25",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-0PR"
+}
