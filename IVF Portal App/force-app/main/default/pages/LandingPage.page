@@ -74,7 +74,7 @@
                            margin-bottom: 10px;
                            text-align: center;
                            ">
-                    Welcome to IVF Program Portal BC
+                    Welcome to the IVF Program Portal BC
                 </h2>
                 <p style="
                           font-size: 14px;
@@ -87,9 +87,9 @@
                 </p>
                 
                 <a href="https://common-logon-test.hlth.gov.bc.ca/auth/realms/moh_applications/protocol/openid-connect" target="_blank">
-                    <button class="login-button">Login</button>
+                    <button class="login-button">LOG IN</button>
                 </a>
-            </div>            
+            </div>
         </body>
     </html>
 </apex:page>
