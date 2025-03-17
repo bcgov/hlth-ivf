@@ -57,7 +57,7 @@
             </style>
         </head>
         <body>
-                        <div class="header">
+            <div class="header">
                 <img src="{!$Resource.IVFLogo}" alt="British Columbia Logo" style="width: 200px; height: auto; display: block;" />
             </div>
             
