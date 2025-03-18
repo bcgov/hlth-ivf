@@ -168,6 +168,38 @@
         <profile>Admin</profile>
     </profileActionOverrides>
     <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFeeScheduleLightningPage</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>IVFFeeSchedule__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFeeScheduleLightningPage</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>IVFFeeSchedule__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFeeScheduleLightningPage</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>IVFFeeSchedule__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>MoH Standard User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFeeScheduleLightningPage</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>IVFFeeSchedule__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>MoH Standard User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
         <actionName>Tab</actionName>
         <content>Home_Page_Default</content>
         <formFactor>Large</formFactor>
