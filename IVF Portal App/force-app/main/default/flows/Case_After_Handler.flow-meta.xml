@@ -739,6 +739,9 @@
                     <stringValue>Approved</stringValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Get_Treatment_Record_Type_Id</targetReference>
+            </connector>
             <label>Approved</label>
         </rules>
         <rules>
@@ -1419,6 +1422,38 @@
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordCreates>
+        <name>Create_Treatment_Records</name>
+        <label>Create Treatment Records</label>
+        <locationX>842</locationX>
+        <locationY>971</locationY>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>Get_Treatment_Record_Type_Id.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TreatmentStatus__c</field>
+            <value>
+                <stringValue>Not Started</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
     <recordLookups>
         <name>Copy_1_of_Get_Existing_Patients_for_Applicant2</name>
         <label>Copy 1 of Get Existing Patients for Applicant2</label>
@@ -1636,6 +1671,27 @@
             <operator>EqualTo</operator>
             <value>
                 <stringValue>IVF_Application_Read_Only</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Treatment_Record_Type_Id</name>
+        <label>Get Treatment Record Type Id</label>
+        <locationX>842</locationX>
+        <locationY>863</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Treatment_Records</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IVFTreatment</stringValue>
             </value>
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
