@@ -150,17 +150,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Applicant3ReceivedFunding__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>ApplicantConsent__c</picklist>
         <values>
             <fullName>No</fullName>
