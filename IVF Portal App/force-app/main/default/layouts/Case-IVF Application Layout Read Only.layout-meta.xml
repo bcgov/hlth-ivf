@@ -501,6 +501,18 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <excludeButtons>ChangeOwner</excludeButtons>
+        <excludeButtons>ChangeStatus</excludeButtons>
+        <excludeButtons>MassClose</excludeButtons>
+        <excludeButtons>NewCase</excludeButtons>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>PARENT.CASE_NUMBER</fields>
+        <fields>TreatmentStatus__c</fields>
+        <fields>Treatmentstartdate__c</fields>
+        <relatedList>RelatedChildCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedCommentsList</relatedList>
     </relatedLists>
     <relatedLists>
