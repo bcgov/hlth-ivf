@@ -243,6 +243,42 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFTreatmentPage</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.IVFTreatment</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFTreatmentPage</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.IVFTreatment</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFTreatmentPage</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.IVFTreatment</recordType>
+        <type>Flexipage</type>
+        <profile>MoH Standard User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFTreatmentPage</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.IVFTreatment</recordType>
+        <type>Flexipage</type>
+        <profile>MoH Standard User</profile>
+    </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Account</tabs>
