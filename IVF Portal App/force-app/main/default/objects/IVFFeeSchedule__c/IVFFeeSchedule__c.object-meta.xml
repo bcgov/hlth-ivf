@@ -155,9 +155,10 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>IVF Fee Schedule</label>
     <nameField>
+        <displayFormat>F-{00}</displayFormat>
         <label>IVF Fee Schedule Name</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>IVF Fee Schedules</pluralLabel>
     <searchLayouts></searchLayouts>
