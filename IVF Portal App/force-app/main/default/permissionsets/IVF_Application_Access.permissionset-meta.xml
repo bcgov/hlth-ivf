@@ -890,7 +890,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>IVFFeeSchedule__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -939,6 +939,10 @@
     </tabSettings>
     <tabSettings>
         <tab>standard-report</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>IVFFeeSchedule__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>
