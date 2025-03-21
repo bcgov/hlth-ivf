@@ -152,13 +152,12 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <label>IVF Fee Schedule</label>
     <nameField>
-        <displayFormat>F-{00}</displayFormat>
-        <label>IVF Fee Schedule Name</label>
+        <label>Treatment Component</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>IVF Fee Schedules</pluralLabel>
     <searchLayouts></searchLayouts>
