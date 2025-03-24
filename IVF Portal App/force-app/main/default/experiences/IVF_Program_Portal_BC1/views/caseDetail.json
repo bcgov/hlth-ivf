@@ -23,7 +23,7 @@
         "recordId" : "{!recordId}"
       },
       "componentName" : "forceCommunity:pathAssistant",
-      "id" : "12c4ff12-cd0b-46cc-9d7f-ed8d683d6434",
+      "id" : "b1e6e6bb-aa9c-48b4-bf28-918ead82ac65",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
