@@ -8,6 +8,13 @@
         <value>New button</value>
     </labels>
     <labels>
+        <fullName>Org_Domain_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Org_Domain_URL</shortDescription>
+        <value>https://bcministryofhealth-ivfportal--ivfdev.sandbox.my.salesforce.com</value>
+    </labels>
+    <labels>
         <fullName>Portal_URL</fullName>
         <language>en_US</language>
         <protected>false</protected>
