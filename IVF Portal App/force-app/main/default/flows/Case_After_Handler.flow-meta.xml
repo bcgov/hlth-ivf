@@ -1083,7 +1083,7 @@
     <formulas>
         <name>CurrentOrgDomain</name>
         <dataType>String</dataType>
-        <expression>LEFT({!$Api.Enterprise_Server_URL_630}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_URL_630}) - 1)</expression>
+        <expression>{!$Label.Org_Domain_Url}</expression>
     </formulas>
     <interviewLabel>Case After Handler {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case After Handler</label>
@@ -1937,7 +1937,7 @@
         <triggerType>RecordAfterSave</triggerType>
     </start>
     <status>Active</status>
-   <textTemplates>
+    <textTemplates>
         <name>ChangesCompletedEmailBody</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
         <text>&lt;p&gt;This is to notify you that the IVF Application &lt;b&gt;{!$Record.CaseNumber}&lt;/b&gt; Status is updated to &lt;b&gt;{!$Record.Status}&lt;/b&gt;. Please review the Application by clicking the below link and take appropriate action.&lt;/p&gt;
