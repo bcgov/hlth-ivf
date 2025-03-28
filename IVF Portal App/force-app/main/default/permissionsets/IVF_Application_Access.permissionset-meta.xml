@@ -289,6 +289,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.ApprovedTreatmentFunding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.AreYouAGestationalCarrier__c</field>
         <readable>true</readable>
@@ -296,6 +301,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.AvailableTreatmentBalance__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -391,6 +401,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.FirstName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.FundingTier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
