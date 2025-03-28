@@ -660,6 +660,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.TreatmentApprovedTotal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.TreatmentRemainingTotal__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Type</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -676,6 +686,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.UsingPreviouslyFrozenEmbryo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IVFFundingTier__c.Funding_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -743,6 +758,15 @@
         <object>IVFTreatmentLineItem__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>IVFFundingTier__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
@@ -766,6 +790,10 @@
         <tab>IVFFeeSchedule__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+    <tabSettings>
+        <tab>IVFFundingTier__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabSettings>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
