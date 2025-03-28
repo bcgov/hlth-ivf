@@ -289,6 +289,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.ApprovedTreatmentFunding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.AreYouAGestationalCarrier__c</field>
         <readable>true</readable>
@@ -296,6 +301,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.AvailableTreatmentBalance__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -391,6 +401,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.FirstName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.FundingTier__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -853,6 +868,11 @@
         <field>IVFFeeSchedule__c.TreatmentComponent__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IVFFundingTier__c.Funding_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <description>This permission set will provide access to IVF Application along with its related Objects</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>IVF Application Access</label>
@@ -890,6 +910,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>IVFFeeSchedule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>IVFFundingTier__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -943,6 +972,10 @@
     </tabSettings>
     <tabSettings>
         <tab>IVFFeeSchedule__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>IVFFundingTier__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
 </PermissionSet>

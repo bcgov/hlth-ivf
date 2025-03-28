@@ -279,6 +279,38 @@
         <type>Flexipage</type>
         <profile>MoH Standard User</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFundingTier</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>MoH Standard User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFundingTier</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>MoH Standard User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFundingTier</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>IVFFundingTier</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Account</tabs>
@@ -286,5 +318,6 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>IVFFeeSchedule__c</tabs>
+    <tabs>IVFFundingTier__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>
