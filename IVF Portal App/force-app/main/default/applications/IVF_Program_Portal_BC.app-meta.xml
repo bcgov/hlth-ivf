@@ -281,7 +281,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>IVF_Funding_Tier</content>
+        <content>IVFFundingTier</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
         <type>Flexipage</type>
@@ -289,7 +289,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>IVF_Funding_Tier</content>
+        <content>IVFFundingTier</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
         <type>Flexipage</type>
@@ -297,7 +297,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>IVF_Funding_Tier</content>
+        <content>IVFFundingTier</content>
         <formFactor>Small</formFactor>
         <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
         <type>Flexipage</type>
@@ -305,7 +305,7 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>IVF_Funding_Tier</content>
+        <content>IVFFundingTier</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>IVFFundingTier__c</pageOrSobjectType>
         <type>Flexipage</type>

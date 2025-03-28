@@ -805,10 +805,10 @@
         <tab>IVFFeeSchedule__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <tabSettings>
+    <tabVisibilities>
         <tab>IVFFundingTier__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabSettings>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
