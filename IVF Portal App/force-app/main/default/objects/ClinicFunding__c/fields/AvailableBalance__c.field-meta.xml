@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>AvailableBalance__c</fullName>
-    <label>Available Balance</label>
+    <label>Total Clinic Available Balance</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
