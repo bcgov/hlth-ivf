@@ -206,16 +206,6 @@
                 <identifier>RecordFundingTier__cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.AvailableTreatmentBalance__c</fieldItem>
-                <identifier>RecordAvailableTreatmentBalance__cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-8d11b680-c801-4488-976a-adfd921a434f</name>
         <type>Facet</type>
     </flexiPageRegions>
