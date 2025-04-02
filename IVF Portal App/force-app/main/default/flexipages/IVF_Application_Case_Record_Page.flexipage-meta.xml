@@ -124,6 +124,16 @@
                 </visibilityRule>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Clinic_Funding__c</fieldItem>
+                <identifier>RecordClinic_Funding__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-bb492169-21ce-47e4-9639-c3e1f05ae513</name>
         <type>Facet</type>
     </flexiPageRegions>
