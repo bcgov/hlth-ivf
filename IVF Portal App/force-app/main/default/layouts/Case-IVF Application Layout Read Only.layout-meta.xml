@@ -28,6 +28,10 @@
                 <behavior>Readonly</behavior>
                 <field>FinalDecisionDate__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Clinic_Funding__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -58,10 +62,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>FundingTier__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AvailableTreatmentBalance__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

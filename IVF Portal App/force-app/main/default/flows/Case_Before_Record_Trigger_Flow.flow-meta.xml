@@ -2,42 +2,36 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>62.0</apiVersion>
     <assignments>
-        <name>assign_Allocated_Slots</name>
-        <label>assign Allocated Slots</label>
-        <locationX>446</locationX>
-        <locationY>503</locationY>
+        <name>Deduct_Balance</name>
+        <label>Deduct Balance</label>
+        <locationX>50</locationX>
+        <locationY>755</locationY>
         <assignmentItems>
-            <assignToReference>$Record.Allocated_Slots__c</assignToReference>
-            <operator>Assign</operator>
+            <assignToReference>Get_Clinic_Funding_Records.AvailableBalance__c</assignToReference>
+            <operator>Subtract</operator>
             <value>
-                <elementReference>Get_Allocated_location_for_Parent_Clinic.Allocated_Slots__c</elementReference>
+                <elementReference>IVF_Allocate_Balance_Value</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Get_Existing_Clinic_Details</targetReference>
+            <targetReference>Update_Clinics_Available_Balance</targetReference>
         </connector>
     </assignments>
-    <assignments>
-        <name>Assign_Existing_Clinics_Count</name>
-        <label>Assign Existing Clinics Count</label>
-        <locationX>578</locationX>
-        <locationY>803</locationY>
-        <assignmentItems>
-            <assignToReference>TotalExistingClinics</assignToReference>
-            <operator>AssignCount</operator>
-            <value>
-                <elementReference>Get_Existing_Clinic_Details</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Is_Status_Changed</targetReference>
-        </connector>
-    </assignments>
+    <customErrors>
+        <name>Capacity_Reached_Error</name>
+        <label>Capacity Reached Error</label>
+        <locationX>314</locationX>
+        <locationY>755</locationY>
+        <customErrorMessages>
+            <errorMessage>Your clinic has reached capacity. Unfortunately, no more applications can be accepted at this time.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
     <decisions>
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
-        <locationX>314</locationX>
-        <locationY>1019</locationY>
+        <locationX>534</locationX>
+        <locationY>431</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Application_Submitted</name>
@@ -61,55 +55,49 @@
             </connector>
             <label>Application Submitted</label>
         </rules>
-        <rules>
-            <name>Application_Not_Approved</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Not Approved</stringValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Update_Available_Slots_After_Not_Approved</targetReference>
-            </connector>
-            <label>Application Not Approved</label>
-        </rules>
     </decisions>
     <decisions>
-        <name>If_Allocated_Slots_is_Null</name>
-        <label>If Allocated Slots is Null?</label>
-        <locationX>578</locationX>
-        <locationY>287</locationY>
-        <defaultConnector>
-            <targetReference>Get_Existing_Clinic_Details</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <name>Check_Available_Balance</name>
+        <label>Check Available Balance</label>
+        <locationX>314</locationX>
+        <locationY>647</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
-            <name>Allocated_Slots_Empty</name>
+            <name>Sufficient_Balance</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Allocated_Slots__c</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>Get_Clinic_Funding_Records.AvailableBalance__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <elementReference>IVF_Allocate_Balance_Value</elementReference>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_Allocated_location_for_Parent_Clinic</targetReference>
+                <targetReference>Deduct_Balance</targetReference>
             </connector>
-            <label>Allocated Slots Empty</label>
+            <label>Sufficient Balance</label>
+        </rules>
+        <rules>
+            <name>Insufficient_Balance</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Clinic_Funding_Records.AvailableBalance__c</leftValueReference>
+                <operator>LessThan</operator>
+                <rightValue>
+                    <elementReference>IVF_Allocate_Balance_Value</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Capacity_Reached_Error</targetReference>
+            </connector>
+            <label>Insufficient Balance</label>
         </rules>
     </decisions>
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>578</locationX>
-        <locationY>911</locationY>
-        <defaultConnector>
-            <targetReference>Update_Available_Slots</targetReference>
-        </defaultConnector>
+        <locationX>776</locationX>
+        <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -129,21 +117,9 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
-        <name>FinalAvailableSlotsAfterNotApproved</name>
+        <name>IVF_Allocate_Balance_Value</name>
         <dataType>Number</dataType>
-        <expression>{!$Record.Allocated_Slots__c}-{!TotalExistingClinics}+1</expression>
-        <scale>0</scale>
-    </formulas>
-    <formulas>
-        <name>FinalAvailableSlotsAfterSubmitted</name>
-        <dataType>Number</dataType>
-        <expression>{!$Record.Allocated_Slots__c}-{!TotalExistingClinics}-1</expression>
-        <scale>0</scale>
-    </formulas>
-    <formulas>
-        <name>TotalAvailableClinics</name>
-        <dataType>Number</dataType>
-        <expression>IF(ISBLANK({!$Record.Allocated_Slots__c}), null, {!$Record.Allocated_Slots__c}-{!TotalExistingClinics})</expression>
+        <expression>VALUE({!$Label.IVF_Allocate_Balance})</expression>
         <scale>0</scale>
     </formulas>
     <interviewLabel>Case Before Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
@@ -168,41 +144,13 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
-        <name>Get_Allocated_location_for_Parent_Clinic</name>
-        <label>Get Allocated location for Parent Clinic</label>
-        <locationX>446</locationX>
-        <locationY>395</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>assign_Allocated_Slots</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>FertilitySpecialistClinicName__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.FertilitySpecialistClinicName__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Allocated_Slots__c</field>
-            <operator>IsNull</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Case</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Get_Clinic_Funding_Records</name>
         <label>Get Clinic Funding Records</label>
-        <locationX>50</locationX>
-        <locationY>1127</locationY>
+        <locationX>314</locationX>
+        <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Update_Available_Slots_After_Submitted</targetReference>
+            <targetReference>Check_Available_Balance</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -230,78 +178,11 @@
         <object>ClinicFunding__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordLookups>
-        <name>Get_Existing_Clinic_Details</name>
-        <label>Get Existing Clinic Details</label>
-        <locationX>578</locationX>
-        <locationY>695</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Assign_Existing_Clinics_Count</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>FertilitySpecialistClinicName__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.FertilitySpecialistClinicName__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Status</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Draft</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Status</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Not Approved</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
-        <object>Case</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
     <recordUpdates>
-        <name>Update_Available_Slots</name>
-        <label>Update Available Slots</label>
-        <locationX>842</locationX>
-        <locationY>1019</locationY>
-        <inputAssignments>
-            <field>Available_Slots__c</field>
-            <value>
-                <elementReference>TotalAvailableClinics</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Available_Slots_After_Not_Approved</name>
-        <label>Update Available Slots After Not Approved</label>
-        <locationX>314</locationX>
-        <locationY>1127</locationY>
-        <inputAssignments>
-            <field>Available_Slots__c</field>
-            <value>
-                <elementReference>FinalAvailableSlotsAfterNotApproved</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
-        <name>Update_Available_Slots_After_Submitted</name>
-        <label>Update Available Slots After Submitted</label>
+        <name>Update_Case_With_Clinic_Funding</name>
+        <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
-        <locationY>1235</locationY>
-        <inputAssignments>
-            <field>Available_Slots__c</field>
-            <value>
-                <elementReference>FinalAvailableSlotsAfterSubmitted</elementReference>
-            </value>
-        </inputAssignments>
+        <locationY>971</locationY>
         <inputAssignments>
             <field>Clinic_Funding__c</field>
             <value>
@@ -310,17 +191,27 @@
         </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Clinics_Available_Balance</name>
+        <label>Update Clinics Available Balance</label>
+        <locationX>50</locationX>
+        <locationY>863</locationY>
+        <connector>
+            <targetReference>Update_Case_With_Clinic_Funding</targetReference>
+        </connector>
+        <inputReference>Get_Clinic_Funding_Records</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>452</locationX>
+        <locationX>650</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>If_Allocated_Slots_is_Null</targetReference>
+            <targetReference>Is_Status_Changed</targetReference>
         </connector>
         <object>Case</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
-        <triggerType>RecordBeforeSave</triggerType>
+        <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <variables>
         <name>TotalExistingClinics</name>
         <dataType>Number</dataType>
