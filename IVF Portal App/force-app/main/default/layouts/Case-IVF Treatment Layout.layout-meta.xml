@@ -73,6 +73,10 @@
                 <field>TreatmentStatus__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AvailableTreatmentBalance1__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
             </layoutItems>
@@ -181,6 +185,11 @@
         <masterLabel>00hAs000004LwUv</masterLabel>
         <sizeX>3</sizeX>
         <sizeY>4</sizeY>
+        <summaryLayoutItems>
+            <field>ApprovedTreatmentFunding__c</field>
+            <posX>0</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
         <summaryLayoutItems>
             <field>ContactId</field>
             <posX>0</posX>
