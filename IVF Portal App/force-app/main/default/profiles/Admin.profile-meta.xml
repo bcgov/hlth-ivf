@@ -320,6 +320,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.Clinic_Funding__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.DateOfApplicationSubmission__c</field>
         <readable>true</readable>
     </fieldPermissions>
