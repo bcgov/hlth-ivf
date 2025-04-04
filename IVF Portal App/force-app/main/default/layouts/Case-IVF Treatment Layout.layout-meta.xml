@@ -66,14 +66,6 @@
                 <behavior>Edit</behavior>
                 <field>Treatmentstartdate__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ApprovedTreatmentFunding__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Clinic_Funding__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -83,10 +75,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>TotalTreatmentCost__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -193,11 +181,6 @@
         <masterLabel>00hAs000004LwUv</masterLabel>
         <sizeX>3</sizeX>
         <sizeY>4</sizeY>
-        <summaryLayoutItems>
-            <field>ApprovedTreatmentFunding__c</field>
-            <posX>0</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
         <summaryLayoutItems>
             <field>ContactId</field>
             <posX>0</posX>
