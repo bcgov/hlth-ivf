@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 ISNEW(),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 NOT(ISPICKVAL(Status,&quot;Draft&quot;))
 )</errorConditionFormula>
     <errorMessage>Application Status should be Draft</errorMessage>

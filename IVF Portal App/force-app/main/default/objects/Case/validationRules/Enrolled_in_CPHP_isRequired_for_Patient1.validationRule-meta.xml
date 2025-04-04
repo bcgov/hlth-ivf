@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 Patient1NotApplicable__c=False,
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 NOT(ISNEW()),
 NOT(ISBLANK(Text(EnrolledInCanadianPublicHealthPlan__c))),
 NOT(ISPICKVAL(EnrolledInCanadianPublicHealthPlan__c, &quot;Yes&quot;))

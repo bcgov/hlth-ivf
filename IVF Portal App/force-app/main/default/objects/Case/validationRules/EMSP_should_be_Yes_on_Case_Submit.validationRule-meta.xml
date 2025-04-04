@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 NOT(ISPICKVAL(Applicant1EnrolledinMedicalServicesPlan__c, &quot;Yes&quot;))
 )</errorConditionFormula>
     <errorMessage>Applicant 1 should be enrolled in MSP to be eligible for IVF funding.</errorMessage>

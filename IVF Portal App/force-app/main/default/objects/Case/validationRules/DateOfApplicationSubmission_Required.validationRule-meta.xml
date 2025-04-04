@@ -4,7 +4,8 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
-$Profile.Name =&apos;CMoH Standard User&apos;,
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+$Profile.Name =&apos;MoH Standard User&apos;,
 ISBLANK(DateOfApplicationSubmission__c)
 )</errorConditionFormula>
     <errorMessage>Date Of Application Submission is a Required field</errorMessage>

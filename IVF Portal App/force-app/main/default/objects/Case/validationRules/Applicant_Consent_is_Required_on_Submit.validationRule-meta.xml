@@ -3,16 +3,19 @@
     <fullName>Applicant_Consent_is_Required_on_Submit</fullName>
     <active>true</active>
     <description>Need to check Applicant Consent on Case Submission</description>
-    <errorConditionFormula>OR(
-AND(
-ISNEW(),
-NOT(ISBLANK(Text(ApplicantConsent__c))),
-NOT(ISPICKVAL(ApplicantConsent__c, &quot;Yes&quot;))
-),
-AND(
-   NOT(ISNEW()),
-   NOT(ISPICKVAL(ApplicantConsent__c, &quot;Yes&quot;))
-)
+    <errorConditionFormula>AND(
+    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+    OR(
+        AND(
+            ISNEW(),
+            NOT(ISBLANK(Text(ApplicantConsent__c))),
+            NOT(ISPICKVAL(ApplicantConsent__c, &quot;Yes&quot;))
+        ),
+        AND(
+            NOT(ISNEW()),
+            NOT(ISPICKVAL(ApplicantConsent__c, &quot;Yes&quot;))
+        )
+    )
 )</errorConditionFormula>
     <errorMessage>Applicant consent needs to be marked Yes to submit the application</errorMessage>
 </ValidationRule>

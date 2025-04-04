@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 ISBLANK(LastName__c)
 )</errorConditionFormula>
     <errorMessage>Last Name is Required</errorMessage>
