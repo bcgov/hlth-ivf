@@ -295,7 +295,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.AvailableTreatmentBalance__c</field>
+        <field>Case.AvailableTreatmentBalance1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

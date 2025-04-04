@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>AvailableTreatmentBalance__c</fullName>
+    <fullName>AvailableTreatmentBalance1__c</fullName>
     <formula>ApprovedTreatmentFunding__c - TotalTreatmentCost__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Available Treatment Balance</label>

@@ -84,7 +84,7 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.AvailableTreatmentBalance__c</fieldItem>
+                <fieldItem>Record.AvailableTreatmentBalance1__c</fieldItem>
                 <identifier>RecordAvailableTreatmentBalance1_cField</identifier>
             </fieldInstance>
         </itemInstances>
