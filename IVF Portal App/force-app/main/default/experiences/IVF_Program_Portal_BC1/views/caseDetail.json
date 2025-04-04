@@ -20,15 +20,6 @@
       "type" : "component"
     }, {
       "componentAttributes" : {
-        "recordId" : "{!recordId}"
-      },
-      "componentName" : "forceCommunity:pathAssistant",
-      "id" : "b1e6e6bb-aa9c-48b4-bf28-918ead82ac65",
-      "renderPriority" : "NEUTRAL",
-      "renditionMap" : { },
-      "type" : "component"
-    }, {
-      "componentAttributes" : {
         "detailsTabLabel" : "Details",
         "discussionsTabLabel" : "Feed",
         "recordId" : "{!recordId}",
