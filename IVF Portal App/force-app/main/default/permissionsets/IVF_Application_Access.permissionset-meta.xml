@@ -294,6 +294,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.AvailableTreatmentBalance__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.AreYouAGestationalCarrier__c</field>
         <readable>true</readable>
@@ -686,6 +691,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.SuppliedEmail</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.TotalTreatmentCost__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
