@@ -54,10 +54,30 @@
                 <identifier>RecordTreatmentStatus_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.TotalTreatmentCost__c</fieldItem>
+                <identifier>RecordTotalTreatmentCost__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-36eb0282-b996-4e26-bae6-5ce54ec940f8</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.ApprovedTreatmentFunding__c</fieldItem>
+                <identifier>RecordApprovedTreatmentFunding_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <itemInstances>
             <fieldInstance>
                 <fieldInstanceProperties>
