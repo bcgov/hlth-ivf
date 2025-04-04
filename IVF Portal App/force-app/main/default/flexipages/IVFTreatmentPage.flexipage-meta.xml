@@ -84,6 +84,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.AvailableTreatmentBalance1__c</fieldItem>
+                <identifier>RecordAvailableTreatmentBalance1_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Treatmentstartdate__c</fieldItem>
                 <identifier>RecordTreatmentstartdate_cField</identifier>
             </fieldInstance>
