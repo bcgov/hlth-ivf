@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NOAReceived_RequiredForApproval</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( 
+AND(
+ISBLANK(TEXT(NOARecevied__c )),
+ISPICKVAL( Status , &apos;Approved&apos;),
+OR( RecordType.DeveloperName = &apos;IVF_Application&apos;, RecordType.DeveloperName = &apos;IVF_Application_Read_Only&apos;) 
+), true, false 
+)</errorConditionFormula>
+    <errorMessage>The application cannot be approved until the NOA is received.</errorMessage>
+</ValidationRule>
