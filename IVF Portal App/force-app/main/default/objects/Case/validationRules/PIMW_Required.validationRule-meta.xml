@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 ISBLANK(Text(PrivateInsuranceWaiver__c))
 )</errorConditionFormula>
     <errorMessage>Private Insurance Medication Waiver is Required</errorMessage>

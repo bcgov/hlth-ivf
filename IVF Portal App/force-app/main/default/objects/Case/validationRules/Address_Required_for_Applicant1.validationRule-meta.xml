@@ -3,14 +3,15 @@
     <fullName>Address_Required_for_Applicant1</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-NOT(ISNEW()),
-OR(
-ISBLANK(Text(Applicant1Address__StateCode__s)),
-ISBLANK(Text(Applicant1Address__CountryCode__s)),
-ISBLANK(Applicant1Address__City__s),
-ISBLANK(Applicant1Address__Street__s),
-ISBLANK(Applicant1Address__PostalCode__s)
-)
+    NOT(ISNEW()),
+    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+    OR(
+        ISBLANK(Text(Applicant1Address__StateCode__s)),
+        ISBLANK(Text(Applicant1Address__CountryCode__s)),
+        ISBLANK(Applicant1Address__City__s),
+        ISBLANK(Applicant1Address__Street__s),
+        ISBLANK(Applicant1Address__PostalCode__s)
+    )
 )</errorConditionFormula>
     <errorMessage>Address is Required for Applicant 1</errorMessage>
 </ValidationRule>

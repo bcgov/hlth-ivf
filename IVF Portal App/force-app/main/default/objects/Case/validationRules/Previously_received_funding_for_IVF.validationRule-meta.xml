@@ -3,6 +3,7 @@
     <fullName>Previously_received_funding_for_IVF</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
  ISPICKVAL(PreviouslyReceivedFundingforIVF__c, &quot;Yes&quot;),
  ISBLANK(Details__c) 
 )</errorConditionFormula>

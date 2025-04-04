@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 ISBLANK(EstimatedCostofTreatmentPlan__c)
 )</errorConditionFormula>
     <errorMessage>Estimated Cost of Treatment Plan is Required</errorMessage>

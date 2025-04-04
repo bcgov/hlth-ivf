@@ -4,7 +4,9 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 ISPICKVAL(Applicant1MedicallyEligible__c,&apos;No&apos;)
 )</errorConditionFormula>
+    <errorDisplayField>Applicant1MedicallyEligible__c</errorDisplayField>
     <errorMessage>Applicant 1 (Intended Parent) should be medically eligible to be eligible for IVF Funding</errorMessage>
 </ValidationRule>
