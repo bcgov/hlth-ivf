@@ -86,10 +86,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>AvailableTreatmentBalance__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>TotalTreatmentCost__c</field>
             </layoutItems>
         </layoutColumns>
