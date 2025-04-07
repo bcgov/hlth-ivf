@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>TotalTreatmentCost__c</fullName>
-    <label>Total Treatment Cost</label>
+    <label>Total Treatment Funding</label>
     <summarizedField>IVFTreatmentLineItem__c.TreatmentCost__c</summarizedField>
     <summaryForeignKey>IVFTreatmentLineItem__c.ParentId__c</summaryForeignKey>
     <summaryOperation>sum</summaryOperation>

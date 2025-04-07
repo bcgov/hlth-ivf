@@ -64,17 +64,25 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Treatmentstartdate__c</field>
+                <field>TreatmentStatus__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>TotalTreatmentCost__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>TreatmentStatus__c</field>
+                <field>ApprovedTreatmentFunding__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AvailableTreatmentBalance__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ContactId</field>
+                <field>Treatmentstartdate__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -85,6 +93,10 @@
         <editHeading>false</editHeading>
         <label>Fields</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ContactId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
@@ -180,9 +192,9 @@
     <summaryLayout>
         <masterLabel>00hAs000004LwUv</masterLabel>
         <sizeX>3</sizeX>
-        <sizeY>4</sizeY>
+        <sizeY>2</sizeY>
         <summaryLayoutItems>
-            <field>ContactId</field>
+            <field>ApprovedTreatmentFunding__c</field>
             <posX>0</posX>
             <posY>0</posY>
         </summaryLayoutItems>
@@ -194,26 +206,6 @@
         <summaryLayoutItems>
             <field>CreatedDate</field>
             <posX>1</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Subject</field>
-            <posX>1</posX>
-            <posY>2</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Description</field>
-            <posX>1</posX>
-            <posY>3</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Status</field>
-            <posX>2</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Priority</field>
-            <posX>2</posX>
             <posY>1</posY>
         </summaryLayoutItems>
         <summaryLayoutStyle>CaseInteraction</summaryLayoutStyle>
