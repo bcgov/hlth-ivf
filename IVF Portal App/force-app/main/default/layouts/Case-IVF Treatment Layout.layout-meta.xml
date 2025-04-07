@@ -208,26 +208,6 @@
             <posX>1</posX>
             <posY>1</posY>
         </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Subject</field>
-            <posX>1</posX>
-            <posY>2</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Description</field>
-            <posX>1</posX>
-            <posY>3</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Status</field>
-            <posX>2</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Priority</field>
-            <posX>2</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
         <summaryLayoutStyle>CaseInteraction</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
