@@ -78,7 +78,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>AvailableTreatmentBalance__c</field>
+                <field>AvailableTreatmentBalance1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
