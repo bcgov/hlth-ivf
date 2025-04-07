@@ -11,3 +11,4 @@ OR( RecordType.DeveloperName = &apos;IVF_Application&apos;, RecordType.Developer
 )</errorConditionFormula>
     <errorMessage>The application cannot be approved until the NOA is received.</errorMessage>
 </ValidationRule>
+
