@@ -14,13 +14,51 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Update_IVF_Treatment_Line_Item</targetReference>
+            <targetReference>Check_Available_Treatment_Balance</targetReference>
         </connector>
     </assignments>
+    <customErrors>
+        <name>Funds_Not_Sufficient</name>
+        <label>Funds Not Sufficient</label>
+        <locationX>138</locationX>
+        <locationY>755</locationY>
+        <connector>
+            <targetReference>Update_IVF_Treatment_Line_Item</targetReference>
+        </connector>
+        <customErrorMessages>
+            <errorMessage>Insufficient funding. Available balance is lower than the treatment cost.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Check_Available_Treatment_Balance</name>
+        <label>Check Available Treatment Balance</label>
+        <locationX>50</locationX>
+        <locationY>647</locationY>
+        <defaultConnector>
+            <targetReference>Funds_Not_Sufficient</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Sufficient_Funding</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.ParentId__r.AvailableTreatmentBalance__c</leftValueReference>
+                <operator>GreaterThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.TreatmentCost__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_IVF_Treatment_Line_Item</targetReference>
+            </connector>
+            <label>Sufficient Funding</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Is_Treatment_Component_Populated</name>
         <label>Is Treatment Component Populated?</label>
-        <locationX>182</locationX>
+        <locationX>226</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -86,7 +124,7 @@
         <name>Update_IVF_Treatment_Line_Item</name>
         <label>Update IVF Treatment Line Item</label>
         <locationX>50</locationX>
-        <locationY>647</locationY>
+        <locationY>947</locationY>
         <inputAssignments>
             <field>TreatmentCost__c</field>
             <value>
@@ -96,7 +134,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>56</locationX>
+        <locationX>100</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Treatment_Component_Populated</targetReference>
