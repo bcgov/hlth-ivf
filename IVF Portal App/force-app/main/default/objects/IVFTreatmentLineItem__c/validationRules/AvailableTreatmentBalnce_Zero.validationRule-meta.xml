@@ -3,9 +3,12 @@
     <fullName>AvailableTreatmentBalnce_Zero</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-    ISNEW(),
-    NOT(ISBLANK(ParentId__c)),
-    ParentId__r.AvailableTreatmentBalance__c &lt;= 0
+ISNEW(),
+NOT(ISBLANK(ParentId__c)),
+OR(
+ParentId__r.AvailableTreatmentBalance1__c &lt;= 0,
+ISNULL(ParentId__r.AvailableTreatmentBalance1__c)
+)
 )</errorConditionFormula>
     <errorMessage>Funding has been fully utilized.</errorMessage>
 </ValidationRule>
