@@ -4,8 +4,9 @@
     <active>true</active>
     <errorConditionFormula>IF( 
 AND(
-ISBLANK(TEXT(NOARecevied__c )),
 ISPICKVAL( Status , &apos;Approved&apos;),
+OR(ISBLANK(TEXT(NOARecevied__c )),
+ISPICKVAL( Status , &apos;No&apos;)),        
 OR( RecordType.DeveloperName = &apos;IVF_Application&apos;, RecordType.DeveloperName = &apos;IVF_Application_Read_Only&apos;) 
 ), true, false 
 )</errorConditionFormula>
