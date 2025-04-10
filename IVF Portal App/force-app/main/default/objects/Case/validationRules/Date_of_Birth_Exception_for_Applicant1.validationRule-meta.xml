@@ -3,6 +3,7 @@
     <fullName>Date_of_Birth_Exception_for_Applicant1</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
+    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
     ISPICKVAL(AreYouAGestationalCarrier__c, &quot;Yes&quot;),
     ISBLANK(Details__c),
     OR(

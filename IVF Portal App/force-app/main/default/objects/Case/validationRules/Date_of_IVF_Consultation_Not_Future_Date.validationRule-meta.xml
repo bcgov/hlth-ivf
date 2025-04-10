@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 OR(
 ISBLANK(DateOfIVFConsultation__c ),
 DateOfIVFConsultation__c &gt; TODAY()

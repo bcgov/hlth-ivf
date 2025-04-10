@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Funding_Tier_Selection_Prevension</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(FundingTier__c),
+    OR(
+        ISPICKVAL(NOARecevied__c, &quot;No&quot;),
+        NOT(ISPICKVAL(Status, &quot;In Review&quot;))
+    ),
+    OR(
+        RecordType.DeveloperName = &apos;IVF_Application&apos;,
+        RecordType.DeveloperName = &apos;IVF_Application_Read_Only&apos;
+    )
+)</errorConditionFormula>
+    <errorMessage>You can only select or change a funding tier if the application is ‘In Review’ and NoA has been received.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ClinicFundingCompactLayout</fullName>
+    <fields>Clinic__c</fields>
+    <fields>AvailableBalance__c</fields>
+    <fields>FYStartDate__c</fields>
+    <fields>FYEndDate__c</fields>
+    <label>Clinic Funding Compact Layout</label>
+</CompactLayout>

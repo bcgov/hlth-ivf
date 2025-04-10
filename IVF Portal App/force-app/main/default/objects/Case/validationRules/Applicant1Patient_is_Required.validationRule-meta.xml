@@ -3,8 +3,10 @@
     <fullName>Applicant1Patient_is_Required</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-NOT(ISNEW()),
-ISBLANK(Text(Applicant1Patient__c))
+    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+    NOT(ISNEW()),
+    ISBLANK(Text(Applicant1Patient__c))
 )</errorConditionFormula>
+    <errorDisplayField>Applicant1Patient__c</errorDisplayField>
     <errorMessage>Patient is Required for Applicant 1</errorMessage>
 </ValidationRule>

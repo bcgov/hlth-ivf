@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 ISBLANK(Text(ExceptionRequest__c))
 )</errorConditionFormula>
     <errorMessage>Exception Request is Required</errorMessage>

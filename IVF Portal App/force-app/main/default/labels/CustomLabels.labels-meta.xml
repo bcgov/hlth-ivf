@@ -8,6 +8,20 @@
         <value>New button</value>
     </labels>
     <labels>
+        <fullName>IVF_Allocate_Balance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IVF_Allocate_Balance</shortDescription>
+        <value>19000</value>
+    </labels>
+    <labels>
+        <fullName>Org_Domain_Url</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Org_Domain_URL</shortDescription>
+        <value>https://bcministryofhealth-ivfportal--ivfdev.sandbox.my.salesforce.com</value>
+    </labels>
+    <labels>
         <fullName>Portal_URL</fullName>
         <language>en_US</language>
         <protected>false</protected>

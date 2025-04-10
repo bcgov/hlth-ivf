@@ -4,6 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND(
 NOT(ISNEW()),
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
 ISPICKVAL(Applicant1EnrolledinMedicalServicesPlan__c, &quot;Yes&quot;),
 ISBLANK(Applicant1PersonalHealthNumber__c)
 )</errorConditionFormula>

@@ -3,8 +3,10 @@
     <fullName>Required_Diagnostics_Completed</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-NOT(ISNEW()),
-ISBLANK(Text(Applicant1RequiredDiagnosticsCompleted__c))
+    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+    NOT(ISNEW()),
+    ISBLANK(Text(Applicant1RequiredDiagnosticsCompleted__c))
 )</errorConditionFormula>
+    <errorDisplayField>Applicant2RequiredDiagnosticsCompleted__c</errorDisplayField>
     <errorMessage>Required Diagnostics Completed in Applicant 1 is Required</errorMessage>
 </ValidationRule>
