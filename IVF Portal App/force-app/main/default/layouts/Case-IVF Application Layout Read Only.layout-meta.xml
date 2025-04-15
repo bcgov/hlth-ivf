@@ -18,10 +18,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>UsingPreviouslyFrozenEmbryo__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>ExceptionRequest__c</field>
             </layoutItems>
             <layoutItems>
@@ -36,15 +32,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>PrivateInsuranceWaiver__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>DateOfIVFConsultation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>EstimatedCostofTreatmentPlan__c</field>
+                <field>RequiredDiagnosticsCompleted__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -131,10 +123,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>PrivateInsuranceCoverageForIVF__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Applicant1GivenName__c</field>
             </layoutItems>
             <layoutItems>
@@ -150,14 +138,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>AreYouAGestationalCarrier__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Applicant1RequiredDiagnosticsCompleted__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Applicant1Patient__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -194,10 +174,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Ap2PrivateInsuranceCoverageForIVF__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Applicant2GivenName__c</field>
             </layoutItems>
             <layoutItems>
@@ -213,14 +189,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Applicant2PersonalHealthNumber__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Applicant2RequiredDiagnosticsCompleted__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Applicant2Patient__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
