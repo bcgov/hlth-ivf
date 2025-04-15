@@ -8,6 +8,5 @@
     <fields>MSPCoverageStatus__c</fields>
     <fields>FertilitySpecialistClinicName__c</fields>
     <fields>MonthlyMSPStatusCheck__c</fields>
-    <fields>DateOfLastMSPBatchJobRun__c</fields>
     <label>IVF Layout</label>
 </CompactLayout>
