@@ -32,7 +32,7 @@
                                     <rightValue>false</rightValue>
                                 </criteria>
                                 <criteria>
-                                    <leftValue>{!Record.Applicant3PersonalHealthNumber__c}</leftValue>
+                                    <leftValue>{!Record.Applicant2PersonalHealthNumber__c}</leftValue>
                                     <operator>NE</operator>
                                 </criteria>
                             </visibilityRule>
