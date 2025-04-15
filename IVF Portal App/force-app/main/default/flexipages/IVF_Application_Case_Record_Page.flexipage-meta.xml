@@ -15,44 +15,70 @@
                         </valueListItems>
                         <valueListItems>
                             <value>Case.VerifyMSPforApplicant1</value>
+                            <visibilityRule>
+                                <criteria>
+                                    <leftValue>{!Record.Applicant1PersonalHealthNumber__c}</leftValue>
+                                    <operator>NE</operator>
+                                </criteria>
+                            </visibilityRule>
                         </valueListItems>
                         <valueListItems>
                             <value>Case.VerifyMSPforApplicant2</value>
                             <visibilityRule>
+                                <booleanFilter>1 AND 2</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>false</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Applicant3PersonalHealthNumber__c}</leftValue>
+                                    <operator>NE</operator>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
                         <valueListItems>
                             <value>Case.VerifyMSPforPatient1</value>
                             <visibilityRule>
+                                <booleanFilter>1 AND 2</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>false</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Patient1PersonalHealthNumber__c}</leftValue>
+                                    <operator>NE</operator>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
                         <valueListItems>
                             <value>Case.VerifyMSPforPatient2</value>
                             <visibilityRule>
+                                <booleanFilter>1 AND 2</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>false</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Patient2PersonalHealthNumber__c}</leftValue>
+                                    <operator>NE</operator>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
                         <valueListItems>
                             <value>Case.VerifyMSPforPatient3</value>
                             <visibilityRule>
+                                <booleanFilter>1 AND 2</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>false</rightValue>
+                                </criteria>
+                                <criteria>
+                                    <leftValue>{!Record.Patient3PersonalHealthNumber__c}</leftValue>
+                                    <operator>NE</operator>
                                 </criteria>
                             </visibilityRule>
                         </valueListItems>
