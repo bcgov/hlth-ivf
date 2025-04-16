@@ -1029,7 +1029,6 @@
         <field>ClinicFunding__c.FYStartDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <description>This permission set will provide access to IVF Application along with its related Objects</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>IVF Application Access</label>
     <objectPermissions>
