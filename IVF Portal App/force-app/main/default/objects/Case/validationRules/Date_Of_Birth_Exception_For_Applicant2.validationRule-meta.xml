@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Of_Birth_Exception_For_Applicant2</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+(
+(DATE(YEAR(TODAY()), MONTH( Applicant2DateOfBirth__c ), DAY(Applicant2DateOfBirth__c )) &lt; 
+  DATE(YEAR(TODAY()) - 18, MONTH(TODAY()), DAY(TODAY())))
+),
+  NOT(ISBLANK(Applicant2DateOfBirth__c ))  
+)</errorConditionFormula>
+    <errorMessage>Applicant 2 must be at least 18 years old at the time of application submission. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
+</ValidationRule>
