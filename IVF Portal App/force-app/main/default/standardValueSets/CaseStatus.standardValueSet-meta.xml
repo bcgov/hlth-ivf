@@ -38,12 +38,6 @@
         <closed>false</closed>
     </standardValue>
     <standardValue>
-        <fullName>Appeal Requested</fullName>
-        <default>false</default>
-        <label>Appeal Requested</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
         <fullName>Approved</fullName>
         <default>false</default>
         <label>Approved</label>

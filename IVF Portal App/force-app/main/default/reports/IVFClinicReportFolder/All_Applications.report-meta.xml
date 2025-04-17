@@ -15,7 +15,7 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>false</isUnlocked>
             <operator>equals</operator>
-            <value>Draft,Submitted,In Review,Changes Requested,Changes Completed,Not Approved,Appeal Requested,Approved</value>
+            <value>Draft,Submitted,In Review,Changes Requested,Changes Completed,Not Approved,Approved</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>
