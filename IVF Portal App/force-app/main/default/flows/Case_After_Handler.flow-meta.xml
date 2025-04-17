@@ -41,7 +41,7 @@
     <actionCalls>
         <name>Send_Email_for_Changes_Requested</name>
         <label>Send Email for Changes Requested</label>
-        <locationX>2338</locationX>
+        <locationX>2602</locationX>
         <locationY>971</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
@@ -93,7 +93,7 @@
     <assignments>
         <name>Assign_Email_to_EmailListForChangesRequested</name>
         <label>Assign Email to EmailListForChangesRequested</label>
-        <locationX>2338</locationX>
+        <locationX>2602</locationX>
         <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>EmailListForChangesRequested</assignToReference>
@@ -116,8 +116,8 @@
     <assignments>
         <name>Assign_Existing_Patient_Details_from_Applicant2</name>
         <label>Assign Existing Patient Details from Applicant2</label>
-        <locationX>2830</locationX>
-        <locationY>2819</locationY>
+        <locationX>3028</locationX>
+        <locationY>3119</locationY>
         <assignmentItems>
             <assignToReference>Get_Existing_Patients_for_Applicant2.FirstName</assignToReference>
             <operator>Assign</operator>
@@ -223,8 +223,8 @@
     <assignments>
         <name>Copy_1_of_Assign_Existing_Patient_Details_from_Applicant2</name>
         <label>Copy 1 of Assign Existing Patient Details from Applicant2</label>
-        <locationX>1158</locationX>
-        <locationY>3593</locationY>
+        <locationX>1356</locationX>
+        <locationY>3893</locationY>
         <assignmentItems>
             <assignToReference>Copy_1_of_Get_Existing_Patients_for_Applicant2.FirstName</assignToReference>
             <operator>Assign</operator>
@@ -330,7 +330,7 @@
     <assignments>
         <name>Get_Selected_IVF_Funding_Tier</name>
         <label>Get Selected IVF Funding Tier</label>
-        <locationX>3130</locationX>
+        <locationX>3394</locationX>
         <locationY>539</locationY>
         <assignmentItems>
             <assignToReference>$Record.ApprovedTreatmentFunding__c</assignToReference>
@@ -346,8 +346,8 @@
     <assignments>
         <name>Update_Existing_Patient_Details_from_Applicant1</name>
         <label>Update Existing Patient Details from Applicant1</label>
-        <locationX>1015</locationX>
-        <locationY>2453</locationY>
+        <locationX>1213</locationX>
+        <locationY>2753</locationY>
         <assignmentItems>
             <assignToReference>Get_Existing_Patients.FirstName</assignToReference>
             <operator>Assign</operator>
@@ -453,8 +453,8 @@
     <customErrors>
         <name>Applicant_1_Patient_Existing_Error</name>
         <label>Applicant 1 Patient Existing Error</label>
-        <locationX>1994</locationX>
-        <locationY>2453</locationY>
+        <locationX>2192</locationX>
+        <locationY>2753</locationY>
         <customErrorMessages>
             <errorMessage>Duplicate Patient found with the same Personal Health Number ({!$Record.Applicant1PersonalHealthNumber__c}) for Applicant 1</errorMessage>
             <isFieldError>false</isFieldError>
@@ -463,8 +463,8 @@
     <customErrors>
         <name>Copy_1_of_Patient_Existing_Error_for_Applicant2</name>
         <label>Copy 1 of Patient Existing Error for Applicant2</label>
-        <locationX>1466</locationX>
-        <locationY>3209</locationY>
+        <locationX>1664</locationX>
+        <locationY>3509</locationY>
         <customErrorMessages>
             <errorMessage>Duplicate Patient found with the same Personal Health Number({!$Record.Applicant2PersonalHealthNumber__c}) for Applicant 2</errorMessage>
             <isFieldError>false</isFieldError>
@@ -474,7 +474,7 @@
         <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
         <name>Error_Message_on_Non_Read_Only</name>
         <label>Error Message on Non Read Only</label>
-        <locationX>2866</locationX>
+        <locationX>3130</locationX>
         <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>{!Error_Message_on_Non_Read_Only}</errorMessage>
@@ -485,7 +485,7 @@
         <description>&quot;An error occurred while processing this request. The record could not be updated due to insufficient permissions or an invalid record type assignment. Please ensure you have the necessary access to this record and try again. If the issue persists, contact your system administrator and provide the following details: Error Code - INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY.</description>
         <name>Error_Message_on_Read_Only</name>
         <label>Error Message on Read Only</label>
-        <locationX>1634</locationX>
+        <locationX>1898</locationX>
         <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>{!Error_Message_on_Read_Only}</errorMessage>
@@ -495,18 +495,47 @@
     <customErrors>
         <name>Patient_Existing_Error_for_Applicant2</name>
         <label>Patient Existing Error for Applicant2</label>
-        <locationX>3138</locationX>
-        <locationY>2435</locationY>
+        <locationX>3336</locationX>
+        <locationY>2735</locationY>
         <customErrorMessages>
             <errorMessage>Duplicate Patient found with the same Personal Health Number({!$Record.Applicant2PersonalHealthNumber__c}) for Applicant 2</errorMessage>
             <isFieldError>false</isFieldError>
         </customErrorMessages>
     </customErrors>
+    <customErrors>
+        <name>Show_Funding_Error</name>
+        <label>Show Funding Error</label>
+        <locationX>842</locationX>
+        <locationY>1295</locationY>
+        <customErrorMessages>
+            <errorMessage>Funding has been fully utilized.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Check_Available_Treatment_Balance</name>
+        <label>Check Available Treatment Balance</label>
+        <locationX>974</locationX>
+        <locationY>1187</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Insufficient_Funding</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Show_Funding_Error</targetReference>
+            </connector>
+            <label>Insufficient Funding</label>
+        </rules>
+    </decisions>
     <decisions>
         <name>Check_If_Allow_Duplicate_Patient_for_Applicant_1</name>
         <label>Check If Allow Duplicate Patient for Applicant 1</label>
-        <locationX>1504</locationX>
-        <locationY>2345</locationY>
+        <locationX>1702</locationX>
+        <locationY>2645</locationY>
         <defaultConnector>
             <targetReference>Applicant_1_Patient_Existing_Error</targetReference>
         </defaultConnector>
@@ -530,8 +559,8 @@
     <decisions>
         <name>Check_If_Applicant_2_Not_Applicable</name>
         <label>Check If Applicant 2 Not Applicable?</label>
-        <locationX>1015</locationX>
-        <locationY>2669</locationY>
+        <locationX>1213</locationX>
+        <locationY>2969</locationY>
         <defaultConnector>
             <targetReference>Copy_1_of_Get_Existing_Patients_for_Applicant2</targetReference>
         </defaultConnector>
@@ -555,8 +584,8 @@
     <decisions>
         <name>Check_If_Duplicates_allow_for_Applicant_2</name>
         <label>Check If Duplicates allow for Applicant 2</label>
-        <locationX>3050</locationX>
-        <locationY>2327</locationY>
+        <locationX>3248</locationX>
+        <locationY>2627</locationY>
         <defaultConnector>
             <targetReference>Patient_Existing_Error_for_Applicant2</targetReference>
         </defaultConnector>
@@ -580,7 +609,7 @@
     <decisions>
         <name>Check_if_status_is_Submitted</name>
         <label>Check if status is Submitted</label>
-        <locationX>3482</locationX>
+        <locationX>3746</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>Other Status Records</defaultConnectorLabel>
         <rules>
@@ -602,8 +631,8 @@
     <decisions>
         <name>Copy_1_of_Check_If_Duplicates_allow_for_Applicant_2</name>
         <label>Copy 1 of Check If Duplicates allow for Applicant 2</label>
-        <locationX>1378</locationX>
-        <locationY>3101</locationY>
+        <locationX>1576</locationX>
+        <locationY>3401</locationY>
         <defaultConnector>
             <targetReference>Copy_1_of_Patient_Existing_Error_for_Applicant2</targetReference>
         </defaultConnector>
@@ -627,8 +656,8 @@
     <decisions>
         <name>Copy_1_of_If_If_Applicant_2_Patient_is_Exist</name>
         <label>Copy 1 of If If Applicant 2 Patient is Exist?</label>
-        <locationX>1444</locationX>
-        <locationY>2885</locationY>
+        <locationX>1642</locationX>
+        <locationY>3185</locationY>
         <defaultConnector>
             <targetReference>Copy_1_of_Create_Patient_for_Applicant2</targetReference>
         </defaultConnector>
@@ -652,8 +681,8 @@
     <decisions>
         <name>Copy_If_Applicant2_is_Already_Assigned</name>
         <label>Copy If Applicant2 is Already Assigned</label>
-        <locationX>1158</locationX>
-        <locationY>2993</locationY>
+        <locationX>1356</locationX>
+        <locationY>3293</locationY>
         <defaultConnector>
             <targetReference>Copy_1_of_Check_If_Duplicates_allow_for_Applicant_2</targetReference>
         </defaultConnector>
@@ -677,8 +706,8 @@
     <decisions>
         <name>Copy_If_Patient_is_already_assigned_to_Applicant2</name>
         <label>Copy If Patient is already assigned to Applicant2</label>
-        <locationX>938</locationX>
-        <locationY>3209</locationY>
+        <locationX>1136</locationX>
+        <locationY>3509</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Copy_1_of_Check_If_Duplicates_allow_for_Applicant_2</targetReference>
@@ -703,7 +732,7 @@
     <decisions>
         <name>Current_Status</name>
         <label>Current Status</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -776,8 +805,8 @@
     <decisions>
         <name>If_Applicant1_Exist_as_Patient</name>
         <label>If Applicant1 Exist as Patient</label>
-        <locationX>2096</locationX>
-        <locationY>1679</locationY>
+        <locationX>2294</locationX>
+        <locationY>1979</locationY>
         <defaultConnector>
             <targetReference>Create_Patient_from_Applicant1</targetReference>
         </defaultConnector>
@@ -801,8 +830,8 @@
     <decisions>
         <name>If_Applicant_2_Not_Applicable</name>
         <label>If Applicant 2 Not Applicable?</label>
-        <locationX>2687</locationX>
-        <locationY>1895</locationY>
+        <locationX>2885</locationX>
+        <locationY>2195</locationY>
         <defaultConnector>
             <targetReference>Get_Existing_Patients_for_Applicant2</targetReference>
         </defaultConnector>
@@ -826,8 +855,8 @@
     <decisions>
         <name>If_If_Applicant_2_Patient_is_Exist</name>
         <label>If If Applicant 2 Patient is Exist?</label>
-        <locationX>3116</locationX>
-        <locationY>2111</locationY>
+        <locationX>3314</locationX>
+        <locationY>2411</locationY>
         <defaultConnector>
             <targetReference>Create_Patient_for_Applicant2</targetReference>
         </defaultConnector>
@@ -851,8 +880,8 @@
     <decisions>
         <name>If_Patient_is_already_assigned_as_Appicant2</name>
         <label>If Patient is already assigned as Appicant2</label>
-        <locationX>2610</locationX>
-        <locationY>2435</locationY>
+        <locationX>2808</locationX>
+        <locationY>2735</locationY>
         <defaultConnector>
             <isGoTo>true</isGoTo>
             <targetReference>Check_If_Duplicates_allow_for_Applicant_2</targetReference>
@@ -877,8 +906,8 @@
     <decisions>
         <name>Is_Applicant1_is_Already_Assigned</name>
         <label>Is Applicant1 is Already Assigned</label>
-        <locationX>1504</locationX>
-        <locationY>1787</locationY>
+        <locationX>1702</locationX>
+        <locationY>2087</locationY>
         <defaultConnector>
             <targetReference>Check_If_Allow_Duplicate_Patient_for_Applicant_1</targetReference>
         </defaultConnector>
@@ -902,8 +931,8 @@
     <decisions>
         <name>Is_Applicant_2_is_Already_Assigned</name>
         <label>Is Applicant 2 is Already Assigned</label>
-        <locationX>2830</locationX>
-        <locationY>2219</locationY>
+        <locationX>3028</locationX>
+        <locationY>2519</locationY>
         <defaultConnector>
             <targetReference>Check_If_Duplicates_allow_for_Applicant_2</targetReference>
         </defaultConnector>
@@ -927,8 +956,8 @@
     <decisions>
         <name>Is_Patient_is_already_assigned_to_Applicant1</name>
         <label>Is Patient is already assigned to Applicant1</label>
-        <locationX>1350</locationX>
-        <locationY>2003</locationY>
+        <locationX>1548</locationX>
+        <locationY>2303</locationY>
         <defaultConnector>
             <targetReference>Check_If_Allow_Duplicate_Patient_for_Applicant_1</targetReference>
         </defaultConnector>
@@ -953,7 +982,7 @@
     <decisions>
         <name>Status_Change_Check</name>
         <label>Status Change Check</label>
-        <locationX>2096</locationX>
+        <locationX>2294</locationX>
         <locationY>323</locationY>
         <defaultConnector>
             <targetReference>Check_if_status_is_Submitted</targetReference>
@@ -1064,7 +1093,7 @@
     <decisions>
         <name>Status_Changes</name>
         <label>Status Changes</label>
-        <locationX>2250</locationX>
+        <locationX>2514</locationX>
         <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1140,8 +1169,8 @@
     <recordCreates>
         <name>Copy_1_of_Create_Patient_for_Applicant2</name>
         <label>Copy 1 of Create Patient for Applicant2</label>
-        <locationX>1730</locationX>
-        <locationY>2993</locationY>
+        <locationX>1928</locationX>
+        <locationY>3293</locationY>
         <connector>
             <targetReference>Copy_1_of_Update_Patient_Details_for_Applicants</targetReference>
         </connector>
@@ -1247,8 +1276,8 @@
     <recordCreates>
         <name>Create_Patient_for_Applicant2</name>
         <label>Create Patient for Applicant2</label>
-        <locationX>3402</locationX>
-        <locationY>2219</locationY>
+        <locationX>3600</locationX>
+        <locationY>2519</locationY>
         <connector>
             <targetReference>Update_Patient_Details_for_Applicants</targetReference>
         </connector>
@@ -1354,8 +1383,8 @@
     <recordCreates>
         <name>Create_Patient_from_Applicant1</name>
         <label>Create Patient from Applicant1</label>
-        <locationX>2687</locationX>
-        <locationY>1787</locationY>
+        <locationX>2885</locationX>
+        <locationY>2087</locationY>
         <connector>
             <targetReference>If_Applicant_2_Not_Applicable</targetReference>
         </connector>
@@ -1461,8 +1490,11 @@
     <recordCreates>
         <name>Create_Treatment_Records</name>
         <label>Create Treatment Records</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>1079</locationY>
+        <connector>
+            <targetReference>Check_Available_Treatment_Balance</targetReference>
+        </connector>
         <inputAssignments>
             <field>AccountId</field>
             <value>
@@ -1488,9 +1520,9 @@
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>TreatmentStatus__c</field>
+            <field>Treatmentstartdate__c</field>
             <value>
-                <stringValue>Not Started</stringValue>
+                <elementReference>$Record.FinalDecisionDate__c</elementReference>
             </value>
         </inputAssignments>
         <object>Case</object>
@@ -1499,8 +1531,8 @@
     <recordLookups>
         <name>Copy_1_of_Get_Existing_Patients_for_Applicant2</name>
         <label>Copy 1 of Get Existing Patients for Applicant2</label>
-        <locationX>1444</locationX>
-        <locationY>2777</locationY>
+        <locationX>1642</locationX>
+        <locationY>3077</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Copy_1_of_If_If_Applicant_2_Patient_is_Exist</targetReference>
@@ -1520,8 +1552,8 @@
     <recordLookups>
         <name>Copy_Get_Applicant2_Details</name>
         <label>Copy Get Applicant2 Details</label>
-        <locationX>938</locationX>
-        <locationY>3101</locationY>
+        <locationX>1136</locationX>
+        <locationY>3401</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Copy_If_Patient_is_already_assigned_to_Applicant2</targetReference>
@@ -1541,8 +1573,8 @@
     <recordLookups>
         <name>Get_Applicant1_Details</name>
         <label>Get Applicant1 Details</label>
-        <locationX>1350</locationX>
-        <locationY>1895</locationY>
+        <locationX>1548</locationX>
+        <locationY>2195</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Is_Patient_is_already_assigned_to_Applicant1</targetReference>
@@ -1562,8 +1594,8 @@
     <recordLookups>
         <name>get_Applicant2_Details</name>
         <label>get Applicant2 Details</label>
-        <locationX>2610</locationX>
-        <locationY>2327</locationY>
+        <locationX>2808</locationX>
+        <locationY>2627</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>If_Patient_is_already_assigned_as_Appicant2</targetReference>
@@ -1583,7 +1615,7 @@
     <recordLookups>
         <name>Get_Case_Record_Type</name>
         <label>Get Case Record Type</label>
-        <locationX>2250</locationX>
+        <locationX>2514</locationX>
         <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1607,7 +1639,7 @@
     <recordLookups>
         <name>Get_duplicate_Case_Records</name>
         <label>Get duplicate Case Records</label>
-        <locationX>2250</locationX>
+        <locationX>2514</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1656,8 +1688,8 @@
     <recordLookups>
         <name>Get_Existing_Patients</name>
         <label>Get Existing Patients</label>
-        <locationX>2096</locationX>
-        <locationY>1571</locationY>
+        <locationX>2294</locationX>
+        <locationY>1871</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>If_Applicant1_Exist_as_Patient</targetReference>
@@ -1677,8 +1709,8 @@
     <recordLookups>
         <name>Get_Existing_Patients_for_Applicant2</name>
         <label>Get Existing Patients for Applicant2</label>
-        <locationX>3116</locationX>
-        <locationY>2003</locationY>
+        <locationX>3314</locationX>
+        <locationY>2303</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>If_If_Applicant_2_Patient_is_Exist</targetReference>
@@ -1698,7 +1730,7 @@
     <recordLookups>
         <name>Get_IVF_Funding_Tier</name>
         <label>Get IVF Funding Tier</label>
-        <locationX>3130</locationX>
+        <locationX>3394</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1719,7 +1751,7 @@
     <recordLookups>
         <name>Get_Parent_IVF_Application_Record</name>
         <label>Get Parent IVF Application Record</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>863</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1735,12 +1767,14 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Case</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>ApprovedTreatmentFunding__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_Read_Only_Record_Type</name>
         <label>Get Read Only Record Type</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>539</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1764,7 +1798,7 @@
     <recordLookups>
         <name>Get_Treatment_Record_Type_Id</name>
         <label>Get Treatment Record Type Id</label>
-        <locationX>842</locationX>
+        <locationX>974</locationX>
         <locationY>971</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1785,8 +1819,8 @@
     <recordLookups>
         <name>GetPersonAccountRecordType</name>
         <label>GetPersonAccountRecordType</label>
-        <locationX>2096</locationX>
-        <locationY>1463</locationY>
+        <locationX>2294</locationX>
+        <locationY>1763</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Get_Existing_Patients</targetReference>
@@ -1813,8 +1847,8 @@
     <recordUpdates>
         <name>Copy_1_of_Update_Patient_Details_for_Applicants</name>
         <label>Copy 1 of Update Patient Details for Applicants</label>
-        <locationX>1730</locationX>
-        <locationY>3101</locationY>
+        <locationX>1928</locationX>
+        <locationY>3401</locationY>
         <inputAssignments>
             <field>Applicant1__c</field>
             <value>
@@ -1832,8 +1866,8 @@
     <recordUpdates>
         <name>Copy_Update_Existing_Patient_Related_to_Applicant2</name>
         <label>Copy Update Existing Patient Related to Applicant2</label>
-        <locationX>1158</locationX>
-        <locationY>3701</locationY>
+        <locationX>1356</locationX>
+        <locationY>4001</locationY>
         <connector>
             <targetReference>Copy_Update_Patient_Details_for_Both_Applicants</targetReference>
         </connector>
@@ -1842,8 +1876,8 @@
     <recordUpdates>
         <name>Copy_Update_Patient_Details_for_Both_Applicants</name>
         <label>Copy Update Patient Details for Both Applicants</label>
-        <locationX>1158</locationX>
-        <locationY>3809</locationY>
+        <locationX>1356</locationX>
+        <locationY>4109</locationY>
         <inputAssignments>
             <field>Applicant1__c</field>
             <value>
@@ -1861,7 +1895,7 @@
     <recordUpdates>
         <name>Final_date_Update</name>
         <label>Final date Update</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>431</locationY>
         <connector>
             <targetReference>Get_Read_Only_Record_Type</targetReference>
@@ -1892,8 +1926,8 @@
     <recordUpdates>
         <name>Update_Applicant_Details_for_Case</name>
         <label>Update Applicant Details for Case</label>
-        <locationX>2258</locationX>
-        <locationY>2003</locationY>
+        <locationX>2456</locationX>
+        <locationY>2303</locationY>
         <inputAssignments>
             <field>Applicant1__c</field>
             <value>
@@ -1905,8 +1939,8 @@
     <recordUpdates>
         <name>Update_Applicant_Details_from_Patients</name>
         <label>Update Applicant Details from Patients</label>
-        <locationX>586</locationX>
-        <locationY>2777</locationY>
+        <locationX>784</locationX>
+        <locationY>3077</locationY>
         <inputAssignments>
             <field>Applicant1__c</field>
             <value>
@@ -1918,7 +1952,7 @@
     <recordUpdates>
         <name>Update_Case_IVF_Application</name>
         <label>Update Case IVF Application</label>
-        <locationX>2250</locationX>
+        <locationX>2514</locationX>
         <locationY>647</locationY>
         <connector>
             <targetReference>Status_Changes</targetReference>
@@ -1934,7 +1968,7 @@
     <recordUpdates>
         <name>Update_Case_IVF_Application_Read_Only</name>
         <label>Update Case IVF Application Read Only</label>
-        <locationX>710</locationX>
+        <locationX>842</locationX>
         <locationY>647</locationY>
         <connector>
             <targetReference>Current_Status</targetReference>
@@ -1950,8 +1984,8 @@
     <recordUpdates>
         <name>Update_Existing_Patient_Related_to_Applicant2</name>
         <label>Update Existing Patient Related to Applicant2</label>
-        <locationX>2830</locationX>
-        <locationY>2927</locationY>
+        <locationX>3028</locationX>
+        <locationY>3227</locationY>
         <connector>
             <targetReference>Update_Patient_Details_for_Both_Applicants</targetReference>
         </connector>
@@ -1960,8 +1994,8 @@
     <recordUpdates>
         <name>Update_Patient_Details_for_Applicants</name>
         <label>Update Patient Details for Applicants</label>
-        <locationX>3402</locationX>
-        <locationY>2327</locationY>
+        <locationX>3600</locationX>
+        <locationY>2627</locationY>
         <inputAssignments>
             <field>Applicant1__c</field>
             <value>
@@ -1979,8 +2013,8 @@
     <recordUpdates>
         <name>Update_Patient_Details_for_Both_Applicants</name>
         <label>Update Patient Details for Both Applicants</label>
-        <locationX>2830</locationX>
-        <locationY>3035</locationY>
+        <locationX>3028</locationX>
+        <locationY>3335</locationY>
         <inputAssignments>
             <field>Applicant1__c</field>
             <value>
@@ -1998,15 +2032,15 @@
     <recordUpdates>
         <name>Update_Patient_Record_for_Applicant_1</name>
         <label>Update Patient Record for Applicant 1</label>
-        <locationX>1015</locationX>
-        <locationY>2561</locationY>
+        <locationX>1213</locationX>
+        <locationY>2861</locationY>
         <connector>
             <targetReference>Check_If_Applicant_2_Not_Applicable</targetReference>
         </connector>
         <inputReference>Get_Existing_Patients</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1970</locationX>
+        <locationX>2168</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Status_Change_Check</targetReference>

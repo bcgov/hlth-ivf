@@ -192,7 +192,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant1Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -212,7 +212,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant1MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -267,7 +267,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant2Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -282,7 +282,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant2MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -467,6 +467,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FundingComplete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.FundingTier__c</field>
         <readable>true</readable>
@@ -562,7 +567,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient1Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -582,7 +587,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient1MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -617,7 +622,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient2Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -632,7 +637,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient2MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -667,7 +672,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient3Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -687,7 +692,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient3MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1085,6 +1090,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>ClinicFunding__c</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>UserExternalCredential</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
         <recordType>Account.Clinic</recordType>

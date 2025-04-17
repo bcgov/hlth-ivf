@@ -3,5 +3,6 @@
     <hasActivationRequired>false</hasActivationRequired>
     <label>BDSB Admin Group</label>
     <permissionSets>IVF_Application_Access</permissionSets>
+    <permissionSets>LRA_Named_Credential_Access</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
