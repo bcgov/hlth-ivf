@@ -467,6 +467,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FundingComplete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.FundingTier__c</field>
         <readable>true</readable>
@@ -1085,6 +1090,10 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>ClinicFunding__c</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <enabled>true</enabled>
+        <name>UseExternalCredential</name>
     </objectPermissions>
     <recordTypeVisibilities>
         <recordType>Account.Clinic</recordType>
