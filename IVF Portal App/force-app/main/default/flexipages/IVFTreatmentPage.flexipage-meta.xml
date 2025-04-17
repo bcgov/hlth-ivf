@@ -50,8 +50,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.TreatmentStatus__c</fieldItem>
-                <identifier>RecordTreatmentStatus_cField</identifier>
+                <fieldItem>Record.Treatmentstartdate__c</fieldItem>
+                <identifier>RecordTreatmentstartdate_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -60,8 +60,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.TotalTreatmentCost__c</fieldItem>
-                <identifier>RecordTotalTreatmentCost__cField</identifier>
+                <fieldItem>Record.FundingComplete__c</fieldItem>
+                <identifier>RecordFundingComplete__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-36eb0282-b996-4e26-bae6-5ce54ec940f8</name>
@@ -94,8 +94,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Treatmentstartdate__c</fieldItem>
-                <identifier>RecordTreatmentstartdate_cField</identifier>
+                <fieldItem>Record.TotalTreatmentCost__c</fieldItem>
+                <identifier>RecordTotalTreatmentCost__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-1230785a-eaeb-4739-90e1-939a0445c060</name>
@@ -252,7 +252,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Treatment Details</value>
+                    <value>Funding Details</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab2</identifier>

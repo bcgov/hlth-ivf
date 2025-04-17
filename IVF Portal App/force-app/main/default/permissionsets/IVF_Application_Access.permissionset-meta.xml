@@ -192,7 +192,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant1Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -212,7 +212,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant1MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -267,7 +267,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant2Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -282,7 +282,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Applicant2MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -562,7 +562,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient1Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -582,7 +582,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient1MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -617,7 +617,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient2Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -632,7 +632,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient2MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -667,7 +667,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient3Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -687,7 +687,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Case.Patient3MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
