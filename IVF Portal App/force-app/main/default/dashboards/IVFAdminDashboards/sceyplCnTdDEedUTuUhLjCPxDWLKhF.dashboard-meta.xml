@@ -108,10 +108,10 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Appeal Requested</header>
+                <header>Exception Applications</header>
                 <legendPosition>Right</legendPosition>
                 <maxValuesDisplayed>6</maxValuesDisplayed>
-                <report>IVFClinicReportFolder/Appeal_Requested</report>
+                <report>IVFClinicReportFolder/Exception_Applications</report>
                 <showPercentage>false</showPercentage>
                 <showTotal>true</showTotal>
                 <showValues>true</showValues>
@@ -119,7 +119,7 @@
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
             <rowIndex>9</rowIndex>
-            <rowSpan>9</rowSpan>
+            <rowSpan>10</rowSpan>
         </dashboardGridComponents>
         <dashboardGridComponents>
             <colSpan>6</colSpan>
@@ -173,44 +173,6 @@
                     <column>RowCount</column>
                 </chartSummary>
                 <componentChartTheme>dark</componentChartTheme>
-                <componentType>Donut</componentType>
-                <decimalPrecision>-1</decimalPrecision>
-                <displayUnits>Auto</displayUnits>
-                <drillEnabled>false</drillEnabled>
-                <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
-                <groupingColumn>Case.FertilitySpecialistClinicName__c</groupingColumn>
-                <groupingSortProperties>
-                    <groupingSorts>
-                        <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
-                    </groupingSorts>
-                </groupingSortProperties>
-                <header>Exception Applications</header>
-                <legendPosition>Right</legendPosition>
-                <maxValuesDisplayed>6</maxValuesDisplayed>
-                <report>IVFClinicReportFolder/Exception_Applications</report>
-                <showPercentage>false</showPercentage>
-                <showTotal>true</showTotal>
-                <showValues>true</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>false</useReportChart>
-            </dashboardComponent>
-            <rowIndex>18</rowIndex>
-            <rowSpan>10</rowSpan>
-        </dashboardGridComponents>
-        <dashboardGridComponents>
-            <colSpan>6</colSpan>
-            <columnIndex>6</columnIndex>
-            <dashboardComponent>
-                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <chartAxisRange>Auto</chartAxisRange>
-                <chartSummary>
-                    <axisBinding>y</axisBinding>
-                    <column>RowCount</column>
-                </chartSummary>
-                <componentChartTheme>dark</componentChartTheme>
                 <componentType>Bar</componentType>
                 <decimalPrecision>-1</decimalPrecision>
                 <displayUnits>Auto</displayUnits>
@@ -234,7 +196,7 @@
                 <sortBy>RowLabelAscending</sortBy>
                 <useReportChart>false</useReportChart>
             </dashboardComponent>
-            <rowIndex>18</rowIndex>
+            <rowIndex>19</rowIndex>
             <rowSpan>10</rowSpan>
         </dashboardGridComponents>
         <numberOfColumns>12</numberOfColumns>
@@ -243,7 +205,7 @@
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
     <owner>aparna.pasala@pbcsolutions.ca</owner>
-    <runningUser>aparna.pasala@pbcsolutions.ca</runningUser>
+    <runningUser>ivfdeploymentuser@bc.gov.ca</runningUser>
     <textColor>#000000</textColor>
     <title>IVF Applications Dashboard</title>
     <titleColor>#000000</titleColor>
