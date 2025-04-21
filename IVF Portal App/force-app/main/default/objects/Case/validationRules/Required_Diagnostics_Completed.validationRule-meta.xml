@@ -5,7 +5,8 @@
     <errorConditionFormula>AND(
     NOT($RecordType.Name = &apos;IVF Treatment&apos;),
     NOT(ISNEW()),
-    ISBLANK(Text(Applicant1RequiredDiagnosticsCompleted__c))
+    ISBLANK(TEXT(Applicant1RequiredDiagnosticsCompleted__c)),
+    NOT(ISPICKVAL(Status, &apos;Draft&apos;))
 )</errorConditionFormula>
     <errorDisplayField>Applicant2RequiredDiagnosticsCompleted__c</errorDisplayField>
     <errorMessage>Required Diagnostics Completed in Applicant 1 is Required</errorMessage>
