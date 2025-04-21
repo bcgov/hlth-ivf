@@ -4,14 +4,24 @@
     <externalId>false</externalId>
     <formula>IF(
   AND(
-    ISPICKVAL(Applicant1MSPStatus__c, &quot;Enrolled&quot;),
-    ISPICKVAL(Applicant2MSPStatus__c, &quot;Enrolled&quot;),
-    ISPICKVAL(Patient1MSPStatus__c, &quot;Enrolled&quot;),
-    ISPICKVAL(Patient2MSPStatus__c, &quot;Enrolled&quot;),
-    ISPICKVAL(Patient3MSPStatus__c, &quot;Enrolled&quot;)
+    ISBLANK(TEXT(Applicant1MSPStatus__c)),
+    ISBLANK(TEXT(Applicant2MSPStatus__c)),
+    ISBLANK(TEXT(Patient1MSPStatus__c)),
+    ISBLANK(TEXT(Patient2MSPStatus__c)),
+    ISBLANK(TEXT(Patient3MSPStatus__c))
   ),
-  &quot;All Enrolled&quot;,
-  &quot;At least one person is not enrolled&quot;
+  NULL,
+  IF(
+    AND(
+      TEXT(Applicant1MSPStatus__c) = &quot;Enrolled&quot;,
+      TEXT(Applicant2MSPStatus__c) = &quot;Enrolled&quot;,
+      TEXT(Patient1MSPStatus__c) = &quot;Enrolled&quot;,
+      TEXT(Patient2MSPStatus__c) = &quot;Enrolled&quot;,
+      TEXT(Patient3MSPStatus__c) = &quot;Enrolled&quot;
+    ),
+    &quot;All Enrolled&quot;,
+    &quot;At least one person is not enrolled&quot;
+  )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>MSP Coverage Status</label>
