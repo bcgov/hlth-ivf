@@ -227,6 +227,16 @@
                 <identifier>RecordDayssincesubmission__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Clinic_Funding__c</fieldItem>
+                <identifier>RecordClinic_Funding_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-5b54b755-3af9-4d0d-9954-70b9cdc9e2eb</name>
         <type>Facet</type>
     </flexiPageRegions>
