@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_LineItem_If_FundingComplete</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISNEW(),
+    NOT(ISBLANK(ParentId__c)),
+    ParentId__r.FundingComplete__c = TRUE
+)</errorConditionFormula>
+    <errorMessage>You cannot add new treatment line items because funding is complete for this case.</errorMessage>
+</ValidationRule>
