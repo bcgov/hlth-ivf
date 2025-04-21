@@ -19,5 +19,5 @@
         )
     )
 )</errorConditionFormula>
-    <errorMessage>Applicants who are undergoing embryo transfer must be between 18-41 years of age at the time of application. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
+    <errorMessage>Applicants who will be undergoing embryo transfer must be between 18-41 years of age at the time of application. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
 </ValidationRule>
