@@ -38,10 +38,6 @@
                 <field>DateOfIVFConsultation__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>EstimatedCostofTreatmentPlan__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>DaysSinceSubmission__c</field>
             </layoutItems>
