@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TreatmentDate_Within_12Months</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+    ISBLANK(ParentId__r.Treatmentstartdate__c),
+    ISBLANK(TreatmentDate__c),
+    TreatmentDate__c &gt; ADDMONTHS(ParentId__r.Treatmentstartdate__c, 12)
+)</errorConditionFormula>
+    <errorMessage>The treatment date cannot be more than 12 months past the date of application approval. Please select a valid treatment date within the allowed timeframe.</errorMessage>
+</ValidationRule>

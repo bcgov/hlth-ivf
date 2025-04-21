@@ -64,6 +64,12 @@
                 <identifier>RecordFundingComplete__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.FundingCompleteReason__c</fieldItem>
+                <identifier>RecordFundingCompleteReason__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-36eb0282-b996-4e26-bae6-5ce54ec940f8</name>
         <type>Facet</type>
     </flexiPageRegions>

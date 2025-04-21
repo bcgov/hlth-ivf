@@ -5,7 +5,7 @@
         <name>Deduct_Balance</name>
         <label>Deduct Balance</label>
         <locationX>50</locationX>
-        <locationY>755</locationY>
+        <locationY>971</locationY>
         <assignmentItems>
             <assignToReference>Get_Clinic_Funding_Records.AvailableBalance__c</assignToReference>
             <operator>Subtract</operator>
@@ -17,11 +17,31 @@
             <targetReference>Update_Clinics_Available_Balance</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Set_MSP_Not_Enrolled_Reason</name>
+        <label>Set MSP Not Enrolled Reason</label>
+        <locationX>1370</locationX>
+        <locationY>647</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.FundingComplete__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.FundingCompleteReason__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not enrolled in MSP</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
     <customErrors>
         <name>Capacity_Reached_Error</name>
         <label>Capacity Reached Error</label>
         <locationX>314</locationX>
-        <locationY>755</locationY>
+        <locationY>971</locationY>
         <customErrorMessages>
             <errorMessage>Your clinic has reached capacity. Unfortunately, no more applications can be accepted at this time.</errorMessage>
             <isFieldError>false</isFieldError>
@@ -30,8 +50,8 @@
     <decisions>
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
-        <locationX>534</locationX>
-        <locationY>431</locationY>
+        <locationX>578</locationX>
+        <locationY>647</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Application_Submitted</name>
@@ -60,7 +80,7 @@
         <name>Check_Available_Balance</name>
         <label>Check Available Balance</label>
         <locationX>314</locationX>
-        <locationY>647</locationY>
+        <locationY>863</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Sufficient_Balance</name>
@@ -96,8 +116,8 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>776</locationX>
-        <locationY>323</locationY>
+        <locationX>1106</locationX>
+        <locationY>539</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Yes</name>
@@ -113,6 +133,64 @@
                 <targetReference>Application_Status_Changes</targetReference>
             </connector>
             <label>Yes</label>
+        </rules>
+        <rules>
+            <name>Funding_Utilized</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Treatment_Reason_and_Complete</targetReference>
+            </connector>
+            <label>Funding Utilized</label>
+        </rules>
+        <rules>
+            <name>Check_MSP_Enrollment</name>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
+            <conditions>
+                <leftValueReference>get_parent_record.Applicant1MSPStatus__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Enrolled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_parent_record.Applicant2MSPStatus__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Enrolled</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_ivf_treatment.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>IVFTreatment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_MSP_Not_Enrolled_Reason</targetReference>
+            </connector>
+            <label>Check MSP Enrollment</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -147,7 +225,7 @@
         <name>Get_Clinic_Funding_Records</name>
         <label>Get Clinic Funding Records</label>
         <locationX>314</locationX>
-        <locationY>539</locationY>
+        <locationY>755</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Check_Available_Balance</targetReference>
@@ -178,11 +256,56 @@
         <object>ClinicFunding__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>get_ivf_treatment</name>
+        <label>get ivf treatment</label>
+        <locationX>1106</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Is_Status_Changed</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>IVFTreatment</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>get_parent_record</name>
+        <label>get parent record</label>
+        <locationX>1106</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>get_ivf_treatment</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.ParentId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Applicant1MSPStatus__c</queriedFields>
+        <queriedFields>Applicant2MSPStatus__c</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
-        <locationY>971</locationY>
+        <locationY>1187</locationY>
         <inputAssignments>
             <field>Clinic_Funding__c</field>
             <value>
@@ -195,23 +318,50 @@
         <name>Update_Clinics_Available_Balance</name>
         <label>Update Clinics Available Balance</label>
         <locationX>50</locationX>
-        <locationY>863</locationY>
+        <locationY>1079</locationY>
         <connector>
             <targetReference>Update_Case_With_Clinic_Funding</targetReference>
         </connector>
         <inputReference>Get_Clinic_Funding_Records</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Treatment_Reason_and_Complete</name>
+        <label>Update Treatment Reason and Complete</label>
+        <locationX>1106</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>FundingCompleteReason__c</field>
+            <value>
+                <stringValue>Funding utilized</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>650</locationX>
+        <locationX>980</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Is_Status_Changed</targetReference>
+            <targetReference>get_parent_record</targetReference>
         </connector>
         <object>Case</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
+    <variables>
+        <name>Recordtype</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>RecordType</objectType>
+    </variables>
     <variables>
         <name>TotalExistingClinics</name>
         <dataType>Number</dataType>

@@ -1270,16 +1270,10 @@
                 <fieldItem>Record.Patient2EnrolledInMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordPatient2EnrolledInMedicalServicesPlan_cField</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Patient2IsThePatientFromOutOfCountry__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>No</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
@@ -1433,16 +1427,10 @@
                 <fieldItem>Record.Patient2DateOfBirth__c</fieldItem>
                 <identifier>RecordPatient2DateOfBirth_cField</identifier>
                 <visibilityRule>
-                    <booleanFilter>1 AND 2</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
-                    </criteria>
-                    <criteria>
-                        <leftValue>{!Record.Patient2IsThePatientFromOutOfCountry__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>No</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
