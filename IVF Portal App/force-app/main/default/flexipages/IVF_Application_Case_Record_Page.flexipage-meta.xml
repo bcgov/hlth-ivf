@@ -851,7 +851,7 @@
                 <identifier>RecordApplicant2Date_cField</identifier>
                 <visibilityRule>
                     <criteria>
-                        <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
+                        <leftValue>{!Record.NotApplicable__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>false</rightValue>
                     </criteria>
