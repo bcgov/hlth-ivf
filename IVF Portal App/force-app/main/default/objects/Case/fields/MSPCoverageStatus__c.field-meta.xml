@@ -12,15 +12,15 @@
   ),
   NULL,
   IF(
-    AND(
-      TEXT(Applicant1MSPStatus__c) = &quot;Enrolled&quot;,
-      TEXT(Applicant2MSPStatus__c) = &quot;Enrolled&quot;,
-      TEXT(Patient1MSPStatus__c) = &quot;Enrolled&quot;,
-      TEXT(Patient2MSPStatus__c) = &quot;Enrolled&quot;,
-      TEXT(Patient3MSPStatus__c) = &quot;Enrolled&quot;
+    OR(
+      TEXT(Applicant1MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Applicant2MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Patient1MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Patient2MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Patient3MSPStatus__c) = &quot;Not Enrolled&quot;
     ),
-    &quot;All Enrolled&quot;,
-    &quot;At least one person is not enrolled&quot;
+    &quot;At least one person is not enrolled&quot;,
+    &quot;All Enrolled&quot;
   )
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

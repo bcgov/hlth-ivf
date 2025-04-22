@@ -13,18 +13,14 @@
                 <field>ParentId__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Name</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>TreatmentDate__c</field>
+                <behavior>Edit</behavior>
+                <field>TreatmentComponent__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TreatmentComponent__c</field>
+                <behavior>Required</behavior>
+                <field>TreatmentDate__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -67,11 +63,6 @@
         <masterLabel>00hAs000004N1bO</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>1</sizeY>
-        <summaryLayoutItems>
-            <field>Name</field>
-            <posX>0</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
         <summaryLayoutItems>
             <field>ParentId__c</field>
             <posX>1</posX>
