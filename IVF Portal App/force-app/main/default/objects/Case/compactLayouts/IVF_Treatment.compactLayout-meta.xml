@@ -4,6 +4,6 @@
     <fields>CaseNumber</fields>
     <fields>AccountId</fields>
     <fields>RecordTypeId</fields>
-    <fields>ApprovedTreatmentFunding__c</fields>
+    <fields>FundingCompleteReason__c</fields>
     <label>IVF Treatment</label>
 </CompactLayout>

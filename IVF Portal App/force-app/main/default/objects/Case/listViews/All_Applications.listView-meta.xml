@@ -7,6 +7,11 @@
     <columns>CASES.STATUS</columns>
     <columns>OWNER_NAME</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
+    </filters>
     <label>All Applications</label>
     <sharedTo>
         <allCustomerPortalUsers></allCustomerPortalUsers>
