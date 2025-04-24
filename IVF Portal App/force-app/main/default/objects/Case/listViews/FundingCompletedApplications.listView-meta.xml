@@ -6,11 +6,16 @@
     <columns>FundingCompleteReason__c</columns>
     <columns>ApprovedTreatmentFunding__c</columns>
     <columns>AvailableTreatmentBalance1__c</columns>
-    <filterScope>Mine</filterScope>
+    <filterScope>Everything</filterScope>
     <filters>
         <field>CASES.RECORDTYPE</field>
         <operation>equals</operation>
         <value>Case.IVFTreatment</value>
+    </filters>
+    <filters>
+        <field>FundingComplete__c</field>
+        <operation>equals</operation>
+        <value>1</value>
     </filters>
     <label>Funding Completed Applications</label>
 </ListView>
