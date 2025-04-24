@@ -71,6 +71,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.RequiredDiagnosticsCompleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Applicant1Surname__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -262,6 +267,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.FundingTier__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.FundingCompleteReason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.FundingComplete__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FundingCompleteReason__c</fullName>
+    <label>Funding Complete Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>12 months post Application approval</fullName>
+                <default>false</default>
+                <label>12 months post Application approval</label>
+            </value>
+            <value>
+                <fullName>Funding utilized</fullName>
+                <default>false</default>
+                <label>Funding utilized</label>
+            </value>
+            <value>
+                <fullName>Not enrolled in MSP</fullName>
+                <default>false</default>
+                <label>Not enrolled in MSP</label>
+            </value>
+            <value>
+                <fullName>Application withdrawn</fullName>
+                <default>false</default>
+                <label>Application withdrawn</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

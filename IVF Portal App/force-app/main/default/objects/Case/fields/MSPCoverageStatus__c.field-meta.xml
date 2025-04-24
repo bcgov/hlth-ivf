@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MSPCoverageStatus__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    ISBLANK(TEXT(Applicant1MSPStatus__c)),
+    ISBLANK(TEXT(Applicant2MSPStatus__c)),
+    ISBLANK(TEXT(Patient1MSPStatus__c)),
+    ISBLANK(TEXT(Patient2MSPStatus__c)),
+    ISBLANK(TEXT(Patient3MSPStatus__c))
+  ),
+  NULL,
+  IF(
+    OR(
+      TEXT(Applicant1MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Applicant2MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Patient1MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Patient2MSPStatus__c) = &quot;Not Enrolled&quot;,
+      TEXT(Patient3MSPStatus__c) = &quot;Not Enrolled&quot;
+    ),
+    &quot;At least one person is not enrolled&quot;,
+    &quot;All Enrolled&quot;
+  )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>MSP Coverage Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

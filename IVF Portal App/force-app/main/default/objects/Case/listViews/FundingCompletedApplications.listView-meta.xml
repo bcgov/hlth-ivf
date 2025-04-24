@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FundingCompletedApplications</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>PARENT.CASE_NUMBER</columns>
+    <columns>FundingCompleteReason__c</columns>
+    <columns>ApprovedTreatmentFunding__c</columns>
+    <columns>AvailableTreatmentBalance1__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.IVFTreatment</value>
+    </filters>
+    <label>Funding Completed Applications</label>
+</ListView>

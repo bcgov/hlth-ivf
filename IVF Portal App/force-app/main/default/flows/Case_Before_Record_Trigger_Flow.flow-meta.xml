@@ -30,7 +30,7 @@
     <decisions>
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
-        <locationX>534</locationX>
+        <locationX>578</locationX>
         <locationY>431</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -41,13 +41,6 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Submitted</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record__Prior.Status</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Draft</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -96,7 +89,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>776</locationX>
+        <locationX>1106</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -113,6 +106,66 @@
                 <targetReference>Application_Status_Changes</targetReference>
             </connector>
             <label>Yes</label>
+        </rules>
+        <rules>
+            <name>Funding_Utilized</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>IVFTreatment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Funing_Reason</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Funding Utilized</label>
+        </rules>
+        <rules>
+            <name>Is_Balance_Used_or_Restored</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>IVFTreatment</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Funding_Fields</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Is Balance Used or Restored?</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -179,6 +232,22 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Clear_Funding_Fields</name>
+        <label>Clear Funding Fields</label>
+        <locationX>1370</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FundingCompleteReason__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
@@ -201,8 +270,27 @@
         </connector>
         <inputReference>Get_Clinic_Funding_Records</inputReference>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Funing_Reason</name>
+        <label>Update Funding Reason</label>
+        <locationX>1106</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FundingCompleteReason__c</field>
+            <value>
+                <stringValue>Funding utilized</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
-        <locationX>650</locationX>
+        <locationX>980</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>

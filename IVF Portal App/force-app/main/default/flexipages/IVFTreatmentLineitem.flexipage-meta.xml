@@ -59,20 +59,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.TreatmentDate__c</fieldItem>
                 <identifier>RecordTreatmentDate_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.TreatmentCost__c</fieldItem>
-                <identifier>RecordTreatmentCost_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
