@@ -4,16 +4,6 @@
     <containerType>Network</containerType>
     <label>Default Navigation</label>
     <navigationMenuItem>
-        <label>Create New Application</label>
-        <menuItemBranding>
-            <tileImage>AdobeStock_288590874</tileImage>
-        </menuItemBranding>
-        <position>1</position>
-        <publiclyAvailable>false</publiclyAvailable>
-        <target>/create-new-application</target>
-        <type>InternalLink</type>
-    </navigationMenuItem>
-    <navigationMenuItem>
         <defaultListViewId>RecentlyViewedCases</defaultListViewId>
         <label>View Applications</label>
         <menuItemBranding>

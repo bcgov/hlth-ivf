@@ -8,6 +8,9 @@ public with sharing class LRAFlowInvoker {
     public class Response {
         @InvocableVariable
         public Boolean isActive;
+        
+        @InvocableVariable
+        public String resultCode;
     }
     
     @InvocableMethod(label='Verify MSP Active Status')
@@ -18,12 +21,15 @@ public with sharing class LRAFlowInvoker {
             Response res = new Response();
             try {
                 if (req != null && !String.isBlank(req.phn)) {
-                    String responseBody = LRAIntegrationHandler.callLRAAPI('', 'GET', '', req.phn);
-                    res.isActive = responseBody != null && responseBody.contains('MSP Status: Active');
+                    String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', req.phn);
+                    res.resultCode = result;
+                    res.isActive = result == 'MSP_ACTIVE';
                 } else {
+                    res.resultCode = 'MSP_CHECK_FAILED';
                     res.isActive = false;
                 }
             } catch (Exception e) {
+                res.resultCode = 'MSP_CHECK_FAILED';
                 res.isActive = false;
             }
             results.add(res);
