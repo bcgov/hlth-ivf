@@ -74,7 +74,6 @@
         <offset>0</offset>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <name>Assign_Email_to_EmailListForChangesCompleted</name>
         <label>Assign Email to EmailListForChangesCompleted</label>
