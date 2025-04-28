@@ -1,89 +1,87 @@
-@IsTest
+@isTest
 private class LRAIntegrationHandlerTest {
     
-    @IsTest
-    static void testActiveResponse() {
-        Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
+    @isTest
+    static void testMSPActive() {
+        String body = '{"resourceType":"Bundle","entry":[{"resource":{"insurance":[{"inforce":true}]}}]}';
+        Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 200));
+        
         Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '9872728627');
+        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '1234567890');
         Test.stopTest();
-        System.assertEquals('MSP Status: Active', result, 'Should return Active');
+        
+        System.assertEquals('MSP_ACTIVE', result, 'Expected MSP_ACTIVE when insurance inforce is true.');
     }
     
-    @IsTest
-    static void testInactiveResponse() {
-        Test.setMock(HttpCalloutMock.class, new MockLRAInactiveResponse());
+    @isTest
+    static void testMSPInactive() {
+        String body = '{"resourceType":"Bundle","entry":[{"resource":{"insurance":[{"inforce":false}]}}]}';
+        Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 200));
+        
         Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '9872728627');
+        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '9876543210');
         Test.stopTest();
-        System.assertEquals('MSP Status: Inactive', result, 'Should return Inactive');
+        
+        System.assertEquals('MSP_INACTIVE', result, 'Expected MSP_INACTIVE when insurance inforce is false.');
     }
     
-    @IsTest
-    static void testCalloutExceptionResponse() {
-        Test.setMock(HttpCalloutMock.class, new MockLRAExceptionResponse());
+    @isTest
+    static void testInvalidPHNInNon200Response() {
+        String body = 'Error: An invalid PHN was supplied';
+        Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 400));
+        
         Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '9872728627');
+        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', 'invalidPHN');
         Test.stopTest();
-        System.assert(result.contains('Exception occurred'), 'Should handle callout exception');
+        
+        System.assertEquals('INVALID_PHN', result, 'Expected INVALID_PHN for invalid PHN error response.');
     }
     
-    @IsTest
-    static void testNoEntryOrPatientNotFound() {
-        String mockBody = '{"resourceType":"Bundle","total":0}';
-        Test.setMock(HttpCalloutMock.class, new LRAIntegrationHandlerTest.DynamicMock(mockBody, 200));
+    @isTest
+    static void testGenericFailureNon200Response() {
+        String body = '{"error":"Unauthorized"}'; 
+        Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 401));
+        
         Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '0000000000');
+        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', 'unauthorized');
         Test.stopTest();
-        System.assertEquals('Patient not found or not enrolled in MSP.', result);
+        
+        System.assertEquals('MSP_CHECK_FAILED', result, 'Expected MSP_CHECK_FAILED for unauthorized response.');
     }
     
-    @IsTest
-    static void testNoInsuranceInResponse() {
-        String mockBody = '{"resourceType":"Bundle","total":1,"entry":[{"resource":{"insurance":[]}}]}';
-        Test.setMock(HttpCalloutMock.class, new LRAIntegrationHandlerTest.DynamicMock(mockBody, 200));
+    @isTest
+    static void testExceptionHandling() {
+        Test.setMock(HttpCalloutMock.class, new ExceptionMock()); // Force API failure
+        
         Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '0000000000');
+        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', 'exception');
         Test.stopTest();
-        System.assertEquals('MSP Status: Unknown (no insurance info)', result);
+        
+        System.assertEquals('MSP_CHECK_FAILED', result, 'Expected MSP_CHECK_FAILED when exception occurs.');
     }
     
-    @IsTest
-    static void testInvalidJsonParsingError() {
-        String invalidJson = 'not a json';
-        Test.setMock(HttpCalloutMock.class, new LRAIntegrationHandlerTest.DynamicMock(invalidJson, 200));
-        Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '9872728627');
-        Test.stopTest();
-        System.assertEquals('Error parsing response from LRA.', result);
-    }
-    
-    @IsTest
-    static void testErrorStatusCode() {
-        String errorJson = 'Unauthorized';
-        Test.setMock(HttpCalloutMock.class, new LRAIntegrationHandlerTest.DynamicMock(errorJson, 401));
-        Test.startTest();
-        String result = LRAIntegrationHandler.callLRAAPI('', 'GET', '', '9872728627');
-        Test.stopTest();
-        System.assert(result.contains('LRA Error: 401'), 'Should return error status');
-    }
-    
-    // Optional: Generic mock for inline JSON usage
-    public class DynamicMock implements HttpCalloutMock {
-        private String body;
-        private Integer statusCode;
+    // Inner classes for mocking responses
+    private class DynamicMock implements HttpCalloutMock {
+        private String mockBody;
+        private Integer mockStatusCode;
         
         public DynamicMock(String body, Integer statusCode) {
-            this.body = body;
-            this.statusCode = statusCode;
+            this.mockBody = body;
+            this.mockStatusCode = statusCode;
         }
         
         public HTTPResponse respond(HTTPRequest req) {
             HttpResponse res = new HttpResponse();
+            res.setStatusCode(mockStatusCode);
             res.setHeader('Content-Type', 'application/json');
-            res.setBody(body);
-            res.setStatusCode(statusCode);
+            res.setBody(mockBody);
             return res;
+        }
+    }
+    
+    private class ExceptionMock implements HttpCalloutMock {
+        public HTTPResponse respond(HTTPRequest req) {
+            throw new CalloutException('Forced exception for testing');
         }
     }
 }

@@ -366,8 +366,8 @@
     }, {
       "components" : [ {
         "componentAttributes" : {
-          "bgImage" : "background: rgb(0,0,0) url(/sfsites/c/file-asset/ivfcenteringhaziabad18042024?v=1) center center /cover",
-          "bgOverlayColor" : "rgba(0, 0, 0, 0.35)",
+          "bgImage" : "background: rgb(0,0,0) url(/sfsites/c/file-asset/home12?v=1) top center /cover",
+          "bgOverlayColor" : "rgba(31, 34, 61, 0.59)",
           "captionText" : "Welcome to ",
           "captionTextColor" : "rgb(255, 255, 255)",
           "captionTextShadowColor" : "rgba(0, 0, 0, 0.5)",
@@ -393,7 +393,7 @@
           "ctaShowBtnOne" : false,
           "ctaShowBtnTwo" : false,
           "fixedHeroWidth" : true,
-          "heroHeight" : 110,
+          "heroHeight" : 136,
           "heroWidth" : 1365,
           "showCaption" : true,
           "showSubtitle" : false,

@@ -25,33 +25,36 @@ public with sharing class LRAIntegrationHandler {
         
         try {
             HttpResponse res = http.send(req);
+            String responseBody = res.getBody();
+            Integer statusCode = res.getStatusCode();
             
-            if (res.getStatusCode() == 200 || res.getStatusCode() == 201) {
-                try {
-                    LRAMSPEligibilityWrapper mspEligibility = LRAMSPEligibilityWrapper.parse(res.getBody());
-                    
-                    // Handle no patient found
-                    if (mspEligibility == null || mspEligibility.total == null || mspEligibility.total == 0 || mspEligibility.entry == null || mspEligibility.entry.isEmpty()) {
-                        return 'Patient not found or not enrolled in MSP.';
+            if (statusCode == 200 || statusCode == 201) {
+                Map<String, Object> raw = (Map<String, Object>) JSON.deserializeUntyped(responseBody);
+                String resourceType = (String) raw.get('resourceType');
+                System.debug('Parsed resourceType: ' + resourceType);
+                
+                if (resourceType == 'Bundle') {
+                    List<Object> entries = (List<Object>) raw.get('entry');
+                    if (entries != null && !entries.isEmpty()) {
+                        Map<String, Object> entry = (Map<String, Object>) entries[0];
+                        Map<String, Object> resource = (Map<String, Object>) entry.get('resource');
+                        List<Object> insurances = (List<Object>) resource.get('insurance');
+                        if (insurances != null && !insurances.isEmpty()) {
+                            Map<String, Object> insurance = (Map<String, Object>) insurances[0];
+                            Boolean inForce = (Boolean) insurance.get('inforce');
+                            return inForce ? 'MSP_ACTIVE' : 'MSP_INACTIVE';
+                        }
                     }
-                    
-                    // Check insurance info
-                    LRAMSPEligibilityWrapper.Entry entry = mspEligibility.entry[0];
-                    if (entry.resource == null || entry.resource.insurance == null || entry.resource.insurance.isEmpty()) {
-                        return 'MSP Status: Unknown (no insurance info)';
-                    }
-                    
-                    Boolean isMSPActive = entry.resource.insurance[0].inforce;
-                    return 'MSP Status: ' + (isMSPActive ? 'Active' : 'Inactive');
-                } catch (Exception parseEx) {
-                    return 'Error parsing response from LRA.';
                 }
             } else {
-                return 'LRA Error: ' + res.getStatusCode() + ' - ' + res.getBody();
+                if (responseBody.contains('Error: An invalid PHN was supplied')) {
+                    return 'INVALID_PHN';
+                }
+                return 'MSP_CHECK_FAILED';
             }
-            
-        } catch (Exception e) {
-            return 'Exception occurred: ' + e.getMessage();
+        } catch (Exception ex) {
+            return 'MSP_CHECK_FAILED';
         }
+        return 'MSP_CHECK_FAILED';
     }
 }
