@@ -1,4 +1,9 @@
 public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObject>, Database.AllowsCallouts,Schedulable {
+	private Integer batchSize;
+
+    public MSPEligibilityCheckMonthlyBatch(Integer size) {
+        this.batchSize = size;
+    }
 	public static Database.QueryLocator start(Database.BatchableContext BC) {
         return Database.getQueryLocator([
             //SELECT Id, Applicant1__c,Applicant1PersonalHealthNumber__c,Applicant1MSPStatus__c,Applicant2__c,Applicant2PersonalHealthNumber__c,Applicant2MSPStatus__c,Applicant1Patient__c,Patient1PersonalHealthNumber__c,Patient1MSPStatus__c,Applicant2Patient__c,Patient2PersonalHealthNumber__c,Patient3PersonalHealthNumber__c FROM Case WHERE Status = 'Approved'
@@ -6,7 +11,7 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
 		]);
     }
 	public void execute(Database.BatchableContext bc, List<SObject> scope) {
-		List<Case> Updatedcases = new List<Case>();
+		List<Case> updatedCases = new List<Case>();
 		Map<String,String> MSPStatusMap=new Map<String,String>();
         Set<String> phnSet = new Set<String>();
 
@@ -73,12 +78,12 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
 				updateCase.Patient3Date__c = System.today();
 				
 			}
-			Updatedcases.add(updateCase);
+			updatedCases.add(updateCase);
 		}
-		if(Updatedcases!=null)
+		if(updatedCases!=null)
 		{
 			try{
-				database.update(Updatedcases,false);
+				database.update(updatedCases,false);
 			}
 			catch(Exception e){
 				System.debug('Excepiton while updating the case application MSP data'+e.getmessage());
@@ -90,7 +95,7 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
         System.debug('MSPEligibilityCheckMonthlyBatch is completed.');
     }
 	public void execute(SchedulableContext sc) {
-        MSPEligibilityCheckMonthlyBatch batch = new MSPEligibilityCheckMonthlyBatch();
-        Database.executeBatch(batch, 10); // Adjust batch size based on callout limits
+        
+        Database.executeBatch(new MSPEligibilityCheckMonthlyBatch(batchSize), batchSize);
     }
 }

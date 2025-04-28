@@ -112,9 +112,12 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
+        Integer batch_size=1;
         String cronExp = '0 0 1 2 * ?'; // 1:00 AM PST on 2nd of every month
         String jobName = 'MSP_Eligibility_Monthly_Scheduler';
-        System.schedule(jobName, cronExp, new MSPEligibilityCheckMonthlyBatch());
+        //MSPEligibilityCheckMonthlyBatch batch=new MSPEligibilityCheckMonthlyBatch(batch_size);
+        //batch.batchSize=1;
+        System.schedule(jobName, cronExp, new MSPEligibilityCheckMonthlyBatch(batch_size));
         Test.stopTest();
     }
 
@@ -137,8 +140,10 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         //  Run the Apex Method
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
-        MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch();
-        Database.executeBatch(MSPEBatch,10);
+        Integer batch_size=1;
+        MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
+        //MSPEBatch.batchSize=1;
+        Database.executeBatch(MSPEBatch,batch_size);
         Test.stopTest();      
     }
     @isTest
@@ -160,8 +165,10 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         //  Run the Apex Method
         Test.startTest();
         //Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
-        MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch();
-        Database.executeBatch(MSPEBatch,10);
+        Integer batch_size=1;
+        MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
+        //MSPEBatch.batchSize=1;
+        Database.executeBatch(MSPEBatch,batch_size);
         Test.stopTest();      
     }
 }
