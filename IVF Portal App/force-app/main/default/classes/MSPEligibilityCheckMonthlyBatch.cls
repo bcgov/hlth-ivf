@@ -92,7 +92,6 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
     }
 
     public void finish(Database.BatchableContext bc) {
-        System.debug('MSPEligibilityCheckMonthlyBatch is completed.');
     }
 	public void execute(SchedulableContext sc) {
         
