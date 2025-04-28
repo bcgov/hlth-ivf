@@ -31,7 +31,6 @@ public with sharing class LRAIntegrationHandler {
             if (statusCode == 200 || statusCode == 201) {
                 Map<String, Object> raw = (Map<String, Object>) JSON.deserializeUntyped(responseBody);
                 String resourceType = (String) raw.get('resourceType');
-                System.debug('Parsed resourceType: ' + resourceType);
                 
                 if (resourceType == 'Bundle') {
                     List<Object> entries = (List<Object>) raw.get('entry');

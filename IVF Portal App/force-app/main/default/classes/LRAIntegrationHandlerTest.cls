@@ -60,7 +60,6 @@ private class LRAIntegrationHandlerTest {
         System.assertEquals('MSP_CHECK_FAILED', result, 'Expected MSP_CHECK_FAILED when exception occurs.');
     }
     
-    // Inner classes for mocking responses
     private class DynamicMock implements HttpCalloutMock {
         private String mockBody;
         private Integer mockStatusCode;
