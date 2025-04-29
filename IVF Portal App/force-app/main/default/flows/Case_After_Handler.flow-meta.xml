@@ -224,10 +224,10 @@
         <name>assign_Total_Clinic_Available_Balance</name>
         <label>assign Total Clinic Available Balance</label>
         <locationX>842</locationX>
-        <locationY>1187</locationY>
+        <locationY>1295</locationY>
         <assignmentItems>
             <assignToReference>get_Clinic_Funding.AvailableBalance__c</assignToReference>
-            <operator>Assign</operator>
+            <operator>Add</operator>
             <value>
                 <elementReference>totalClinicAvailableBalance</elementReference>
             </value>
@@ -550,6 +550,28 @@
                 <targetReference>Update_Applicant_Details_from_Patients</targetReference>
             </connector>
             <label>Applicant 2 Not Applicable</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>check_If_Clinic_Funding_Available</name>
+        <label>check If Clinic Funding Available</label>
+        <locationX>974</locationX>
+        <locationY>1187</locationY>
+        <defaultConnectorLabel>Clinic Funding Not Available</defaultConnectorLabel>
+        <rules>
+            <name>Clinic_Funding_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>get_Clinic_Funding</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>assign_Total_Clinic_Available_Balance</targetReference>
+            </connector>
+            <label>Clinic Funding Available</label>
         </rules>
     </decisions>
     <decisions>
