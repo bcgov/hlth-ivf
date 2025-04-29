@@ -22,7 +22,7 @@
         <recordType>Case.IVF_Application_Read_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Case Layout</layout>
+        <layout>Case-IVF Treatment Layout</layout>
         <recordType>Case.IVFTreatment</recordType>
     </layoutAssignments>
     <layoutAssignments>
