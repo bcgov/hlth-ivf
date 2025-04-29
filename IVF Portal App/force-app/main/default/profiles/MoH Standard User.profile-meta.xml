@@ -18,8 +18,12 @@
         <recordType>Case.IVF_Application</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Case Layout</layout>
+        <layout>Case-IVF Application Layout Read Only</layout>
         <recordType>Case.IVF_Application_Read_Only</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Case Layout</layout>
+        <recordType>Case.IVFTreatment</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
