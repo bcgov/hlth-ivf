@@ -6,8 +6,7 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
     }
     public static Database.QueryLocator start(Database.BatchableContext BC) {
         return Database.getQueryLocator([
-            //SELECT Id, Applicant1__c,Applicant1PersonalHealthNumber__c,Applicant1MSPStatus__c,Applicant2__c,Applicant2PersonalHealthNumber__c,Applicant2MSPStatus__c,Applicant1Patient__c,Patient1PersonalHealthNumber__c,Patient1MSPStatus__c,Applicant2Patient__c,Patient2PersonalHealthNumber__c,Patient3PersonalHealthNumber__c FROM Case WHERE Status = 'Approved'
-            SELECT Id,FundingComplete__c,ParentId, Parent.Applicant1PersonalHealthNumber__c,Parent.Applicant1Date__c, Parent.Applicant1MSPStatus__c,Parent.Applicant2PersonalHealthNumber__c,Parent.Applicant2Date__c, Parent.Applicant2MSPStatus__c,Parent.Patient1PersonalHealthNumber__c,Parent.Patient1Date__c,Parent.Patient1MSPStatus__c, Parent.Patient2PersonalHealthNumber__c,Parent.Patient2Date__c,Parent.Patient2MSPStatus__c,Parent.Patient3PersonalHealthNumber__c,Parent.Patient3Date__c,Parent.Patient3MSPStatus__c FROM Case WHERE Parent.status='approved'
+            SELECT Id,FundingComplete__c,ParentId, Parent.Applicant1PersonalHealthNumber__c,Parent.Applicant1Date__c, Parent.Applicant1MSPStatus__c,Parent.Applicant2PersonalHealthNumber__c,Parent.Applicant2Date__c, Parent.Applicant2MSPStatus__c,Parent.Patient1PersonalHealthNumber__c,Parent.Patient1Date__c,Parent.Patient1MSPStatus__c, Parent.Patient2PersonalHealthNumber__c,Parent.Patient2Date__c,Parent.Patient2MSPStatus__c,Parent.Patient3PersonalHealthNumber__c,Parent.Patient3Date__c,Parent.Patient3MSPStatus__c FROM Case WHERE Parent.status='approved' and FundingComplete__c=false 
         ]);
     }
     public void execute(Database.BatchableContext bc, List<SObject> scope) {

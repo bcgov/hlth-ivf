@@ -167,39 +167,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         Database.executeBatch(MSPEBatch,batch_size);
         Test.stopTest();      
     }
-    @isTest
-    static void testBatchExecution() {
-        // Run the batch job with size 1
-        Test.startTest();
-        MSPEligibilityCheckMonthlyBatch batch = new MSPEligibilityCheckMonthlyBatch(1);
-        Database.executeBatch(batch, 1);
-        Test.stopTest();
-
-        // Verify parent case MSP fields were updated
-        /*  Case updatedParent = [SELECT Id, 
-            Applicant1MSPStatus__c, Applicant1Date__c,
-            Applicant2MSPStatus__c, Applicant2Date__c,
-            Patient1MSPStatus__c, Patient1Date__c,
-            Patient2MSPStatus__c, Patient2Date__c,
-            Patient3MSPStatus__c, Patient3Date__c
-            FROM Case WHERE Status = 'Approved' LIMIT 1];
-
-        System.assertEquals('Enrolled', updatedParent.Applicant1MSPStatus__c);
-        System.assertEquals(Date.today(), updatedParent.Applicant1Date__c);
-        
-        System.assertEquals('Not Enrolled', updatedParent.Applicant2MSPStatus__c);
-        System.assertEquals(Date.today(), updatedParent.Applicant2Date__c);
-
-        System.assertEquals('Enrolled', updatedParent.Patient1MSPStatus__c);
-        System.assertEquals(Date.today(), updatedParent.Patient1Date__c);
-
-        System.assertEquals('Not Enrolled', updatedParent.Patient2MSPStatus__c);
-        System.assertEquals(Date.today(), updatedParent.Patient2Date__c);
-
-        System.assertEquals('Enrolled', updatedParent.Patient3MSPStatus__c);
-        System.assertEquals(Date.today(), updatedParent.Patient3Date__c);*/
-    }
-
+    
     @isTest
     static void testScheduledExecution() {
         Test.startTest();
