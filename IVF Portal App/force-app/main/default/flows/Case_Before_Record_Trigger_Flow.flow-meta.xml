@@ -138,18 +138,11 @@
             <label>Funding Utilized</label>
         </rules>
         <rules>
-            <name>Is_Balance_Used_or_Restored</name>
-            <conditionLogic>and</conditionLogic>
+            <name>MSP_and_Withdraw</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4) AND 5</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
-                <operator>GreaterThan</operator>
-                <rightValue>
-                    <numberValue>0.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>IsChanged</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
                 </rightValue>
@@ -161,11 +154,31 @@
                     <stringValue>IVFTreatment</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not enrolled in MSP</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Application withdrawn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Clear_Funding_Fields</targetReference>
+                <targetReference>Update_Funding_Complete</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-            <label>Is Balance Used or Restored?</label>
+            <label>MSP and Withdraw</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -174,6 +187,16 @@
         <dataType>Number</dataType>
         <expression>VALUE({!$Label.IVF_Allocate_Balance})</expression>
         <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Monthspassed</name>
+        <dataType>Date</dataType>
+        <expression>ADDMONTHS({!$Record.Treatmentstartdate__c}, 15)</expression>
+    </formulas>
+    <formulas>
+        <name>Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
     </formulas>
     <interviewLabel>Case Before Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case Before Record Trigger Flow</label>
@@ -232,22 +255,6 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
-        <name>Clear_Funding_Fields</name>
-        <label>Clear Funding Fields</label>
-        <locationX>1370</locationX>
-        <locationY>431</locationY>
-        <inputAssignments>
-            <field>FundingCompleteReason__c</field>
-        </inputAssignments>
-        <inputAssignments>
-            <field>FundingComplete__c</field>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
@@ -269,6 +276,19 @@
             <targetReference>Update_Case_With_Clinic_Funding</targetReference>
         </connector>
         <inputReference>Get_Clinic_Funding_Records</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Funding_Complete</name>
+        <label>Update Funding Complete</label>
+        <locationX>1370</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Funing_Reason</name>
