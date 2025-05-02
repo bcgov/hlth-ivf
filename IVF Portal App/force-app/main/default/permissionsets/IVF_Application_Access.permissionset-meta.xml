@@ -762,7 +762,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>True</editable>
         <field>Case.FundingCompleteReason__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -809,6 +809,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.TotalTreatmentCost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.TotalMedicationCost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.TotalTreatmentandMedication__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
