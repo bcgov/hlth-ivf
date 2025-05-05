@@ -178,7 +178,7 @@
             <name>MSP_and_Withdraw</name>
             <conditionLogic>1 AND 2 AND (3 OR 4) AND 5</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Status</leftValueReference>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
                 <operator>IsChanged</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
