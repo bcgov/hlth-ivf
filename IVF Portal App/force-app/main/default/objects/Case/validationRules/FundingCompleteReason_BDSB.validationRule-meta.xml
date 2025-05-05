@@ -3,6 +3,7 @@
     <fullName>FundingCompleteReason_BDSB</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
+$RecordType.DeveloperName = &quot;IVFTreatment&quot;,
     ISCHANGED(FundingCompleteReason__c),
     $Profile.Name = &quot;MoH Standard User&quot;,
     NOT(
