@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FundingCompleteReason_Clinics</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+  $Profile.Name = &quot;Customer Community Plus Login User&quot;,
+  NOT(ISPICKVAL(FundingCompleteReason__c, &quot;Application withdrawn&quot;)),
+  ISCHANGED(FundingCompleteReason__c)
+)</errorConditionFormula>
+    <errorMessage>You are only allowed to select the option Application Withdrawn. Please try again</errorMessage>
+</ValidationRule>

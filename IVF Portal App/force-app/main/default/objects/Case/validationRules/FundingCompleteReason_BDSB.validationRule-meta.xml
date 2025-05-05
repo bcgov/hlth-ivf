@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FundingCompleteReason_BDSB</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+$RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+    ISCHANGED(FundingCompleteReason__c),
+    $Profile.Name = &quot;MoH Standard User&quot;,
+    NOT(
+        ISPICKVAL(FundingCompleteReason__c, &quot;Application withdrawn&quot;) ||
+        ISPICKVAL(FundingCompleteReason__c, &quot;Not Enrolled in MSP&quot;)
+    )
+)</errorConditionFormula>
+    <errorMessage>You are only allowed to select the options Application Withdrawn or Not enrolled in MSP. Please try again.</errorMessage>
+</ValidationRule>

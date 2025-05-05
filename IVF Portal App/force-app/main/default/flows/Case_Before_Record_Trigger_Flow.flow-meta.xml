@@ -89,7 +89,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>1106</locationX>
+        <locationX>1238</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -161,11 +161,61 @@
                     <stringValue>IVFTreatment</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Funding utilized</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Clear_Funding_Fields</targetReference>
             </connector>
             <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>Is Balance Used or Restored?</label>
+        </rules>
+        <rules>
+            <name>MSP_and_Withdraw</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4) AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>IVFTreatment</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not enrolled in MSP</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Application withdrawn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Funding_Complete</targetReference>
+            </connector>
+            <label>MSP and Withdraw</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -271,6 +321,19 @@
         <inputReference>Get_Clinic_Funding_Records</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_Funding_Complete</name>
+        <label>Update Funding Complete</label>
+        <locationX>1634</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Funing_Reason</name>
         <label>Update Funding Reason</label>
         <locationX>1106</locationX>
@@ -290,7 +353,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>980</locationX>
+        <locationX>1112</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
