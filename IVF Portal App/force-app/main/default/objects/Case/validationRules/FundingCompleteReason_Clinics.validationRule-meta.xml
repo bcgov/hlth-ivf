@@ -3,11 +3,10 @@
     <fullName>FundingCompleteReason_Clinics</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-    ISCHANGED(FundingCompleteReason__c),
-    OR(
-        $Profile.Name = &quot;Customer Community Plus Login User&quot;
-),
-    NOT(ISPICKVAL(FundingCompleteReason__c, &quot;Application withdrawn&quot;))
+  $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+  $Profile.Name = &quot;Customer Community Plus Login User&quot;,
+  NOT(ISPICKVAL(FundingCompleteReason__c, &quot;Application withdrawn&quot;)),
+  ISCHANGED(FundingCompleteReason__c)
 )</errorConditionFormula>
     <errorMessage>You are only allowed to select the option Application Withdrawn. Please try again</errorMessage>
 </ValidationRule>
