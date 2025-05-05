@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_MedicationCost_WhenBalanceZero</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  NOT(ISBLANK(TotalMedicationCost__c)),
+  (ApprovedTreatmentFunding__c - TotalTreatmentCost__c) &lt;= 0,
+  TotalMedicationCost__c &gt; 0
+)</errorConditionFormula>
+    <errorMessage>There is no available treatment balance left.</errorMessage>
+</ValidationRule>
