@@ -3,9 +3,11 @@
     <fullName>Funding_Tier_Selection_Prevension</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-    ISCHANGED(FundingTier__c),
+
+    OR(ISCHANGED(FundingTier__c),NOT(ISBLANK(FundingTier__c))),
+
     OR(
-        ISPICKVAL(NOARecevied__c, &quot;No&quot;),
+        NOT(ISPICKVAL(NOARecevied__c, &quot;Yes&quot;)),
         NOT(ISPICKVAL(Status, &quot;In Review&quot;))
     ),
     OR(
