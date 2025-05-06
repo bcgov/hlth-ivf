@@ -3,9 +3,10 @@
     <fullName>Prevent_MedicationCost_WhenBalanceZero</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-  NOT(ISBLANK(TotalMedicationCost__c)),
-  (ApprovedTreatmentFunding__c - TotalTreatmentCost__c) &lt;= 0,
-  TotalMedicationCost__c &gt; 0
+  $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+  FundingComplete__c = TRUE,
+  ISCHANGED(TotalMedicationCost__c)
+
 )</errorConditionFormula>
     <errorMessage>You can not enter a medication cost because funding is complete.</errorMessage>
 </ValidationRule>
