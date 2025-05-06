@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>TotalTreatmentandMedication__c</fullName>
-    <formula>TotalTreatmentCost__c +  TotalMedicationCost__c</formula>
+    <formula>TotalTreatmentCost__c +
+MIN(
+    IF(ISBLANK(TotalMedicationCost__c), 0, TotalMedicationCost__c),
+    MAX(0, ApprovedTreatmentFunding__c - TotalTreatmentCost__c)
+)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Total Treatment Cost</label>
     <precision>18</precision>
