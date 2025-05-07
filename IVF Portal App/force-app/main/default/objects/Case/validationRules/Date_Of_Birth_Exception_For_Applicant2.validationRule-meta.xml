@@ -4,7 +4,7 @@
     <active>true</active>
     <errorConditionFormula>AND (
 (
-(DATE(YEAR(TODAY()), MONTH( Applicant2DateOfBirth__c ), DAY(Applicant2DateOfBirth__c )) &lt; 
+(DATE(YEAR(Applicant2DateOfBirth__c ), MONTH( Applicant2DateOfBirth__c ), DAY(Applicant2DateOfBirth__c )) &gt; 
   DATE(YEAR(TODAY()) - 18, MONTH(TODAY()), DAY(TODAY())))
 ),
   NOT(ISBLANK(Applicant2DateOfBirth__c ))  
