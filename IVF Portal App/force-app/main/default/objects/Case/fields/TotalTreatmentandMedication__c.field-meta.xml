@@ -7,7 +7,7 @@ MIN(
     MAX(0, ApprovedTreatmentFunding__c - TotalTreatmentCost__c)
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-    <label>Total Treatment Cost</label>
+    <label>Total Spent on Services</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
