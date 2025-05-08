@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Prevent_MedicationCost_WhenBalanceZero</fullName>
+    <fullName>Restrict_AddMedicationFunding</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
   $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+  ISCHANGED(TotalMedicationCost__c),
+  AvailableTreatmentBalance1__c = 0,
   FundingComplete__c = TRUE,
-  ISCHANGED(TotalMedicationCost__c)
-
+  NOT(ISBLANK(TEXT(FundingCompleteReason__c))),
+  NOT(ISBLANK(PRIORVALUE(TotalMedicationCost__c)))
 )</errorConditionFormula>
     <errorMessage>You can not enter a medication cost because funding is complete.</errorMessage>
 </ValidationRule>
