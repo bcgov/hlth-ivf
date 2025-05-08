@@ -107,6 +107,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         Case testCase = [SELECT Id, Status FROM Case Where Recordtype.Name !='IVF Treatment'];
         
         //Approve the Case
+        //testCase.ApprovedTreatmentFunding__c = testIVFFundingTier.Funding_Amount__c;
         testCase.Status='Approved';
         update testCase;
         
@@ -114,7 +115,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
         Integer batch_size=1;
         String cronExp = '0 0 1 2 * ?'; // 1:00 AM PST on 2nd of every month
-        String jobName = 'MSP_Eligibility_Monthly_Scheduler';
+        String jobName = 'Test Scheduled Job Name';
         System.schedule(jobName, cronExp, new MSPEligibilityCheckMonthlyBatch(batch_size));
         Test.stopTest();
     }
