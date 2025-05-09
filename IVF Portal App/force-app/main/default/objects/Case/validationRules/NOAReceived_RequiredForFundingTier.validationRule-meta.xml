@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NOAReceived_RequiredForFundingTier</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND (
+NOT(ISBLANK(FundingTier__c)),
+NOT(ISPICKVAL(NOARecevied__c,&apos;Yes&apos;)),
+
+OR(
+RecordType.DeveloperName = &quot;IVF_Application&quot;,
+RecordType.DeveloperName = &quot;IVF_Application_Read_Only&quot;
+)
+)</errorConditionFormula>
+    <errorDisplayField>NOARecevied__c</errorDisplayField>
+    <errorMessage>NOA Received must be Yes if funding tier is selected</errorMessage>
+</ValidationRule>

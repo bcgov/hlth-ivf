@@ -7,7 +7,9 @@
 (DATE(YEAR(Applicant2DateOfBirth__c ), MONTH( Applicant2DateOfBirth__c ), DAY(Applicant2DateOfBirth__c )) &gt; 
   DATE(YEAR(TODAY()) - 18, MONTH(TODAY()), DAY(TODAY())))
 ),
-  NOT(ISBLANK(Applicant2DateOfBirth__c ))  
+  NOT(ISBLANK(Applicant2DateOfBirth__c )),
+  NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+  NOT(ISPICKVAL(ExceptionRequest__c,&apos;Yes&apos;))
 )</errorConditionFormula>
     <errorMessage>Applicant 2 must be at least 18 years old at the time of application submission. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
 </ValidationRule>
