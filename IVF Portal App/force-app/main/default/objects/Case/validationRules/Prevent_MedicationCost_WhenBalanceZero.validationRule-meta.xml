@@ -5,8 +5,9 @@
     <errorConditionFormula>AND(
   $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
   FundingComplete__c = TRUE,
-  ISCHANGED(TotalMedicationCost__c)
-
+  ISCHANGED(TotalMedicationCost__c),
+  NOT(ISPICKVAL(FundingCompleteReason__c, &quot;Funding Utilized&quot;)),
+  AvailableTreatmentBalance1__c &gt; 0
 )</errorConditionFormula>
-    <errorMessage>There is no available treatment balance left.</errorMessage>
+    <errorMessage>You can not enter a medication cost because funding is complete.</errorMessage>
 </ValidationRule>

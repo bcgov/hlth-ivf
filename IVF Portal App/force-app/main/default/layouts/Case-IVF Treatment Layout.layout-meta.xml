@@ -67,7 +67,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>FundingCompleteReason__c</field>
+                <field>ApprovedTreatmentFunding__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -85,7 +85,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ApprovedTreatmentFunding__c</field>
+                <field>FundingCompleteReason__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
