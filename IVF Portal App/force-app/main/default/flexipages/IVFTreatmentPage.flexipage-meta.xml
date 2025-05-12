@@ -48,10 +48,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Treatmentstartdate__c</fieldItem>
-                <identifier>RecordTreatmentstartdate_cField</identifier>
+                <fieldItem>Record.FundingComplete__c</fieldItem>
+                <identifier>RecordFundingComplete__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -60,14 +60,28 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.FundingComplete__c</fieldItem>
-                <identifier>RecordFundingComplete__cField</identifier>
+                <fieldItem>Record.ApprovedTreatmentFunding__c</fieldItem>
+                <identifier>RecordApprovedTreatmentFunding_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
             <fieldInstance>
-                <fieldItem>Record.FundingCompleteReason__c</fieldItem>
-                <identifier>RecordFundingCompleteReason__cField</identifier>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.TotalMedicationCost__c</fieldItem>
+                <identifier>RecordTotalMedicationCost__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.TotalTreatmentCost__c</fieldItem>
+                <identifier>RecordTotalTreatmentCost__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-36eb0282-b996-4e26-bae6-5ce54ec940f8</name>
@@ -80,8 +94,18 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.ApprovedTreatmentFunding__c</fieldItem>
-                <identifier>RecordApprovedTreatmentFunding_cField</identifier>
+                <fieldItem>Record.Treatmentstartdate__c</fieldItem>
+                <identifier>RecordTreatmentstartdate_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.FundingCompleteReason__c</fieldItem>
+                <identifier>RecordFunding_Complete_Reason__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -100,8 +124,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.TotalTreatmentCost__c</fieldItem>
-                <identifier>RecordTotalTreatmentCost__cField</identifier>
+                <fieldItem>Record.TotalTreatmentandMedication__c</fieldItem>
+                <identifier>RecordTotalTreatmentandMedication__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-1230785a-eaeb-4739-90e1-939a0445c060</name>

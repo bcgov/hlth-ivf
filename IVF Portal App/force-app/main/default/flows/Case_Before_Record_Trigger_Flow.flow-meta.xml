@@ -89,7 +89,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>1106</locationX>
+        <locationX>1238</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -136,6 +136,43 @@
             </connector>
             <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
             <label>Funding Utilized</label>
+        </rules>
+        <rules>
+            <name>Is_Balance_Used_or_Restored</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>IVFTreatment</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Funding utilized</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Clear_Funding_Fields</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Is Balance Used or Restored?</label>
         </rules>
         <rules>
             <name>MSP_and_Withdraw</name>
@@ -187,16 +224,6 @@
         <dataType>Number</dataType>
         <expression>VALUE({!$Label.IVF_Allocate_Balance})</expression>
         <scale>0</scale>
-    </formulas>
-    <formulas>
-        <name>Monthspassed</name>
-        <dataType>Date</dataType>
-        <expression>ADDMONTHS({!$Record.Treatmentstartdate__c}, 15)</expression>
-    </formulas>
-    <formulas>
-        <name>Today</name>
-        <dataType>Date</dataType>
-        <expression>TODAY()</expression>
     </formulas>
     <interviewLabel>Case Before Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case Before Record Trigger Flow</label>
@@ -255,6 +282,22 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Clear_Funding_Fields</name>
+        <label>Clear Funding Fields</label>
+        <locationX>1370</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FundingCompleteReason__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
@@ -280,7 +323,7 @@
     <recordUpdates>
         <name>Update_Funding_Complete</name>
         <label>Update Funding Complete</label>
-        <locationX>1370</locationX>
+        <locationX>1634</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>FundingComplete__c</field>
@@ -310,7 +353,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>980</locationX>
+        <locationX>1112</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
