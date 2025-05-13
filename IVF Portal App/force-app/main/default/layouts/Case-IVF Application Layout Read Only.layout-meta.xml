@@ -18,7 +18,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>ExceptionRequest__c</field>
+                <field>DateOfIVFConsultation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -32,11 +32,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DateOfIVFConsultation__c</field>
+                <field>RequiredDiagnosticsCompleted__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>RequiredDiagnosticsCompleted__c</field>
+                <field>ExceptionRequest__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DateofFollowUp__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
