@@ -160,7 +160,9 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>IVF Fee Schedules</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Cost__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
