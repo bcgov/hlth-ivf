@@ -2275,7 +2275,7 @@
     <textTemplates>
         <name>DeniedApplicationEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Funding has not been approved for application number &lt;a href=&quot;{!$Label.Portal_URL}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details. A letter has been sent to the applicants outlining the funding decision.&amp;nbsp;If applicants have question regarding the decision they may contact &lt;a href=&quot;mailto:{!BDSB_Email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;BDSB&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;Funding has not been approved for application number &lt;a href=&quot;{!$Label.Portal_URL}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details. A letter has been sent to the applicants outlining the funding decision.&amp;nbsp;If applicants have questions regarding the decision they may contact &lt;a href=&quot;mailto:{!BDSB_Email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;BDSB&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <description>Subject for Changes Completed Email</description>
