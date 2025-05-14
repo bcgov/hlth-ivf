@@ -27,6 +27,16 @@
             <isFieldError>false</isFieldError>
         </customErrorMessages>
     </customErrors>
+    <customErrors>
+        <name>Display_validation</name>
+        <label>Display validation</label>
+        <locationX>1634</locationX>
+        <locationY>647</locationY>
+        <customErrorMessages>
+            <errorMessage>You are only allowed to select the option Application Withdrawn. Please try again.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
     <decisions>
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
@@ -89,7 +99,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>1238</locationX>
+        <locationX>1634</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -111,7 +121,7 @@
             <name>Funding_Utilized</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <leftValueReference>CalcAvailableBalance</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
@@ -138,20 +148,13 @@
             <label>Funding Utilized</label>
         </rules>
         <rules>
-            <name>Is_Balance_Used_or_Restored</name>
+            <name>clear_funding_complete</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.AvailableTreatmentBalance1__c</leftValueReference>
+                <leftValueReference>CalcAvailableBalance</leftValueReference>
                 <operator>GreaterThan</operator>
                 <rightValue>
                     <numberValue>0.0</numberValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -162,6 +165,13 @@
                 </rightValue>
             </conditions>
             <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
                 <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
@@ -169,14 +179,13 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Clear_Funding_Fields</targetReference>
+                <targetReference>Clear_funding_complete_and_reason</targetReference>
             </connector>
-            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-            <label>Is Balance Used or Restored?</label>
+            <label>clear funding complete</label>
         </rules>
         <rules>
-            <name>MSP_and_Withdraw</name>
-            <conditionLogic>1 AND 2 AND (3 OR 4) AND 5</conditionLogic>
+            <name>community_user_or_BDSB</name>
+            <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
                 <operator>IsChanged</operator>
@@ -191,6 +200,50 @@
                     <stringValue>IVFTreatment</stringValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>get_user</targetReference>
+            </connector>
+            <label>community user or BDSB</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Reason_change_error</name>
+        <label>Reason change error</label>
+        <locationX>2030</locationX>
+        <locationY>539</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Decision_4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Application withdrawn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_user.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Community Plus Login User</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Display_validation</targetReference>
+            </connector>
+            <label>is changed?</label>
+        </rules>
+        <rules>
+            <name>BDSB_user1</name>
+            <conditionLogic>(1 OR 2) AND 3 AND (4 OR 5)</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
                 <operator>EqualTo</operator>
@@ -212,18 +265,102 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>get_user.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>MoH Standard User</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_user.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>System Administrator</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Update_Funding_Complete</targetReference>
+                <targetReference>funding_complete_true</targetReference>
             </connector>
-            <label>MSP and Withdraw</label>
+            <label>BDSB user</label>
+        </rules>
+        <rules>
+            <name>is_admin</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4) AND 5</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingCompleteReason__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Application withdrawn</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_user.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Community Plus Login User</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_user.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>System Administrator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>clinics_funding_complete_true</targetReference>
+            </connector>
+            <label>is admin</label>
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>CalcAvailableBalance</name>
+        <dataType>Number</dataType>
+        <expression>{!$Record.ApprovedTreatmentFunding__c}
+- {!$Record.TotalTreatmentCost__c}
+- IF(
+    ISBLANK({!$Record.TotalMedicationCost__c}),
+    0,
+    IF(
+        {!$Record.TotalMedicationCost__c} &gt; 
+        ({!$Record.ApprovedTreatmentFunding__c} - {!$Record.TotalTreatmentCost__c}),
+        ({!$Record.ApprovedTreatmentFunding__c} - {!$Record.TotalTreatmentCost__c}),
+        {!$Record.TotalMedicationCost__c}
+    )
+)</expression>
+        <scale>2</scale>
+    </formulas>
     <formulas>
         <name>IVF_Allocate_Balance_Value</name>
         <dataType>Number</dataType>
         <expression>VALUE({!$Label.IVF_Allocate_Balance})</expression>
         <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Monthspassed</name>
+        <dataType>Date</dataType>
+        <expression>ADDMONTHS({!$Record.Treatmentstartdate__c}, 15)</expression>
+    </formulas>
+    <formulas>
+        <name>Today</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
     </formulas>
     <interviewLabel>Case Before Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case Before Record Trigger Flow</label>
@@ -281,9 +418,30 @@
         <object>ClinicFunding__c</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
+    <recordLookups>
+        <name>get_user</name>
+        <label>get user</label>
+        <locationX>2030</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Reason_change_error</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
-        <name>Clear_Funding_Fields</name>
-        <label>Clear Funding Fields</label>
+        <name>Clear_funding_complete_and_reason</name>
+        <label>Clear funding complete and reason</label>
         <locationX>1370</locationX>
         <locationY>431</locationY>
         <inputAssignments>
@@ -293,6 +451,32 @@
             <field>FundingComplete__c</field>
             <value>
                 <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>clinics_funding_complete_true</name>
+        <label>clinics funding complete true</label>
+        <locationX>2162</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>funding_complete_true</name>
+        <label>funding complete true</label>
+        <locationX>1898</locationX>
+        <locationY>647</locationY>
+        <inputAssignments>
+            <field>FundingComplete__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -321,19 +505,6 @@
         <inputReference>Get_Clinic_Funding_Records</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Update_Funding_Complete</name>
-        <label>Update Funding Complete</label>
-        <locationX>1634</locationX>
-        <locationY>431</locationY>
-        <inputAssignments>
-            <field>FundingComplete__c</field>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
         <name>Update_Funing_Reason</name>
         <label>Update Funding Reason</label>
         <locationX>1106</locationX>
@@ -353,7 +524,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1112</locationX>
+        <locationX>1508</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
