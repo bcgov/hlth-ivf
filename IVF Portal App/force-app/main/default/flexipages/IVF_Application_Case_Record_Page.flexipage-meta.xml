@@ -1951,7 +1951,7 @@
                             <value>PARENT.CASE_NUMBER</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>TreatmentStatus__c</value>
+                            <value>ApprovedTreatmentFunding__c</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Treatmentstartdate__c</value>
