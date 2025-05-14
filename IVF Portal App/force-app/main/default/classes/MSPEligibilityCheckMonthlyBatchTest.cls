@@ -185,6 +185,22 @@ public class MSPEligibilityCheckMonthlyBatchTest {
 
         // No asserts here, just ensuring scheduled execution does not fail
     }
+    @isTest
+    static void testFieldPopulationAfterBatch() {
+        Case testCase = [SELECT Id, Status FROM Case WHERE Recordtype.Name !='IVF Treatment' LIMIT 1];
+        testCase.Status='Approved';
+        update testCase;
+
+        Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
+        Test.startTest();
+        Database.executeBatch(new MSPEligibilityCheckMonthlyBatch(1), 1);
+        Test.stopTest();
+
+        Case updatedParent = [SELECT MonthlyMSPStatusCheck__c, DateOfLastMSPBatchJobRun__c FROM Case WHERE Id = :testCase.Id];
+        System.assertNotEquals(null, updatedParent.DateOfLastMSPBatchJobRun__c);
+        System.assertNotEquals(null, updatedParent.MonthlyMSPStatusCheck__c);
+    }
+
     private class DynamicMock implements HttpCalloutMock {
         private String mockBody;
         private Integer mockStatusCode;
