@@ -35,6 +35,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Applicant1Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant1EnrolledinMedicalServicesPlan__c</field>
         <readable>true</readable>
@@ -42,6 +47,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant1GivenName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Applicant1MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -95,6 +105,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Applicant2Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant2EnrolledInMedicalServicesPlan__c</field>
         <readable>true</readable>
@@ -102,6 +117,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant2GivenName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Applicant2MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -355,6 +375,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Patient1Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient1DateofBirth__c</field>
         <readable>true</readable>
@@ -367,6 +392,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient1GivenName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Patient1MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -400,6 +430,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Patient2Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient2EnrolledInMedicalServicesPlan__c</field>
         <readable>true</readable>
@@ -407,6 +442,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient2IsThePatientFromOutOfCountry__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Patient2MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -440,6 +480,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Patient3Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient3EnrolledInMedicalServicesPlan__c</field>
         <readable>true</readable>
@@ -452,6 +497,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Patient3IsThePatientFromOutOfCountry__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Patient3MSPStatus__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
