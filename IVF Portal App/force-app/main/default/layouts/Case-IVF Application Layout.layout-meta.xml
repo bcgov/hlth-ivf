@@ -118,10 +118,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant1DateOfBirth__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>PreviouslyReceivedFundingforIVF__c</field>
             </layoutItems>
             <layoutItems>
@@ -130,7 +126,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant1Address__c</field>
+                <field>Applicant1MSPStatus__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant1Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -150,6 +150,14 @@
                 <behavior>Edit</behavior>
                 <field>Applicant1MiddleName__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant1DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant1Address__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -165,11 +173,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2EnrolledInMedicalServicesPlan__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant2DateOfBirth__c</field>
+                <field>Applicant2MedicallyEligible__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -181,13 +185,17 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2Address__c</field>
+                <field>Applicant2MSPStatus__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant2Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Applicant2MedicallyEligible__c</field>
+                <field>Applicant2EnrolledInMedicalServicesPlan__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -200,6 +208,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Applicant2MiddleName__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant2DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant2Address__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -224,11 +240,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1MiddleName__c</field>
+                <field>Patient1GivenName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1DateofBirth__c</field>
+                <field>Patient1MSPStatus__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient1Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -246,7 +266,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient1GivenName__c</field>
+                <field>Patient1MiddleName__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient1DateofBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -279,11 +303,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient2DateOfBirth__c</field>
+                <field>Patient2MSPStatus__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient2Address__c</field>
+                <field>Patient2Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -302,6 +326,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient2MiddleName__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient2DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient2Address__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -326,15 +358,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3DateOfBirth__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Patient3GivenName__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Patient3Address__c</field>
+                <field>Patient3MSPStatus__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient3Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -353,6 +385,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient3MiddleName__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient3DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Patient3Address__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
