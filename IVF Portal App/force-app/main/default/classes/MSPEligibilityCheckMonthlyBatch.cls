@@ -59,7 +59,7 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
             eligibilityChanged = updateField(updateCase, 'Patient2', c.Parent.Patient2PersonalHealthNumber__c, c.Parent.Patient2MSPStatus__c, mspStatusMap) || eligibilityChanged;
             eligibilityChanged = updateField(updateCase, 'Patient3', c.Parent.Patient3PersonalHealthNumber__c, c.Parent.Patient3MSPStatus__c, mspStatusMap) || eligibilityChanged;
 
-            updateCase.MonthlyMSPStatusCheck__c = eligibilityChanged ? 'Review required - Eligibility changed' : 'Review not required - No change in eligibility';
+            updateCase.MonthlyMSPStatusCheck__c = eligibilityChanged ? 'Review required - Change in eligibility' : 'Review not required - No change in eligibility';
             updateCase.DateOfLastMSPBatchJobRun__c = System.today();
 
             updateCaseMap.put(updateCase.Id, updateCase);

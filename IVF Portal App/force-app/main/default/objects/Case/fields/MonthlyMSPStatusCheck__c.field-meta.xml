@@ -17,9 +17,9 @@
                 <label>Review not required - No change in eligibility</label>
             </value>
             <value>
-                <fullName>Review required - Eligibility changed</fullName>
+                <fullName>Review required - Change in eligibility</fullName>
                 <default>false</default>
-                <label>Review required - Eligibility changed</label>
+                <label>Review required - Change in eligibility</label>
             </value>
         </valueSetDefinition>
     </valueSet>
