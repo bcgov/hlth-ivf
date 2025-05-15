@@ -183,8 +183,8 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         System.schedule('Test Scheduled Job', cronExp, new MSPEligibilityCheckMonthlyBatch(1));
         Test.stopTest();
 
-        // No asserts here, just ensuring scheduled execution does not fail
     }
+
     private class DynamicMock implements HttpCalloutMock {
         private String mockBody;
         private Integer mockStatusCode;

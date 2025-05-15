@@ -503,7 +503,7 @@
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.RECORDTYPE</fields>
         <fields>PARENT.CASE_NUMBER</fields>
-        <fields>TreatmentStatus__c</fields>
+        <fields>ApprovedTreatmentFunding__c</fields>
         <fields>Treatmentstartdate__c</fields>
         <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
