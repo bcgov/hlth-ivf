@@ -220,6 +220,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DateOfLastMSPBatchJobRun__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.DateofFollowUp__c</field>
         <readable>true</readable>
@@ -332,6 +337,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.MilestoneStatusIcon</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.MonthlyMSPStatusCheck__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
