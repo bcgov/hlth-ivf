@@ -84,4 +84,15 @@
             <default>false</default>
         </values>
     </picklistValues>
+    <picklistValues>
+        <picklist>MonthlyMSPStatusCheck__c</picklist>
+        <values>
+            <fullName>Review not required - No change in eligibility</fullName>
+            <default>false</default>                
+        </values>
+        <values>
+            <fullName>Review required - Change in eligibility</fullName>
+            <default>false</default>                
+        </values>
+    </picklistValues>
 </RecordType>

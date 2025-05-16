@@ -598,7 +598,7 @@
         <locationX>2192</locationX>
         <locationY>3593</locationY>
         <customErrorMessages>
-            <errorMessage>Duplicate Patient found with the same Personal Health Number ({!$Record.Applicant1PersonalHealthNumber__c}) for Applicant 1</errorMessage>
+            <errorMessage>An application has already been submitted for applicant 1 with PHN ({!$Record.Applicant1PersonalHealthNumber__c}). Please contact HLTH.</errorMessage>
             <isFieldError>false</isFieldError>
         </customErrorMessages>
     </customErrors>
@@ -608,7 +608,7 @@
         <locationX>1664</locationX>
         <locationY>4349</locationY>
         <customErrorMessages>
-            <errorMessage>Duplicate Patient found with the same Personal Health Number({!$Record.Applicant2PersonalHealthNumber__c}) for Applicant 2</errorMessage>
+            <errorMessage>An application has already submitted for applicant 2 with PHN ({!$Record.Applicant2PersonalHealthNumber__c}). Please contact HLTH.</errorMessage>
             <isFieldError>false</isFieldError>
         </customErrorMessages>
     </customErrors>
