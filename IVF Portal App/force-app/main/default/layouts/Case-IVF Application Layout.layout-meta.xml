@@ -566,9 +566,6 @@
         <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedCommentsList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>

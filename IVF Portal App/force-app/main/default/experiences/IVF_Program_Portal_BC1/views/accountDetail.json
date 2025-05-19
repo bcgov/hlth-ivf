@@ -23,16 +23,27 @@
         "detailsTabLabel" : "Details",
         "discussionsTabLabel" : "Feed",
         "recordId" : "{!recordId}",
-        "relatedTabLabel" : "Related",
+        "relatedTabLabel" : "",
         "showLegacyActivityComposer" : false,
         "tab1Type" : "details",
-        "tab2Type" : "related",
+        "tab2Type" : "none",
         "tab3Type" : "chatter",
         "tab4Type" : "none",
         "timelineTabLabel" : "Activity"
       },
       "componentName" : "forceCommunity:recordHomeTabs",
       "id" : "f00f60b6-2cf6-4ae3-86e9-23fd7c7c6f80",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "relatedListApiName" : "Clinic_Fundings__r",
+        "relatedListComponentOverride" : "GRID",
+        "width" : "MEDIUM"
+      },
+      "componentName" : "forceCommunity:responsiveRelatedListSingle",
+      "id" : "a3fe7029-d68e-42e8-9e29-e49ad0c1532e",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
