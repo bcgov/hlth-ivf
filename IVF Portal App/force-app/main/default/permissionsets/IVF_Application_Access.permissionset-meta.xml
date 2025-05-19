@@ -1051,6 +1051,11 @@
         <field>ClinicFunding__c.FYStartDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>User.ClinicName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>IVF Application Access</label>
     <objectPermissions>
