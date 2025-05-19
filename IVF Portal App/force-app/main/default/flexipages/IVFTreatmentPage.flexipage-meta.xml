@@ -211,9 +211,6 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
-                            <value>NAME</value>
-                        </valueListItems>
-                        <valueListItems>
                             <value>TreatmentComponent__c</value>
                         </valueListItems>
                         <valueListItems>

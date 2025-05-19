@@ -1,20 +1,25 @@
 import { LightningElement, api, wire, track } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import getCaseStatus from '@salesforce/apex/CaseSubmitController.getCaseStatus';
+import getCaseRecordType from '@salesforce/apex/CaseSubmitController.getCaseRecordType';
 import submitCase from '@salesforce/apex/CaseSubmitController.submitCase';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import { getRecordNotifyChange, refreshApex } from 'lightning/uiRecordApi';
 
 export default class CaseSubmitButton extends NavigationMixin(LightningElement) {
     @api recordId;
     @track isDisabled = false;
-    wiredCaseStatusResult;
+    @track showButton = false;
+    wiredgetCaseRecordTypeResult;
 
-    @wire(getCaseStatus, { caseId: '$recordId' })
-    wiredCaseStatus(result) {
-        this.wiredCaseStatusResult = result;
+    @wire(getCaseRecordType, { caseId: '$recordId' })
+    wiredgetCaseRecordType(result) {
+        this.wiredgetCaseRecordTypeResult = result;
         if (result.data) {
-            this.isDisabled = !['Draft', 'Changes Requested', 'Submitted'].includes(result.data);
+            const [recordType, status] = result.data.split('|');
+            const allowedRecordTypes = ['IVF_Application', 'IVF_Application_Read_Only'];
+            const allowedStatuses = ['Draft', 'Changes Requested', 'Submitted'];
+
+            this.showButton = allowedRecordTypes.includes(recordType) && allowedStatuses.includes(status);
+            this.isDisabled = !allowedStatuses.includes(status);
         } else if (result.error) {
             console.error('Error fetching Case status:', result.error);
         }
