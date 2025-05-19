@@ -87,6 +87,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.My_Clinic__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.NumberOfEmployees</field>
         <readable>true</readable>
@@ -534,6 +539,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.MonthlyMSPStatusCheck__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.My_Clinic__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
