@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>purav.chitaliya@pbcsolutions.ca</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>aparna.pasala@pbcsolutions.ca</sharedTo>
+        <sharedToType>CustomerPortalUser</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>test_098097@test.com</sharedTo>
+        <sharedToType>CustomerPortalUser</sharedToType>
+    </folderShares>
+    <name>IVF Clinic Dashboards</name>
+</DashboardFolder>
