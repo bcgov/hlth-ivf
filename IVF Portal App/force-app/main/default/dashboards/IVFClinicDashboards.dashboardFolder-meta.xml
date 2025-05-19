@@ -10,10 +10,5 @@
         <sharedTo>aparna.pasala@pbcsolutions.ca</sharedTo>
         <sharedToType>CustomerPortalUser</sharedToType>
     </folderShares>
-    <folderShares>
-        <accessLevel>View</accessLevel>
-        <sharedTo>test_098097@test.com</sharedTo>
-        <sharedToType>CustomerPortalUser</sharedToType>
-    </folderShares>
     <name>IVF Clinic Dashboards</name>
 </DashboardFolder>
