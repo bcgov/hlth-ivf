@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>FertilitySpecialistClinicName__c</fullName>
-    <defaultValue>$User.ClinicName__c</defaultValue>
+    <defaultValue>$User.Clinic_Name__c</defaultValue>
     <inlineHelpText>Select the clinic location where primary treatment will occur.</inlineHelpText>
     <label>Fertility Specialist Clinic Name</label>
     <required>false</required>

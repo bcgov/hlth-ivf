@@ -1063,7 +1063,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>User.ClinicName__c</field>
+        <field>User.Clinic_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
