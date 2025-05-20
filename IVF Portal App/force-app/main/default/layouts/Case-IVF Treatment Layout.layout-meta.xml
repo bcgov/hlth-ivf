@@ -184,7 +184,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>NAME</fields>
         <fields>TreatmentComponent__c</fields>
         <fields>TreatmentCost__c</fields>
         <fields>TreatmentDate__c</fields>
