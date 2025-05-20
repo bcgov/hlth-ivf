@@ -152,8 +152,8 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.ExceptionRequest__c</fieldItem>
-                <identifier>RecordExceptionRequest_cField</identifier>
+                <fieldItem>Record.DateOfIVFConsultation__c</fieldItem>
+                <identifier>RecordDateOfIVFApplication_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -172,15 +172,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Allow_Duplicate__c</fieldItem>
-                <identifier>RecordAllow_Duplicate_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Status}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>Draft</rightValue>
-                    </criteria>
-                </visibilityRule>
+                <fieldItem>Record.Clinic_Funding__c</fieldItem>
+                <identifier>RecordClinic_Funding_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -201,10 +194,20 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.RequiredDiagnosticsCompleted__c</fieldItem>
+                <identifier>RecordRequiredDiagnosticsCompleted_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.DateOfIVFConsultation__c</fieldItem>
-                <identifier>RecordDateOfIVFApplication_cField</identifier>
+                <fieldItem>Record.ExceptionRequest__c</fieldItem>
+                <identifier>RecordExceptionRequest_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -213,8 +216,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.RequiredDiagnosticsCompleted__c</fieldItem>
-                <identifier>RecordRequiredDiagnosticsCompleted_cField</identifier>
+                <fieldItem>Record.DateofFollowUp__c</fieldItem>
+                <identifier>RecordDateofFollowUp__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -233,8 +236,15 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Clinic_Funding__c</fieldItem>
-                <identifier>RecordClinic_Funding_cField</identifier>
+                <fieldItem>Record.Allow_Duplicate__c</fieldItem>
+                <identifier>RecordAllow_Duplicate_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Status}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Draft</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-5b54b755-3af9-4d0d-9954-70b9cdc9e2eb</name>
@@ -1941,7 +1951,7 @@
                             <value>PARENT.CASE_NUMBER</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>TreatmentStatus__c</value>
+                            <value>ApprovedTreatmentFunding__c</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Treatmentstartdate__c</value>

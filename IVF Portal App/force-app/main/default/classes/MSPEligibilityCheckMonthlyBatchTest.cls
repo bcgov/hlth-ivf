@@ -64,7 +64,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         //Patient1 Details
         //testCase.Patient1NotApplicable__c =true;
         testCase.Patient1Surname__c='Test';
-        testCase.Patient1PersonalHealthNumber__c ='9876854323';
+        testCase.Patient1PersonalHealthNumber__c ='9330528251';
         testCase.Patient1GivenName__c = 'Patient1';
         testCase.Patient1EnrolledInMedicalServicesPlan__c = 'Yes';
         testCase.EnrolledInCanadianPublicHealthPlan__c = 'Yes';
@@ -107,14 +107,15 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         Case testCase = [SELECT Id, Status FROM Case Where Recordtype.Name !='IVF Treatment'];
         
         //Approve the Case
+        //testCase.ApprovedTreatmentFunding__c = testIVFFundingTier.Funding_Amount__c;
         testCase.Status='Approved';
         update testCase;
-        
+        System.assertEquals('Approved', testCase.Status);
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
         Integer batch_size=1;
         String cronExp = '0 0 1 2 * ?'; // 1:00 AM PST on 2nd of every month
-        String jobName = 'MSP_Eligibility_Monthly_Scheduler';
+        String jobName = 'Test Scheduled Job Name';
         System.schedule(jobName, cronExp, new MSPEligibilityCheckMonthlyBatch(batch_size));
         Test.stopTest();
     }
@@ -132,13 +133,15 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         System.assertNotEquals('Changes Completed', testCase.Status);
         //Check for Treatment records Creation when Application is approved.
         List<Case> treatmentCases=[Select id,Parent.status,AvailableTreatmentBalance1__c,ApprovedTreatmentFunding__c ,FundingCompleteReason__c,FundingComplete__c from Case Where recordtypeid =:IVFTreatmentRecordTypeId and parentid =:testCase.Id];
-        System.debug('treatmentCases'+treatmentCases);
+        System.assertEquals(1,treatmentCases.size());
         
         treatmentCases[0].FundingComplete__c =false;
         update treatmentCases[0];
         //  Run the Apex Method
         Test.startTest();
-        Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
+        String body = '{"resourceType":"Bundle","entry":[{"resource":{"insurance":[{"inforce":false}]}}]}';
+        Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 200));
+        //Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
         Integer batch_size=1;
         MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
         Database.executeBatch(MSPEBatch,batch_size);
@@ -157,12 +160,13 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         System.assertNotEquals('Changes Completed', testCase.Status);
         //Check for Treatment records Creation when Application is approved.
         List<Case> treatmentCases=[Select id,Parent.status,AvailableTreatmentBalance1__c,ApprovedTreatmentFunding__c ,FundingCompleteReason__c,FundingComplete__c from Case Where recordtypeid =:IVFTreatmentRecordTypeId and parentid =:testCase.Id];
-        System.debug('treatmentCases'+treatmentCases);
+        System.assertEquals(1,treatmentCases.size());
         
         
         //  Run the Apex Method
         Test.startTest();
         Integer batch_size=1;
+        Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
         MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
         Database.executeBatch(MSPEBatch,batch_size);
         Test.stopTest();      
@@ -170,11 +174,38 @@ public class MSPEligibilityCheckMonthlyBatchTest {
     
     @isTest
     static void testScheduledExecution() {
+        Case testCase = [SELECT Id, Status FROM Case Where Recordtype.Name !='IVF Treatment'];
+        testCase.Status='Approved';
+        update testCase;
         Test.startTest();
+        Test.setMock(HttpCalloutMock.class, new ExceptionMock()); // Force API failure
         String cronExp = '0 0 12 1 1 ? 2099'; // some future date
         System.schedule('Test Scheduled Job', cronExp, new MSPEligibilityCheckMonthlyBatch(1));
         Test.stopTest();
 
-        // No asserts here, just ensuring scheduled execution does not fail
+    }
+
+    private class DynamicMock implements HttpCalloutMock {
+        private String mockBody;
+        private Integer mockStatusCode;
+        
+        public DynamicMock(String body, Integer statusCode) {
+            this.mockBody = body;
+            this.mockStatusCode = statusCode;
+        }
+        
+        public HTTPResponse respond(HTTPRequest req) {
+            HttpResponse res = new HttpResponse();
+            res.setStatusCode(mockStatusCode);
+            res.setHeader('Content-Type', 'application/json');
+            res.setBody(mockBody);
+            return res;
+        }
+    }
+    
+    private class ExceptionMock implements HttpCalloutMock {
+        public HTTPResponse respond(HTTPRequest req) {
+            throw new CalloutException('Forced exception for testing');
+        }
     }
 }

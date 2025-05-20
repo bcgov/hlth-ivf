@@ -4,7 +4,12 @@ public without sharing class CaseSubmitController {
         Case caseRecord = [SELECT Status FROM Case WHERE Id = :caseId LIMIT 1];
         return caseRecord.Status;
     }
-
+    @AuraEnabled(cacheable=true)
+    public static String getCaseRecordType(Id caseId) {
+        Case casetype = [SELECT Status, RecordType.DeveloperName FROM Case WHERE Id = :caseId LIMIT 1];
+        return casetype.RecordType.DeveloperName + '|' + casetype.Status;
+    }
+    
     @AuraEnabled
     public static void submitCase(Id caseId) {
         Bypass_Validation_Context__c bypassSetting = null;

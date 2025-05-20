@@ -60,8 +60,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.FundingCompleteReason__c</fieldItem>
-                <identifier>RecordFunding_Complete_Reason__cField</identifier>
+                <fieldItem>Record.ApprovedTreatmentFunding__c</fieldItem>
+                <identifier>RecordApprovedTreatmentFunding_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -104,8 +104,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.ApprovedTreatmentFunding__c</fieldItem>
-                <identifier>RecordApprovedTreatmentFunding_cField</identifier>
+                <fieldItem>Record.FundingCompleteReason__c</fieldItem>
+                <identifier>RecordFunding_Complete_Reason__cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -210,9 +210,6 @@
                 <componentInstanceProperties>
                     <name>relatedListFieldAliases</name>
                     <valueList>
-                        <valueListItems>
-                            <value>NAME</value>
-                        </valueListItems>
                         <valueListItems>
                             <value>TreatmentComponent__c</value>
                         </valueListItems>
