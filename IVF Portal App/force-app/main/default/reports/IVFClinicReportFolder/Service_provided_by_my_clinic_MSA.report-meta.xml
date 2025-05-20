@@ -35,7 +35,7 @@
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Account.My_Clinic__c</column>
+            <column>Account.MyClinic__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>

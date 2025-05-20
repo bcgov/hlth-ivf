@@ -17,7 +17,7 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Account.My_Clinic__c</field>
+        <field>Account.MyClinic__c</field>
     </columns>
     <customDetailFormulas>
         <calculatedFormula>ClinicFunding__c.AllocatedFunding__c-ClinicFunding__c.AvailableBalance__c</calculatedFormula>
@@ -28,7 +28,7 @@
     </customDetailFormulas>
     <filter>
         <criteriaItems>
-            <column>Account.My_Clinic__c</column>
+            <column>Account.MyClinic__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
