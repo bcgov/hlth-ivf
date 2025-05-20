@@ -6,7 +6,7 @@
     </classAccesses>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.My_Clinic__c</field>
+        <field>Account.MyClinic__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -351,7 +351,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.My_Clinic__c</field>
+        <field>Case.MyClinic__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
