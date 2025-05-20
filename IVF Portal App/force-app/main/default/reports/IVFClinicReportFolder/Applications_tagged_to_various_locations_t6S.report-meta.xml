@@ -30,7 +30,7 @@
             <value>Draft</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Case.My_Clinic__c</column>
+            <column>Case.MyClinic__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
