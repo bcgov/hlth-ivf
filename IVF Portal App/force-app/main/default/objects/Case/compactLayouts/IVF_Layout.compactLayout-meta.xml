@@ -3,7 +3,7 @@
     <fullName>IVF_Layout</fullName>
     <fields>CaseNumber</fields>
     <fields>AccountId</fields>
-    <fields>FertilitySpecialistClinicName__c</fields>
+    <fields>Status</fields>
     <fields>ExceptionRequestIndicator__c</fields>
     <fields>MSPCoverageStatus__c</fields>
     <fields>MonthlyMSPStatusCheck__c</fields>
