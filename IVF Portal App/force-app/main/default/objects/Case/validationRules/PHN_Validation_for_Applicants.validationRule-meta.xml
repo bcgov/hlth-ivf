@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PHN_Validation_for_Applicants</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+OR(
+ISNEW(),
+ISCHANGED(Applicant1PersonalHealthNumber__c),
+ISCHANGED(Applicant2PersonalHealthNumber__c)
+),
+NOT(ISBLANK(Applicant1PersonalHealthNumber__c)),
+NOT(ISBLANK(Applicant2PersonalHealthNumber__c)),
+Applicant1PersonalHealthNumber__c=Applicant2PersonalHealthNumber__c
+)</errorConditionFormula>
+    <errorMessage>The PHN must be unique for each individual</errorMessage>
+</ValidationRule>
