@@ -20,5 +20,6 @@
     <label>All Exception Cases</label>
     <sharedTo>
         <allInternalUsers></allInternalUsers>
+        <allCustomerPortalUsers></allCustomerPortalUsers>    
     </sharedTo>
 </ListView>
