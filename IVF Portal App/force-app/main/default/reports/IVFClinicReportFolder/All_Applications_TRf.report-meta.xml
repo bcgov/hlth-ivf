@@ -29,13 +29,6 @@
             <operator>equals</operator>
             <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
         </criteriaItems>
-        <criteriaItems>
-            <column>Case.MyClinic__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
     </filter>
     <format>Tabular</format>
     <name>All Applications</name>

@@ -141,8 +141,6 @@
     </dashboardGridLayout>
     <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <owner>aparna.pasala@pbcsolutions.ca</owner>
-    <runningUser>aparna.pasala@pbcsolutions.ca</runningUser>
     <textColor>#000000</textColor>
     <title>IVF Clinic Dashboard</title>
     <titleColor>#000000</titleColor>

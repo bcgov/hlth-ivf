@@ -34,13 +34,6 @@
             <operator>notEqual</operator>
             <value></value>
         </criteriaItems>
-        <criteriaItems>
-            <column>Account.MyClinic__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>

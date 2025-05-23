@@ -19,6 +19,7 @@
     </filters>
     <label>All Exception Cases</label>
     <sharedTo>
+        <allCustomerPortalUsers></allCustomerPortalUsers>
         <allInternalUsers></allInternalUsers>
     </sharedTo>
 </ListView>
