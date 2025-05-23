@@ -4,38 +4,25 @@
     <containerType>Network</containerType>
     <label>Default User Profile Menu</label>
     <navigationMenuItem>
-        <label>Profile</label>
+        <label>View Clinic Information</label>
         <position>1</position>
-        <publiclyAvailable>false</publiclyAvailable>
-        <target>/profile/home</target>
-        <type>InternalLink</type>
-    </navigationMenuItem>
-    <navigationMenuItem>
-        <label>Settings</label>
-        <position>2</position>
-        <publiclyAvailable>false</publiclyAvailable>
-        <target>/settings/home</target>
-        <type>InternalLink</type>
-    </navigationMenuItem>
-    <navigationMenuItem>
-        <label>Account Information</label>
-        <position>3</position>
         <publiclyAvailable>false</publiclyAvailable>
         <target>/comm-my-account</target>
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Contact Support</label>
-        <position>4</position>
+        <defaultListViewId>All_Applications</defaultListViewId>
+        <label>Applications</label>
+        <position>2</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>/contactsupport</target>
-        <type>InternalLink</type>
+        <target>Case</target>
+        <type>SalesforceObject</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>Log Out</label>
-        <position>5</position>
+        <label>Dashboard</label>
+        <position>3</position>
         <publiclyAvailable>false</publiclyAvailable>
-        <target>Logout</target>
-        <type>Event</type>
+        <target>/my-dashboard</target>
+        <type>InternalLink</type>
     </navigationMenuItem>
 </NavigationMenu>
