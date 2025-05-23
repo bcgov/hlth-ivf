@@ -15,10 +15,6 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>CDF1</field>
     </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Account.MyClinic__c</field>
-    </columns>
     <customDetailFormulas>
         <calculatedFormula>ClinicFunding__c.AllocatedFunding__c-ClinicFunding__c.AvailableBalance__c</calculatedFormula>
         <dataType>Double</dataType>
@@ -27,13 +23,6 @@
         <scale>2</scale>
     </customDetailFormulas>
     <filter>
-        <criteriaItems>
-            <column>Account.MyClinic__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
         <criteriaItems>
             <column>ClinicFunding__c.FYEndDate__c</column>
             <columnToColumn>false</columnToColumn>

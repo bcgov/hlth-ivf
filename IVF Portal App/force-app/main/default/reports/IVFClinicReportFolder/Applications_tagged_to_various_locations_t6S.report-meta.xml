@@ -30,13 +30,6 @@
             <value>Draft</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Case.MyClinic__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
-        <criteriaItems>
             <column>Case.FertilitySpecialistClinicName__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>

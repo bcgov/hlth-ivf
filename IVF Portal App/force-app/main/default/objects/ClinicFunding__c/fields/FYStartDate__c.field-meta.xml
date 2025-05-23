@@ -4,6 +4,7 @@
     <inlineHelpText>Fiscal Year Start Date from when the Funding will be available for Clinics</inlineHelpText>
     <label>FY Start Date</label>
     <required>false</required>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Date</type>
 </CustomField>
