@@ -224,7 +224,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Additional Patient 1: Gestational Surrogate (Unintended Parent)</label>
+        <label>Additional Patient 1: Gestational Surrogate</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -283,7 +283,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Additional Patient 2: Known Egg Donor (Unintended Parent)</label>
+        <label>Additional Patient 2: Known Egg Donor</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -342,7 +342,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Additional Patient 3: Known Sperm Donor (Unintended Parent)</label>
+        <label>Additional Patient 3: Known Sperm Donor</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
