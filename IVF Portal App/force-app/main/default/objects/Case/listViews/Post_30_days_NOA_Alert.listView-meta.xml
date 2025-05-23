@@ -27,7 +27,7 @@
         <value>Draft</value>
     </filters>
     <filters>
-        <field>DaysSinceSubmission__c</field>
+        <field>DaysSinceApplicationSubmission__c</field>
         <operation>greaterThan</operation>
         <value>30</value>
     </filters>
