@@ -21,9 +21,9 @@
     }, {
       "componentAttributes" : {
         "detailsTabLabel" : "Details",
-        "discussionsTabLabel" : "Feed",
+        "discussionsTabLabel" : "",
         "recordId" : "{!recordId}",
-        "relatedTabLabel" : "",
+        "relatedTabLabel" : "Treatment",
         "showLegacyActivityComposer" : true,
         "tab1Type" : "details",
         "tab2Type" : "related",
