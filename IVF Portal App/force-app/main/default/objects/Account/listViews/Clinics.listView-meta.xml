@@ -4,7 +4,7 @@
     <columns>ACCOUNT.NAME</columns>
     <columns>PrimaryContact__c</columns>
     <columns>ACCOUNT.IS_ACTIVE</columns>
-    <columns>PC_EMAIL</columns>
+    <columns>Email__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>ACCOUNT.RECORDTYPE</field>
