@@ -25,7 +25,6 @@
         <type>InternalLink</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <defaultListViewId>AllDashboards</defaultListViewId>
         <label>Dashboard</label>
         <menuItemBranding>
             <tileImage>tile_dashboard1</tileImage>
