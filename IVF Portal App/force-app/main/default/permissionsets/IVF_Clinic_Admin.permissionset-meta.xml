@@ -800,6 +800,10 @@
         <object>IVFTreatmentLineItem__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>RunReports</name>
+    </userPermissions>
     <recordTypeVisibilities>
         <recordType>Account.Clinic</recordType>
         <visible>true</visible>
