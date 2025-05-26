@@ -2,7 +2,13 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>DateOfFollowUpNoFutureDate</fullName>
     <active>true</active>
-    <errorConditionFormula>AND ( NOT(ISBLANK(DateofFollowUp__c)), DateofFollowUp__c &gt;  TODAY() )</errorConditionFormula>
+    <errorConditionFormula>AND ( 
+      NOT(ISBLANK(DateofFollowUp__c)), 
+      OR(
+          DateofFollowUp__c &gt;  TODAY(),
+          DateofFollowUp__c &lt;=  DateOfIVFConsultation__c  
+      )    
+)</errorConditionFormula>
     <errorDisplayField>DateofFollowUp__c</errorDisplayField>
-    <errorMessage>Future dates are not allowed for Date of follow up. Only current or past dates are allowed.</errorMessage>
+    <errorMessage>Date of follow-up must be after date of IVF consultations and can not be future dated.</errorMessage>
 </ValidationRule>
