@@ -3,6 +3,7 @@
     <fullName>ALL_Funding_Tiers</fullName>
     <columns>NAME</columns>
     <columns>Funding_Amount__c</columns>
+    <columns>IncomeLevel__c</columns>
     <columns>CREATEDBY_USER</columns>
     <filterScope>Everything</filterScope>
     <label>All Funding Tiers</label>
