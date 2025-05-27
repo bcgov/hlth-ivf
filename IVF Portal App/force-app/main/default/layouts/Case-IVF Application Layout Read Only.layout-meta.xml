@@ -39,7 +39,7 @@
                 <field>ExceptionRequest__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>DateofFollowUp__c</field>
             </layoutItems>
             <layoutItems>
