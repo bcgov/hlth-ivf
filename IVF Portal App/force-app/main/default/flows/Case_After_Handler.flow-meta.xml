@@ -1311,7 +1311,7 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
-        <name>CurrentOrgDomain</name>
+        <name>OrgDomain</name>
         <dataType>String</dataType>
         <expression>LEFT({!$Api.Enterprise_Server_URL_560}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_URL_560}) - 1)</expression>
     </formulas>
