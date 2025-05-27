@@ -13,26 +13,30 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Case.ApprovedTreatmentFunding__c</field>
     </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.EstimatedCostofTreatmentPlan__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>RECORDTYPE</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Case.IVF_Application</value>
+            <value>Case.IVFTreatment</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Case.ApprovedTreatmentFunding__c</column>
+            <column>Case.FundingComplete__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
-            <operator>greaterThan</operator>
-            <value>0</value>
+            <operator>equals</operator>
+            <value>1</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Case.FertilitySpecialistClinicName__c</field>
+        <field>RECORDTYPE</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Total funding approved to date</name>

@@ -1048,6 +1048,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>IVFFundingTier__c.IncomeLevel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ClinicFunding__c.AllocatedFunding__c</field>
         <readable>true</readable>
     </fieldPermissions>
