@@ -888,7 +888,7 @@
         <recordType>Case.IVF_Application</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-IVF Application Layout Read Only</layout>
+        <layout>Case-Case Layout</layout>
         <recordType>Case.IVF_Application_Read_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
