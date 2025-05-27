@@ -261,34 +261,24 @@
             <columnIndex>6</columnIndex>
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
-                <chartAxisRange>Auto</chartAxisRange>
                 <chartSummary>
                     <aggregate>Sum</aggregate>
                     <axisBinding>y</axisBinding>
                     <column>Case.ApprovedTreatmentFunding__c</column>
                 </chartSummary>
                 <componentChartTheme>dark</componentChartTheme>
-                <componentType>Column</componentType>
+                <componentType>Metric</componentType>
                 <decimalPrecision>-1</decimalPrecision>
                 <displayUnits>Auto</displayUnits>
-                <drillEnabled>false</drillEnabled>
-                <drillToDetailEnabled>false</drillToDetailEnabled>
-                <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
-                <groupingColumn>Case.FertilitySpecialistClinicName__c</groupingColumn>
-                <groupingSortProperties>
-                    <groupingSorts>
-                        <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
-                    </groupingSorts>
-                </groupingSortProperties>
+                <groupingSortProperties/>
                 <header>Total funding approved to date</header>
-                <legendPosition>Bottom</legendPosition>
+                <indicatorBreakpoint1>33.0</indicatorBreakpoint1>
+                <indicatorBreakpoint2>67.0</indicatorBreakpoint2>
+                <indicatorHighColor>#00716B</indicatorHighColor>
+                <indicatorLowColor>#C23934</indicatorLowColor>
+                <indicatorMiddleColor>#CA8501</indicatorMiddleColor>
                 <report>unfiled$public/Total_funding_approved_to_date_jV4</report>
-                <showPercentage>false</showPercentage>
-                <showValues>true</showValues>
-                <sortBy>RowLabelAscending</sortBy>
-                <useReportChart>false</useReportChart>
+                <showRange>false</showRange>
             </dashboardComponent>
             <rowIndex>18</rowIndex>
             <rowSpan>9</rowSpan>
@@ -299,7 +289,7 @@
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
     <owner>aparna.pasala@pbcsolutions.ca</owner>
-    <runningUser>aparna.pasala@pbcsolutions.ca</runningUser>
+    <runningUser>sai.chiluveru@pbcsolutions.ca</runningUser>
     <textColor>#000000</textColor>
     <title>BDSB Dashboard - Homepage</title>
     <titleColor>#000000</titleColor>
