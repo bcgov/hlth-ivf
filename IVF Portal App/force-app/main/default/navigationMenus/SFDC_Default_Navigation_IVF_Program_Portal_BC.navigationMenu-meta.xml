@@ -15,7 +15,6 @@
         <type>SalesforceObject</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <defaultListViewId>Clinics</defaultListViewId>
         <label>Clinic Information &amp; Funding Details</label>
         <menuItemBranding>
             <tileImage>tile_myClinic1</tileImage>
