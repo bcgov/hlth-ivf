@@ -4,22 +4,23 @@
     <containerType>Network</containerType>
     <label>Default Navigation</label>
     <navigationMenuItem>
-        <defaultListViewId>RecentlyViewedCases</defaultListViewId>
-        <label>View Applications</label>
+        <defaultListViewId>All_Applications</defaultListViewId>
+        <label>Applications &amp; Treatments</label>
         <menuItemBranding>
             <tileImage>tile_application2</tileImage>
         </menuItemBranding>
-        <position>2</position>
+        <position>1</position>
         <publiclyAvailable>false</publiclyAvailable>
         <target>Case</target>
         <type>SalesforceObject</type>
     </navigationMenuItem>
     <navigationMenuItem>
-        <label>View Clinic Information</label>
+        <defaultListViewId>Clinics</defaultListViewId>
+        <label>Clinic Information &amp; Funding Details</label>
         <menuItemBranding>
             <tileImage>tile_myClinic1</tileImage>
         </menuItemBranding>
-        <position>3</position>
+        <position>2</position>
         <publiclyAvailable>false</publiclyAvailable>
         <target>/comm-my-account</target>
         <type>InternalLink</type>
@@ -29,7 +30,7 @@
         <menuItemBranding>
             <tileImage>tile_dashboard1</tileImage>
         </menuItemBranding>
-        <position>4</position>
+        <position>3</position>
         <publiclyAvailable>false</publiclyAvailable>
         <target>/my-dashboard</target>
         <type>InternalLink</type>
