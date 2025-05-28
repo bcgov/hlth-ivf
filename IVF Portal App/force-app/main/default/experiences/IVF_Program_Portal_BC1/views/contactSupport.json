@@ -1,6 +1,6 @@
 {
   "appPageId" : "befed4fd-2f6f-4557-839c-e5cc4de89a29",
-  "componentName" : "siteforce:sldsTwoCol66Layout",
+  "componentName" : "siteforce:sldsOneColLayout",
   "dataProviders" : [ ],
   "id" : "09884696-ed2f-46e0-99a5-e6ab87b901d6",
   "label" : "Contact Support",
@@ -11,31 +11,10 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "allowAttachments" : true,
-        "attachmentLabel" : "Upload File",
-        "buttonAlignment" : "center",
-        "buttonBgColor" : "",
-        "buttonBgHoverColor" : "",
-        "buttonBorderColor" : "",
-        "buttonMaxWidth" : "",
-        "buttonRadius" : 0,
-        "buttonTextColor" : "",
-        "buttonTextHoverColor" : "",
-        "callToAction" : false,
-        "callToActionButtonText" : "",
-        "callToActionText" : "",
-        "callToActionUrl" : "",
-        "confirmationSubtext" : "We’ll get back to you soon.",
-        "confirmationText" : "Your case was created.",
-        "guestQuickActionName" : "GuestCommunityCase",
-        "headerSubtitle" : "Tell us how we can help.",
-        "headerTitle" : "Contact Customer Support",
-        "isMicrobatch" : false,
-        "quickActionName" : "NewCommunityCase",
-        "requestSummaryText" : "Case summary"
+        "richTextValue" : "<!-- Main Container -->\n<div style=\"display: flex; flex-wrap: wrap; background-color: #1e2a38; color: white; padding: 40px 0;\">\n\n  <!-- Left: Text Content -->\n  <div style=\"flex: 1 1 40%; padding: 40px;\">\n    <p style=\"font-size: 1.2rem;\">\n      <strong>Get in touch:</strong> If you have any questions regarding the IVF program or require technical support, please email \n      <a href=\"mailto:HLTH.IVF@gov.bc.ca\" style=\"color: #ffffff; text-decoration: underline;\">HLTH.IVF@gov.bc.ca</a>.\n    </p>\n  </div>\n\n  <!-- Right: Enlarged Image -->\n  <div style=\"flex: 1 1 60%; padding: 20px; text-align: center;\">\n    <img src=\"/sfsites/c/resource/IVFContactUs\" alt=\"Contact Image\" style=\"width: 60%; border-radius: 8px;\">\n  </div>\n\n</div>"
       },
-      "componentName" : "forceCommunity:contactSupportForm",
-      "id" : "ddbfc714-4419-4bae-bf6a-64c998b05e64",
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "6adc7157-f39c-49f4-8395-86fb4056e830",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
@@ -46,21 +25,10 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "askConfirmationQuestion" : true,
-        "confirmationMessageLabel" : "Got it!",
-        "deflectionSubtitle" : "Find what you need here.",
-        "deflectionTitle" : "Need Answers Fast?",
-        "firstQuestion" : "Did this content solve your issue?",
-        "maxResults" : 6,
-        "measureDeflection" : true,
-        "redirectUrl" : "",
-        "secondQuestion" : "Stop creating your case?",
-        "showArticles" : true,
-        "showDiscussions" : false,
-        "topicId" : ""
+        "richTextValue" : "<div style=\"background-color: #1e2a38; color: white; padding: 40px 20px; text-align: center;\">\n  <h1 style=\"font-size: 2.5rem; margin-bottom: 10px;\">Get in touch</h1>\n  <p style=\"font-size: 1.2rem; max-width: 600px; margin: 0 auto;\">\n    Want to get in touch? We’d love to hear from you. Here’s how you can reach us.\n  </p>\n</div>\n\n<div style=\"display: flex; flex-wrap: wrap; justify-content: center; padding: 40px 20px; background-color: #f5f5f5;\">\n  \n  <!-- Image Section -->\n  <div style=\"flex: 1 1 300px; max-width: 500px; padding: 20px; text-align: center;\">\n    <img src=\"{!URLFOR($Resource.IVFContactUs)}\" alt=\"Contact Us Image\" style=\"width: 100%; max-width: 400px; border-radius: 8px;\">\n  </div>\n\n  <!-- Contact Info Section -->\n  <div style=\"flex: 1 1 300px; max-width: 500px; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1);\">\n    <h2 style=\"color: #1e2a38;\">Email Our Team</h2>\n    <p style=\"font-size: 1.1rem; color: #333;\">\n      For any inquiries related to the IVF Program, reach out to us at:\n    </p>\n    <p style=\"font-size: 1.1rem; font-weight: bold;\">\n      <a href=\"mailto:HLTH.IVF@gov.bc.ca\" style=\"color: #0070d2; text-decoration: underline;\">\n        HLTH.IVF@gov.bc.ca\n      </a>\n    </p>\n  </div>\n\n</div>"
       },
-      "componentName" : "forceCommunity:caseDeflection",
-      "id" : "ec7bc2ad-0866-4312-805b-e14c74a14991",
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "cef57509-1d25-4c57-980b-3c54a201b292",
       "renderPriority" : "NEUTRAL",
       "renditionMap" : { },
       "type" : "component"
