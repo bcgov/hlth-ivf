@@ -895,6 +895,9 @@
         <layout>Case-IVF Treatment Layout</layout>
         <recordType>Case.IVFTreatment</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>ClinicFunding__c-Clinic Funding Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
