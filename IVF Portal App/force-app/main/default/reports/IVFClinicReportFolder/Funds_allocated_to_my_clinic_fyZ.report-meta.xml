@@ -4,6 +4,12 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
+        <field>ClinicFunding__c.FYStartDate__c</field>
+    </columns>
+    <columns>
+        <field>ClinicFunding__c.FYEndDate__c</field>
+    </columns>
+    <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>ClinicFunding__c.AllocatedFunding__c</field>
     </columns>

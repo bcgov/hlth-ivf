@@ -12,6 +12,9 @@
     <columns>
         <field>OWNER</field>
     </columns>
+    <columns>
+        <field>Case.DateOfApplicationSubmission__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>Case.ExceptionRequest__c</column>

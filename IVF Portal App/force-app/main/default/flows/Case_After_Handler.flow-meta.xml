@@ -1313,7 +1313,7 @@
     <formulas>
         <name>OrgDomain</name>
         <dataType>String</dataType>
-        <expression>LEFT({!$Api.Enterprise_Server_URL_560}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_URL_560}) - 1)</expression>
+        <expression>SUBSTITUTE(LEFT({!$Api.Enterprise_Server_URL_560}, FIND(&quot;.my.site.com&quot;, {!$Api.Enterprise_Server_URL_560}) + 12), &quot;.my.site.com&quot;, &quot;.my.salesforce.com&quot;)</expression>
     </formulas>
     <formulas>
         <name>PortalDomain</name>
@@ -1323,11 +1323,6 @@
   &quot;salesforce&quot;,
   &quot;site&quot;
 ) +&apos;/clinics/s/case&apos;</expression>
-    </formulas>
-    <formulas>
-        <name>CurrentOrgDomain</name>
-        <dataType>String</dataType>
-        <expression>LEFT({!$Api.Enterprise_Server_URL_630}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_URL_630}) - 1)</expression>
     </formulas>
     <formulas>
         <name>totalClinicAvailableBalance</name>
@@ -2279,7 +2274,7 @@
     <textTemplates>
         <name>ChangesCompletedEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Changes have been completed for application number &lt;a href=&quot;{!CurrentOrgDomain}/lightning/r/Case/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;Changes have been completed for application number &lt;a href=&quot;{!OrgDomain}/lightning/r/Case/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>ChangesRequestedEmailBody</name>
