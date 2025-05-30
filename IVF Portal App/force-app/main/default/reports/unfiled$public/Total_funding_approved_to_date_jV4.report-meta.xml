@@ -15,7 +15,7 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Case.EstimatedCostofTreatmentPlan__c</field>
+        <field>Case.TotalTreatmentandMedication__c</field>
     </columns>
     <filter>
         <criteriaItems>
@@ -23,20 +23,13 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Case.IVFTreatment</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>Case.FundingComplete__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
+            <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>RECORDTYPE</field>
+        <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Total funding approved to date</name>
@@ -51,7 +44,7 @@
     <reportType>CaseList</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
+    <showGrandTotal>false</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>

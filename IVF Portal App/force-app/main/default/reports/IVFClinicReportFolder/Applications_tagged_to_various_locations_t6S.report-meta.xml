@@ -4,6 +4,9 @@
         <field>CASE_NUMBER</field>
     </columns>
     <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
         <field>Case.DateOfApplicationSubmission__c</field>
     </columns>
     <columns>
@@ -40,7 +43,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Case.FertilitySpecialistClinicName__c</field>
+        <field>Case.FertilitySpecialistClinicLocation__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Applications tagged to my clinic</name>
@@ -56,7 +59,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
+    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -143,16 +144,16 @@
                 <field>AreYouAGestationalCarrier__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Applicant1DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Applicant1Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Applicant1MiddleName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant1DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -203,15 +204,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Applicant2DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Applicant2Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Applicant2MiddleName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Applicant2DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -262,15 +263,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Patient1DateofBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Patient1Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient1MiddleName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Patient1DateofBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -321,15 +322,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Patient2DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Patient2Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient2MiddleName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Patient2DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -380,15 +381,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Patient3DateOfBirth__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Patient3Surname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Patient3MiddleName__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Patient3DateOfBirth__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
