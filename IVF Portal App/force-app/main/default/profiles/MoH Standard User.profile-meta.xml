@@ -34,6 +34,9 @@
     <layoutAssignments>
         <layout>ClinicFunding__c-Clinic Funding Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>IVFFundingTier__c-IVF Funding Tier Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>

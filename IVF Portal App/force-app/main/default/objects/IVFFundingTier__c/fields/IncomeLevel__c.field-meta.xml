@@ -3,7 +3,7 @@
     <fullName>IncomeLevel__c</fullName>
     <label>Income Level</label>
     <required>false</required>
-    <trackHistory>false</trackHistory>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
