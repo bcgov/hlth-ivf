@@ -292,11 +292,11 @@
                 </chartSummary>
                 <chartSummary>
                     <aggregate>Sum</aggregate>
-                    <axisBinding>y</axisBinding>
+                    <axisBinding>y2</axisBinding>
                     <column>Case.TotalTreatmentandMedication__c</column>
                 </chartSummary>
                 <componentChartTheme>dark</componentChartTheme>
-                <componentType>Bar</componentType>
+                <componentType>ColumnLine</componentType>
                 <decimalPrecision>-1</decimalPrecision>
                 <displayUnits>Auto</displayUnits>
                 <drillEnabled>false</drillEnabled>
@@ -312,9 +312,8 @@
                 </groupingSortProperties>
                 <header>Funding Approved vs Expenditure</header>
                 <legendPosition>Right</legendPosition>
-                <report>unfiled$public/Total_funding_approved_to_date_jV4</report>
+                <report>IVFClinicReportFolder/Funding_Approved_vs_Expenditure_HII</report>
                 <showPercentage>false</showPercentage>
-                <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>true</showValues>
                 <sortBy>RowLabelAscending</sortBy>
                 <useReportChart>false</useReportChart>
@@ -327,8 +326,6 @@
     </dashboardGridLayout>
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <owner>aparna.pasala@pbcsolutions.ca</owner>
-    <runningUser>sai.chiluveru@pbcsolutions.ca</runningUser>
     <textColor>#000000</textColor>
     <title>BDSB Dashboard - Homepage</title>
     <titleColor>#000000</titleColor>
