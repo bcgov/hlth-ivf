@@ -312,7 +312,7 @@
                 </groupingSortProperties>
                 <header>Funding Approved vs Expenditure</header>
                 <legendPosition>Right</legendPosition>
-                <report>unfiled$public/Total_funding_approved_to_date_jV4</report>
+                <report>IVFClinicReportFolder/Funding_Approved_vs_Expenditure_HII</report>
                 <showPercentage>false</showPercentage>
                 <showPicturesOnCharts>false</showPicturesOnCharts>
                 <showValues>true</showValues>
@@ -327,8 +327,6 @@
     </dashboardGridLayout>
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <owner>aparna.pasala@pbcsolutions.ca</owner>
-    <runningUser>sai.chiluveru@pbcsolutions.ca</runningUser>
     <textColor>#000000</textColor>
     <title>BDSB Dashboard - Homepage</title>
     <titleColor>#000000</titleColor>
