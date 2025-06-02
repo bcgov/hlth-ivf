@@ -13,13 +13,17 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Case.ApprovedTreatmentFunding__c</field>
     </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.TotalTreatmentandMedication__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>RECORDTYPE</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
+            <value>Case.IVFTreatment</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>
@@ -28,7 +32,7 @@
         <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Total funding approved to date</name>
+    <name>Funding Approved vs Expenditure</name>
     <params>
         <name>units</name>
         <value>h</value>
