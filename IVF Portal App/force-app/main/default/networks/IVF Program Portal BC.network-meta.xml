@@ -21,7 +21,7 @@
     <enableKnowledgeable>false</enableKnowledgeable>
     <enableLWRExperienceConnectedApp>false</enableLWRExperienceConnectedApp>
     <enableMemberVisibility>false</enableMemberVisibility>
-    <enableNicknameDisplay>true</enableNicknameDisplay>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
     <enablePrivateMessages>false</enablePrivateMessages>
     <enableReputation>false</enableReputation>
     <enableShowAllNetworkSettings>false</enableShowAllNetworkSettings>
@@ -52,7 +52,7 @@
     <sendWelcomeEmail>false</sendWelcomeEmail>
     <site>IVF_Program_Portal_BC</site>
     <siteArchiveStatus>NotArchived</siteArchiveStatus>
-    <status>UnderConstruction</status>
+    <status>Live</status>
     <tabs>
         <defaultTab>home</defaultTab>
         <standardTab>Chatter</standardTab>
