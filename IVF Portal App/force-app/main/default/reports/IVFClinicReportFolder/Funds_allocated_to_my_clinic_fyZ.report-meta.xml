@@ -28,22 +28,6 @@
         <label>Utilized Balance</label>
         <scale>2</scale>
     </customDetailFormulas>
-    <filter>
-        <criteriaItems>
-            <column>ClinicFunding__c.FYEndDate__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>greaterThan</operator>
-            <value>TODAY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>ClinicFunding__c.FYStartDate__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>lessThan</operator>
-            <value>TODAY</value>
-        </criteriaItems>
-    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
