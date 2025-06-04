@@ -5,7 +5,7 @@
         <name>Deduct_Balance</name>
         <label>Deduct Balance</label>
         <locationX>50</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>Get_Clinic_Funding_Records.AvailableBalance__c</assignToReference>
             <operator>Subtract</operator>
@@ -21,7 +21,7 @@
         <name>Capacity_Reached_Error</name>
         <label>Capacity Reached Error</label>
         <locationX>314</locationX>
-        <locationY>755</locationY>
+        <locationY>863</locationY>
         <customErrorMessages>
             <errorMessage>Your clinic has reached capacity. Unfortunately, no more applications can be accepted at this time.</errorMessage>
             <isFieldError>false</isFieldError>
@@ -41,7 +41,7 @@
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
         <locationX>578</locationX>
-        <locationY>431</locationY>
+        <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Application_Submitted</name>
@@ -51,6 +51,13 @@
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Submitted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>get_community_user.Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Customer Community Plus Login User</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -63,7 +70,7 @@
         <name>Check_Available_Balance</name>
         <label>Check Available Balance</label>
         <locationX>314</locationX>
-        <locationY>647</locationY>
+        <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Sufficient_Balance</name>
@@ -113,7 +120,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Application_Status_Changes</targetReference>
+                <targetReference>get_community_user</targetReference>
             </connector>
             <label>Yes</label>
         </rules>
@@ -387,7 +394,7 @@
         <name>Get_Clinic_Funding_Records</name>
         <label>Get Clinic Funding Records</label>
         <locationX>314</locationX>
-        <locationY>539</locationY>
+        <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Check_Available_Balance</targetReference>
@@ -416,6 +423,27 @@
         </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>ClinicFunding__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>get_community_user</name>
+        <label>get community user</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Application_Status_Changes</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -485,7 +513,7 @@
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
-        <locationY>971</locationY>
+        <locationY>1079</locationY>
         <inputAssignments>
             <field>Clinic_Funding__c</field>
             <value>
@@ -498,7 +526,7 @@
         <name>Update_Clinics_Available_Balance</name>
         <label>Update Clinics Available Balance</label>
         <locationX>50</locationX>
-        <locationY>863</locationY>
+        <locationY>971</locationY>
         <connector>
             <targetReference>Update_Case_With_Clinic_Funding</targetReference>
         </connector>

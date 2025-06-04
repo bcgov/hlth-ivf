@@ -4,6 +4,12 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
+        <field>ClinicFunding__c.FYStartDate__c</field>
+    </columns>
+    <columns>
+        <field>ClinicFunding__c.FYEndDate__c</field>
+    </columns>
+    <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>ClinicFunding__c.AllocatedFunding__c</field>
     </columns>
@@ -15,10 +21,6 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>CDF1</field>
     </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Account.MyClinic__c</field>
-    </columns>
     <customDetailFormulas>
         <calculatedFormula>ClinicFunding__c.AllocatedFunding__c-ClinicFunding__c.AvailableBalance__c</calculatedFormula>
         <dataType>Double</dataType>
@@ -26,29 +28,6 @@
         <label>Utilized Balance</label>
         <scale>2</scale>
     </customDetailFormulas>
-    <filter>
-        <criteriaItems>
-            <column>Account.MyClinic__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>ClinicFunding__c.FYEndDate__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>greaterThan</operator>
-            <value>TODAY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>ClinicFunding__c.FYStartDate__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>lessThan</operator>
-            <value>TODAY</value>
-        </criteriaItems>
-    </filter>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

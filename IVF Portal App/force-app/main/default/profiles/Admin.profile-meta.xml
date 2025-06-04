@@ -164,6 +164,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Applicant1FullName__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Applicant1GivenName__c</field>
         <readable>true</readable>
@@ -376,6 +381,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.DateOfLastMSPBatchJobRun__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DaysSinceApplicationSubmission__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -780,6 +790,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Case.TotalHouseholdIncome__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Treatmentstartdate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -821,6 +836,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>IVFFundingTier__c.Funding_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IVFFundingTier__c.IncomeLevel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -873,12 +893,18 @@
         <recordType>Case.IVF_Application</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-IVF Application Layout Read Only</layout>
+        <layout>Case-Case Layout</layout>
         <recordType>Case.IVF_Application_Read_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-IVF Treatment Layout</layout>
         <recordType>Case.IVFTreatment</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ClinicFunding__c-Clinic Funding Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>IVFFundingTier__c-IVF Funding Tier Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>

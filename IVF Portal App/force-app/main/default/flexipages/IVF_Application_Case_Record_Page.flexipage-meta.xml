@@ -236,6 +236,16 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.TotalHouseholdIncome__c</fieldItem>
+                <identifier>RecordTotalHouseholdIncome__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Allow_Duplicate__c</fieldItem>
                 <identifier>RecordAllow_Duplicate_cField</identifier>
                 <visibilityRule>
@@ -711,6 +721,16 @@
                     <name>uiBehavior</name>
                     <value>required</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Applicant1DateOfBirth__c</fieldItem>
+                <identifier>RecordApplicant1DateOfBirth_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>required</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1Surname__c</fieldItem>
                 <identifier>RecordApplicant1Surname_cField</identifier>
             </fieldInstance>
@@ -723,16 +743,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1MiddleName__c</fieldItem>
                 <identifier>RecordApplicant1MiddleName_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>required</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant1DateOfBirth__c</fieldItem>
-                <identifier>RecordApplicant1DateOfBirth_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -912,6 +922,23 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Applicant2DateOfBirth__c</fieldItem>
+                <identifier>RecordApplicant2DateOfBirth_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2Surname__c</fieldItem>
                 <identifier>RecordApplicant2Surname_cField</identifier>
                 <visibilityRule>
@@ -931,23 +958,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2MiddleName__c</fieldItem>
                 <identifier>RecordApplicant2MiddleName_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.NotApplicable__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Applicant2DateOfBirth__c</fieldItem>
-                <identifier>RecordApplicant2DateOfBirth_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
@@ -1181,6 +1191,23 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Patient1DateofBirth__c</fieldItem>
+                <identifier>RecordPatient1DateofBirth_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Patient1Surname__c</fieldItem>
                 <identifier>RecordPatient1Surname_cField</identifier>
                 <visibilityRule>
@@ -1200,23 +1227,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient1MiddleName__c</fieldItem>
                 <identifier>RecordPatient1MiddleName_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Patient1DateofBirth__c</fieldItem>
-                <identifier>RecordPatient1DateofBirth_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
@@ -1410,6 +1420,23 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Patient2DateOfBirth__c</fieldItem>
+                <identifier>RecordPatient2DateOfBirth_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Patient2Surname__c</fieldItem>
                 <identifier>RecordPatient2Surname_cField</identifier>
                 <visibilityRule>
@@ -1429,23 +1456,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient2MiddleName__c</fieldItem>
                 <identifier>RecordPatient2MiddleName_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Patient2DateOfBirth__c</fieldItem>
-                <identifier>RecordPatient2DateOfBirth_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
@@ -1639,6 +1649,23 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
+                <fieldItem>Record.Patient3DateOfBirth__c</fieldItem>
+                <identifier>RecordPatient3DateOfBirth_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
                 <fieldItem>Record.Patient3Surname__c</fieldItem>
                 <identifier>RecordPatient3Surname_cField</identifier>
                 <visibilityRule>
@@ -1658,23 +1685,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Patient3MiddleName__c</fieldItem>
                 <identifier>RecordPatient3MiddleName_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>false</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Patient3DateOfBirth__c</fieldItem>
-                <identifier>RecordPatient3DateOfBirth_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
@@ -2040,7 +2050,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Additional Patients (Unintended Parents)</value>
+                    <value>Additional Patients</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>flexipage_tab4</identifier>

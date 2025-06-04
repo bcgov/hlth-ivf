@@ -3,12 +3,12 @@
     <fullName>DaysSinceSubmission__c</fullName>
     <externalId>false</externalId>
     <formula>IF(
-    AND(
-        NOT(ISBLANK(DateOfApplicationSubmission__c)),
-        NOT(ISBLANK(FinalDecisionDate__c))
-    ), 
-    FinalDecisionDate__c - DateOfApplicationSubmission__c , 
-    NULL
+  AND(
+    NOT(ISBLANK(DateOfApplicationSubmission__c)),
+    NOT(ISBLANK(FinalDecisionDate__c))
+  ),
+  MAX(FinalDecisionDate__c - DateOfApplicationSubmission__c, 0),
+  NULL
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Days Since Submission</label>

@@ -3,9 +3,9 @@
     <fullName>EstimatedCostofTreatmentPlan__c</fullName>
     <inlineHelpText>This is intended to be an up front estimate, and this field can be updated until the application status has been changed to ‘In Review’.</inlineHelpText>
     <label>Estimated Cost of Treatment Plan</label>
-    <precision>18</precision>
+    <precision>16</precision>
     <required>false</required>
-    <scale>2</scale>
+    <scale>0</scale>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>

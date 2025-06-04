@@ -11,11 +11,11 @@
   }, {
     "components" : [ {
       "componentAttributes" : {
-        "customTitle" : "",
+        "customTitle" : "Treatment",
         "parentRecordId" : "{!recordId}",
         "relatedListName" : "{!relationshipApiName}",
         "showBreadCrumbs" : true,
-        "showCustomTitle" : false,
+        "showCustomTitle" : true,
         "showManualRefreshButton" : true,
         "showRowNumbers" : true
       },

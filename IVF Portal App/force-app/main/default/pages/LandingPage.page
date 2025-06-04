@@ -1,4 +1,11 @@
 <apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+    <script>
+        function login() {
+            var startUrl = '/s/';  // Adjust based on your community structure
+            var loginUrl = '/clinics/services/auth/sso/OneHealthID?startURL=' + encodeURIComponent(startUrl);
+            window.location.href = loginUrl;
+        }
+    </script>
     <html>
         <head>
             <style>
@@ -57,8 +64,8 @@
             </style>
         </head>
         <body>
-            <div class="header">
-                <img src="{!$Resource.IVFLogo}" alt="British Columbia Logo" style="width: 200px; height: auto; display: block;" />
+                        <div class="header">
+                <img src="{!$Resource.BCLogo}" alt="British Columbia Logo" style="width: 200px; height: auto; display: block;" />
             </div>
             
             <div class="main-content">
@@ -85,10 +92,7 @@
                           ">
                     Use your BC Provider ID to access the IVF Program Portal
                 </p>
-                
-                <a href="https://common-logon-test.hlth.gov.bc.ca/auth/realms/moh_applications/protocol/openid-connect" target="_blank">
-                    <button class="login-button">LOG IN</button>
-                </a>
+                    <button onclick="login()" class="login-button">OneHealthID Login</button>
             </div>
         </body>
     </html>

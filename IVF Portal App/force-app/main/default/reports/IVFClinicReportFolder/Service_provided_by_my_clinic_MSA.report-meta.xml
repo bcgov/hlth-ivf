@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>ACCOUNT.NAME</field>
-    </columns>
-    <columns>
-        <field>CUST_NAME</field>
+        <field>CASE_NUMBER</field>
     </columns>
     <columns>
         <field>IVFTreatmentLineItem__c.TreatmentDate__c</field>
@@ -12,12 +9,6 @@
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>IVFTreatmentLineItem__c.TreatmentCost__c</field>
-    </columns>
-    <columns>
-        <field>CASE_NUMBER</field>
-    </columns>
-    <columns>
-        <field>PARENT_CASE_NUMBER</field>
     </columns>
     <filter>
         <criteriaItems>
@@ -34,13 +25,6 @@
             <operator>notEqual</operator>
             <value></value>
         </criteriaItems>
-        <criteriaItems>
-            <column>Account.MyClinic__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>1</value>
-        </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>
@@ -48,7 +32,7 @@
         <field>IVFTreatmentLineItem__c.TreatmentComponent__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Service provided by my clinic</name>
+    <name>Services provided by my clinic</name>
     <params>
         <name>units</name>
         <value>h</value>
@@ -61,7 +45,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

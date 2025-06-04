@@ -1254,6 +1254,13 @@
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Get_IVF_Funding_Tier</targetReference>
             </connector>
@@ -1311,9 +1318,18 @@
     </decisions>
     <environments>Default</environments>
     <formulas>
-        <name>CurrentOrgDomain</name>
+        <name>OrgDomain</name>
         <dataType>String</dataType>
-        <expression>LEFT({!$Api.Enterprise_Server_URL_630}, FIND(&apos;/services&apos;, {!$Api.Enterprise_Server_URL_630}) - 1)</expression>
+        <expression>SUBSTITUTE(LEFT({!$Api.Enterprise_Server_URL_560}, FIND(&quot;.my.site.com&quot;, {!$Api.Enterprise_Server_URL_560}) + 12), &quot;.my.site.com&quot;, &quot;.my.salesforce.com&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>PortalDomain</name>
+        <dataType>String</dataType>
+        <expression>SUBSTITUTE(
+  LEFT({!$Api.Partner_Server_URL_560}, FIND(&quot;/services&quot;, {!$Api.Partner_Server_URL_560}) - 1),
+  &quot;salesforce&quot;,
+  &quot;site&quot;
+) +&apos;/clinics/s/case&apos;</expression>
     </formulas>
     <formulas>
         <name>totalClinicAvailableBalance</name>
@@ -2260,22 +2276,22 @@
     <textTemplates>
         <name>ApprovedApplicationEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Funding has been approved for application number &lt;a href=&quot;{!$Label.Portal_URL}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Funding has been approved for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details.&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>ChangesCompletedEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Changes have been completed for application number &lt;a href=&quot;{!CurrentOrgDomain}/lightning/r/Case/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;Changes have been completed for application number &lt;a href=&quot;{!OrgDomain}/lightning/r/Case/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>ChangesRequestedEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Changes have been requested for application number &lt;a href=&quot;{!$Label.Portal_URL}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;. Please log into the IVF portal to view and make the requested updates.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Changes have been requested for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;. Please log into the IVF portal to view and make the requested updates.&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>DeniedApplicationEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Funding has not been approved for application number &lt;a href=&quot;{!$Label.Portal_URL}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details. A letter has been sent to the applicants outlining the funding decision.&amp;nbsp;If applicants have questions regarding the decision they may contact &lt;a href=&quot;mailto:{!BDSB_Email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;BDSB&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;Funding has not been approved for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details. A letter has been sent to the applicants outlining the funding decision.&amp;nbsp;If applicants have questions regarding the decision they may contact &lt;a href=&quot;mailto:{!BDSB_Email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;BDSB&lt;/a&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <description>Subject for Changes Completed Email</description>

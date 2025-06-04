@@ -422,6 +422,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.DaysSinceApplicationSubmission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Description</field>
         <readable>true</readable>
@@ -827,6 +832,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.TotalHouseholdIncome__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.TotalTreatmentCost__c</field>
         <readable>false</readable>
@@ -1039,6 +1049,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>IVFFundingTier__c.Funding_Amount__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>IVFFundingTier__c.IncomeLevel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

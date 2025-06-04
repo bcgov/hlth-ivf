@@ -4,6 +4,5 @@
     <fields>Name</fields>
     <fields>Email__c</fields>
     <fields>BillingAddress</fields>
-    <fields>IsActive</fields>
     <label>Account Compact Layout</label>
 </CompactLayout>
