@@ -106,7 +106,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>1634</locationX>
+        <locationX>1766</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -211,6 +211,28 @@
                 <targetReference>get_user</targetReference>
             </connector>
             <label>community user or BDSB</label>
+        </rules>
+        <rules>
+            <name>funding_tier_null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FundingTier__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>In Review</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_balnace</targetReference>
+            </connector>
+            <label>funding tier null ?</label>
         </rules>
     </decisions>
     <decisions>
@@ -510,6 +532,16 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>update_balnace</name>
+        <label>update balnace</label>
+        <locationX>2690</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>ApprovedTreatmentFunding__c</field>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
         <locationX>50</locationX>
@@ -552,7 +584,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1508</locationX>
+        <locationX>1640</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
