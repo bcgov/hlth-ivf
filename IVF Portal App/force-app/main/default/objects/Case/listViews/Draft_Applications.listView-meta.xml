@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Draft_Applications</fullName>
+    <columns>DateOfIVFConsultation__c</columns>
     <columns>CASES.CASE_NUMBER</columns>
     <columns>DateOfApplicationSubmission__c</columns>
     <columns>CASES.STATUS</columns>
@@ -17,6 +18,10 @@
         <field>CASES.STATUS</field>
         <operation>equals</operation>
         <value>Draft</value>
+    </filters>
+    <filters>
+        <field>DateOfIVFConsultation__c</field>
+        <operation>notEqual</operation>
     </filters>
     <label>Draft Applications</label>
     <sharedTo>

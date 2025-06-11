@@ -4,7 +4,7 @@
     <containerType>Network</containerType>
     <label>Default Navigation</label>
     <navigationMenuItem>
-        <defaultListViewId>All_Applications</defaultListViewId>
+        <defaultListViewId>RecentlyViewedCases</defaultListViewId>
         <label>Applications &amp; Treatments</label>
         <menuItemBranding>
             <tileImage>tile_application2</tileImage>
