@@ -5,7 +5,7 @@
     <errorConditionFormula>AND(
   $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
   FundingComplete__c = TRUE,
-  NOT(ISPICKVAL(FundingCompleteReason__c, &quot;Funding Utilized&quot;)),
+
   OR(
     ISCHANGED(TotalMedicationCost__c),
     AND(
