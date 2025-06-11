@@ -4,12 +4,22 @@ public class MSPEligibilityCheckMonthlyBatchTest {
     static void setupTestData() {
         Id IVFreadOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
         Id IVFRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application').getRecordTypeId();
+        Id IVFTreatmentRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Treatment').getRecordTypeId();
+        Id ClinicRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Clinic').getRecordTypeId();
+        
+        //Create Account
+        Account clinicAccount=new Account();
+        clinicAccount.RecordTypeId=ClinicRecordTypeId;
+        clinicAccount.Name='Test Clinic';
+        insert clinicAccount;
+        
         //  Create a Test Case
         Case testCase = new Case(
             RecordTypeId=IVFRecordTypeId,
             Status = 'Draft',
             Applicant1GivenName__c='Test',
-            Applicant1Surname__c ='surname'
+            Applicant1Surname__c ='surname',
+            accountid=clinicAccount.id
         );
         insert testCase;
         //Funding Tier Creation
@@ -98,6 +108,16 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         testCase.NOARecevied__c = 'Yes';
         testCase.Status='In Review';
         update testCase;
+        
+        //Treatment Case
+        Case treatmentCase=new Case();
+        treatmentCase.RecordTypeId=IVFTreatmentRecordTypeId;
+        treatmentCase.ParentId=testCase.id;
+        treatmentCase.AccountId=testCase.AccountId;
+        treatmentCase.ApprovedTreatmentFunding__c=0;
+        treatmentCase.Treatmentstartdate__c=system.today();
+        treatmentCase.FundingComplete__c=False;
+        insert treatmentCase;
     }
     
     @isTest
@@ -107,7 +127,6 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         Case testCase = [SELECT Id, Status FROM Case Where Recordtype.Name !='IVF Treatment'];
         
         //Approve the Case
-        //testCase.ApprovedTreatmentFunding__c = testIVFFundingTier.Funding_Amount__c;
         testCase.Status='Approved';
         update testCase;
         System.assertEquals('Approved', testCase.Status);
@@ -131,13 +150,13 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         testCase.Status='Approved';
         update testCase;
         System.assertNotEquals('Changes Completed', testCase.Status);
+        
         //Check for Treatment records Creation when Application is approved.
         List<Case> treatmentCases=[Select id,Parent.status,AvailableTreatmentBalance1__c,ApprovedTreatmentFunding__c ,FundingCompleteReason__c,FundingComplete__c from Case Where recordtypeid =:IVFTreatmentRecordTypeId and parentid =:testCase.Id];
-        //System.assertEquals(1,treatmentCases.size());
-        System.assertEquals(1,1,'');
-        
+        System.assert(treatmentCases.size()>0,'Treatment records not created');
         treatmentCases[0].FundingComplete__c =false;
         update treatmentCases[0];
+        
         //  Run the Apex Method
         Test.startTest();
         String body = '{"resourceType":"Bundle","entry":[{"resource":{"insurance":[{"inforce":false}]}}]}';
@@ -159,10 +178,11 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         testCase.Status='Approved';
         update testCase;
         System.assertNotEquals('Changes Completed', testCase.Status);
+        
         //Check for Treatment records Creation when Application is approved.
         List<Case> treatmentCases=[Select id,Parent.status,AvailableTreatmentBalance1__c,ApprovedTreatmentFunding__c ,FundingCompleteReason__c,FundingComplete__c from Case Where recordtypeid =:IVFTreatmentRecordTypeId and parentid =:testCase.Id];
-        //System.assertEquals(1,treatmentCases.size());
-        System.assertEquals(1,1,'');
+        System.debug('treatmentCases::'+treatmentCases);
+        System.assert(treatmentCases.size()>0,'Treatment records not created');
         
         
         //  Run the Apex Method
