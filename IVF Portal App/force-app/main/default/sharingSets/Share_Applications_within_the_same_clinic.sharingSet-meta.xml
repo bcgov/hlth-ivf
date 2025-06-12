@@ -6,6 +6,12 @@
         <objectField>Account</objectField>
         <userField>Account</userField>
     </accessMappings>
+    <accessMappings>
+        <accessLevel>Read</accessLevel>
+        <object>User</object>
+        <objectField>UserRole.PortalAccount</objectField>
+        <userField>Account</userField>
+    </accessMappings>
     <name>Share Applications within the same clinic</name>
     <profiles>customer community plus login user</profiles>
 </SharingSet>
