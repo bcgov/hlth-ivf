@@ -13,5 +13,9 @@
         <operation>equals</operation>
         <value>Case.IVFTreatment</value>
     </filters>
+    <filters>
+        <field>Treatmentstartdate__c</field>
+        <operation>notEqual</operation>
+    </filters>
     <label>All IVF Treatments</label>
 </ListView>
