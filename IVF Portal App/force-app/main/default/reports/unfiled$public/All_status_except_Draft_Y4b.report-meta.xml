@@ -35,7 +35,7 @@
         <field>STATUS</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>All status except Draft -clinic location</name>
+    <name>All status except Draft</name>
     <params>
         <name>units</name>
         <value>h</value>
