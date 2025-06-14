@@ -29,6 +29,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         //Update Case
         testCase.ApplicantConsent__c='Yes';
         testCase.PrivateInsuranceWaiver__c='No';
+        testCase.RequiredDiagnosticsCompleted__c ='Yes';
         testCase.DateOfApplicationSubmission__c= Date.newInstance(2025, 2, 12);
         testCase.DateOfIVFConsultation__c= Date.newInstance(2025, 2, 10);
         testCase.UsingPreviouslyFrozenEmbryo__c= 'No';

@@ -140,6 +140,7 @@ public class CaseSubmitControllerTest {
         testCase.Patient1NotApplicable__c =true;
         testCase.Patient2NotApplicable__c =true;
         testCase.Patient3NotApplicable__c =true;
+        testCase.RequiredDiagnosticsCompleted__c ='Yes';
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
         testCase.Status='Changes Requested';
         update testCase;
