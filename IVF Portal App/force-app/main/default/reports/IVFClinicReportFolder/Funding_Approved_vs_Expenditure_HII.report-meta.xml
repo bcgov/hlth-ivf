@@ -4,10 +4,7 @@
         <field>CASE_NUMBER</field>
     </columns>
     <columns>
-        <field>Case.DateOfApplicationSubmission__c</field>
-    </columns>
-    <columns>
-        <field>Case.FinalDecisionDate__c</field>
+        <field>Case.Treatmentstartdate__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
