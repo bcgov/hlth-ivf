@@ -35,7 +35,7 @@
         <field>STATUS</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>All status except Draft -clinic location</name>
+    <name>All status except Draft</name>
     <params>
         <name>units</name>
         <value>h</value>
@@ -48,7 +48,7 @@
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

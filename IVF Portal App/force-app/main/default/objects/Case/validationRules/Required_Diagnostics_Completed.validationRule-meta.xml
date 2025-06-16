@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Required_Diagnostics_Completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+    NOT(ISNEW()),
+    ISBLANK(TEXT(RequiredDiagnosticsCompleted__c)),
+    NOT(ISPICKVAL(Status, &apos;Draft&apos;))
+)</errorConditionFormula>
+    <errorDisplayField>RequiredDiagnosticsCompleted__c</errorDisplayField>
+    <errorMessage>Required Diagnostics Completed is Required</errorMessage>
+</ValidationRule>
