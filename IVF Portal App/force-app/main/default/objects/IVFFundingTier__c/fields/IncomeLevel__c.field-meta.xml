@@ -11,19 +11,30 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>0-50000</fullName>
+                <fullName>0 – $59,000</fullName>
                 <default>false</default>
-                <label>0-50000</label>
+                <label>0 – $59,000</label>
             </value>
             <value>
-                <fullName>50,000 - 80,000</fullName>
+                <fullName>$59,001 – $100,000</fullName>
                 <default>false</default>
-                <label>50,000 - 80,000</label>
+                <label>$59,001 – $100,000</label>
             </value>
             <value>
-                <fullName>90,000 - 110,000</fullName>
+                <fullName>$100,001 – $144,625</fullName>
                 <default>false</default>
-                <label>90,000 - 110,000</label>
+                <label>$100,001 – $144,625</label>
+            </value>
+            <value>
+                <fullName>$144,626 and above</fullName>
+                <default>false</default>
+                <label>$144,626 and above</label>
+            </value>
+            <value>
+                <fullName>90,000 -110,000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>90,000 -110,000</label>
             </value>
         </valueSetDefinition>
     </valueSet>
