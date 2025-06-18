@@ -16,7 +16,7 @@ public class CaseTriggerHandlerTest {
         
         IVFFundingTier__c testTier = new IVFFundingTier__c(
             Name = 'Tier 1',
-            IncomeLevel__c = '0-50000',     
+            IncomeLevel__c = '0 – $59,000',     
             Funding_Amount__c = 7000
         );
         insert testTier;
