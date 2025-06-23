@@ -3,10 +3,27 @@ public class CaseSubmitControllerTest {
     
     @testSetup
     static void setupTestData() {
+        OrgWideEmailAddress owea = [SELECT Id FROM OrgWideEmailAddress WHERE IsVerified = True LIMIT 1];
+        Id IVFTreatmentRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Treatment').getRecordTypeId();
+        Id ClinicRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Clinic').getRecordTypeId();
         Id IVFreadOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
         Id IVFRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application').getRecordTypeId();
+        Account clinicAccount=new Account();
+        clinicAccount.RecordTypeId=ClinicRecordTypeId;
+        clinicAccount.Name='Test Clinic';
+        clinicAccount.email__c='TestClinic@gmail.com';
+        insert clinicAccount;
+        Contact portalContact = new Contact(
+            FirstName = 'Test',
+            LastName = 'PortalUser',
+            Email = 'testportal@example.com',
+            AccountId = clinicAccount.Id
+        );
+        Insert portalContact;
+        
         //  Create a Test Case
         Case testCase = new Case(
+            accountid=clinicAccount.id,
             RecordTypeId=IVFRecordTypeId,
             Status = 'Draft',
             Applicant1GivenName__c='Test',

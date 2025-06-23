@@ -2,16 +2,44 @@
 public class MSPEligibilityCheckMonthlyBatchTest {
     @testSetup
     static void setupTestData() {
-        Id IVFreadOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
+       Id IVFreadOnlyRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application Read Only').getRecordTypeId();
         Id IVFRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Application').getRecordTypeId();
         Id IVFTreatmentRecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Treatment').getRecordTypeId();
         Id ClinicRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Clinic').getRecordTypeId();
+        Account portalAccount = new Account(Name = 'Test Portal Account',RecordTypeId=ClinicRecordTypeId,Email__c='TestAccount@gmail.com',Isactive=true);
+        insert portalAccount;
+        Contact portalContact = new Contact(
+            FirstName = 'Test',
+            LastName = 'PortalUser',
+            Email = 'testportal@example.com',
+            AccountId = portalAccount.Id
+        );
+        Profile sysAdminProfile = [SELECT Id FROM Profile WHERE Name = 'System Administrator' LIMIT 1];
+        User u=new User();
+        u.FirstName='Test Clinic';
+        u.ContactId= portalContact.Id;
+        u.LastName ='User';
+        u.Alias = 'tadmin';
+        u.email='testadmin@gmail.com';
+        u.Username = 'testadmin' + DateTime.now().getTime() + '@example.com';
+        u.ProfileId=sysAdminProfile.Id;
+        u.TimeZoneSidKey = 'America/Los_Angeles';
+        u.LocaleSidKey = 'en_US';
+        u.EmailEncodingKey = 'UTF-8';
+        u.LanguageLocaleKey = 'en_US';
+        insert u;
         
+        system.runAs(u){
+        
+        OrgWideEmailAddress owea = [SELECT Id FROM OrgWideEmailAddress WHERE IsVerified = True LIMIT 1];
+
         //Create Account
         Account clinicAccount=new Account();
         clinicAccount.RecordTypeId=ClinicRecordTypeId;
         clinicAccount.Name='Test Clinic';
+        clinicAccount.email__c='TestClinic@gmail.com';
         insert clinicAccount;
+        
         
         //  Create a Test Case
         Case testCase = new Case(
@@ -119,13 +147,15 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         treatmentCase.Treatmentstartdate__c=system.today();
         treatmentCase.FundingComplete__c=False;
         insert treatmentCase;
+        
+        }
     }
     
     @isTest
     static void testScheudleBatch() {
     
         //  Fetch the Test Case
-        Case testCase = [SELECT Id, Status FROM Case Where Recordtype.Name !='IVF Treatment'];
+        Case testCase = [SELECT Id, Status,Createdby.Name FROM Case Where Recordtype.Name !='IVF Treatment'];
         
         //Approve the Case
         testCase.Status='Approved';
@@ -133,7 +163,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         System.assertEquals('Approved', testCase.Status);
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
-        Integer batch_size=1;
+        Integer batch_size=200;
         String cronExp = '0 0 1 2 * ?'; // 1:00 AM PST on 2nd of every month
         String jobName = 'Test Scheduled Job Name';
         System.schedule(jobName, cronExp, new MSPEligibilityCheckMonthlyBatch(batch_size));
@@ -163,7 +193,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         String body = '{"resourceType":"Bundle","entry":[{"resource":{"insurance":[{"inforce":false}]}}]}';
         Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 200));
         //Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
-        Integer batch_size=1;
+        Integer batch_size=200;
         MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
         Database.executeBatch(MSPEBatch,batch_size);
         Test.stopTest();      
@@ -188,7 +218,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         
         //  Run the Apex Method
         Test.startTest();
-        Integer batch_size=1;
+        Integer batch_size=200;
         Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
         MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
         Database.executeBatch(MSPEBatch,batch_size);
@@ -203,7 +233,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         Test.startTest();
         Test.setMock(HttpCalloutMock.class, new ExceptionMock()); // Force API failure
         String cronExp = '0 0 12 1 1 ? 2099'; // some future date
-        System.schedule('Test Scheduled Job', cronExp, new MSPEligibilityCheckMonthlyBatch(1));
+        System.schedule('Test Scheduled Job', cronExp, new MSPEligibilityCheckMonthlyBatch(200));
         Test.stopTest();
 
         // No asserts here, just ensuring scheduled execution does not fail
