@@ -2,7 +2,7 @@
     <script>
         function login() {
             var startUrl = '/s/';  // Adjust based on your community structure
-            var loginUrl = '/clinics/services/auth/sso/OneHealthID?startURL=' + encodeURIComponent(startUrl);
+            var loginUrl = '/services/auth/sso/OneHealthID?startURL=' + encodeURIComponent(startUrl);
             window.location.href = loginUrl;
         }
     </script>
