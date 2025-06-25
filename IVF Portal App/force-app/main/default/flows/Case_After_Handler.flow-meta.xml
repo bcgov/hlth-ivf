@@ -1643,7 +1643,7 @@
         <inputAssignments>
             <field>BillingPostalCode</field>
             <value>
-                <elementReference>$Record.Applicant1Address__StateCode__s</elementReference>
+                <elementReference>$Record.Applicant1Address__PostalCode__s</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
