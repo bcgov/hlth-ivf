@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Details__c</fullName>
-    <inlineHelpText>Complete this section when you are submitting an application where the applicant(s) have not met the eligibility criteria or you are requesting treatment outside the scope of coverage. Provide details to support the medical recommendation.</inlineHelpText>
+    <inlineHelpText>Complete this section when you are submitting an application where the applicant(s) do not meet the eligibility criteria.  Provide details to support the medical recommendation.</inlineHelpText>
     <label>Details</label>
     <length>131072</length>
     <trackFeedHistory>false</trackFeedHistory>
