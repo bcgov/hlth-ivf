@@ -3,6 +3,7 @@
     <fullName>RestrictFundingReasonChange_CommunityMoH</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
+    $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
     ISCHANGED(FundingCompleteReason__c),
     NOT(ISBLANK(PRIORVALUE(FundingCompleteReason__c))),
     FundingComplete__c = TRUE,
