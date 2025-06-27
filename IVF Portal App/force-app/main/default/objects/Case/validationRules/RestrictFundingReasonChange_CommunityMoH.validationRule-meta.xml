@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RestrictFundingReasonChange_CommunityMoH</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISCHANGED(FundingCompleteReason__c),
+    NOT(ISBLANK(PRIORVALUE(FundingCompleteReason__c))),
+    FundingComplete__c = TRUE,
+    OR(
+        $Profile.Name = &quot;MoH Standard User&quot;,
+        $Profile.Name = &quot;Customer Community Plus Login User&quot;
+    )
+)</errorConditionFormula>
+    <errorMessage>You are unable to modify the funding completion reason as the funding process is already complete. Please reach out to the system administrator for assistance.</errorMessage>
+</ValidationRule>
