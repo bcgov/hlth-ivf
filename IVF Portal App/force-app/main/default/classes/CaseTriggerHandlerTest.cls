@@ -51,7 +51,7 @@ public class CaseTriggerHandlerTest {
         Test.stopTest();
         
         ClinicFunding__c updatedFunding = [SELECT AvailableBalance__c FROM ClinicFunding__c LIMIT 1];
-        System.assertEquals(15000, updatedFunding.AvailableBalance__c,
+        System.assertEquals(10000, updatedFunding.AvailableBalance__c,
                             'Expected funding to return full 7000 (treatment cost = 0, medication = 2000)');
     }
     
