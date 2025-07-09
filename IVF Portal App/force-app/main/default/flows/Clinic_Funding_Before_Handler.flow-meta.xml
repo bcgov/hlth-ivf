@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
+    <customErrors>
+        <name>Existing_Clinic_Funding_Active_Error</name>
+        <label>Existing Clinic Funding Active Error</label>
+        <locationX>50</locationX>
+        <locationY>911</locationY>
+        <customErrorMessages>
+            <errorMessage>An active funding record already exists and you can not mark more than one record as active</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>Any_existing_active</name>
+        <label>Any existing active?</label>
+        <locationX>182</locationX>
+        <locationY>803</locationY>
+        <defaultConnectorLabel>Not Exists</defaultConnectorLabel>
+        <rules>
+            <name>Active_Funding_Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Existing_Active_Fundings</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Existing_Clinic_Funding_Active_Error</targetReference>
+            </connector>
+            <label>Active Funding Exists</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Clinic_Funding_Active</name>
+        <label>Clinic Funding Active?</label>
+        <locationX>336</locationX>
+        <locationY>587</locationY>
+        <defaultConnectorLabel>Not Active</defaultConnectorLabel>
+        <rules>
+            <name>Active</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Active__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Active__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Existing_Active_Fundings</targetReference>
+            </connector>
+            <label>Active</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Funding_Created_or_Updated</name>
+        <label>Funding Created or Updated?</label>
+        <locationX>336</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Clinic_Funding_Active</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Updated</defaultConnectorLabel>
+        <rules>
+            <name>Created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateTotalClinicAvailableBalanceField</targetReference>
+            </connector>
+            <label>Created</label>
+        </rules>
+    </decisions>
     <environments>Default</environments>
     <interviewLabel>Clinic Funding Before Handler {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Clinic Funding Before Handler</label>
@@ -23,11 +109,49 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Existing_Active_Fundings</name>
+        <label>Get Existing Active Fundings</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Any_existing_active</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Clinic__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Clinic__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ClinicFunding__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
         <name>UpdateTotalClinicAvailableBalanceField</name>
         <label>Update Total Clinic Available Balance Field</label>
-        <locationX>176</locationX>
-        <locationY>287</locationY>
+        <locationX>204</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Clinic_Funding_Active</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>AllocatedFunding__c</field>
@@ -45,13 +169,13 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>210</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>UpdateTotalClinicAvailableBalanceField</targetReference>
+            <targetReference>Funding_Created_or_Updated</targetReference>
         </connector>
         <object>ClinicFunding__c</object>
-        <recordTriggerType>Create</recordTriggerType>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
     <status>Active</status>
