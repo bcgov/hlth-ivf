@@ -1380,13 +1380,13 @@
             <label>Status is Changes Requested</label>
         </rules>
     </decisions>
+    <environments>Default</environments>
     <formulas>
         <name>IVF_Allocate_Balance</name>
         <dataType>Number</dataType>
         <expression>VALUE({!$Label.IVF_Allocate_Balance})</expression>
         <scale>0</scale>
     </formulas>
-    <environments>Default</environments>
     <formulas>
         <name>OrgDomain</name>
         <dataType>String</dataType>
