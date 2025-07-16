@@ -36,7 +36,7 @@
     <customErrors>
         <name>Capacity_Reached_Error</name>
         <label>Capacity Reached Error</label>
-        <locationX>490</locationX>
+        <locationX>578</locationX>
         <locationY>863</locationY>
         <customErrorMessages>
             <errorMessage>Your clinic has reached capacity. Unfortunately, no more applications can be accepted at this time.</errorMessage>
@@ -46,7 +46,7 @@
     <customErrors>
         <name>Display_validation</name>
         <label>Display validation</label>
-        <locationX>1810</locationX>
+        <locationX>1898</locationX>
         <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>You are only allowed to select the option Application Withdrawn. Please try again.</errorMessage>
@@ -56,7 +56,7 @@
     <decisions>
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
-        <locationX>738</locationX>
+        <locationX>809</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -85,7 +85,7 @@
     <decisions>
         <name>Check_Available_Balance</name>
         <label>Check Available Balance</label>
-        <locationX>458</locationX>
+        <locationX>512</locationX>
         <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -122,7 +122,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>1934</locationX>
+        <locationX>2013</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -276,7 +276,7 @@
     <decisions>
         <name>Reason_change_error</name>
         <label>Reason change error</label>
-        <locationX>2206</locationX>
+        <locationX>2294</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -475,14 +475,14 @@
         </filters>
         <filters>
             <field>FYStartDate__c</field>
-            <operator>EqualTo</operator>
+            <operator>LessThanOrEqualTo</operator>
             <value>
                 <elementReference>$Record.DateOfApplicationSubmission__c</elementReference>
             </value>
         </filters>
         <filters>
             <field>FYEndDate__c</field>
-            <operator>EqualTo</operator>
+            <operator>GreaterThanOrEqualTo</operator>
             <value>
                 <elementReference>$Record.DateOfApplicationSubmission__c</elementReference>
             </value>
@@ -494,7 +494,7 @@
     <recordLookups>
         <name>Get_Clinic_Funding_Records</name>
         <label>Get Clinic Funding Records</label>
-        <locationX>458</locationX>
+        <locationX>512</locationX>
         <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -529,7 +529,7 @@
     <recordLookups>
         <name>get_community_user</name>
         <label>get community user</label>
-        <locationX>738</locationX>
+        <locationX>809</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -550,7 +550,7 @@
     <recordLookups>
         <name>get_user</name>
         <label>get user</label>
-        <locationX>2206</locationX>
+        <locationX>2294</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -571,7 +571,7 @@
     <recordUpdates>
         <name>Clear_funding_complete_and_reason</name>
         <label>Clear funding complete and reason</label>
-        <locationX>1546</locationX>
+        <locationX>1634</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>FundingCompleteReason__c</field>
@@ -587,7 +587,7 @@
     <recordUpdates>
         <name>clinics_funding_complete_true</name>
         <label>clinics funding complete true</label>
-        <locationX>2338</locationX>
+        <locationX>2426</locationX>
         <locationY>647</locationY>
         <inputAssignments>
             <field>FundingComplete__c</field>
@@ -600,7 +600,7 @@
     <recordUpdates>
         <name>funding_complete_true</name>
         <label>funding complete true</label>
-        <locationX>2074</locationX>
+        <locationX>2162</locationX>
         <locationY>647</locationY>
         <inputAssignments>
             <field>FundingComplete__c</field>
@@ -613,7 +613,7 @@
     <recordUpdates>
         <name>update_balnace</name>
         <label>update balnace</label>
-        <locationX>2866</locationX>
+        <locationX>2954</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>ApprovedTreatmentFunding__c</field>
@@ -656,7 +656,7 @@
     <recordUpdates>
         <name>Update_Funing_Reason</name>
         <label>Update Funding Reason</label>
-        <locationX>1282</locationX>
+        <locationX>1370</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>FundingCompleteReason__c</field>
@@ -673,7 +673,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1808</locationX>
+        <locationX>1887</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
