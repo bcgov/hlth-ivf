@@ -61,7 +61,7 @@ public class CaseTriggerHandler {
         }
         
         Map<Id, Case> parentApps = new Map<Id, Case>([
-            SELECT Id, Clinic_Funding__c, RecordType.DeveloperName
+            SELECT Id, Clinic_Funding__c, RecordType.DeveloperName,DateOfApplicationSubmission__c
             FROM Case
             WHERE Id IN :parentIds
             AND RecordType.DeveloperName IN ('IVF_Application', 'IVF_Application_Read_Only')
@@ -77,7 +77,7 @@ public class CaseTriggerHandler {
         }
         
         Map<Id, ClinicFunding__c> fundingMap = new Map<Id, ClinicFunding__c>([
-            SELECT Id, AvailableBalance__c
+            SELECT Id, AvailableBalance__c,FYStartDate__c,FYEndDate__c
             FROM ClinicFunding__c
             WHERE Id IN :fundingIds
         ]);
@@ -92,13 +92,12 @@ public class CaseTriggerHandler {
             if (parent != null && parent.Clinic_Funding__c != null) {
                 ClinicFunding__c fund = fundingMap.get(parent.Clinic_Funding__c);
                 if (fund != null) {
-                    fund.AvailableBalance__c += oldBalance;
-                    System.debug('Updating ClinicFunding: ' + fund.Id + ', added: ' + oldBalance);
-                    System.debug('Treatment: ' + treatment.Id + ', ParentId: ' + treatment.ParentId);
-                    System.debug('ParentApp: ' + parent);
-                    System.debug('ClinicFund ID: ' + parent.Clinic_Funding__c);
                     System.debug('Fund Before: ' + fund.AvailableBalance__c);
+                    if(parent.DateOfApplicationSubmission__c >= fund.FYStartDate__c && parent.DateOfApplicationSubmission__c <= fund.FYEndDate__c){
+                    fund.AvailableBalance__c += oldBalance;
+                    System.debug('Fund After: ' + fund.AvailableBalance__c);
                     toUpdate.add(fund);
+                    }
                 }
             }
         }

@@ -196,6 +196,22 @@
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
+        <name>Add_Funds_Back_To_Clinic_Funding</name>
+        <label>Add Funds Back To Clinic Funding</label>
+        <locationX>578</locationX>
+        <locationY>1079</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Clinic_Funding_Record.AvailableBalance__c</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>IVF_Allocate_Balance</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Clinic_Funding_After_Not_Approved</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <name>Assign_Email_to_EmailListForApprovedApplication</name>
         <label>Assign Email to EmailListForApprovedApplication</label>
         <locationX>974</locationX>
@@ -988,7 +1004,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assign_Email_to_EmailListForDeniedApplication</targetReference>
+                <targetReference>Get_Clinic_Funding_Record</targetReference>
             </connector>
             <label>Not Approved</label>
         </rules>
@@ -1365,6 +1381,12 @@
         </rules>
     </decisions>
     <environments>Default</environments>
+    <formulas>
+        <name>IVF_Allocate_Balance</name>
+        <dataType>Number</dataType>
+        <expression>VALUE({!$Label.IVF_Allocate_Balance})</expression>
+        <scale>0</scale>
+    </formulas>
     <formulas>
         <name>OrgDomain</name>
         <dataType>String</dataType>
@@ -1898,6 +1920,41 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Clinic_Funding_Record</name>
+        <label>Get Clinic Funding Record</label>
+        <locationX>578</locationX>
+        <locationY>971</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_Funds_Back_To_Clinic_Funding</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Clinic__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>FYStartDate__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.DateOfApplicationSubmission__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>FYEndDate__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.DateOfApplicationSubmission__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ClinicFunding__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_duplicate_Case_Records</name>
         <label>Get duplicate Case Records</label>
         <locationX>2514</locationX>
@@ -2251,6 +2308,16 @@
             <targetReference>Check_Available_Treatment_Balance</targetReference>
         </connector>
         <inputReference>get_Clinic_Funding</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Clinic_Funding_After_Not_Approved</name>
+        <label>Update Clinic Funding After Not Approved</label>
+        <locationX>578</locationX>
+        <locationY>1187</locationY>
+        <connector>
+            <targetReference>Assign_Email_to_EmailListForDeniedApplication</targetReference>
+        </connector>
+        <inputReference>Get_Clinic_Funding_Record</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Existing_Patient_Related_to_Applicant2</name>

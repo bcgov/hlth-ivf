@@ -4,7 +4,7 @@
     <assignments>
         <name>Deduct_Balance</name>
         <label>Deduct Balance</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>Get_Clinic_Funding_Records.AvailableBalance__c</assignToReference>
@@ -17,10 +17,26 @@
             <targetReference>Update_Clinics_Available_Balance</targetReference>
         </connector>
     </assignments>
+    <assignments>
+        <name>Return_Unused_Funds</name>
+        <label>Return Unused Funds</label>
+        <locationX>50</locationX>
+        <locationY>1403</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Clinic_Funding_for_Return.AvailableBalance__c</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>UnusedFunds</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_ClinicFunding_with_Returned_Balance</targetReference>
+        </connector>
+    </assignments>
     <customErrors>
         <name>Capacity_Reached_Error</name>
         <label>Capacity Reached Error</label>
-        <locationX>314</locationX>
+        <locationX>578</locationX>
         <locationY>863</locationY>
         <customErrorMessages>
             <errorMessage>Your clinic has reached capacity. Unfortunately, no more applications can be accepted at this time.</errorMessage>
@@ -30,7 +46,7 @@
     <customErrors>
         <name>Display_validation</name>
         <label>Display validation</label>
-        <locationX>1634</locationX>
+        <locationX>1898</locationX>
         <locationY>647</locationY>
         <customErrorMessages>
             <errorMessage>You are only allowed to select the option Application Withdrawn. Please try again.</errorMessage>
@@ -40,7 +56,7 @@
     <decisions>
         <name>Application_Status_Changes</name>
         <label>Application Status Changes</label>
-        <locationX>578</locationX>
+        <locationX>809</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -69,7 +85,7 @@
     <decisions>
         <name>Check_Available_Balance</name>
         <label>Check Available Balance</label>
-        <locationX>314</locationX>
+        <locationX>512</locationX>
         <locationY>755</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -106,7 +122,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>1766</locationX>
+        <locationX>2013</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -236,9 +252,31 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Move_back_funds</name>
+        <label>Move back funds</label>
+        <locationX>182</locationX>
+        <locationY>1187</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Approved</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Clinic_Funding_for_Return</targetReference>
+            </connector>
+            <label>Is Approved?</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Reason_change_error</name>
         <label>Reason change error</label>
-        <locationX>2030</locationX>
+        <locationX>2294</locationX>
         <locationY>539</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -391,6 +429,12 @@
         <dataType>Date</dataType>
         <expression>TODAY()</expression>
     </formulas>
+    <formulas>
+        <name>UnusedFunds</name>
+        <dataType>Number</dataType>
+        <expression>VALUE($Label.IVF_Allocate_Balance) - {!$Record.ApprovedTreatmentFunding__c}</expression>
+        <scale>2</scale>
+    </formulas>
     <interviewLabel>Case Before Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case Before Record Trigger Flow</label>
     <processMetadataValues>
@@ -413,9 +457,44 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
+        <name>Get_Clinic_Funding_for_Return</name>
+        <label>Get Clinic Funding for Return</label>
+        <locationX>50</locationX>
+        <locationY>1295</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Return_Unused_Funds</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Clinic__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>FYStartDate__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.DateOfApplicationSubmission__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>FYEndDate__c</field>
+            <operator>GreaterThanOrEqualTo</operator>
+            <value>
+                <elementReference>$Record.DateOfApplicationSubmission__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>ClinicFunding__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Clinic_Funding_Records</name>
         <label>Get Clinic Funding Records</label>
-        <locationX>314</locationX>
+        <locationX>512</locationX>
         <locationY>647</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -450,7 +529,7 @@
     <recordLookups>
         <name>get_community_user</name>
         <label>get community user</label>
-        <locationX>578</locationX>
+        <locationX>809</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -471,7 +550,7 @@
     <recordLookups>
         <name>get_user</name>
         <label>get user</label>
-        <locationX>2030</locationX>
+        <locationX>2294</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -492,7 +571,7 @@
     <recordUpdates>
         <name>Clear_funding_complete_and_reason</name>
         <label>Clear funding complete and reason</label>
-        <locationX>1370</locationX>
+        <locationX>1634</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>FundingCompleteReason__c</field>
@@ -508,7 +587,7 @@
     <recordUpdates>
         <name>clinics_funding_complete_true</name>
         <label>clinics funding complete true</label>
-        <locationX>2162</locationX>
+        <locationX>2426</locationX>
         <locationY>647</locationY>
         <inputAssignments>
             <field>FundingComplete__c</field>
@@ -521,7 +600,7 @@
     <recordUpdates>
         <name>funding_complete_true</name>
         <label>funding complete true</label>
-        <locationX>1898</locationX>
+        <locationX>2162</locationX>
         <locationY>647</locationY>
         <inputAssignments>
             <field>FundingComplete__c</field>
@@ -534,7 +613,7 @@
     <recordUpdates>
         <name>update_balnace</name>
         <label>update balnace</label>
-        <locationX>2690</locationX>
+        <locationX>2954</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>ApprovedTreatmentFunding__c</field>
@@ -544,8 +623,11 @@
     <recordUpdates>
         <name>Update_Case_With_Clinic_Funding</name>
         <label>Update Case With Clinic Funding</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>1079</locationY>
+        <connector>
+            <targetReference>Move_back_funds</targetReference>
+        </connector>
         <inputAssignments>
             <field>Clinic_Funding__c</field>
             <value>
@@ -555,9 +637,16 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_ClinicFunding_with_Returned_Balance</name>
+        <label>Update ClinicFunding with Returned Balance</label>
+        <locationX>50</locationX>
+        <locationY>1511</locationY>
+        <inputReference>Get_Clinic_Funding_for_Return</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Clinics_Available_Balance</name>
         <label>Update Clinics Available Balance</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>971</locationY>
         <connector>
             <targetReference>Update_Case_With_Clinic_Funding</targetReference>
@@ -567,7 +656,7 @@
     <recordUpdates>
         <name>Update_Funing_Reason</name>
         <label>Update Funding Reason</label>
-        <locationX>1106</locationX>
+        <locationX>1370</locationX>
         <locationY>431</locationY>
         <inputAssignments>
             <field>FundingCompleteReason__c</field>
@@ -584,7 +673,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>1640</locationX>
+        <locationX>1887</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
