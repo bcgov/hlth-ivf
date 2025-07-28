@@ -1141,6 +1141,7 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>IVFTreatmentLineItem__c</object>
         <viewAllRecords>true</viewAllRecords>
+        <viewAllFields>true</viewAllFields>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
