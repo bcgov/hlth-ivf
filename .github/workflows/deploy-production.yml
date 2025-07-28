@@ -10,6 +10,8 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    environment:
+      name: production
     container:
       image: salesforce/cli:latest-slim
     steps:
