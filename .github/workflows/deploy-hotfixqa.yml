@@ -10,6 +10,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    environment: hfivfqa
     container:
       image: salesforce/cli:latest-slim
     steps:
