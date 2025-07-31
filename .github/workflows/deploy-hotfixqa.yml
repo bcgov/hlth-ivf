@@ -3,15 +3,14 @@ name: Deploy on org
 on:
   push:
     branches:
-      - production
+      - hotfixdevelop
     paths:
       - "IVF Portal App/force-app/**"
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment:
-      name: production
+    environment: hfivfqa
     container:
       image: salesforce/cli:latest-slim
     steps:
@@ -22,7 +21,7 @@ jobs:
 
       - name: "Authenticate using SFDX_AUTH_URL"
         run: |
-          echo ${{ secrets.SFDX_AUTH_URL_PROD }} | sf org login sfdx-url -s -u
+          echo ${{ secrets.SFDX_AUTH_URL_HOTFIX }} | sf org login sfdx-url -s -u
 
       - name: "Validate"
         run: |
