@@ -43,7 +43,7 @@
         <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Funds allocated to each clinic - BSDB</name>
+    <name>Funds allocated to each clinic - BDSB</name>
     <params>
         <name>co</name>
         <value>1</value>
