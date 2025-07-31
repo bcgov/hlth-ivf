@@ -10,8 +10,7 @@ on:
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment:
-      name: uat
+    environment: uat
     container:
       image: salesforce/cli:latest-slim
     steps:
