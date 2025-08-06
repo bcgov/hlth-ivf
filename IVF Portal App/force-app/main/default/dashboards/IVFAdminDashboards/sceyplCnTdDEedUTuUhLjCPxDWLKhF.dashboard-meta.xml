@@ -240,7 +240,7 @@
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
-                <header>Funds allocated to each clinic - BSDB</header>
+                <header>Funds allocated to each clinic - BDSB</header>
                 <legendPosition>Right</legendPosition>
                 <report>unfiled$public/New_Accounts_with_Clinic_Fundings_Report_89N</report>
                 <showPercentage>false</showPercentage>

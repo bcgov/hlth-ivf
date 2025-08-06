@@ -36,20 +36,6 @@
             <operator>equals</operator>
             <value>Account.Clinic</value>
         </criteriaItems>
-        <criteriaItems>
-            <column>ClinicFunding__c.FYStartDate__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>lessOrEqual</operator>
-            <value>TODAY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>ClinicFunding__c.FYEndDate__c</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>greaterOrEqual</operator>
-            <value>TODAY</value>
-        </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>
@@ -57,7 +43,7 @@
         <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Funds allocated to each clinic - BSDB</name>
+    <name>Funds allocated to each clinic - BDSB</name>
     <params>
         <name>co</name>
         <value>1</value>
