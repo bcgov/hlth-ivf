@@ -3,6 +3,8 @@
     <fullName>Submitted</fullName>
     <columns>CASES.CASE_NUMBER</columns>
     <columns>ACCOUNT.NAME</columns>
+    <columns>Applicant1FullName__c</columns>
+    <columns>Applicant1PersonalHealthNumber__c</columns>
     <columns>DateOfApplicationSubmission__c</columns>
     <columns>CASES.STATUS</columns>
     <columns>ExceptionRequestIndicator__c</columns>
