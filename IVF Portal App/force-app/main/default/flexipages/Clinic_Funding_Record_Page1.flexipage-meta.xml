@@ -70,6 +70,16 @@
                 <identifier>RecordFYStartDate__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Active__c</fieldItem>
+                <identifier>RecordActive_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-fd1cd07d-1154-4a20-8702-cd957cca57ff</name>
         <type>Facet</type>
     </flexiPageRegions>
