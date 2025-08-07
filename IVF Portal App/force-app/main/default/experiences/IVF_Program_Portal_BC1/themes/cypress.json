@@ -135,7 +135,7 @@
             "componentAttributes" : {
               "navAlignment" : "right",
               "navItemThreshold" : 2,
-              "navigationMenuEditorRefresh" : "SFDC_Default_Navigation_IVF_Program_Portal_BC"
+              "navigationMenuEditorRefresh" : "Default_Navigation"
             },
             "componentName" : "forceCommunity:themeNav",
             "id" : "83c8bf61-3ff4-4cc7-ad73-3b34dcefbf01",
