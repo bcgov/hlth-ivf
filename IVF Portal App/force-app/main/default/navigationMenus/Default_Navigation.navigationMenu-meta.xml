@@ -34,4 +34,12 @@
         <target>/my-dashboard</target>
         <type>InternalLink</type>
     </navigationMenuItem>
+    <navigationMenuItem>
+        <defaultListViewId>All_Fee_Schedules</defaultListViewId>
+        <label>IVF Fee Schedules</label>
+        <position>4</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <target>IVFFeeSchedule__c</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
 </NavigationMenu>
