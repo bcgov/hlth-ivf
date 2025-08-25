@@ -8,10 +8,10 @@
     "components" : [ {
       "componentAttributes" : {
         "enableInlineEdit" : false,
-        "filterName" : "Org_Account_Hierarchy",
+        "filterName" : "All_Fee_Schedules",
         "layout" : "FULL",
         "pageSize" : 25,
-        "scope" : "Account",
+        "scope" : "IVFFeeSchedule__c",
         "showActionBar" : false,
         "showChartsPanel" : false,
         "showDisplay" : "showall",
