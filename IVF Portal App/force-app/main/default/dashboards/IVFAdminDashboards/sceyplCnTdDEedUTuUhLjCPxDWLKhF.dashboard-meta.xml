@@ -350,7 +350,7 @@
                 <header>BDSB User Approval Activity Report</header>
                 <legendPosition>Right</legendPosition>
                 <maxValuesDisplayed>6</maxValuesDisplayed>
-                <report>IVFClinicReportFolder/New_Case_History_Report_MOH</report>
+                <report>IVFClinicReportFolder/BDSB_User_Approval_Activity</report>
                 <showPercentage>false</showPercentage>
                 <showTotal>true</showTotal>
                 <showValues>true</showValues>
