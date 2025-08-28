@@ -293,6 +293,16 @@
                 </visibilityRule>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.InitialInReviewDate__c</fieldItem>
+                <identifier>RecordFirstInReviewDate_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-5b54b755-3af9-4d0d-9954-70b9cdc9e2eb</name>
         <type>Facet</type>
     </flexiPageRegions>

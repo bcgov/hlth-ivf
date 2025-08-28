@@ -151,7 +151,7 @@
         <name>Send_Email_for_Denied_Application</name>
         <label>Send Email for Denied Application</label>
         <locationX>578</locationX>
-        <locationY>1079</locationY>
+        <locationY>1403</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -1033,6 +1033,9 @@
                     <stringValue>In Review</stringValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Update_First_Review_date</targetReference>
+            </connector>
             <label>In Review</label>
         </rules>
     </decisions>
@@ -2328,6 +2331,34 @@
             <targetReference>Update_Patient_Details_for_Both_Applicants</targetReference>
         </connector>
         <inputReference>Get_Existing_Patients_for_Applicant2</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_First_Review_date</name>
+        <label>Update First Review date</label>
+        <locationX>1370</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>In Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>InitialInReviewDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>InitialInReviewDate__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Update_Patient_Details_for_Applicants</name>
