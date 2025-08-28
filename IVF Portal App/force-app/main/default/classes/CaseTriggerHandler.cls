@@ -1,4 +1,53 @@
 public class CaseTriggerHandler {
+    public static Id ivfTreatmentRtId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Treatment').getRecordTypeId();
+    public static void handleBeforeUpdate(List<Case> newList, Map<Id, Case> oldMap) {
+        Map<Id, IVFFundingTier__c> fundingTiers = new Map<Id, IVFFundingTier__c>([SELECT Id, IncomeLevel__c, Funding_Amount__c FROM IVFFundingTier__c]);
+        for(Case c:newList)
+        {
+            if(c.recordtypeId!=ivfTreatmentRtId){
+                if(c.TotalHouseholdIncome__c!=null && (c.FundingTier__c==null || c.TotalHouseholdIncome__c!=oldmap.get(c.id).TotalHouseholdIncome__c))
+                {
+                    Decimal income = c.TotalHouseholdIncome__c;
+                    Boolean matched = false;
+                    for(IVFFundingTier__c tier:fundingTiers.values())
+                    {
+                        if(String.isNotBlank(tier.IncomeLevel__c)){
+                            String cleanedIncome = tier.IncomeLevel__c.replace('$','').replace(',','').trim();
+                            if(cleanedIncome.toUpperCase().contains('K')){
+                                cleanedIncome = cleanedIncome.toUpperCase().replace('K','000');
+                            }
+                            Decimal minVal, maxVal;
+                            if(cleanedIncome.contains('-')){
+                                List<String> parts = cleanedIncome.split('-',2);
+                                minVal = Decimal.valueOf(parts[0].trim());
+                                maxVal = Decimal.valueOf(parts[1].trim());
+                            }
+                            else if(cleanedIncome.endsWith('+')){
+                                minVal = Decimal.valueOf(cleanedIncome.replace('+','').trim());
+                                maxVal = null;
+                            }
+                            if(
+                                (minVal == null || income >= minVal) &&
+                                (maxVal == null || income <= maxVal)
+                            ){
+                                System.debug('minIncome'+minVal +'maxIncome'+maxVal);
+                                    c.FundingTier__c = tier.Id;
+                                    c.ApprovedTreatmentFunding__c = tier.Funding_Amount__c;
+                                    System.debug('FundingTier__c'+c.FundingTier__c+'ApprovedTreatmentFunding__c'+c.ApprovedTreatmentFunding__c);
+                                    matched = true;
+                                    break;
+                            }
+
+                        }
+                    }
+                }
+                if(c.TotalHouseholdIncome__c==null){
+                    c.FundingTier__c=null;
+                    c.ApprovedTreatmentFunding__c=null;
+                }
+            }
+        }
+    }
     
     public static void handleAfterUpdate(List<Case> newList, Map<Id, Case> oldMap) {
         Map<Id, Decimal> treatmentBalances = new Map<Id, Decimal>();
