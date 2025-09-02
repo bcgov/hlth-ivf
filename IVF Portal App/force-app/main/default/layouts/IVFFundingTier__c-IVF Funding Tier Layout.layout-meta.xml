@@ -16,7 +16,7 @@
                 <field>Funding_Amount__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>IncomeLevel__c</field>
             </layoutItems>
         </layoutColumns>
