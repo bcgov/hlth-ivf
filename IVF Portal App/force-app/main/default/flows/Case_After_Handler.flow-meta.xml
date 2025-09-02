@@ -2449,7 +2449,7 @@
         <locationX>2168</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Status_Change_Check</targetReference>
+            <targetReference>Get_Record_Owner_Details</targetReference>
         </connector>
         <object>Case</object>
         <recordTriggerType>Update</recordTriggerType>
