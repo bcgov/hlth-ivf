@@ -213,11 +213,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Allocated_Slots__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Allow_Duplicate__c</field>
             <table>Case</table>
         </columns>
@@ -860,11 +855,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ServiceContract</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Status</field>
             <table>Case</table>
         </columns>
@@ -940,11 +930,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>UsingPreviouslyFrozenEmbryo__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>SuppliedCompany</field>
             <table>Case</table>
         </columns>
@@ -980,22 +965,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>MyClinic__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>TotalHouseholdIncome__c</field>
             <table>Case</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Applicant1FullName__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>InitialInReviewDate__c</field>
             <table>Case</table>
         </columns>
         <masterLabel>Cases</masterLabel>
