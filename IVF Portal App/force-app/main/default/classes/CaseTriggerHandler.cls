@@ -5,8 +5,7 @@ public class CaseTriggerHandler {
         for(Case c:newList)
         {
             if(c.recordtypeId!=ivfTreatmentRtId){
-                if(c.TotalHouseholdIncome__c!=null && (c.FundingTier__c==null || c.TotalHouseholdIncome__c!=oldmap.get(c.id).TotalHouseholdIncome__c))
-                {
+                if(c.TotalHouseholdIncome__c!=null && c.TotalHouseholdIncome__c!=oldmap.get(c.id).TotalHouseholdIncome__c)                {
                     Decimal income = c.TotalHouseholdIncome__c;
                     Boolean matched = false;
                     for(IVFFundingTier__c tier:fundingTiers.values())
