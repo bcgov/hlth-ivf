@@ -23,7 +23,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         );
         insert testCase;
         //Funding Tier Creation
-        IVFFundingTier__c testIVFFundingTier = new IVFFundingTier__c(Name='Tier 1',Funding_Amount__c=10000, IncomeLevel__c='0 - $100k');
+        IVFFundingTier__c testIVFFundingTier = new IVFFundingTier__c(Name='Tier 1',Funding_Amount__c=10000, IncomeLevel__c = '0 - $100K');
         insert testIVFFundingTier;
         
         //Update Case
