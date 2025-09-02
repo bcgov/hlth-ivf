@@ -4,8 +4,8 @@
     <active>true</active>
     <errorConditionFormula>AND(
 	OR(
-		ISPICKVAL(Status, &quot;Approved&quot;),
-		ISPICKVAL(Status, &quot;Not Approved&quot;)
+		ISPICKVAL(Status, &quot;Approved&quot;)
+
 	),
 	OR(
 		ISBLANK(TotalHouseholdIncome__c),
