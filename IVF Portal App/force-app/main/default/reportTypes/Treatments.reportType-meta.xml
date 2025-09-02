@@ -218,11 +218,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>AmountUtilizedforTreatment__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Applicant1__c</field>
             <table>Case</table>
         </columns>
