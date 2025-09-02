@@ -683,11 +683,6 @@
             <table>Case</table>
         </columns>
         <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ParentApplication__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
             <checkedByDefault>true</checkedByDefault>
             <displayNameOverride>Case Number</displayNameOverride>
             <field>Parent</field>
@@ -740,11 +735,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>POCClinic_Location__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>PractitionerNumber__c</field>
             <table>Case</table>
         </columns>
@@ -790,62 +780,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>PrivateInsuranceCoverageForIVF__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Ap2PrivateInsuranceCoverageForIVF__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Ap3PrivateInsuranceCoverageForIVF__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>PrivateInsuranceWaiver__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Product</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>PubliclyFundedIvfProgramPreviously__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>NOAReceivedDate__c</field>
             <table>Case</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Applicant1RequiredDiagnosticsCompleted__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Applicant2RequiredDiagnosticsCompleted__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RequiredDiagnosticsCompleted__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Status</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>IsStopped</field>
             <table>Case</table>
         </columns>
         <columns>
@@ -856,26 +796,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Subject</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Applicant1Surname__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Applicant2Surname__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Patient1Surname__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Patient2Surname__c</field>
             <table>Case</table>
         </columns>
         <columns>
@@ -911,11 +831,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Applicant6Date__c</field>
-            <table>Case</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>SuppliedCompany</field>
             <table>Case</table>
         </columns>
         <columns>
