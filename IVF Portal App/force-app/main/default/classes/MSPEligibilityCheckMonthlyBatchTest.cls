@@ -23,7 +23,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         );
         insert testCase;
         //Funding Tier Creation
-        IVFFundingTier__c testIVFFundingTier = new IVFFundingTier__c(Name='Tier 1',Funding_Amount__c=10000);
+        IVFFundingTier__c testIVFFundingTier = new IVFFundingTier__c(Name='Tier 1',Funding_Amount__c=10000, IncomeLevel__c='0-100k');
         insert testIVFFundingTier;
         
         //Update Case
@@ -107,6 +107,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         testCase.FundingTier__c = testIVFFundingTier.Id;
         testCase.ApprovedTreatmentFunding__c = testIVFFundingTier.Funding_Amount__c;
         testCase.NOARecevied__c = 'Yes';
+        testCase.TotalHouseholdIncome__c=10000;
         testCase.Status='In Review';
         update testCase;
         

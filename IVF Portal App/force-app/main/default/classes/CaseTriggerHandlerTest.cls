@@ -128,7 +128,7 @@ public class CaseTriggerHandlerTest {
         testCase.Applicant1Surname__c='SurName';
         testCase.Applicant1MedicallyEligible__c='Yes';
         testCase.Applicant1Patient__c='No';
-        testCase.Applicant1PersonalHealthNumber__c='98768';
+        testCase.Applicant1PersonalHealthNumber__c='9876854319';
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
         testCase.NotApplicable__c =true;
         testCase.Patient1NotApplicable__c =true;
@@ -172,7 +172,7 @@ public class CaseTriggerHandlerTest {
         testCase.Applicant1Surname__c='SurName';
         testCase.Applicant1MedicallyEligible__c='Yes';
         testCase.Applicant1Patient__c='No';
-        testCase.Applicant1PersonalHealthNumber__c='98768';
+        testCase.Applicant1PersonalHealthNumber__c='9876854320';
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
         testCase.NotApplicable__c =true;
         testCase.Patient1NotApplicable__c =true;
@@ -216,7 +216,7 @@ public class CaseTriggerHandlerTest {
         testCase.Applicant1Surname__c='SurName';
         testCase.Applicant1MedicallyEligible__c='Yes';
         testCase.Applicant1Patient__c='No';
-        testCase.Applicant1PersonalHealthNumber__c='98768';
+        testCase.Applicant1PersonalHealthNumber__c='9876854321';
         testCase.Applicant1DateOfBirth__c=  Date.newInstance(2025, 2, 04);
         testCase.NotApplicable__c =true;
         testCase.Patient1NotApplicable__c =true;
