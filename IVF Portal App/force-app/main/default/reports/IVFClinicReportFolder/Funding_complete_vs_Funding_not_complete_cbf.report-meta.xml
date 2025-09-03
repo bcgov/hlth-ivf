@@ -22,9 +22,6 @@
         <field>Case$AvailableTreatmentBalance1__c</field>
     </columns>
     <columns>
-        <field>Case$TreatmentStatus__c</field>
-    </columns>
-    <columns>
         <field>Case$FundingCompleteReason__c</field>
     </columns>
     <filter>
