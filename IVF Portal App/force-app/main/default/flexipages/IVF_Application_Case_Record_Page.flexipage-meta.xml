@@ -186,6 +186,16 @@
                 <identifier>RecordMSPEligibilityCheckComplete_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.OnHold__c</fieldItem>
+                <identifier>RecordOnHold_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-bb492169-21ce-47e4-9639-c3e1f05ae513</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -301,6 +311,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.InitialInReviewDate__c</fieldItem>
                 <identifier>RecordFirstInReviewDate_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.OnHoldReason__c</fieldItem>
+                <identifier>RecordOnHoldReason_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-5b54b755-3af9-4d0d-9954-70b9cdc9e2eb</name>
