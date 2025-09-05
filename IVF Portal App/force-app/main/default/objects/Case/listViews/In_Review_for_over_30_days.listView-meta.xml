@@ -7,6 +7,8 @@
     <columns>Applicant1FullName__c</columns>
     <columns>Applicant1PersonalHealthNumber__c</columns>
     <columns>DateOfApplicationSubmission__c</columns>
+    <columns>OnHold__c</columns>
+    <columns>OnHoldReason__c</columns>
     <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
     <filterScope>Everything</filterScope>
     <filters>
