@@ -5,6 +5,10 @@ public class CaseTriggerHandler {
         for(Case c:newList)
         {
             if(c.recordtypeId!=ivfTreatmentRtId){
+                if(c.Status =='Not Approved')
+                {
+                    c.Allow_Duplicate__c=True;
+                }
                 if(c.TotalHouseholdIncome__c!=null && c.TotalHouseholdIncome__c!=oldmap.get(c.id).TotalHouseholdIncome__c)                {
                     Decimal income = c.TotalHouseholdIncome__c;
                     Boolean matched = false;
