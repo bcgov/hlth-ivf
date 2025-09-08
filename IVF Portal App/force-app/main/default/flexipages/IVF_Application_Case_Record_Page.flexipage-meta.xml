@@ -14,6 +14,9 @@
                             <value>ChangeOwnerOne</value>
                         </valueListItems>
                         <valueListItems>
+                            <value>Case.Change_Status</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Case.VerifyMSPforApplicant1</value>
                             <visibilityRule>
                                 <criteria>
@@ -102,7 +105,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>numVisibleActions</name>
-                    <value>3</value>
+                    <value>5</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
                 <identifier>force_highlightsPanel2</identifier>
@@ -112,7 +115,7 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>hideUpdateButton</name>
-                    <value>false</value>
+                    <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>variant</name>
@@ -182,8 +185,28 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.MSPEligibilityCheckComplete__c</fieldItem>
-                <identifier>RecordMSPEligibilityCheckComplete_cField</identifier>
+                <fieldItem>Record.Assignee__c</fieldItem>
+                <identifier>RecordAssignee_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.OnHold__c</fieldItem>
+                <identifier>RecordOnHold_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.OnHoldReason__c</fieldItem>
+                <identifier>RecordOnHoldReason_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -587,7 +610,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.LastName__c</fieldItem>
                 <identifier>RecordLastName_cField</identifier>
@@ -597,7 +620,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.PractitionerNumber__c</fieldItem>
                 <identifier>RecordPractitionerNumber_cField</identifier>
@@ -607,7 +630,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.EmbryoTransferLocation__c</fieldItem>
                 <identifier>RecordEmbryoTransferLocation_cField</identifier>
@@ -621,7 +644,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.FirstName__c</fieldItem>
                 <identifier>RecordFirstName_cField</identifier>
@@ -631,7 +654,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.FertilitySpecialistClinicName__c</fieldItem>
                 <identifier>RecordFertilitySpecialistClinicName_cField</identifier>
@@ -641,7 +664,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.FertilitySpecialistClinicLocation__c</fieldItem>
                 <identifier>RecordFertilitySpecialistClinicLocation_cField</identifier>
@@ -701,7 +724,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1MedicallyEligible__c</fieldItem>
                 <identifier>RecordApplicant1MedicallyEligible_cField</identifier>
@@ -721,7 +744,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.PreviouslyReceivedFundingforIVF__c</fieldItem>
                 <identifier>RecordPreviouslyReceivedFundingforIVF_cField</identifier>
@@ -731,7 +754,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1GivenName__c</fieldItem>
                 <identifier>RecordApplicant1GivenName_cField</identifier>
@@ -741,7 +764,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1MSPStatus__c</fieldItem>
                 <identifier>RecordApplicant1MSPStatus_cField</identifier>
@@ -751,7 +774,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1Date__c</fieldItem>
                 <identifier>RecordApplicant1Date_cField</identifier>
@@ -765,7 +788,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1EnrolledinMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordApplicant1EnrolledinMedicalServicesPlan_cField</identifier>
@@ -775,7 +798,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.AreYouAGestationalCarrier__c</fieldItem>
                 <identifier>RecordAreYouAGestationalCarrier_cField</identifier>
@@ -785,7 +808,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1DateOfBirth__c</fieldItem>
                 <identifier>RecordApplicant1DateOfBirth_cField</identifier>
@@ -795,7 +818,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1Surname__c</fieldItem>
                 <identifier>RecordApplicant1Surname_cField</identifier>
@@ -815,7 +838,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant1Address__c</fieldItem>
                 <identifier>RecordApplicant1Address_cField</identifier>
