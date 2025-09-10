@@ -3,8 +3,8 @@
     <fullName>Clinics</fullName>
     <columns>ACCOUNT.NAME</columns>
     <columns>PrimaryContact__c</columns>
-    <columns>ACCOUNT.IS_ACTIVE</columns>
     <columns>Email__c</columns>
+    <columns>ACCOUNT.IS_ACTIVE</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>ACCOUNT.RECORDTYPE</field>
