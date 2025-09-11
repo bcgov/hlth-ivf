@@ -15,7 +15,14 @@
         ),
         AND(
             (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) = 42,
-            TODAY() &gt;= DATE(YEAR(TODAY()), MONTH(Applicant1DateOfBirth__c), DAY(Applicant1DateOfBirth__c))
+            TODAY() &gt;= DATE(YEAR(TODAY()), MONTH(Applicant1DateOfBirth__c), DAY(Applicant1DateOfBirth__c)),
+            NOT(
+                AND(
+                  ISCHANGED(Status), 
+                  ISPICKVAL(Status, &quot;Approved&quot;) 
+                )
+              )
+            
         )
     )
 )</errorConditionFormula>
