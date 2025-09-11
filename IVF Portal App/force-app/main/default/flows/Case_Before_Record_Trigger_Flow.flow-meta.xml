@@ -122,7 +122,7 @@
     <decisions>
         <name>Is_Status_Changed</name>
         <label>Is Status Changed?</label>
-        <locationX>2145</locationX>
+        <locationX>2013</locationX>
         <locationY>323</locationY>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
@@ -249,28 +249,6 @@
                 <targetReference>update_balnace</targetReference>
             </connector>
             <label>funding tier null ?</label>
-        </rules>
-        <rules>
-            <name>Clear_on_hold_Reason</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Record.OnHold__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.OnHoldReason__c</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Remove_On_Hold_Reason</targetReference>
-            </connector>
-            <label>Clear on hold Reason</label>
         </rules>
     </decisions>
     <decisions>
@@ -633,16 +611,6 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
-        <name>Remove_On_Hold_Reason</name>
-        <label>Remove On Hold Reason</label>
-        <locationX>3218</locationX>
-        <locationY>431</locationY>
-        <inputAssignments>
-            <field>OnHoldReason__c</field>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
-    <recordUpdates>
         <name>update_balnace</name>
         <label>update balnace</label>
         <locationX>2954</locationX>
@@ -705,7 +673,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>2019</locationX>
+        <locationX>1887</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Is_Status_Changed</targetReference>
