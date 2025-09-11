@@ -2,9 +2,26 @@ public class CaseTriggerHandler {
     public static Id ivfTreatmentRtId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('IVF Treatment').getRecordTypeId();
     public static void handleBeforeUpdate(List<Case> newList, Map<Id, Case> oldMap) {
         Map<Id, IVFFundingTier__c> fundingTiers = new Map<Id, IVFFundingTier__c>([SELECT Id, IncomeLevel__c, Funding_Amount__c FROM IVFFundingTier__c]);
+        Set<String> phns=new Set<STring>();
+        Map<String,Boolean> allowedPhns=new Map<String,Boolean>();
         for(Case c:newList)
         {
             if(c.recordtypeId!=ivfTreatmentRtId){
+                if(c.Status =='Submitted')
+                {
+                    if(c.Applicant1PersonalHealthNumber__c!=null)
+                    {
+                        phns.add(c.Applicant1PersonalHealthNumber__c);
+                    }
+                    if(c.Applicant2PersonalHealthNumber__c!=null)
+                    {
+                        phns.add(c.Applicant2PersonalHealthNumber__c);
+                    }
+                }
+                else
+                {
+                    c.Allow_Duplicate__c=false;
+                }
                 if(c.Status =='Not Approved')
                 {
                     c.Allow_Duplicate__c=True;
@@ -49,6 +66,33 @@ public class CaseTriggerHandler {
                     c.ApprovedTreatmentFunding__c=null;
                 }
             }
+        }
+        if(!phns.isempty())
+        {
+                List<Case> phncaseList=[Select Id,Status,Applicant1PersonalHealthNumber__c,Applicant2PersonalHealthNumber__c  from case where (Applicant1PersonalHealthNumber__c in:Phns OR Applicant2PersonalHealthNumber__c in: Phns) and status='Not Approved'];
+                for(Case c:phnCaseList)
+                {
+                    AllowedPhns.put(c.Applicant1PersonalHealthNumber__c,true);
+                    AllowedPhns.put(c.Applicant2PersonalHealthNumber__c,true);
+                }
+                for(Case c:newList)
+                {
+                     if(c.recordtypeId!=ivfTreatmentRtId && c.Status =='Submitted'){
+                         if(!AllowedPhns.isempty())
+                         {
+                             if(AllowedPhns.containskey(c.Applicant1PersonalHealthNumber__c) && AllowedPhns.get(c.Applicant1PersonalHealthNumber__c))
+                             {
+                                 c.Allow_Duplicate__c=true;
+                                 
+                             }
+                             if(AllowedPhns.containskey(c.Applicant2PersonalHealthNumber__c) && AllowedPhns.get(c.Applicant2PersonalHealthNumber__c))
+                             {
+                                 c.Allow_Duplicate__c=true;
+                             }
+                         }
+                     }
+                
+                }
         }
     }
     
