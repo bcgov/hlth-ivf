@@ -10,6 +10,9 @@
         <field>OWNER</field>
     </columns>
     <columns>
+        <field>Case.DateOfApplicationSubmission__c</field>
+    </columns>
+    <columns>
         <field>STATUS</field>
     </columns>
     <filter>
