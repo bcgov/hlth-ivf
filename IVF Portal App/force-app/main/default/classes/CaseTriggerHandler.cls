@@ -18,10 +18,6 @@ public class CaseTriggerHandler {
                         phns.add(c.Applicant2PersonalHealthNumber__c);
                     }
                 }
-                else
-                {
-                    c.Allow_Duplicate__c=false;
-                }
                 if(c.Status =='Not Approved')
                 {
                     c.Allow_Duplicate__c=True;
