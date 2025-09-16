@@ -65,26 +65,53 @@ public class CaseTriggerHandler {
         }
         if(!phns.isempty())
         {
-                List<Case> phncaseList=[Select Id,Status,Applicant1PersonalHealthNumber__c,Applicant2PersonalHealthNumber__c  from case where (Applicant1PersonalHealthNumber__c in:Phns OR Applicant2PersonalHealthNumber__c in: Phns) and status='Not Approved'];
-                for(Case c:phnCaseList)
+                List<Case> phncaseList=[Select Id,Status,Applicant1PersonalHealthNumber__c,Applicant2PersonalHealthNumber__c  from case where (Applicant1PersonalHealthNumber__c in:Phns OR Applicant2PersonalHealthNumber__c in: Phns) and id not in:oldmap.keyset()];
+                for(Case existing:phnCaseList)
                 {
-                    AllowedPhns.put(c.Applicant1PersonalHealthNumber__c,true);
-                    AllowedPhns.put(c.Applicant2PersonalHealthNumber__c,true);
+                    if (existing.Status != 'Not Approved' && existing.Status != 'Draft') {
+                        if (String.isNotBlank(existing.Applicant1PersonalHealthNumber__c)) {
+                            AllowedPhns.put(existing.Applicant1PersonalHealthNumber__c, false);
+                        }
+                        if (String.isNotBlank(existing.Applicant2PersonalHealthNumber__c)) {
+                            AllowedPhns.put(existing.Applicant2PersonalHealthNumber__c, false);
+                        }
+                    }
+                    else
+                    {
+                        if (String.isNotBlank(existing.Applicant1PersonalHealthNumber__c)) {
+                            AllowedPhns.put(existing.Applicant1PersonalHealthNumber__c, true);
+                        }
+                        if (String.isNotBlank(existing.Applicant2PersonalHealthNumber__c)) {
+                            AllowedPhns.put(existing.Applicant2PersonalHealthNumber__c, true);
+                        }
+                        
+                    }
                 }
+                System.debug('AllowedPhns'+AllowedPhns);
                 for(Case c:newList)
                 {
-                     if(c.recordtypeId!=ivfTreatmentRtId && c.Status =='Submitted'){
+                     if(c.recordtypeId!=ivfTreatmentRtId && c.Status =='Submitted' && c.Allow_Duplicate__c==false){
                          if(!AllowedPhns.isempty())
                          {
-                             if(AllowedPhns.containskey(c.Applicant1PersonalHealthNumber__c) && AllowedPhns.get(c.Applicant1PersonalHealthNumber__c))
+                             if (String.isNotBlank(c.Applicant1PersonalHealthNumber__c) &&
+                                AllowedPhns.containsKey(c.Applicant1PersonalHealthNumber__c) &&
+                                AllowedPhns.get(c.Applicant1PersonalHealthNumber__c) == false) {
+                                c.addError('An application has already been submitted for applicant 1 with PHN ('+ c.Applicant1PersonalHealthNumber__c+'). Please contact HLTH.');
+                            }
+                            if (String.isNotBlank(c.Applicant2PersonalHealthNumber__c) &&
+                                AllowedPhns.containsKey(c.Applicant2PersonalHealthNumber__c) &&
+                                AllowedPhns.get(c.Applicant2PersonalHealthNumber__c) == false) {
+                                c.addError('An application has already been submitted for applicant 2 with PHN ('+ c.Applicant2PersonalHealthNumber__c+'). Please contact HLTH.');
+                            }
+                             if(!AllowedPhns.containskey(c.Applicant1PersonalHealthNumber__c) || (String.isNotBlank(c.Applicant1PersonalHealthNumber__c) && AllowedPhns.containskey(c.Applicant1PersonalHealthNumber__c) && AllowedPhns.get(c.Applicant1PersonalHealthNumber__c)))
                              {
-                                 c.Allow_Duplicate__c=true;
+                                 if(!AllowedPhns.containskey(c.Applicant2PersonalHealthNumber__c) ||(String.isNotBlank(c.Applicant2PersonalHealthNumber__c) && AllowedPhns.containskey(c.Applicant2PersonalHealthNumber__c) && AllowedPhns.get(c.Applicant2PersonalHealthNumber__c)))
+                                 {
+                                     c.Allow_Duplicate__c=true;
+                                 }
                                  
                              }
-                             if(AllowedPhns.containskey(c.Applicant2PersonalHealthNumber__c) && AllowedPhns.get(c.Applicant2PersonalHealthNumber__c))
-                             {
-                                 c.Allow_Duplicate__c=true;
-                             }
+                             
                          }
                      }
                 
