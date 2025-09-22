@@ -88,7 +88,7 @@
                         <valueListItems>
                             <value>Case.VerifyMSPforApplicant1</value>
                             <visibilityRule>
-                                <booleanFilter>(2 AND 3 AND 4)  OR (1 AND 5)</booleanFilter>
+                                <booleanFilter>(1 AND 2 AND 3 AND 4)  OR (1 AND 5 )</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Applicant1PersonalHealthNumber__c}</leftValue>
                                     <operator>NE</operator>
@@ -118,7 +118,7 @@
                         <valueListItems>
                             <value>Case.VerifyMSPforApplicant2</value>
                             <visibilityRule>
-                                <booleanFilter>( 3 AND 4 AND 5) OR (1 AND 2 AND 6)</booleanFilter>
+                                <booleanFilter>(1 AND 2 AND 3 AND 4 AND 5) OR (1 AND 2 AND 6 )</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
@@ -153,7 +153,7 @@
                         <valueListItems>
                             <value>Case.VerifyMSPforPatient1</value>
                             <visibilityRule>
-                                <booleanFilter>(3 AND 4 AND 5) OR ( 6 AND 1 AND 2)</booleanFilter>
+                                <booleanFilter>(1 AND 2 AND 3 AND 4 AND 5) OR ( 6 AND 1 AND 2)</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Patient1NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
@@ -188,7 +188,7 @@
                         <valueListItems>
                             <value>Case.VerifyMSPforPatient2</value>
                             <visibilityRule>
-                                <booleanFilter>(3 AND 4 AND 5) OR (6 AND 1 AND 2)</booleanFilter>
+                                <booleanFilter>(1 AND 2 AND 3 AND 4 AND 5) OR (6 AND 1 AND 2)</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Patient2NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
@@ -223,7 +223,7 @@
                         <valueListItems>
                             <value>Case.VerifyMSPforPatient3</value>
                             <visibilityRule>
-                                <booleanFilter>(3 AND 4 AND 5) OR (6 AND 1 AND 2)</booleanFilter>
+                                <booleanFilter>(1 AND 2 AND 3 AND 4 AND 5) OR (6 AND 1 AND 2)</booleanFilter>
                                 <criteria>
                                     <leftValue>{!Record.Patient3NotApplicable__c}</leftValue>
                                     <operator>EQUAL</operator>
@@ -2098,7 +2098,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2EnrolledInMedicalServicesPlan__c</fieldItem>
                 <identifier>RecordApplicant2EnrolledInMedicalServicesPlan_cField2</identifier>
