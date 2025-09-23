@@ -354,9 +354,9 @@
                 </conditions>
                 <conditions>
                     <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
-                    <operator>LessThanOrEqualTo</operator>
+                    <operator>IsNull</operator>
                     <rightValue>
-                        <numberValue>0.0</numberValue>
+                        <booleanValue>true</booleanValue>
                     </rightValue>
                 </conditions>
                 <conditions>
