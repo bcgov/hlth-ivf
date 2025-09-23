@@ -121,7 +121,26 @@ public class CaseTriggerHandler {
     
     public static void handleAfterUpdate(List<Case> newList, Map<Id, Case> oldMap) {
         Map<Id, Decimal> treatmentBalances = new Map<Id, Decimal>();
-        Set<Id> treatmentIds = new Set<Id>();
+        List<FeedItem> chatterPosts = new List<FeedItem>();
+        Set<Id> treatmentIds = new Set<Id>();        
+        //Create Chatter post if case not approved
+        for (Case newCase : newList) {
+            Case oldCase = oldMap.get(newCase.Id);
+            if(newCase.recordtypeId!=ivfTreatmentRtId && newCase.status!=oldCase.Status && newCase.Status=='Not Approved')
+            {
+                chatterPosts.add(new FeedItem(
+                ParentId = newCase.Id,
+                Body = 'Application moved to '+newCase.Status+' due to the reason of ' + newCase.Not_Approved_Reason__c,
+                CreatedById = UserInfo.getUserId(),
+                Type       = 'TextPost',
+                Visibility = 'AllUsers'
+                ));
+            }
+            
+        }
+        if (!chatterPosts.isEmpty()) {
+        insert chatterPosts;
+        }
         
         Map<Id, Case> loadedCases = new Map<Id, Case>([
             SELECT Id, RecordType.DeveloperName, FundingComplete__c, ParentId
