@@ -67,6 +67,35 @@
         </defaultConnector>
         <defaultConnectorLabel>Approved Or Not Approved</defaultConnectorLabel>
         <rules>
+            <name>Household_Income_or_NOA_missing</name>
+            <conditionLogic>1 AND ( 2 OR 3 )</conditionLogic>
+            <conditions>
+                <leftValueReference>NewStatus</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>Approved</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Record.NOARecevied__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Yes</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Error_Message_Screen</targetReference>
+            </connector>
+            <label>Household Income or NOA missing</label>
+        </rules>
+        <rules>
             <name>In_Review_Or_Changes_Requested</name>
             <conditionLogic>1 OR 2</conditionLogic>
             <conditions>
@@ -93,7 +122,7 @@
         <name>Confirm_Status_Update</name>
         <label>Confirm Status Update</label>
         <locationX>314</locationX>
-        <locationY>650</locationY>
+        <locationY>758</locationY>
         <defaultConnectorLabel>Cancel</defaultConnectorLabel>
         <rules>
             <name>Proceed_with_Update</name>
@@ -158,7 +187,7 @@
         <name>Update_Case_Status</name>
         <label>Update Case Status</label>
         <locationX>50</locationX>
-        <locationY>758</locationY>
+        <locationY>866</locationY>
         <connector>
             <targetReference>Status_Updated_Successfully</targetReference>
         </connector>
@@ -244,7 +273,7 @@
     <screens>
         <name>ConfirmStatusUpdateApprovedNotApproved</name>
         <label>Confirm Status Update</label>
-        <locationX>402</locationX>
+        <locationX>534</locationX>
         <locationY>458</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
@@ -339,35 +368,6 @@
                 </conditions>
             </visibilityRule>
         </fields>
-        <fields>
-            <name>NoHouseholdIncomeORNOA</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgba(5, 21, 36, 0); font-size: 14px; font-family: &amp;quot;Atlassian Sans&amp;quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(41, 42, 46);&quot;&gt;The application cannot be moved to Approved. Please ensure the Household Income and NOA Received fields are filled in.&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-            <visibilityRule>
-                <conditionLogic>1 AND (2 OR 3)</conditionLogic>
-                <conditions>
-                    <leftValueReference>NewStatus</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <elementReference>Approved</elementReference>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
-                    <operator>IsNull</operator>
-                    <rightValue>
-                        <booleanValue>true</booleanValue>
-                    </rightValue>
-                </conditions>
-                <conditions>
-                    <leftValueReference>Get_Case_Record.NOARecevied__c</leftValueReference>
-                    <operator>NotEqualTo</operator>
-                    <rightValue>
-                        <stringValue>Yes</stringValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
         <nextOrFinishButtonLabel>Confirm</nextOrFinishButtonLabel>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -376,7 +376,7 @@
         <name>Error</name>
         <label>Error</label>
         <locationX>314</locationX>
-        <locationY>866</locationY>
+        <locationY>974</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -389,10 +389,27 @@
         <showHeader>false</showHeader>
     </screens>
     <screens>
+        <name>Error_Message_Screen</name>
+        <label>Error Message Screen</label>
+        <locationX>94</locationX>
+        <locationY>458</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>NoHouseholdIncomeORNOAErrorMsg</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: &amp;quot;Atlassian Sans&amp;quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(41, 42, 46);&quot;&gt;The application cannot be moved to Approved. Please ensure the Household Income and NOA Received fields are filled in.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <nextOrFinishButtonLabel>OK</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
         <name>Status_Updated_Successfully</name>
         <label>Status Updated Successfully</label>
         <locationX>50</locationX>
-        <locationY>866</locationY>
+        <locationY>974</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
