@@ -303,7 +303,7 @@
                 </conditions>
                 <conditions>
                     <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
-                    <operator>GreaterThan</operator>
+                    <operator>GreaterThanOrEqualTo</operator>
                     <rightValue>
                         <numberValue>0.0</numberValue>
                     </rightValue>
@@ -339,7 +339,7 @@
                 </conditions>
                 <conditions>
                     <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
-                    <operator>GreaterThan</operator>
+                    <operator>GreaterThanOrEqualTo</operator>
                     <rightValue>
                         <numberValue>0.0</numberValue>
                     </rightValue>
