@@ -122,7 +122,7 @@ public class CaseTriggerHandler {
     public static void handleAfterUpdate(List<Case> newList, Map<Id, Case> oldMap) {
         Map<Id, Decimal> treatmentBalances = new Map<Id, Decimal>();
         List<FeedItem> chatterPosts = new List<FeedItem>();
-        Set<Id> treatmentIds = new Set<Id>();        
+        Set<Id> treatmentIds = new Set<Id>();
         //Create Chatter post if case not approved
         for (Case newCase : newList) {
             Case oldCase = oldMap.get(newCase.Id);
@@ -130,7 +130,7 @@ public class CaseTriggerHandler {
             {
                 chatterPosts.add(new FeedItem(
                 ParentId = newCase.Id,
-                Body = 'Application moved to '+newCase.Status+' due to the reason of ' + newCase.Not_Approved_Reason__c,
+                Body = 'Application moved to '+newCase.Status+'. Reason: ' + newCase.Not_Approved_Reason__c,
                 CreatedById = UserInfo.getUserId(),
                 Type       = 'TextPost',
                 Visibility = 'AllUsers'
