@@ -24,6 +24,6 @@
     </filters>
     <label>In Review</label>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <group>BDSB_Admin</group>
     </sharedTo>
 </ListView>

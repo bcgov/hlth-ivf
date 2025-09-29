@@ -24,6 +24,6 @@
     </filters>
     <label>Not Approved</label>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <group>BDSB_Admin</group>
     </sharedTo>
 </ListView>
