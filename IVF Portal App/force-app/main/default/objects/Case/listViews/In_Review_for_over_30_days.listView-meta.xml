@@ -10,6 +10,7 @@
     <columns>OnHold__c</columns>
     <columns>OnHoldReason__c</columns>
     <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
+    <columns>BDSB_Assignee__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>CASES.STATUS</field>
