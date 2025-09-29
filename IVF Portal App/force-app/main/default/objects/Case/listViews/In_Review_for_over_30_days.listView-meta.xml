@@ -23,6 +23,6 @@
     </filters>
     <label>In Review for over 30 days</label>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <group>BDSB_Admin</group>
     </sharedTo>
 </ListView>

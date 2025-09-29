@@ -23,6 +23,6 @@
     </filters>
     <label>Changes Requested</label>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <group>BDSB_Admin</group>
     </sharedTo>
 </ListView>
