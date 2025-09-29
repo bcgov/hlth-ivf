@@ -15,6 +15,9 @@
     <columns>
         <field>STATUS</field>
     </columns>
+    <columns>
+        <field>Case.BDSB_Assignee__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>STATUS</column>
