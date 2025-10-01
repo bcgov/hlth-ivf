@@ -846,6 +846,16 @@
                 <identifier>RecordNot_Approved_Reason_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.BDSB_Assignee__c</fieldItem>
+                <identifier>RecordBDSB_Assignee_cField2</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-w9mwn4jns3l</name>
         <type>Facet</type>
     </flexiPageRegions>
