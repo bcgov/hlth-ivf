@@ -2,10 +2,16 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Approval_without_Tier_Amount</fullName>
     <active>true</active>
-    <errorConditionFormula>ISPICKVAL(Status, &quot;Approved&quot;) &amp;&amp;
-(
-    ISBLANK(FundingTier__c) ||
-    ISBLANK(ApprovedTreatmentFunding__c)
+    <errorConditionFormula>AND(
+	OR(
+		ISPICKVAL(Status, &quot;Approved&quot;)
+
+	),
+	OR(
+		ISBLANK(TotalHouseholdIncome__c),
+		ISBLANK(FundingTier__c),
+		ISBLANK(ApprovedTreatmentFunding__c)
+	)
 )</errorConditionFormula>
-    <errorMessage>Please select a funding tier and ensure funding amount fields are filled before approving the application.</errorMessage>
+    <errorMessage>Please enter  Total Household Income and ensure funding tier and funding amount fields are filled before approving or Not Approving the application.</errorMessage>
 </ValidationRule>
