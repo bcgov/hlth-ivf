@@ -850,7 +850,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.BDSB_Assignee__c</fieldItem>
                 <identifier>RecordBDSB_Assignee_cField2</identifier>
