@@ -1502,6 +1502,16 @@
                 <identifier>RecordApplicant1Date_cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Applicant_1_email__c</fieldItem>
+                <identifier>RecordApplicant_1_email_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-8ff023b8-82d2-45a6-aac2-fe686c3dad0f</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -1680,6 +1690,23 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2Date__c</fieldItem>
                 <identifier>RecordApplicant2Date_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Applicant_2_email__c</fieldItem>
+                <identifier>RecordApplicant_2_email_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
@@ -1923,6 +1950,16 @@
                 <identifier>RecordApplicant1Date_cField2</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Applicant_1_email__c</fieldItem>
+                <identifier>RecordApplicant_1_email_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-5lxrzjlx5r4</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -2101,6 +2138,23 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant2Date__c</fieldItem>
                 <identifier>RecordApplicant2Date_cField2</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.NotApplicable__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>false</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Applicant_2_email__c</fieldItem>
+                <identifier>RecordApplicant_2_email_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.NotApplicable__c}</leftValue>
