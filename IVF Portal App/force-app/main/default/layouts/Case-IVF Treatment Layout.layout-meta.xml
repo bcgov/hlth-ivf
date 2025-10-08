@@ -117,6 +117,8 @@
         <fields>TreatmentComponent__c</fields>
         <fields>TreatmentCost__c</fields>
         <fields>TreatmentDate__c</fields>
+        <fields>PartiallyFunded__c</fields>
+        <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>CREATED_DATE</fields>
         <relatedList>IVFTreatmentLineItem__c.ParentId__c</relatedList>
