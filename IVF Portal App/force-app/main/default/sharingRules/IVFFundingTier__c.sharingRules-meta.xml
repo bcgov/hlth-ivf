@@ -2,7 +2,7 @@
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
         <fullName>IVF_Funding_Tier_Sharing_BDSB_Admins</fullName>
-        <accessLevel>Edit</accessLevel>
+        <accessLevel>Read</accessLevel>
         <label>IVF Funding Tier Sharing - BDSB Admins</label>
         <sharedTo>
             <role>BDSB_Admin</role>

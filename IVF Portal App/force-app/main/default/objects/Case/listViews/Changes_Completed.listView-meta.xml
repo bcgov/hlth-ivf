@@ -10,6 +10,7 @@
     <columns>CASES.STATUS</columns>
     <columns>ExceptionRequestIndicator__c</columns>
     <columns>OWNER_NAME</columns>
+    <columns>BDSB_Assignee__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>CASES.RECORDTYPE</field>
@@ -23,6 +24,6 @@
     </filters>
     <label>Changes Completed</label>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <group>BDSB_Admin</group>
     </sharedTo>
 </ListView>

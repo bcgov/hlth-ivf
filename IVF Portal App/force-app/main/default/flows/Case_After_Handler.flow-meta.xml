@@ -151,7 +151,7 @@
         <name>Send_Email_for_Denied_Application</name>
         <label>Send Email for Denied Application</label>
         <locationX>578</locationX>
-        <locationY>1079</locationY>
+        <locationY>1403</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -408,6 +408,22 @@
         </assignmentItems>
         <connector>
             <targetReference>Update_Existing_Patient_Related_to_Applicant2</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Record_Owner</name>
+        <label>Assign Record Owner</label>
+        <locationX>2294</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>RecordOwnerName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Record_Owner_Details.Name</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Status_Change_Check</targetReference>
         </connector>
     </assignments>
     <assignments>
@@ -1033,6 +1049,9 @@
                     <stringValue>In Review</stringValue>
                 </rightValue>
             </conditions>
+            <connector>
+                <targetReference>Update_First_Review_date</targetReference>
+            </connector>
             <label>In Review</label>
         </rules>
     </decisions>
@@ -2114,6 +2133,27 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Record_Owner_Details</name>
+        <label>Get Record Owner Details</label>
+        <locationX>2294</locationX>
+        <locationY>323</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Record_Owner</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Treatment_Record_Type_Id</name>
         <label>Get Treatment Record Type Id</label>
         <locationX>974</locationX>
@@ -2330,6 +2370,34 @@
         <inputReference>Get_Existing_Patients_for_Applicant2</inputReference>
     </recordUpdates>
     <recordUpdates>
+        <name>Update_First_Review_date</name>
+        <label>Update First Review date</label>
+        <locationX>1370</locationX>
+        <locationY>971</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>In Review</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>InitialInReviewDate__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>InitialInReviewDate__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Patient_Details_for_Applicants</name>
         <label>Update Patient Details for Applicants</label>
         <locationX>3600</locationX>
@@ -2381,7 +2449,7 @@
         <locationX>2168</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Status_Change_Check</targetReference>
+            <targetReference>Get_Record_Owner_Details</targetReference>
         </connector>
         <object>Case</object>
         <recordTriggerType>Update</recordTriggerType>
@@ -2391,22 +2459,22 @@
     <textTemplates>
         <name>ApprovedApplicationEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Funding has been approved for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Funding has been approved for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Clinic Location:&lt;/strong&gt; {!$Record.FertilitySpecialistClinicLocation__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Current Owner:&lt;/strong&gt; {!RecordOwnerName}&lt;/li&gt;&lt;/ul&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>ChangesCompletedEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Changes have been completed for application number &lt;a href=&quot;{!OrgDomain}/lightning/r/Case/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;Changes have been completed for application number &lt;a href=&quot;{!OrgDomain}/lightning/r/Case/{!$Record.Id}/view&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Clinic Location:&lt;/strong&gt; {!$Record.FertilitySpecialistClinicLocation__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Current Owner:&lt;/strong&gt; &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!RecordOwnerName}&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>ChangesRequestedEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Changes have been requested for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;. Please log into the IVF portal to view and make the requested updates.&lt;/p&gt;</text>
+        <text>&lt;p&gt;Changes have been requested for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;. Please log into the IVF portal to view and make the requested updates.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Clinic Location:&lt;/strong&gt; {!$Record.FertilitySpecialistClinicLocation__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Current Owner:&lt;/strong&gt; &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!RecordOwnerName}&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>DeniedApplicationEmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Funding has not been approved for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details. A letter has been sent to the applicants outlining the funding decision.&amp;nbsp;If applicants have questions regarding the decision they may contact &lt;a href=&quot;mailto:{!BDSB_Email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;BDSB&lt;/a&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;Funding has not been approved for application number &lt;a href=&quot;{!PortalDomain}/{!$Record.Id}/detail&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;{!$Record.CaseNumber}&lt;/a&gt;.&amp;nbsp;Please log into the IVF portal to view the approval details. A letter has been sent to the applicants outlining the funding decision.&amp;nbsp;If applicants have questions regarding the decision they may contact &lt;a href=&quot;mailto:{!BDSB_Email}&quot; rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot;&gt;BDSB&lt;/a&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Clinic Location:&lt;/strong&gt; {!$Record.FertilitySpecialistClinicLocation__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Current Owner:&lt;/strong&gt; &lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!RecordOwnerName}&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;</text>
     </textTemplates>
     <textTemplates>
         <description>Subject for Changes Completed Email</description>
@@ -2462,6 +2530,13 @@
         <name>EmailListForDeniedApplication</name>
         <dataType>String</dataType>
         <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>RecordOwnerName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>

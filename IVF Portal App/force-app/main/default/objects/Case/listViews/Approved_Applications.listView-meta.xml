@@ -8,6 +8,7 @@
     <columns>Applicant1FullName__c</columns>
     <columns>Applicant1PersonalHealthNumber__c</columns>
     <columns>OWNER_NAME</columns>
+    <columns>BDSB_Assignee__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>CASES.RECORDTYPE</field>
