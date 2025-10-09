@@ -18,6 +18,6 @@ jobs:
       - name: "ZAP Scan"
         uses: zaproxy/action-full-scan@v0.12.0
         with:
-          target: ${{ secrets.SFDX_AUTH_URL_QA }}
-          issue_title: PROD - ZAP Full Scan Report
+          target: ${{ secrets.ZAP_TARGET_URL_QA }}
+          issue_title: QA - ZAP Full Scan Report
           cmd_options: '-I'
