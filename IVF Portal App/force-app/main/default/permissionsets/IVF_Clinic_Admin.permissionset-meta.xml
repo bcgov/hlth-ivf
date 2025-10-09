@@ -400,11 +400,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.PartiallyFunded__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Case.Pat2PreviouslyParticipatedInIVFProgram__c</field>
         <readable>true</readable>
@@ -717,6 +712,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>IVFFeeSchedule__c.Cost__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>IVFTreatmentLineItem__c.PartiallyFunded__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
