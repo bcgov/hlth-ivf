@@ -1,0 +1,23 @@
+name: QA - Full ZAP Scan
+on: workflow_dispatch
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: "Checkout source code"
+        uses: actions/checkout@v4
+
+      - name: "Setup node v24"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: "ZAP Scan"
+        uses: zaproxy/action-full-scan@v0.12.0
+        with:
+          target: ${{ secrets.SFDX_AUTH_URL_QA }}
+          issue_title: PROD - ZAP Full Scan Report
+          cmd_options: '-I'
