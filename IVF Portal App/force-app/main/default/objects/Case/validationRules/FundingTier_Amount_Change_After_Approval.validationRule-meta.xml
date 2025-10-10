@@ -3,8 +3,18 @@
     <fullName>FundingTier_Amount_Change_After_Approval</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-    ISCHANGED(FundingTier__c) || ISCHANGED(ApprovedTreatmentFunding__c),
-    ISPICKVAL(Status, &quot;Approved&quot;)
+	OR(
+	 ISCHANGED(TotalHouseholdIncome__c),
+	 ISCHANGED(ApprovedTreatmentFunding__c),
+     ISCHANGED(FundingTier__c)
+	),
+    OR(
+	 (ISPICKVAL(Status, &quot;Approved&quot;))
+	),
+    OR(
+        RecordType.DeveloperName = &quot;IVF_Application&quot;,
+        RecordType.DeveloperName = &quot;IVF_Application_Read_Only&quot;
+    )
 )</errorConditionFormula>
-    <errorMessage>You cannot edit the Funding Tier or Approved Treatment Funding after the application is approved.</errorMessage>
+    <errorMessage>You cannot edit the Total Household Income or Funding Tier or Approved Treatment Funding after the application is approved/Not Approved</errorMessage>
 </ValidationRule>

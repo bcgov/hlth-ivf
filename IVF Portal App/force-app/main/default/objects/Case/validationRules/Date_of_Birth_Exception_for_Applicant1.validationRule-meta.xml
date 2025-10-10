@@ -3,21 +3,70 @@
     <fullName>Date_of_Birth_Exception_for_Applicant1</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-    NOT($RecordType.Name = &apos;IVF Treatment&apos;),
-    ISPICKVAL(AreYouAGestationalCarrier__c, &quot;Yes&quot;),
-    ISBLANK(Details__c),
-    OR(
-        (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) &lt; 18,
-        (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) &gt; 42,
-        AND(
-            (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) = 18,
-            TODAY() &lt; DATE(YEAR(TODAY()), MONTH(Applicant1DateOfBirth__c), DAY(Applicant1DateOfBirth__c))
-        ),
-        AND(
-            (YEAR(TODAY()) - YEAR(Applicant1DateOfBirth__c)) = 42,
-            TODAY() &gt;= DATE(YEAR(TODAY()), MONTH(Applicant1DateOfBirth__c), DAY(Applicant1DateOfBirth__c))
-        )
-    )
+NOT($RecordType.Name = &apos;IVF Treatment&apos;),
+ISPICKVAL(AreYouAGestationalCarrier__c, &quot;Yes&quot;),
+ISPICKVAL(ExceptionRequest__c, &quot;No&quot;),
+OR(
+ISNEW(),
+ISCHANGED(Applicant1DateOfBirth__c),
+AND(ISCHANGED(Status), ISPICKVAL(Status,&quot;Approved&quot;))
+),
+OR(
+ISBLANK(Applicant1DateOfBirth__c),
+/* Age &lt; 18 */
+(
+(YEAR(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) - YEAR(Applicant1DateOfBirth__c)) -
+IF(
+OR(
+MONTH(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) &lt; MONTH(Applicant1DateOfBirth__c),
+AND(
+MONTH(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) = MONTH(Applicant1DateOfBirth__c),
+DAY(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) &lt; DAY(Applicant1DateOfBirth__c)
+)
+),
+1,
+0
+)
+) &lt; 18,
+
+/* Status = Approved AND Age &gt; 42 */
+AND(
+ISPICKVAL(Status, &quot;Approved&quot;),
+(
+(YEAR(DateOfApplicationSubmission__c) - YEAR(Applicant1DateOfBirth__c)) -
+IF(
+OR(
+MONTH(DateOfApplicationSubmission__c) &lt; MONTH(Applicant1DateOfBirth__c),
+AND(
+MONTH(DateOfApplicationSubmission__c) = MONTH(Applicant1DateOfBirth__c),
+DAY(DateOfApplicationSubmission__c) &lt; DAY(Applicant1DateOfBirth__c)
+)
+),
+1,
+0
+)
+) &gt; 42
+),
+
+/* Status ≠ Approved AND Age &gt; 41 */
+AND(
+NOT(ISPICKVAL(Status, &quot;Approved&quot;)),
+(
+(YEAR(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) - YEAR(Applicant1DateOfBirth__c)) -
+IF(
+OR(
+MONTH(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) &lt; MONTH(Applicant1DateOfBirth__c),
+AND(
+MONTH(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) = MONTH(Applicant1DateOfBirth__c),
+DAY(IF(ISBLANK(DateOfApplicationSubmission__c), TODAY(), DateOfApplicationSubmission__c)) &lt; DAY(Applicant1DateOfBirth__c)
+)
+),
+1,
+0
+)
+) &gt; 41
+)
+)
 )</errorConditionFormula>
-    <errorMessage>Applicants who will be undergoing embryo transfer must be between 18-41 years of age at the time of application. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
+    <errorMessage>Applicants who are undergoing embryo transfer must be between 18-41 years of age at the time of application. Please select &quot;Yes&quot; for exception request in the administrative section and fill out the details under the &quot;exception request&quot; section.</errorMessage>
 </ValidationRule>

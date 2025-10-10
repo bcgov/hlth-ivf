@@ -45,7 +45,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>required</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.IncomeLevel__c</fieldItem>
                 <identifier>RecordIncomeLevel__cField</identifier>

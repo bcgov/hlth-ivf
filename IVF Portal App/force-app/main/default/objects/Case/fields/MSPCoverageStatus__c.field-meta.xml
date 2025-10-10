@@ -3,14 +3,14 @@
     <fullName>MSPCoverageStatus__c</fullName>
     <externalId>false</externalId>
     <formula>IF(
-  AND(
-    ISBLANK(TEXT(Applicant1MSPStatus__c)),
-    ISBLANK(TEXT(Applicant2MSPStatus__c)),
-    ISBLANK(TEXT(Patient1MSPStatus__c)),
-    ISBLANK(TEXT(Patient2MSPStatus__c)),
-    ISBLANK(TEXT(Patient3MSPStatus__c))
+  OR(
+    AND(!ISBLANK( Applicant1PersonalHealthNumber__c ), ISBLANK(TEXT(Applicant1MSPStatus__c))),
+    AND(!ISBLANK( Applicant2PersonalHealthNumber__c ), ISBLANK(TEXT(Applicant2MSPStatus__c))),
+    AND(!ISBLANK( Patient1PersonalHealthNumber__c ), ISBLANK(TEXT(Patient1MSPStatus__c))),
+    AND(!ISBLANK( Patient2PersonalHealthNumber__c ), ISBLANK(TEXT(Patient2MSPStatus__c))),
+    AND(!ISBLANK( Patient3PersonalHealthNumber__c ), ISBLANK(TEXT(Patient3MSPStatus__c)))
   ),
-  NULL,
+  &quot;At least one person is not enrolled&quot;,
   IF(
     OR(
       TEXT(Applicant1MSPStatus__c) = &quot;Not Enrolled&quot;,
