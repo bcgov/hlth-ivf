@@ -1954,7 +1954,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant_1_email__c</fieldItem>
                 <identifier>RecordApplicant_1_email_cField2</identifier>
@@ -2151,7 +2151,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
+                    <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Applicant_2_email__c</fieldItem>
                 <identifier>RecordApplicant_2_email_cField2</identifier>
