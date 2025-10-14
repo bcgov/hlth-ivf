@@ -730,6 +730,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>IVFTreatmentLineItem__c.PartiallyFunded__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>IVFTreatmentLineItem__c.TreatmentComponent__c</field>
         <readable>true</readable>
