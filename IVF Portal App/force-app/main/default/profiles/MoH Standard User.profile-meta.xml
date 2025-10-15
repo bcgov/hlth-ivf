@@ -37,6 +37,9 @@
     <layoutAssignments>
         <layout>IVFFundingTier__c-IVF Funding Tier Layout</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>EmailMessage-Email Message Layout.layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
