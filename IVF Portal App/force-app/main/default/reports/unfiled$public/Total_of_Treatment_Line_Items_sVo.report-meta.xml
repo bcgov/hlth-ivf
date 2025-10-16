@@ -14,10 +14,6 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>IVFTreatmentLineItem__c.PartiallyFunded__c</field>
     </columns>
-    <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>Case.ApprovedTreatmentFunding__c</field>
-    </columns>
     <customDetailFormulas>
         <calculatedFormula>PARENT_CASE_NUMBER</calculatedFormula>
         <dataType>Text</dataType>
