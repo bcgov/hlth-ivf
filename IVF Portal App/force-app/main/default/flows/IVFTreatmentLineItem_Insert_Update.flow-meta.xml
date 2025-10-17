@@ -152,6 +152,12 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>TreatmentCost__c</field>
+            <value>
+                <elementReference>GetParent.AvailableTreatmentBalance1__c</elementReference>
+            </value>
+        </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
