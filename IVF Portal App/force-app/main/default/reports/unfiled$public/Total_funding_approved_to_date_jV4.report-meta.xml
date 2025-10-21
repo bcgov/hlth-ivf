@@ -21,6 +21,13 @@
             <operator>equals</operator>
             <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
         </criteriaItems>
+        <criteriaItems>
+            <column>STATUS</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Approved</value>
+        </criteriaItems>
     </filter>
     <format>Summary</format>
     <groupingsDown>
