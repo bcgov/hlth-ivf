@@ -209,10 +209,8 @@
         <numberOfColumns>12</numberOfColumns>
         <rowHeight>36</rowHeight>
     </dashboardGridLayout>
-    <dashboardType>MyTeamUser</dashboardType>
+    <dashboardType>LoggedInUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <owner>purav.chitaliya@pbcsolutions.ca</owner>
-    <runningUser>aparna.pasala@pbcsolutions.ca</runningUser>
     <textColor>#000000</textColor>
     <title>IVF Clinic Dashboard</title>
     <titleColor>#000000</titleColor>
