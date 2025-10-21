@@ -141,7 +141,7 @@
             "componentAttributes" : {
               "navAlignment" : "right",
               "navItemThreshold" : 2,
-              "navigationMenuEditorRefresh" : "Default_Navigation1"
+              "navigationMenuEditorRefresh" : "Default_Navigation"
             },
             "componentName" : "forceCommunity:themeNav",
             "id" : "83c8bf61-3ff4-4cc7-ad73-3b34dcefbf01",
@@ -334,7 +334,7 @@
               "disableCrossObjectRelevance" : false,
               "enableAutocomplete" : true,
               "maxNumberOfResults" : 6,
-              "placeholder" : "",
+              "placeholder" : "Search IVF Portal...",
               "questionResultsFirst" : false,
               "showContinueAction" : true,
               "showDetails" : false,

@@ -162,6 +162,12 @@
                         <type>grouping</type>
                     </flexTableColumn>
                     <flexTableColumn>
+                        <reportColumn>Case.Treatmentstartdate__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>true</showTotal>
+                        <type>grouping</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
                         <reportColumn>s!Case.ApprovedTreatmentFunding__c</reportColumn>
                         <showSubTotal>false</showSubTotal>
                         <showTotal>true</showTotal>
@@ -189,6 +195,10 @@
                         <groupingLevel>g1</groupingLevel>
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
+                    <groupingSorts>
+                        <groupingLevel>g2</groupingLevel>
+                        <sortOrder>a</sortOrder>
+                    </groupingSorts>
                 </groupingSortProperties>
                 <header>Clinic Funding Approved vs Expenditure</header>
                 <report>IVFClinicReportFolder/Clinic_Funding_Approved_vs_Expenditure_rjc</report>
@@ -199,8 +209,10 @@
         <numberOfColumns>12</numberOfColumns>
         <rowHeight>36</rowHeight>
     </dashboardGridLayout>
-    <dashboardType>LoggedInUser</dashboardType>
+    <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
+    <owner>purav.chitaliya@pbcsolutions.ca</owner>
+    <runningUser>aparna.pasala@pbcsolutions.ca</runningUser>
     <textColor>#000000</textColor>
     <title>IVF Clinic Dashboard</title>
     <titleColor>#000000</titleColor>
