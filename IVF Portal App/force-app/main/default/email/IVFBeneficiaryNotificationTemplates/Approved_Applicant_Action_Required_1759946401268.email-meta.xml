@@ -5,7 +5,7 @@
     <name>Approved – Applicant Action Required</name>
     <relatedEntityType>Contact</relatedEntityType>
     <style>none</style>
-    <subject>Approved – Applicant Action Required</subject>
+    <subject>Ministry of Health Publicly Funded IVF Program Application ({{{Case.CaseNumber}}})</subject>
     <type>custom</type>
     <uiType>SFX</uiType>
 </EmailTemplate>
