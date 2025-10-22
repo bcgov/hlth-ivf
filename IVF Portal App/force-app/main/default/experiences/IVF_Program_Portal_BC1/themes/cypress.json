@@ -121,7 +121,7 @@
               "disableCrossObjectRelevance" : false,
               "enableAutocomplete" : true,
               "maxNumberOfResults" : 6,
-              "placeholder" : "",
+              "placeholder" : "Search IVF Portal...",
               "questionResultsFirst" : false,
               "showContinueAction" : true,
               "showDetails" : false,
