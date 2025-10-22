@@ -5,7 +5,7 @@
     <name>Not Approved: Age Ineligible</name>
     <relatedEntityType>Contact</relatedEntityType>
     <style>none</style>
-    <subject>Not Approved: Age Ineligible</subject>
+    <subject>Ministry of Health Publicly Funded IVF Program Application ({{{Case.CaseNumber}}})</subject>
     <type>custom</type>
     <uiType>SFX</uiType>
 </EmailTemplate>

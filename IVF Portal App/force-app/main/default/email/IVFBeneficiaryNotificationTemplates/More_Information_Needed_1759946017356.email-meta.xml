@@ -5,7 +5,7 @@
     <name>More Information Needed</name>
     <relatedEntityType>Contact</relatedEntityType>
     <style>none</style>
-    <subject>Reason: Invalid income document(s) submitted</subject>
+    <subject>Ministry of Health Publicly Funded IVF Program Application ({{{Case.CaseNumber}}})</subject>
     <type>custom</type>
     <uiType>SFX</uiType>
 </EmailTemplate>
