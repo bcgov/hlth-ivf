@@ -406,6 +406,13 @@
                 <elementReference>$Record.Applicant2Address__PostalCode__s</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Existing_Patients_for_Applicant2.PersonEmail</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Applicant_2_email__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Update_Existing_Patient_Related_to_Applicant2</targetReference>
         </connector>
@@ -545,6 +552,13 @@
                 <elementReference>$Record.Applicant2Address__PostalCode__s</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Copy_1_of_Get_Existing_Patients_for_Applicant2.PersonEmail</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Applicant_2_email__c</elementReference>
+            </value>
+        </assignmentItems>
         <connector>
             <targetReference>Copy_Update_Existing_Patient_Related_to_Applicant2</targetReference>
         </connector>
@@ -631,6 +645,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$Record.Applicant1Address__PostalCode__s</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Get_Existing_Patients.PersonEmail</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.Applicant_1_email__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -1510,6 +1531,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>PersonEmail</field>
+            <value>
+                <elementReference>$Record.Applicant_2_email__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>PersonalHealthNumber__c</field>
             <value>
                 <elementReference>$Record.Applicant2PersonalHealthNumber__c</elementReference>
@@ -1617,6 +1644,12 @@
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>PersonEmail</field>
+            <value>
+                <elementReference>$Record.Applicant_2_email__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>PersonalHealthNumber__c</field>
             <value>
                 <elementReference>$Record.Applicant2PersonalHealthNumber__c</elementReference>
@@ -1721,6 +1754,12 @@
             <field>PersonBirthdate</field>
             <value>
                 <elementReference>$Record.Applicant1DateOfBirth__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PersonEmail</field>
+            <value>
+                <elementReference>$Record.Applicant_1_email__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

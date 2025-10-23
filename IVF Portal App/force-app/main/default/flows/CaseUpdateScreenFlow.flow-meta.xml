@@ -283,7 +283,7 @@
         </connector>
         <fields>
             <name>ApprovedWithMSPIncomplete</name>
-            <fieldText>&lt;p&gt;Warning: The MSP eligibility check for at least one of the beneficiaries has not been completed. Are you sure you want to proceed with changing the status to Approved? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Warning: The MSP eligibility check for at least one of the beneficiaries has not been completed. Are you sure you want to proceed with changing the status to &lt;strong&gt;Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -319,7 +319,7 @@
         </fields>
         <fields>
             <name>ApprovedWithMSPComplete</name>
-            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to Approved? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to &lt;strong&gt;Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -355,7 +355,7 @@
         </fields>
         <fields>
             <name>NotApprovedMessage</name>
-            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to Not Approved? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to &lt;strong&gt;Not Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -398,7 +398,7 @@
         <allowPause>false</allowPause>
         <fields>
             <name>NoHouseholdIncomeORNOAErrorMsg</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: &amp;quot;Atlassian Sans&amp;quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; color: rgb(41, 42, 46);&quot;&gt;The application cannot be moved to Approved. Please ensure the Household Income and NOA Received fields are filled in.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(41, 42, 46); font-family: &amp;quot;Atlassian Sans&amp;quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;The application cannot be moved to &lt;/span&gt;&lt;strong style=&quot;color: rgb(41, 42, 46); font-family: &amp;quot;Atlassian Sans&amp;quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;color: rgb(41, 42, 46); font-family: &amp;quot;Atlassian Sans&amp;quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Ubuntu, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;. Please ensure the Household Income and NOA Received fields are filled in.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <nextOrFinishButtonLabel>OK</nextOrFinishButtonLabel>

@@ -59,6 +59,16 @@
                 <identifier>RecordIsActiveField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PersonEmail</fieldItem>
+                <identifier>RecordPersonEmailField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-707162d6-45b6-4e6e-9b18-b2420cc607f6</name>
         <type>Facet</type>
     </flexiPageRegions>

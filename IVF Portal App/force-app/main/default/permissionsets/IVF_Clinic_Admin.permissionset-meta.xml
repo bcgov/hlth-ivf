@@ -190,6 +190,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Applicant_1_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Applicant_2_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.ApprovedTreatmentFunding__c</field>
         <readable>true</readable>
@@ -720,6 +730,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>IVFTreatmentLineItem__c.PartiallyFunded__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>IVFTreatmentLineItem__c.TreatmentComponent__c</field>
         <readable>true</readable>
@@ -808,6 +823,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ExportReport</name>
     </userPermissions>
     <recordTypeVisibilities>
         <recordType>Account.Clinic</recordType>

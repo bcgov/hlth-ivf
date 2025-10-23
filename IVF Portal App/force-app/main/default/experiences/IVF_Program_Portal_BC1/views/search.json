@@ -13,16 +13,13 @@
       "componentAttributes" : {
         "scopes" : [ {
           "isPublic" : true,
-          "name" : "FeedPost"
-        }, {
-          "isPublic" : true,
-          "name" : "KnowledgeArticleVersion"
-        }, {
-          "isPublic" : false,
           "name" : "Case"
         }, {
           "isPublic" : true,
-          "name" : "CollaborationGroup"
+          "name" : "Account"
+        }, {
+          "isPublic" : true,
+          "name" : "IVFFeeSchedule__c"
         } ],
         "searchResultFiltering" : true,
         "searchTerm" : "{!term}",

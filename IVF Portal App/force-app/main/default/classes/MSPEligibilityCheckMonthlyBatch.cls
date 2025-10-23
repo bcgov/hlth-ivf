@@ -85,7 +85,9 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
     }
 
     public void finish(Database.BatchableContext bc) {
+        sendBDSBNotificationEmail();
         System.debug('MSPEligibilityCheckMonthlyBatch is completed.');
+
     }
     public void execute(SchedulableContext sc) {
         
@@ -118,5 +120,75 @@ public class MSPEligibilityCheckMonthlyBatch implements Database.Batchable<SObje
             }
         }
         return hasChanged;
+    }
+    private void sendBDSBNotificationEmail() {
+
+        String bdsbQueueEmail;
+        try {
+            Group queue = [
+                SELECT Id, Email, Name
+                FROM Group
+                WHERE Type = 'Queue' AND Name = 'BDSB Admin Queue'
+                LIMIT 1
+            ];
+            bdsbQueueEmail = queue.Email;
+        } catch (Exception e) {
+            System.debug('Could not find BDSB Admin Queue email: ' + e.getMessage());
+            return;
+        }
+        
+        if (String.isBlank(bdsbQueueEmail)) {
+        return;
+        }
+
+        String baseUrl = URL.getOrgDomainUrl().toExternalForm();
+        String environment;
+        if (baseUrl.toLowerCase().contains('sandbox')) {
+            environment = 'SANDBOX';
+            if (baseUrl.toLowerCase().contains('uat')) {
+            environment = 'UAT';
+            } else if (baseUrl.toLowerCase().contains('qa')) {
+            environment = 'QA';
+            } else if (baseUrl.toLowerCase().contains('dev')) {
+            environment = 'DEV';
+            }
+        } 
+        else {
+            environment = 'PROD';
+        }
+
+        
+        String listViewUrl = baseUrl + '/lightning/o/Case/list?filterName=MSP_Monthly_Check';
+
+        List<String> toAddresses = new List<String>();
+        if (!String.isBlank(bdsbQueueEmail)) {
+            toAddresses.add(bdsbQueueEmail);
+        } else {
+            System.debug('BDSB Queue email is blank. Email not sent.');
+            return;
+        }
+        OrgWideEmailAddress owea=[Select id,DisplayName,Address,IsAllowAllProfiles,Purpose from OrgWideEmailAddress where IsVerified =true limit 1];
+
+        String subject = (environment != 'PROD' ? '[' + environment + '] ' : '') +
+            'MSP Status Change Notification';
+
+        String body = ''
+            + '<html><body style="font-family:Arial; font-size:14px;">'
+            + '<p>Dear BDSB Team,</p>'
+            + '<p>The MSP batch job has completed successfully. Please review the '
+            + '<b>MSP Monthly Check</b> list view using the link below:</p>'
+            + '<p><a href="' + listViewUrl + '" target="_blank">View MSP Monthly Check List</a></p>'
+            + '<p><b>Summary:</b> The system has processed MSP status updates.</p>'
+            + '<p>Thank you,<br/>Salesforce Automation</p>'
+            + (environment != 'PROD' ? '<hr/><p style="color:gray;">[Environment: ' + environment + ']</p>' : '')
+            + '</body></html>';
+
+        Messaging.SingleEmailMessage email = new Messaging.SingleEmailMessage();
+        email.setOrgWideEmailAddressId(owea.Id);
+        email.setToAddresses(toAddresses);
+        email.setSubject(subject);
+        email.setHtmlBody(body);
+
+        Messaging.sendEmail(new List<Messaging.SingleEmailMessage>{ email });
     }
 }

@@ -78,7 +78,7 @@
           "showNavMenuOnLeft" : true,
           "showNotifications" : false,
           "showProfileMenu" : false,
-          "showSearch" : false
+          "showSearch" : true
         },
         "componentName" : "forceCommunity:themeHeaderCompact",
         "id" : "04847af6-8c1d-4c7e-a0b2-716f48bed010",
@@ -106,24 +106,30 @@
         }, {
           "components" : [ {
             "componentAttributes" : {
-              "backgroundColor" : "#fff",
-              "borderColor" : "transparent",
-              "borderRadius" : 5,
-              "borderStyle" : "outline",
-              "buttonColor" : "rgba(255,255,255,1)",
-              "buttonHoverColor" : "rgba(0,0,0,0.2)",
-              "crossObjectTypeaheadApiNames" : "",
-              "iconColor" : "#000",
-              "placeholderText" : "Search...",
-              "placeholderTextColor" : "#000",
-              "showInputFocusOutline" : true,
-              "showSearchButton" : false,
-              "textColor" : "#000",
-              "typeaheadResultMax" : 6,
-              "useTypeahead" : true
+              "contineActionLabel" : "Ask the community",
+              "continueLabel" : "Don’t see it?",
+              "crossObjectTypeaheadApiNames" : [ {
+                "isPublic" : true,
+                "name" : "Account"
+              }, {
+                "isPublic" : true,
+                "name" : "Case"
+              }, {
+                "isPublic" : true,
+                "name" : "IVFFeeSchedule__c"
+              } ],
+              "disableCrossObjectRelevance" : false,
+              "enableAutocomplete" : true,
+              "maxNumberOfResults" : 6,
+              "placeholder" : "Search IVF Portal...",
+              "questionResultsFirst" : false,
+              "showContinueAction" : true,
+              "showDetails" : false,
+              "showTopics" : true,
+              "signInActionLabel" : "Sign in to ask the community"
             },
-            "componentName" : "forceCommunity:themeSearch",
-            "id" : "dc11a846-ac75-465a-bd3a-2c493d69a73a",
+            "componentName" : "forceCommunity:searchBox",
+            "id" : "d4ff3f5c-bc18-48a9-bf9e-c800b0008419",
             "renditionMap" : { },
             "type" : "component"
           } ],
@@ -285,7 +291,7 @@
           "showNavMenuOnLeft" : true,
           "showNotifications" : true,
           "showProfileMenu" : true,
-          "showSearch" : false
+          "showSearch" : true
         },
         "componentName" : "forceCommunity:themeHeaderCompact",
         "id" : "57f2baf9-1368-4238-9a3c-0e63fbd2f891",
@@ -317,12 +323,18 @@
               "continueLabel" : "Don’t see it?",
               "crossObjectTypeaheadApiNames" : [ {
                 "isPublic" : true,
-                "name" : "FeedItem"
+                "name" : "Case"
+              }, {
+                "isPublic" : true,
+                "name" : "IVFFeeSchedule__c"
+              }, {
+                "isPublic" : true,
+                "name" : "Account"
               } ],
               "disableCrossObjectRelevance" : false,
               "enableAutocomplete" : true,
               "maxNumberOfResults" : 6,
-              "placeholder" : "Search...",
+              "placeholder" : "Search IVF Portal...",
               "questionResultsFirst" : false,
               "showContinueAction" : true,
               "showDetails" : false,
@@ -330,7 +342,7 @@
               "signInActionLabel" : "Sign in to ask the community"
             },
             "componentName" : "forceCommunity:searchBox",
-            "id" : "568ef5bf-2423-4922-8b3f-e943e8ae6bfc",
+            "id" : "5a4bd2b9-21dc-4b4e-b294-fbbdc0991983",
             "renditionMap" : { },
             "type" : "component"
           } ],
