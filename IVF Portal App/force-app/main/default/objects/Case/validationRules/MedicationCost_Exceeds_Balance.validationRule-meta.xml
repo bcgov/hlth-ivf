@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MedicationCost_Exceeds_Balance</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+  ISCHANGED(TotalMedicationCost__c),
+  NOT(ISCHANGED(TotalTreatmentCost__c)),
+  NOT(ISBLANK(TotalMedicationCost__c)),
+  TotalMedicationCost__c &gt;
+  MAX(
+    0,
+    BLANKVALUE(ApprovedTreatmentFunding__c, 0) -
+    BLANKVALUE(TotalTreatmentCost__c, 0)
+  )
+)</errorConditionFormula>
+    <errorMessage>Medication cost entered is exceeding the available balance on the application</errorMessage>
+</ValidationRule>

@@ -4,14 +4,23 @@
         <field>CASE_NUMBER</field>
     </columns>
     <columns>
-        <field>Case.DateOfApplicationSubmission__c</field>
-    </columns>
-    <columns>
-        <field>Case.FinalDecisionDate__c</field>
+        <field>Case.Treatmentstartdate__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>Case.ApprovedTreatmentFunding__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.TotalTreatmentandMedication__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.FundingComplete__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.AvailableTreatmentBalance1__c</field>
     </columns>
     <filter>
         <criteriaItems>
@@ -19,23 +28,18 @@
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
+            <value>Case.IVFTreatment</value>
         </criteriaItems>
         <criteriaItems>
-            <column>STATUS</column>
+            <column>ACCOUNT.NAME</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>Approved</value>
+            <operator>notEqual</operator>
+            <value></value>
         </criteriaItems>
     </filter>
-    <format>Summary</format>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>ACCOUNT.NAME</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
-    <name>Total funding approved to date</name>
+    <format>Tabular</format>
+    <name>Clinic Funding Approved vs Expenditure</name>
     <params>
         <name>units</name>
         <value>h</value>
@@ -47,8 +51,10 @@
     <reportType>CaseList</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>false</showGrandTotal>
+    <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
+    <sortColumn>Case.TotalTreatmentandMedication__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
