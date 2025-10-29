@@ -16077,7 +16077,7 @@
         <object>DelegatedAccount</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>
+    <!-- <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -16094,7 +16094,7 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>DevopsRequestInfo</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
+    </objectPermissions> -->
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
