@@ -133,6 +133,10 @@
                 <behavior>Edit</behavior>
                 <field>Applicant1Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Applicant_1_email__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -191,6 +195,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Applicant2Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Applicant_2_email__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

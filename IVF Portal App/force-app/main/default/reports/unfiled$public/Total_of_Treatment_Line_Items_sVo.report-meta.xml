@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>CASE_NUMBER</field>
+        <field>IVFTreatmentLineItem__c.TreatmentDate__c</field>
     </columns>
     <columns>
-        <field>Case.DateOfApplicationSubmission__c</field>
-    </columns>
-    <columns>
-        <field>Case.FinalDecisionDate__c</field>
+        <field>IVFTreatmentLineItem__c.TreatmentComponent__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>Case.ApprovedTreatmentFunding__c</field>
+        <field>IVFTreatmentLineItem__c.TreatmentCost__c</field>
     </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>IVFTreatmentLineItem__c.PartiallyFunded__c</field>
+    </columns>
+    <customDetailFormulas>
+        <calculatedFormula>PARENT_CASE_NUMBER</calculatedFormula>
+        <dataType>Text</dataType>
+        <developerName>CDF1</developerName>
+        <label>IVF Application Number</label>
+        <scale>2</scale>
+    </customDetailFormulas>
     <filter>
         <criteriaItems>
             <column>RECORDTYPE</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Case.IVF_Application,Case.IVF_Application_Read_Only</value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>STATUS</column>
-            <columnToColumn>false</columnToColumn>
-            <isUnlocked>true</isUnlocked>
-            <operator>equals</operator>
-            <value>Approved</value>
+            <value>Case.IVFTreatment</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>
@@ -35,7 +36,17 @@
         <field>ACCOUNT.NAME</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Total funding approved to date</name>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CDF1</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CASE_NUMBER</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Total of Treatment Line Items</name>
     <params>
         <name>units</name>
         <value>h</value>
@@ -44,10 +55,10 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CaseList</reportType>
+    <reportType>CaseCustomEntity$IVFTreatmentLineItem__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>false</showGrandTotal>
+    <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>
