@@ -340,7 +340,7 @@
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
                         <sortColumn>RowCount</sortColumn>
-                        <sortOrder>a</sortOrder>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>BDSB User Approval Activity Report</header>
