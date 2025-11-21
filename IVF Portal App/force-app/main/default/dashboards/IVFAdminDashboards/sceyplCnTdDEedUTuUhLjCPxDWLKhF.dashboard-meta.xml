@@ -334,17 +334,17 @@
                 <drillEnabled>false</drillEnabled>
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
-                <expandOthers>false</expandOthers>
+                <expandOthers>true</expandOthers>
                 <groupingColumn>CREATED</groupingColumn>
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
-                        <sortOrder>a</sortOrder>
+                        <sortColumn>RowCount</sortColumn>
+                        <sortOrder>d</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>BDSB User Approval Activity Report</header>
                 <legendPosition>Right</legendPosition>
-                <maxValuesDisplayed>6</maxValuesDisplayed>
                 <report>IVFClinicReportFolder/BDSB_User_Approval_Activity</report>
                 <showPercentage>false</showPercentage>
                 <showTotal>true</showTotal>
@@ -366,6 +366,11 @@
                     <axisBinding>y</axisBinding>
                     <column>Case.ApprovedTreatmentFunding__c</column>
                 </chartSummary>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Case.TotalTreatmentandMedication__c</column>
+                </chartSummary>
                 <componentChartTheme>dark</componentChartTheme>
                 <componentType>Bar</componentType>
                 <decimalPrecision>-1</decimalPrecision>
@@ -382,7 +387,7 @@
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Funding Approved vs Expenditure</header>
-                <legendPosition>Bottom</legendPosition>
+                <legendPosition>Right</legendPosition>
                 <report>IVFClinicReportFolder/Funding_Approved_vs_Expenditure_HII</report>
                 <showPercentage>false</showPercentage>
                 <showPicturesOnCharts>false</showPicturesOnCharts>
