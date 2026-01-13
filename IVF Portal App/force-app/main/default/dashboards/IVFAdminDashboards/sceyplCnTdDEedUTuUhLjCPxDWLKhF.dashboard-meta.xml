@@ -102,16 +102,16 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>Case.FertilitySpecialistClinicName__c</groupingColumn>
+                <groupingColumn>ACCOUNT.NAME</groupingColumn>
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
+                        <sortColumn>RowCount</sortColumn>
                         <sortOrder>a</sortOrder>
                     </groupingSorts>
                 </groupingSortProperties>
                 <header>Submitted Applications</header>
                 <legendPosition>Right</legendPosition>
-                <maxValuesDisplayed>6</maxValuesDisplayed>
                 <report>IVFClinicReportFolder/Submitted_Applications1</report>
                 <showPercentage>false</showPercentage>
                 <showTotal>true</showTotal>
