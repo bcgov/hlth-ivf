@@ -338,7 +338,7 @@
         </connector>
         <fields>
             <name>ApprovedWithMSPIncomplete</name>
-            <fieldText>&lt;p&gt;Warning: The MSP eligibility check for at least one of the beneficiaries has not been completed. Are you sure you want to proceed with changing the status to &lt;strong&gt;Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Warning: The MSP eligibility check for &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;at least one of the beneficiaries has not been completed&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;. Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -351,9 +351,45 @@
                 </conditions>
                 <conditions>
                     <leftValueReference>Get_Case_Record.MSPCoverageStatus__c</leftValueReference>
-                    <operator>NotEqualTo</operator>
+                    <operator>EqualTo</operator>
                     <rightValue>
-                        <stringValue>All Enrolled</stringValue>
+                        <stringValue>Eligibility check not performed on at least 1 applicant</stringValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
+                    <operator>GreaterThanOrEqualTo</operator>
+                    <rightValue>
+                        <numberValue>0.0</numberValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Get_Case_Record.NOARecevied__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Yes</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>NotEnrolledInMSP</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;Warning: MSP eligibility check completed. &lt;/span&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;At least one applicant is not enrolled in MSP&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;. Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>NewStatus</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Approved</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Get_Case_Record.MSPCoverageStatus__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>At least one person is not enrolled</stringValue>
                     </rightValue>
                 </conditions>
                 <conditions>
@@ -374,7 +410,7 @@
         </fields>
         <fields>
             <name>ApprovedWithMSPComplete</name>
-            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to &lt;strong&gt;Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Warning: Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -410,7 +446,7 @@
         </fields>
         <fields>
             <name>NotApprovedMessage</name>
-            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to &lt;strong&gt;Not Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Warning: Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Not Approved&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
