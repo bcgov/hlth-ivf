@@ -58,10 +58,49 @@
         </value>
     </choices>
     <decisions>
+        <name>Check_if_Case_Status_has_already_been_changed_to_End_Status</name>
+        <label>Check if Case Status has already been changed to End Status</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <defaultConnector>
+            <targetReference>Confirm_Status_Change</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_if_Case_is_Approved_Or_Not_Approved</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case_Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case_Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Not Approved</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>System Administrator</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Already_Updated_Message</targetReference>
+            </connector>
+            <label>Check if Case is Approved Or Not Approved</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Check_Status_Change</name>
         <label>Check Status Change</label>
-        <locationX>314</locationX>
-        <locationY>350</locationY>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
         <defaultConnector>
             <targetReference>ConfirmStatusUpdateApprovedNotApproved</targetReference>
         </defaultConnector>
@@ -121,8 +160,8 @@
     <decisions>
         <name>Confirm_Status_Update</name>
         <label>Confirm Status Update</label>
-        <locationX>314</locationX>
-        <locationY>758</locationY>
+        <locationX>578</locationX>
+        <locationY>866</locationY>
         <defaultConnectorLabel>Cancel</defaultConnectorLabel>
         <rules>
             <name>Proceed_with_Update</name>
@@ -169,7 +208,7 @@
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Confirm_Status_Change</targetReference>
+            <targetReference>Check_if_Case_Status_has_already_been_changed_to_End_Status</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -186,8 +225,8 @@
     <recordUpdates>
         <name>Update_Case_Status</name>
         <label>Update Case Status</label>
-        <locationX>50</locationX>
-        <locationY>866</locationY>
+        <locationX>314</locationX>
+        <locationY>974</locationY>
         <connector>
             <targetReference>Status_Updated_Successfully</targetReference>
         </connector>
@@ -217,10 +256,26 @@
         <object>Case</object>
     </recordUpdates>
     <screens>
+        <name>Case_Already_Updated_Message</name>
+        <label>Case Already Updated Message</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>RefreshScreenMessage</name>
+            <fieldText>&lt;p&gt;The Application was updated by another user or another browser tab. Please refresh the record page and try again.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>false</showFooter>
+        <showHeader>false</showHeader>
+    </screens>
+    <screens>
         <name>Confirm_Status_Change</name>
         <label>Confirm Status Change</label>
-        <locationX>314</locationX>
-        <locationY>242</locationY>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -273,8 +328,8 @@
     <screens>
         <name>ConfirmStatusUpdateApprovedNotApproved</name>
         <label>Confirm Status Update</label>
-        <locationX>534</locationX>
-        <locationY>458</locationY>
+        <locationX>798</locationX>
+        <locationY>566</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -283,7 +338,7 @@
         </connector>
         <fields>
             <name>ApprovedWithMSPIncomplete</name>
-            <fieldText>&lt;p&gt;Warning: The MSP eligibility check for at least one of the beneficiaries has not been completed. Are you sure you want to proceed with changing the status to &lt;strong&gt;Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Warning: The MSP eligibility check for &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;at least one of the beneficiaries has not been completed&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;. Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -296,9 +351,45 @@
                 </conditions>
                 <conditions>
                     <leftValueReference>Get_Case_Record.MSPCoverageStatus__c</leftValueReference>
-                    <operator>NotEqualTo</operator>
+                    <operator>EqualTo</operator>
                     <rightValue>
-                        <stringValue>All Enrolled</stringValue>
+                        <stringValue>Eligibility check not performed on at least 1 applicant</stringValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Get_Case_Record.TotalHouseholdIncome__c</leftValueReference>
+                    <operator>GreaterThanOrEqualTo</operator>
+                    <rightValue>
+                        <numberValue>0.0</numberValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Get_Case_Record.NOARecevied__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Yes</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>NotEnrolledInMSP</name>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;Warning: MSP eligibility check completed. &lt;/span&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;At least one applicant is not enrolled in MSP&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;. Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; color: rgb(41, 42, 46);&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>NewStatus</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <elementReference>Approved</elementReference>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>Get_Case_Record.MSPCoverageStatus__c</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>At least one person is not enrolled</stringValue>
                     </rightValue>
                 </conditions>
                 <conditions>
@@ -319,7 +410,7 @@
         </fields>
         <fields>
             <name>ApprovedWithMSPComplete</name>
-            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to &lt;strong&gt;Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Warning: Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Approved&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -355,7 +446,7 @@
         </fields>
         <fields>
             <name>NotApprovedMessage</name>
-            <fieldText>&lt;p&gt;Warning: Are you sure you want to proceed with changing the status to &lt;strong&gt;Not Approved&lt;/strong&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Warning: Are you sure you want to proceed with changing the status to &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;Not Approved&lt;/strong&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;? Please note that once this action is performed, further updates to the application will not be permitted.&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -375,8 +466,8 @@
     <screens>
         <name>Error</name>
         <label>Error</label>
-        <locationX>314</locationX>
-        <locationY>974</locationY>
+        <locationX>578</locationX>
+        <locationY>1082</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -391,8 +482,8 @@
     <screens>
         <name>Error_Message_Screen</name>
         <label>Error Message Screen</label>
-        <locationX>94</locationX>
-        <locationY>458</locationY>
+        <locationX>358</locationX>
+        <locationY>566</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -408,8 +499,8 @@
     <screens>
         <name>Status_Updated_Successfully</name>
         <label>Status Updated Successfully</label>
-        <locationX>50</locationX>
-        <locationY>974</locationY>
+        <locationX>314</locationX>
+        <locationY>1082</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
