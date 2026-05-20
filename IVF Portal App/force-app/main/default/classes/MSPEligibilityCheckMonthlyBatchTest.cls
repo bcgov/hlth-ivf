@@ -118,6 +118,7 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         treatmentCase.AccountId=testCase.AccountId;
         treatmentCase.ApprovedTreatmentFunding__c=0;
         treatmentCase.Treatmentstartdate__c=system.today();
+        treatmentCase.Medication_Start_Date__c=system.today();
         treatmentCase.FundingComplete__c=False;
         insert treatmentCase;
     }

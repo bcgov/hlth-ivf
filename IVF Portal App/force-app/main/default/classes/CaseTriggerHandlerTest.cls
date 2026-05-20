@@ -54,6 +54,7 @@ public class CaseTriggerHandlerTest {
             Clinic_Funding__c = clinicFunding.Id,
             Subject = 'IVF Application Test', 
             FinalDecisionDate__c=Date.newInstance(2023, 5, 1),
+            Medication_Start_Date__c = Date.today(),
             ApprovedTreatmentFunding__c = 7000
         );
         cases.add(ivfApp);
@@ -65,6 +66,7 @@ public class CaseTriggerHandlerTest {
             Subject = 'IVF Application Test2',
             Applicant1PersonalHealthNumber__c='9876854321',
             FinalDecisionDate__c=Date.newInstance(2023, 5, 1),
+            Medication_Start_Date__c = Date.today(),
             ApprovedTreatmentFunding__c = 7000
         );
         cases.add(ivfApp2);
