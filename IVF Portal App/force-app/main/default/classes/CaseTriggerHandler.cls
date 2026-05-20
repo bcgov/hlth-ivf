@@ -130,7 +130,7 @@ public class CaseTriggerHandler {
             {
                 chatterPosts.add(new FeedItem(
                 ParentId = newCase.Id,
-                Body = 'Application moved to '+newCase.Status+'. Reason: ' + newCase.Not_Approved_Reason__c,
+                Body = 'Application moved to '+newCase.Status+'. Reason: ',
                 CreatedById = UserInfo.getUserId(),
                 Type       = 'TextPost',
                 Visibility = 'AllUsers'

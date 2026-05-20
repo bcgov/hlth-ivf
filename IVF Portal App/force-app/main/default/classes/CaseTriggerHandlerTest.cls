@@ -77,7 +77,8 @@ public class CaseTriggerHandlerTest {
             FundingComplete__c = false,
             ApprovedTreatmentFunding__c = 7000,
             TotalMedicationCost__c = 2000,
-            Subject = 'IVF Treatment Test'
+            Subject = 'IVF Treatment Test',
+            Medication_Start_Date__c = Date.today()
         );
         insert treatment;
     }
