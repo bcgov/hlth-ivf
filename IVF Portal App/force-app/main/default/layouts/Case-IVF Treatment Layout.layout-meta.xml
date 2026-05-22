@@ -24,6 +24,10 @@
                 <field>TotalMedicationCost__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Medication_Start_Date__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>TotalTreatmentCost__c</field>
             </layoutItems>
