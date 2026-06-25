@@ -520,7 +520,6 @@
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
     <owner>ivfdeploymentuser@bc.gov.ca</owner>
-    <runningUser>bc.moh.salesforce-ca@cgi.com.ivfprod</runningUser>
     <textColor>#000000</textColor>
     <title>BDSB Dashboard - Homepage</title>
     <titleColor>#000000</titleColor>
