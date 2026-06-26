@@ -228,7 +228,7 @@
                 <drillToDetailEnabled>false</drillToDetailEnabled>
                 <enableHover>false</enableHover>
                 <expandOthers>false</expandOthers>
-                <groupingColumn>OWNER</groupingColumn>
+                <groupingColumn>ACCOUNT.NAME</groupingColumn>
                 <groupingSortProperties>
                     <groupingSorts>
                         <groupingLevel>g1</groupingLevel>
@@ -519,8 +519,7 @@
     </dashboardGridLayout>
     <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>true</isGridLayout>
-    <owner>aparna.pasala@pbcsolutions.ca</owner>
-    <runningUser>aparna.pasala@pbcsolutions.ca</runningUser>
+    <owner>ivfdeploymentuser@bc.gov.ca</owner>
     <textColor>#000000</textColor>
     <title>BDSB Dashboard - Homepage</title>
     <titleColor>#000000</titleColor>
