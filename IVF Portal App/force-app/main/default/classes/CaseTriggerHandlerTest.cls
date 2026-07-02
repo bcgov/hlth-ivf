@@ -76,6 +76,7 @@ public class CaseTriggerHandlerTest {
             ParentId = ivfApp.Id,
             FundingComplete__c = false,
             ApprovedTreatmentFunding__c = 7000,
+            Medication_Start_Date__c = Date.newInstance(2025, 2, 10),
             TotalMedicationCost__c = 2000,
             Subject = 'IVF Treatment Test'
         );
