@@ -280,6 +280,7 @@ public class CaseTriggerHandlerTest {
         testCase.Patient1NotApplicable__c =true;
         testCase.Patient2NotApplicable__c =true;
         testCase.Patient3NotApplicable__c =true;
+		testcase.Medication_Start_Date__c =Date.newInstance(2025, 2, 10);
         testCase.status='Submitted';
         Test.StartTest();
         update testCase;
