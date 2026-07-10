@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Medication_Start_Date</fullName>
+    <active>true</active>
+    <description>Medication Start Date is required only when Total Medication Cost is greater than 0.</description>
+    <errorConditionFormula>AND(
+    TotalMedicationCost__c&gt; 0,
+    ISBLANK(Medication_Start_Date__c)
+)</errorConditionFormula>
+    <errorDisplayField>Medication_Start_Date__c</errorDisplayField>
+    <errorMessage>Medication Start Date is required when Total Medication Cost is greater than zero</errorMessage>
+</ValidationRule>
