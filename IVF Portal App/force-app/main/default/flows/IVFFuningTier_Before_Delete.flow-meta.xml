@@ -57,12 +57,19 @@
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Has_Control_Linked_Yes</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$User.IVF_Finance_Controls__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>System Administrator</stringValue>
                 </rightValue>
             </conditions>
             <label>Yes</label>
@@ -79,12 +86,19 @@
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Has_Control_Unlinked_Yes</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$User.IVF_Finance_Controls__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>System Administrator</stringValue>
                 </rightValue>
             </conditions>
             <label>Yes</label>

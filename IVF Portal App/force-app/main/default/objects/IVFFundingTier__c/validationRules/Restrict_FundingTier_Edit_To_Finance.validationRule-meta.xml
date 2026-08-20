@@ -9,6 +9,7 @@
         ISCHANGED(Funding_Amount__c),
         ISCHANGED(IncomeLevel__c)
     ),
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
     NOT($User.IVF_Finance_Controls__c)
 )</errorConditionFormula>
     <errorMessage>You do not have permission to create or edit funding tiers.</errorMessage>
