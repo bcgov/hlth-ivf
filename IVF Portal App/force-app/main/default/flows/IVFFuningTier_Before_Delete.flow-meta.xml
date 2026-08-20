@@ -5,9 +5,19 @@
         <name>Prevent_Deletion_Error</name>
         <label>Prevent Deletion Error</label>
         <locationX>50</locationX>
-        <locationY>503</locationY>
+        <locationY>611</locationY>
         <customErrorMessages>
             <errorMessage>This Funding Tier is linked to one or more IVF Applications and cannot be deleted.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <customErrors>
+        <name>Prevent_Deletion_No_Permission</name>
+        <label>Prevent Deletion No Permission</label>
+        <locationX>314</locationX>
+        <locationY>611</locationY>
+        <customErrorMessages>
+            <errorMessage>You do not have permission to delete funding tiers.</errorMessage>
             <isFieldError>false</isFieldError>
         </customErrorMessages>
     </customErrors>
@@ -16,7 +26,10 @@
         <label>Is Tier Linked to IVF Application?</label>
         <locationX>182</locationX>
         <locationY>395</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <defaultConnector>
+            <targetReference>Has_Finance_Control_Unlinked</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Not Linked</defaultConnectorLabel>
         <rules>
             <name>Tier_is_Linked</name>
             <conditionLogic>and</conditionLogic>
@@ -28,9 +41,53 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Prevent_Deletion_Error</targetReference>
+                <targetReference>Has_Finance_Control_Linked</targetReference>
             </connector>
             <label>Tier is Linked</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_Finance_Control_Linked</name>
+        <label>Has Finance Control? (Linked Tier)</label>
+        <locationX>50</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Prevent_Deletion_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Has_Control_Linked_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.IVF_Finance_Controls__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Has_Finance_Control_Unlinked</name>
+        <label>Has Finance Control? (Unlinked Tier)</label>
+        <locationX>314</locationX>
+        <locationY>503</locationY>
+        <defaultConnector>
+            <targetReference>Prevent_Deletion_No_Permission</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Has_Control_Unlinked_Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$User.IVF_Finance_Controls__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
         </rules>
     </decisions>
     <environments>Default</environments>
