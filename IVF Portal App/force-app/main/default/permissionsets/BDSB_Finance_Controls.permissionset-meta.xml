@@ -81,11 +81,6 @@
         <field>IVFTreatmentLineItem__c.TreatmentDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.IVF_Finance_Controls__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>BDSB Finance Controls</label>
     <objectPermissions>

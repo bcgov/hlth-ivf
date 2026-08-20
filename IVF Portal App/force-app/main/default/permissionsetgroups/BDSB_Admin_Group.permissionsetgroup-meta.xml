@@ -2,6 +2,7 @@
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
     <hasActivationRequired>false</hasActivationRequired>
     <label>BDSB Admin Group</label>
+    <permissionSets>BDSB_Finance_Controls</permissionSets>
     <permissionSets>IVF_Application_Access</permissionSets>
     <permissionSets>LRA_Named_Credential_Access</permissionSets>
     <status>Updated</status>
