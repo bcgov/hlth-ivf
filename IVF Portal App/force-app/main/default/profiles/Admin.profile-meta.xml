@@ -940,7 +940,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ClinicFunding__c.FYStartDate__c</field>
+        <field>User.IVF_Finance_Controls__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
