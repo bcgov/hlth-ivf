@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IVF_Finance_Controls__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Grants trusted finance admins an override to bypass IVF funding validation rules and records</description>
+    <label>IVF Finance Controls</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
