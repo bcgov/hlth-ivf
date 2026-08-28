@@ -1504,10 +1504,21 @@
                 <fieldItem>Record.Applicant1MedicallyEligible__c</fieldItem>
                 <identifier>RecordApplicant1MedicallyEligible_cField2</identifier>
                 <visibilityRule>
+                    <booleanFilter>1 AND NOT 2 AND NOT 3</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.Status}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>Approved</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.IVF_Finance_Controls__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>CONTAINS</operator>
+                        <rightValue>System Administrator</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
