@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_FundingTier_Edit_To_Finance</fullName>
+    <active>true</active>
+    <description>Blocks creating a new funding tier or changing its funding amount/income level — unless the user has the finance controls override flag turned on.</description>
+    <errorConditionFormula>AND(
+    OR(
+        ISNEW(),
+        ISCHANGED(Funding_Amount__c),
+        ISCHANGED(IncomeLevel__c)
+    ),
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT($User.IVF_Finance_Controls__c)
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to create or edit funding tiers.</errorMessage>
+</ValidationRule>
