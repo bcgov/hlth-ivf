@@ -10,7 +10,10 @@
     ISCHANGED(Name)
   ),
   ParentId__r.FundingComplete__c = TRUE,
-  $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+  AND(
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT($User.IVF_Finance_Controls__c)
+  )
 )</errorConditionFormula>
     <errorMessage>You can not edit a treatment line item because funding is marked complete.</errorMessage>
 </ValidationRule>
