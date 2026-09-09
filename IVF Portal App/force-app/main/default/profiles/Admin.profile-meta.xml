@@ -953,6 +953,11 @@
         <field>User.ClinicName__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.IVF_Finance_Controls__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
         <recordType>Case.IVF_Application</recordType>

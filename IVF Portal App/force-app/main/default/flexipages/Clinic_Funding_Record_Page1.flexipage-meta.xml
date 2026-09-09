@@ -103,10 +103,49 @@
                 <fieldItem>Record.AvailableBalance__c</fieldItem>
                 <identifier>RecordAvailableBalance_cField</identifier>
                 <visibilityRule>
+                    <booleanFilter>1 AND NOT 2 AND NOT 3</booleanFilter>
                     <criteria>
                         <leftValue>{!Record.AvailableBalance__c}</leftValue>
                         <operator>GT</operator>
                         <rightValue>0</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.IVF_Finance_Controls__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>CONTAINS</operator>
+                        <rightValue>System Administrator</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.AvailableBalance__c</fieldItem>
+                <identifier>RecordAvailableBalance_cField2</identifier>
+                <visibilityRule>
+                    <booleanFilter>1 AND (2 OR 3)</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.AvailableBalance__c}</leftValue>
+                        <operator>GT</operator>
+                        <rightValue>0</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.IVF_Finance_Controls__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!$User.Profile.Name}</leftValue>
+                        <operator>CONTAINS</operator>
+                        <rightValue>System Administrator</rightValue>
                     </criteria>
                 </visibilityRule>
             </fieldInstance>
