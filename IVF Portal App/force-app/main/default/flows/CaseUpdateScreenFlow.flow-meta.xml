@@ -68,7 +68,7 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Check_if_Case_is_Approved_Or_Not_Approved</name>
-            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditionLogic>(1 OR 2) AND 3 AND 4</conditionLogic>
             <conditions>
                 <leftValueReference>Get_Case_Record.Status</leftValueReference>
                 <operator>EqualTo</operator>
@@ -88,6 +88,13 @@
                 <operator>NotEqualTo</operator>
                 <rightValue>
                     <stringValue>System Administrator</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.IVF_Finance_Controls__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -179,6 +186,7 @@
             <label>Proceed with Update</label>
         </rules>
     </decisions>
+    <description>IVF users  can modify the case status when case funding decision has been applied</description>
     <environments>Default</environments>
     <interviewLabel>Case Update Screen Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Case Update Screen Flow</label>
