@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_FundingCompleteDate_Edit</fullName>
+    <active>true</active>
+    <description>Blocks manual changes to Funding Complete Date on IVF Treatment cases unless the user has the finance controls override flag.</description>
+    <errorConditionFormula>AND(
+    $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+    OR(
+        ISNEW(),
+        ISCHANGED(Funding_Complete_Date__c)
+    ),
+    NOT(ISBLANK(Funding_Complete_Date__c)),
+    OR(
+        AND(
+            NOT(ISNEW()),
+            NOT(ISCHANGED(FundingCompleteReason__c))
+        ),
+        Funding_Complete_Date__c &lt;&gt; TODAY()
+    ),
+    $Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+    NOT($User.IVF_Finance_Controls__c)
+)</errorConditionFormula>
+    <errorDisplayField>Funding_Complete_Date__c</errorDisplayField>
+    <errorMessage>Only BDSB finance users can change the Funding Complete Date.</errorMessage>
+</ValidationRule>
