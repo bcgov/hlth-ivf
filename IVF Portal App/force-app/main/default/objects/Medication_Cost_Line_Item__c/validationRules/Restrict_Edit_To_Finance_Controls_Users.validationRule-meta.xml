@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Edit_To_Finance_Controls_Users</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISNEW()),
+    NOT($User.IVF_Finance_Controls__c)
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to edit the medication costs</errorMessage>
+</ValidationRule>

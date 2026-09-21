@@ -20,7 +20,7 @@
                 <field>ApprovedTreatmentFunding__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>TotalMedicationCost__c</field>
             </layoutItems>
             <layoutItems>
@@ -129,6 +129,13 @@
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
         <relatedList>IVFTreatmentLineItem__c.ParentId__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Medication_Date__c</fields>
+        <fields>Medication_Cost__c</fields>
+        <fields>Remarks__c</fields>
+        <relatedList>Medication_Cost_Line_Item__c.ParentId__c</relatedList>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
