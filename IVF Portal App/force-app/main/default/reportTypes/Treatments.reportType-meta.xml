@@ -414,6 +414,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Funding_Complete_Date__c</field>
+            <table>Case</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Treatmentstartdate__c</field>
             <table>Case</table>
         </columns>

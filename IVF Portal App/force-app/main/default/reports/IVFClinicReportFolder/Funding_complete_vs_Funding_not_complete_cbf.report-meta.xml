@@ -24,6 +24,9 @@
     <columns>
         <field>Case$FundingCompleteReason__c</field>
     </columns>
+    <columns>
+        <field>Case$Funding_Complete_Date__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>Case$RecordType</column>
