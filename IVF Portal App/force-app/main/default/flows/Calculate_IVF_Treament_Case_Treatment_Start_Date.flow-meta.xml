@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>68.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <apiVersion>65.0</apiVersion>
     <decisions>
         <description>If the Parent Case - Date of Application Submission is greater than or equal to 2024-Apr-01, Treatment Start Date is updated.</description>
         <name>Date_of_Application_Submission_Check</name>
         <label>Date of Application Submission Check</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <defaultConnector>
-            <targetReference>END_ELEMENT_1</targetReference>
-        </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Greater_than_or_Equal_to_2024_04_01</name>
@@ -29,11 +25,6 @@
         </rules>
     </decisions>
     <description>This flow automatically updates the Treatment Start Date on an IVF Treatment Case based on the Treatment Date of the earliest-created Treatment Cost Line Item related to that Case.</description>
-    <ends>
-        <name>END_ELEMENT_1</name>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-    </ends>
     <environments>Default</environments>
     <interviewLabel>IVF - Update Treatment Start Date {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Calculate IVF Treament Case - Treatment Start Date</label>
@@ -112,9 +103,6 @@
         <label>Update Case - Treatment Start Date</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
-        <connector>
-            <targetReference>END_ELEMENT_1</targetReference>
-        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
