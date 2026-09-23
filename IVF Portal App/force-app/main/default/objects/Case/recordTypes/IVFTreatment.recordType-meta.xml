@@ -498,7 +498,7 @@
         </values>
         <values>
             <fullName>Funding Validity Exceeded</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>
