@@ -483,6 +483,25 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Treatment_Status__c</picklist>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Started</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started 3 Months Timeline Exceeded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Funding Validity Exceeded</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Type</picklist>
         <values>
             <fullName>Feature Request</fullName>
