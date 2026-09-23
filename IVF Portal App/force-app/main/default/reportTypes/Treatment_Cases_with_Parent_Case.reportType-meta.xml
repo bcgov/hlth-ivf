@@ -986,6 +986,16 @@
             <field>Applicant_2_email__c</field>
             <table>Case</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Treatment_Start_Date__c</field>
+            <table>Case</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Treatment_Status__c</field>
+            <table>Case</table>
+        </columns>
         <masterLabel>Cases</masterLabel>
     </sections>
     <sections>
