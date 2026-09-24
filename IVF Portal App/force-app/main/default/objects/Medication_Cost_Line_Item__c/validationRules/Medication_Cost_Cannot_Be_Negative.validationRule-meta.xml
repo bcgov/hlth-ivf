@@ -7,5 +7,5 @@
     NOT(ISBLANK(Medication_Cost__c)),
     Medication_Cost__c &lt; 0
 )</errorConditionFormula>
-    <errorMessage>Medication Costs cannot be negative.</errorMessage>
+    <errorMessage>Medication Cost cannot be negative.</errorMessage>
 </ValidationRule>
