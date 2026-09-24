@@ -256,6 +256,26 @@
                 <identifier>RecordTotalTreatmentandMedication__cField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Treatment_Start_Date__c</fieldItem>
+                <identifier>RecordTreatment_Start_Date_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Treatment_Status__c</fieldItem>
+                <identifier>RecordTreatment_Status__cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-1230785a-eaeb-4739-90e1-939a0445c060</name>
         <type>Facet</type>
     </flexiPageRegions>

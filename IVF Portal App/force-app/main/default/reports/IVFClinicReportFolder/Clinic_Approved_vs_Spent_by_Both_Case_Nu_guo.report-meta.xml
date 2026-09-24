@@ -32,6 +32,12 @@
         <aggregateTypes>Sum</aggregateTypes>
         <field>Case$TotalMedicationCost__c</field>
     </columns>
+    <columns>
+        <field>Case$Treatment_Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Case$Treatment_Status__c</field>
+    </columns>
     <description>Clinic Approved vs Spent by Both Case Numbers</description>
     <filter>
         <criteriaItems>

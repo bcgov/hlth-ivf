@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Treatment_Status__c</fullName>
+    <description>Tracks the current IVF treatment status based on the Application Submission Date, Funding Start Date, Treatment Start Date, and funding validity rules.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    OR(
+        ISBLANK(Parent.DateOfApplicationSubmission__c),
+        Parent.DateOfApplicationSubmission__c &lt; DATE(2026, 4, 1)
+    ),
+    &quot;&quot;,
+
+    IF(
+        AND(
+            NOT(ISBLANK(Treatment_Start_Date__c)),
+            TODAY() &gt; ADDMONTHS(Treatment_Start_Date__c, 6),
+            TotalTreatmentandMedication__c &gt; 0
+        ),
+        &quot;Funding Validity Exceeded&quot;,
+
+        IF(
+            AND(
+                NOT(ISBLANK(Treatment_Start_Date__c)),
+                NOT(ISBLANK(Treatmentstartdate__c)),
+                Treatment_Start_Date__c &lt;= ADDMONTHS(Treatmentstartdate__c, 3)
+            ),
+            &quot;Started&quot;,
+
+            IF(
+                AND(
+                    ISBLANK(Treatment_Start_Date__c),
+                    NOT(ISBLANK(Treatmentstartdate__c)),
+                    TODAY() &gt; ADDMONTHS(Treatmentstartdate__c, 3)
+                ),
+                &quot;Not Started 3 Months Timeline Exceeded&quot;,
+
+                &quot;Not Started&quot;
+            )
+        )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Treatment Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

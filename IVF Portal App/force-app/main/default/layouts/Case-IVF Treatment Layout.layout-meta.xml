@@ -31,6 +31,14 @@
                 <behavior>Readonly</behavior>
                 <field>TotalTreatmentCost__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Treatment_Start_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Treatment_Status__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -63,12 +71,12 @@
         <label>Fields</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ContactId</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ContactId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
