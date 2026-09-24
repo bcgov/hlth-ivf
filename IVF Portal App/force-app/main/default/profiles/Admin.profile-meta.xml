@@ -849,7 +849,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>fale</editable>
+        <editable>false</editable>
         <field>Case.Treatment_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
