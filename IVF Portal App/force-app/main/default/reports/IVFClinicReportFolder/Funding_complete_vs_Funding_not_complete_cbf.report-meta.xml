@@ -27,6 +27,12 @@
     <columns>
         <field>Case$Funding_Complete_Date__c</field>
     </columns>
+    <columns>
+        <field>Case$Treatment_Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Case$Treatment_Status__c</field>
+    </columns>
     <filter>
         <criteriaItems>
             <column>Case$RecordType</column>
