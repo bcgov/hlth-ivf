@@ -82,13 +82,6 @@
             <name>First_Medication_Cost_Line_Item</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record__Prior.Id</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>true</booleanValue>
-                </rightValue>
-            </conditions>
-            <conditions>
                 <leftValueReference>Get_Related_Case.Medication_Start_Date__c</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
@@ -283,7 +276,8 @@
     NOT(ISBLANK({!$Record.ParentId__c})),
     OR(
         ISNEW(),
-        ISCHANGED({!$Record.Medication_Cost__c})
+        ISCHANGED({!$Record.Medication_Cost__c}),
+        ISCHANGED({!$Record.Medication_Date__c})
     )
 )</filterFormula>
         <object>Medication_Cost_Line_Item__c</object>
