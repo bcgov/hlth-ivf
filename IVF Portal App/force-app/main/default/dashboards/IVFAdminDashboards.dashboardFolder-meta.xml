@@ -5,5 +5,10 @@
         <sharedTo>AllInternalUsers</sharedTo>
         <sharedToType>Organization</sharedToType>
     </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>BDSB_Finance_Group</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
     <name>IVF Admin Dashboards</name>
 </DashboardFolder>
