@@ -10,5 +10,10 @@
         <sharedTo>AllCustomerPortalUsers</sharedTo>
         <sharedToType>AllCspUsers</sharedToType>
     </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>BDSB_Finance_Group</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
     <name>IVF Clinic Dashboards</name>
 </DashboardFolder>
