@@ -4,7 +4,20 @@
         <field>CASE_NUMBER</field>
     </columns>
     <columns>
+        <field>PARENT_CASE_NUMBER</field>
+    </columns>
+    <columns>
         <field>Case.Treatmentstartdate__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.FundingComplete__c</field>
+    </columns>
+    <columns>
+        <field>Case.Funding_Complete_Date__c</field>
+    </columns>
+    <columns>
+        <field>Case.FundingCompleteReason__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
@@ -12,7 +25,22 @@
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.AvailableTreatmentBalance1__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
         <field>Case.TotalTreatmentandMedication__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.TotalMedicationCost__c</field>
+    </columns>
+    <columns>
+        <field>Case.Medication_Start_Date__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.TotalTreatmentCost__c</field>
     </columns>
     <columns>
         <field>Case.Treatment_Start_Date__c</field>
@@ -32,17 +60,12 @@
             <column>Case.FundingCompleteReason__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
+            <operator>equals</operator>
             <value>Application withdrawn</value>
         </criteriaItems>
     </filter>
-    <format>Summary</format>
-    <groupingsDown>
-        <dateGranularity>Day</dateGranularity>
-        <field>ACCOUNT.NAME</field>
-        <sortOrder>Asc</sortOrder>
-    </groupingsDown>
-    <name>Funding Approved vs Expenditure</name>
+    <format>Tabular</format>
+    <name>Withdrawn Applications</name>
     <params>
         <name>units</name>
         <value>h</value>
@@ -56,6 +79,8 @@
     <showDetails>true</showDetails>
     <showGrandTotal>false</showGrandTotal>
     <showSubTotals>true</showSubTotals>
+    <sortColumn>CASE_NUMBER</sortColumn>
+    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>CREATED_DATEONLY</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

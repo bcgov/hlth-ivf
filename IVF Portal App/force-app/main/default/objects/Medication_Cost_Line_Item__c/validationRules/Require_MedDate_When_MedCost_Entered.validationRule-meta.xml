@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_MedDate_When_MedCost_Entered</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+    AND(
+        Medication_Cost__c &gt; 0,
+        ISBLANK(Medication_Date__c)
+    ) 
+)</errorConditionFormula>
+    <errorMessage>Please enter a Medication Date.</errorMessage>
+</ValidationRule>
