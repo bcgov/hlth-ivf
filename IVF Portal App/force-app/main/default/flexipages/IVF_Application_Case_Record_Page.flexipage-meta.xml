@@ -4081,11 +4081,6 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>actionNames</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>NewCase</value>
-                        </valueListItems>
-                    </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>maxRecordsToDisplay</name>
@@ -4117,6 +4112,9 @@
                         </valueListItems>
                         <valueListItems>
                             <value>Treatmentstartdate__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Funding_Complete_Date__c</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>

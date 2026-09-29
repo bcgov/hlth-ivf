@@ -5,5 +5,10 @@
         <sharedTo>BDSB_Admin</sharedTo>
         <sharedToType>Group</sharedToType>
     </folderShares>
+    <folderShares>
+        <accessLevel>EditAllContents</accessLevel>
+        <sharedTo>BDSB_Finance_Group</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
     <name>IVF – Beneficiary Notification Templates</name>
 </EmailTemplateFolder>

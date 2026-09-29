@@ -570,6 +570,7 @@
         <fields>PARENT.CASE_NUMBER</fields>
         <fields>ApprovedTreatmentFunding__c</fields>
         <fields>Treatmentstartdate__c</fields>
+        <fields>Funding_Complete_Date__c</fields>
         <relatedList>RelatedChildCaseList</relatedList>
     </relatedLists>
     <relatedLists>
