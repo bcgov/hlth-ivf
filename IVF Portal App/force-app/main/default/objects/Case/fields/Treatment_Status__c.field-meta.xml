@@ -10,25 +10,64 @@
     ),
     &quot;&quot;,
 
+    /* 1. Funding Validity Exceeded */
     IF(
         AND(
-            NOT(ISBLANK(Treatment_Start_Date__c)),
-            TODAY() &gt; ADDMONTHS(Treatment_Start_Date__c, 6),
+            OR(
+                NOT(ISBLANK(Treatment_Start_Date__c)),
+                NOT(ISBLANK(Medication_Start_Date__c))
+            ),
+            TODAY() &gt;
+                ADDMONTHS(
+                    IF(
+                        ISBLANK(Treatment_Start_Date__c),
+                        Medication_Start_Date__c,
+                        IF(
+                            ISBLANK(Medication_Start_Date__c),
+                            Treatment_Start_Date__c,
+                            IF(
+                                Treatment_Start_Date__c &lt;= Medication_Start_Date__c,
+                                Treatment_Start_Date__c,
+                                Medication_Start_Date__c
+                            )
+                        )
+                    ),
+                    6
+                ),
             TotalTreatmentandMedication__c &gt; 0
         ),
         &quot;Funding Validity Exceeded&quot;,
 
+        /* 2. Started */
         IF(
             AND(
-                NOT(ISBLANK(Treatment_Start_Date__c)),
                 NOT(ISBLANK(Treatmentstartdate__c)),
-                Treatment_Start_Date__c &lt;= ADDMONTHS(Treatmentstartdate__c, 3)
+                OR(
+                    NOT(ISBLANK(Treatment_Start_Date__c)),
+                    NOT(ISBLANK(Medication_Start_Date__c))
+                ),
+                IF(
+                    ISBLANK(Treatment_Start_Date__c),
+                    Medication_Start_Date__c,
+                    IF(
+                        ISBLANK(Medication_Start_Date__c),
+                        Treatment_Start_Date__c,
+                        IF(
+                            Treatment_Start_Date__c &lt;= Medication_Start_Date__c,
+                            Treatment_Start_Date__c,
+                            Medication_Start_Date__c
+                        )
+                    )
+                )
+                &lt;= ADDMONTHS(Treatmentstartdate__c, 3)
             ),
             &quot;Started&quot;,
 
+            /* 3. Neither treatment nor medication started within 3 months */
             IF(
                 AND(
                     ISBLANK(Treatment_Start_Date__c),
+                    ISBLANK(Medication_Start_Date__c),
                     NOT(ISBLANK(Treatmentstartdate__c)),
                     TODAY() &gt; ADDMONTHS(Treatmentstartdate__c, 3)
                 ),
