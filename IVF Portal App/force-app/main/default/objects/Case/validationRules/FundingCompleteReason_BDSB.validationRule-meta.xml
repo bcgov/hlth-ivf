@@ -3,9 +3,12 @@
     <fullName>FundingCompleteReason_BDSB</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-$RecordType.DeveloperName = &quot;IVFTreatment&quot;,
+    NOT(AvailableTreatmentBalance1__c &lt;= 0),
+    $RecordType.DeveloperName = &quot;IVFTreatment&quot;,
     ISCHANGED(FundingCompleteReason__c),
     $Profile.Name = &quot;MoH Standard User&quot;,
+    NOT($User.IVF_Finance_Controls__c),
+    NOT(ISBLANK(TEXT(FundingCompleteReason__c))),
     NOT(
         ISPICKVAL(FundingCompleteReason__c, &quot;Application withdrawn&quot;) ||
         ISPICKVAL(FundingCompleteReason__c, &quot;Not Enrolled in MSP&quot;)
