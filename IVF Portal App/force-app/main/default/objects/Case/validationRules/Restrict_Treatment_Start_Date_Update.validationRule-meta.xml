@@ -6,6 +6,7 @@
      RecordType.DeveloperName  = &apos;IVFTreatment&apos;,
     ISCHANGED(Treatment_Start_Date__c),
     NOT($User.IVF_Finance_Controls__c),
-    $Profile.Name &lt;&gt; &apos;System Administrator&apos;)</errorConditionFormula>
+    $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
+    $Profile.Name &lt;&gt; &apos;Customer Community Plus Login User&apos;)</errorConditionFormula>
     <errorMessage>You do not have permission to edit the Treatment Start Date</errorMessage>
 </ValidationRule>
