@@ -3,10 +3,19 @@
     <fullName>Restrict_Treatment_Start_Date_Update</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-     RecordType.DeveloperName  = &apos;IVFTreatment&apos;,
+    RecordType.DeveloperName = &apos;IVFTreatment&apos;,
     ISCHANGED(Treatment_Start_Date__c),
     NOT($User.IVF_Finance_Controls__c),
     $Profile.Name &lt;&gt; &apos;System Administrator&apos;,
-    $Profile.Name &lt;&gt; &apos;Customer Community Plus Login User&apos;)</errorConditionFormula>
+    NOT(
+        AND(
+            $Profile.Name = &apos;Customer Community Plus Login User&apos;,
+            OR(
+                ISNEW(),
+                ISBLANK(PRIORVALUE(Treatment_Start_Date__c))
+            )
+        )
+    )
+)</errorConditionFormula>
     <errorMessage>You do not have permission to edit the Treatment Start Date</errorMessage>
 </ValidationRule>
