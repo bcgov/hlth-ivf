@@ -221,7 +221,7 @@ public class CaseTriggerHandler {
         ]);
         
         // Step 4: Increment available balance
-        List<ClinicFunding__c> toUpdate = new List<ClinicFunding__c>();
+        Map<Id, ClinicFunding__c> toUpdate = new Map<Id, ClinicFunding__c>();
         
         for (Case treatment : treatments) {
             Decimal oldBalance = treatmentBalances.get(treatment.Id);
@@ -234,14 +234,14 @@ public class CaseTriggerHandler {
                     if(parent.DateOfApplicationSubmission__c >= fund.FYStartDate__c && parent.DateOfApplicationSubmission__c <= fund.FYEndDate__c){
                     fund.AvailableBalance__c += oldBalance;
                     System.debug('Fund After: ' + fund.AvailableBalance__c);
-                    toUpdate.add(fund);
+                     toUpdate.put(fund.Id, fund);
                     }
                 }
             }
         }
         
         if (!toUpdate.isEmpty()) {
-            update toUpdate;
+            update toUpdate.values();
         }
     }
 }
