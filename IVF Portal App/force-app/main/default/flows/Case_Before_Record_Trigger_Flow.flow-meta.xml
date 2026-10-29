@@ -164,6 +164,13 @@
                     <stringValue>IVFTreatment</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.FundingComplete__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Update_Funing_Reason</targetReference>
             </connector>
