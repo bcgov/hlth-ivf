@@ -148,21 +148,21 @@ public class CaseTriggerHandler {
         if (!chatterPosts.isEmpty()) {
         insert chatterPosts;
         }
-        
+
         Map<Id, Case> loadedCases = new Map<Id, Case>([
             SELECT Id, RecordType.DeveloperName, FundingComplete__c, ParentId
             FROM Case
             WHERE Id IN :newList
         ]);
-        
+
         for (Case newCase : newList) {
             Case oldCase = oldMap.get(newCase.Id);
             Case loaded = loadedCases.get(newCase.Id);
-            
+
             if (
                 loaded.FundingComplete__c == true &&
                 oldCase.FundingComplete__c != true &&
-                loaded.RecordType.DeveloperName == 'IVFTreatment' &&
+                loaded.RecordType.DeveloperName == System.Label.IVF_Treatment_Record_Type &&
                 loaded.ParentId != null
             ) {
                 Decimal availableBalance = calculateAvailableBalance(oldCase);
@@ -176,8 +176,8 @@ public class CaseTriggerHandler {
             else if (
                 loaded.FundingComplete__c == false &&
                 oldCase.FundingComplete__c == true &&
-                oldCase.FundingCompleteReason__c != 'Funding utilized' &&
-                loaded.RecordType.DeveloperName == 'IVFTreatment' &&
+                oldCase.FundingCompleteReason__c != System.Label.IVF_Funding_Complete_Reason_Funding_Utilized &&
+                loaded.RecordType.DeveloperName == System.Label.IVF_Treatment_Record_Type &&
                 loaded.ParentId != null
             ) {
                 Decimal returnedBalance = calculateAvailableBalance(oldCase);
@@ -186,12 +186,12 @@ public class CaseTriggerHandler {
                 }
             }
         }
-        
+
         if (!treatmentBalances.isEmpty()) {
             moveBalanceBackToClinicFromTreatment(treatmentBalances);
         }
     }
-    
+
     private static Decimal calculateAvailableBalance(Case treatment) {
         Decimal availableBalance = 0;
 
@@ -210,7 +210,7 @@ public class CaseTriggerHandler {
     // Positive amounts are returned to the clinic, negative amounts are taken back from it
     public static void moveBalanceBackToClinicFromTreatment(Map<Id, Decimal> treatmentBalances) {
         if (treatmentBalances.isEmpty()) return;
-        
+
         // Step 1: Get treatment records with ParentId
         List<Case> treatments = [
             SELECT Id, ParentId
@@ -218,13 +218,13 @@ public class CaseTriggerHandler {
             WHERE Id IN :treatmentBalances.keySet()
             AND ParentId != null
         ];
-        
+
         // Step 2: Get IVF Applications with record type filtering
         Set<Id> parentIds = new Set<Id>();
         for (Case t : treatments) {
             parentIds.add(t.ParentId);
         }
-        
+
         Map<Id, Case> parentApps = new Map<Id, Case>([
             SELECT Id, Clinic_Funding__c, RecordType.DeveloperName,DateOfApplicationSubmission__c
             FROM Case
@@ -232,7 +232,7 @@ public class CaseTriggerHandler {
             AND RecordType.DeveloperName IN ('IVF_Application', 'IVF_Application_Read_Only')
         ]);
         system.debug('parentApps' +parentApps);
-        
+
         // Step 3: Load associated Clinic Funding records
         Set<Id> fundingIds = new Set<Id>();
         for (Case app : parentApps.values()) {
@@ -240,20 +240,20 @@ public class CaseTriggerHandler {
                 fundingIds.add(app.Clinic_Funding__c);
             }
         }
-        
+
         Map<Id, ClinicFunding__c> fundingMap = new Map<Id, ClinicFunding__c>([
             SELECT Id, AvailableBalance__c,FYStartDate__c,FYEndDate__c
             FROM ClinicFunding__c
             WHERE Id IN :fundingIds
         ]);
-        
+
         // Step 4: Increment available balance
         Map<Id, ClinicFunding__c> toUpdate = new Map<Id, ClinicFunding__c>();
-        
+
         for (Case treatment : treatments) {
             Decimal oldBalance = treatmentBalances.get(treatment.Id);
             Case parent = parentApps.get(treatment.ParentId);
-            
+
             if (parent != null && parent.Clinic_Funding__c != null) {
                 ClinicFunding__c fund = fundingMap.get(parent.Clinic_Funding__c);
                 if (fund != null) {
@@ -266,7 +266,7 @@ public class CaseTriggerHandler {
                 }
             }
         }
-        
+
         if (!toUpdate.isEmpty()) {
             update toUpdate.values();
         }

@@ -15,6 +15,20 @@
         <value>19000</value>
     </labels>
     <labels>
+        <fullName>IVF_Funding_Complete_Reason_Funding_Utilized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IVF Funding Complete Reason - Funding utilized</shortDescription>
+        <value>Funding utilized</value>
+    </labels>
+    <labels>
+        <fullName>IVF_Treatment_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IVF Treatment Record Type Developer Name</shortDescription>
+        <value>IVFTreatment</value>
+    </labels>
+    <labels>
         <fullName>Org_Domain_Url</fullName>
         <language>en_US</language>
         <protected>false</protected>
