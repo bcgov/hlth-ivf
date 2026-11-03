@@ -164,7 +164,8 @@ public class MSPEligibilityCheckMonthlyBatchTest {
         String body = '{"resourceType":"Bundle","entry":[{"resource":{"insurance":[{"inforce":false}]}}]}';
         Test.setMock(HttpCalloutMock.class, new DynamicMock(body, 200));
         //Test.setMock(HttpCalloutMock.class, new MockLRAActiveResponse());
-        Integer batch_size=1;
+        // Reopened treatment cases are no longer auto completed, so more than one case can be in scope - keep it to a single execute
+        Integer batch_size=200;
         MSPEligibilityCheckMonthlyBatch MSPEBatch= new MSPEligibilityCheckMonthlyBatch(batch_size);
         Database.executeBatch(MSPEBatch,batch_size);
         Test.stopTest();      
