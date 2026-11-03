@@ -162,7 +162,7 @@ public class CaseTriggerHandler {
             if (
                 loaded.FundingComplete__c == true &&
                 oldCase.FundingComplete__c != true &&
-                loaded.RecordType.DeveloperName == 'IVFTreatment' &&
+                loaded.RecordType.DeveloperName == System.Label.IVF_Treatment_Record_Type &&
                 loaded.ParentId != null
             ) {
                 Decimal availableBalance = calculateAvailableBalance(oldCase);
@@ -176,8 +176,8 @@ public class CaseTriggerHandler {
             else if (
                 loaded.FundingComplete__c == false &&
                 oldCase.FundingComplete__c == true &&
-                oldCase.FundingCompleteReason__c != 'Funding utilized' &&
-                loaded.RecordType.DeveloperName == 'IVFTreatment' &&
+                oldCase.FundingCompleteReason__c != System.Label.IVF_Funding_Complete_Reason_Funding_Utilized &&
+                loaded.RecordType.DeveloperName == System.Label.IVF_Treatment_Record_Type &&
                 loaded.ParentId != null
             ) {
                 Decimal returnedBalance = calculateAvailableBalance(oldCase);
