@@ -1,0 +1,27 @@
+.outage-banner {
+    align-items: center;
+    background-color: #b8a1f2;
+    background-image: none;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    min-height: 40px;
+    padding: 4px 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.outage-banner__icon {
+    --slds-c-icon-color-foreground-default: #8a4b00;
+    flex: 0 0 auto;
+}
+
+.outage-banner__message {
+    color: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0;
+}

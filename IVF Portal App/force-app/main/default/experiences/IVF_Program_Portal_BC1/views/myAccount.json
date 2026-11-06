@@ -42,6 +42,13 @@
       "id" : "5f853ef5-b575-4ca3-b31b-31ced5dc8c6e",
       "regions" : [ {
         "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:ivfAlertBannerOutage",
+          "id" : "86e3b266-a467-4f86-9de1-b4b9055bd687",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
           "componentAttributes" : {
             "recordId" : "{!CurrentUser.accountId}"
           },
