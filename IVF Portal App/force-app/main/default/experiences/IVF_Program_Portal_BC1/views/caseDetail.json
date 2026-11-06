@@ -5,6 +5,14 @@
   "id" : "28c3d088-a978-481a-b403-5951e23cf2ea",
   "label" : "Case Detail",
   "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ivfAlertBannerOutage",
+      "id" : "2d40be44-f25f-462a-92d8-e877ad78c2df",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
     "id" : "401d03ea-1de2-48de-9582-2d080dee137d",
     "regionName" : "header",
     "type" : "region"

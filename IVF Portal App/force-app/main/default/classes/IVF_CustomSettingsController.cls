@@ -1,4 +1,4 @@
-public with sharing class IVF_CustomSettingsController {
+public without sharing class IVF_CustomSettingsController {
 
     // Method to retrieve hierarchy custom setting values
     @AuraEnabled(cacheable=true)

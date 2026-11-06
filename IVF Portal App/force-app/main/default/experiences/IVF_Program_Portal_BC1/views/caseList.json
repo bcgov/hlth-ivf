@@ -6,6 +6,13 @@
   "label" : "Case List",
   "regions" : [ {
     "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ivfAlertBannerOutage",
+      "id" : "53071ee8-d6cb-447e-b2fb-a82d58aedf02",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
       "componentAttributes" : {
         "enableInlineEdit" : true,
         "filterName" : "All_Applications",
