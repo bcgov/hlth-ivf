@@ -110,6 +110,52 @@ public class CaseTriggerHandlerTest {
         Decimal newBalance = [SELECT AvailableBalance__c FROM ClinicFunding__c LIMIT 1].AvailableBalance__c;
         System.assertEquals(prevBalance, newBalance, 'Balance should not change if FundingComplete__c was already true');
     }
+
+    @isTest
+    static void testReopenFundingCompleteTakesBackReturnedBalance() {
+        // Application submitted within the clinic funding fiscal year, so the balance moves to/from that funding record
+        Case existingApp = [SELECT AccountId, Clinic_Funding__c FROM Case WHERE Subject = 'IVF Application Test' LIMIT 1];
+        Id fundingId = existingApp.Clinic_Funding__c;
+        Case ivfApp = new Case(
+            AccountId = existingApp.AccountId,
+            RecordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName = 'IVF_Application' AND SObjectType = 'Case' LIMIT 1].Id,
+            Status = 'Draft',
+            Clinic_Funding__c = fundingId,
+            Subject = 'IVF Application Reopen Test',
+            FinalDecisionDate__c = Date.newInstance(2023, 5, 1),
+            DateOfApplicationSubmission__c = Date.newInstance(2024, 5, 1),
+            ApprovedTreatmentFunding__c = 7000
+        );
+        insert ivfApp;
+
+        Case treatment = new Case(
+            RecordTypeId = CaseTriggerHandler.ivfTreatmentRtId,
+            ParentId = ivfApp.Id,
+            FundingComplete__c = false,
+            ApprovedTreatmentFunding__c = 7000,
+            Medication_Start_Date__c = Date.newInstance(2025, 2, 10),
+            TotalMedicationCost__c = 2000,
+            Subject = 'IVF Treatment Reopen Test'
+        );
+        insert treatment;
+
+        treatment.FundingComplete__c = true;
+        treatment.FundingCompleteReason__c = 'Application withdrawn';
+        update treatment;
+        Decimal balanceAfterComplete = [SELECT AvailableBalance__c FROM ClinicFunding__c WHERE Id = :fundingId].AvailableBalance__c;
+        System.assertEquals(15000, balanceAfterComplete,
+                            'Unused balance (7000 approved - 2000 medication) should be returned to the clinic on completion');
+
+        treatment.FundingComplete__c = false;
+        Test.startTest();
+        update treatment;
+        Test.stopTest();
+
+        Decimal balanceAfterReopen = [SELECT AvailableBalance__c FROM ClinicFunding__c WHERE Id = :fundingId].AvailableBalance__c;
+        System.assertEquals(balanceAfterComplete - 5000, balanceAfterReopen,
+                            'Unused balance (7000 approved - 2000 medication) returned on completion should be taken back on reopen');
+    }
+
     @isTest
     static void testPopulateFundingTiers() {
         Case testCase=[SELECT Id,RecordtypeId,TotalHouseholdIncome__c,FundingTier__c,ApprovedTreatmentFunding__c FROM Case WHERE Subject = 'IVF Application Test' LIMIT 1];

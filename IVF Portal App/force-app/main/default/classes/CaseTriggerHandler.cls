@@ -6,6 +6,13 @@ public class CaseTriggerHandler {
         Map<String,Boolean> allowedPhns=new Map<String,Boolean>();
         for(Case c:newList)
         {
+            //Funding Complete unchecked (case reopened for corrections) - clear the completion reason and date
+            if(c.recordtypeId==ivfTreatmentRtId && c.FundingComplete__c==false && oldMap.get(c.Id).FundingComplete__c==true)
+            {
+                c.FundingCompleteReason__c=null;
+                c.Funding_Complete_Date__c=null;
+            }
+            
             if(c.recordtypeId!=ivfTreatmentRtId){
                 if(c.Status =='Submitted')
                 {
@@ -155,23 +162,27 @@ public class CaseTriggerHandler {
             if (
                 loaded.FundingComplete__c == true &&
                 oldCase.FundingComplete__c != true &&
-                loaded.RecordType.DeveloperName == 'IVFTreatment' &&
+                loaded.RecordType.DeveloperName == System.Label.IVF_Treatment_Record_Type &&
                 loaded.ParentId != null
             ) {
-                Decimal availableBalance = 0;
-                
-                if (oldCase.ApprovedTreatmentFunding__c != null && oldCase.TotalTreatmentCost__c != null) {
-                    availableBalance = oldCase.ApprovedTreatmentFunding__c - oldCase.TotalTreatmentCost__c;
-                    
-                    if (oldCase.TotalMedicationCost__c != null) {
-                        Decimal medCap = availableBalance;
-                        Decimal medUse = oldCase.TotalMedicationCost__c;
-                        availableBalance -= Math.min(medUse, medCap);
-                    }
-                }
-                
+                Decimal availableBalance = calculateAvailableBalance(oldCase);
+
                 if (availableBalance > 0) {
                     treatmentBalances.put(loaded.Id, availableBalance);
+                }
+            }
+            // Case reopened: take back the unused balance that was returned to the clinic when funding was completed.
+            // 'Funding utilized' cases had no balance left, so nothing was returned for them.
+            else if (
+                loaded.FundingComplete__c == false &&
+                oldCase.FundingComplete__c == true &&
+                oldCase.FundingCompleteReason__c != System.Label.IVF_Funding_Complete_Reason_Funding_Utilized &&
+                loaded.RecordType.DeveloperName == System.Label.IVF_Treatment_Record_Type &&
+                loaded.ParentId != null
+            ) {
+                Decimal returnedBalance = calculateAvailableBalance(oldCase);
+                if (returnedBalance > 0) {
+                    treatmentBalances.put(loaded.Id, -returnedBalance);
                 }
             }
         }
@@ -181,6 +192,22 @@ public class CaseTriggerHandler {
         }
     }
     
+    private static Decimal calculateAvailableBalance(Case treatment) {
+        Decimal availableBalance = 0;
+
+        if (treatment.ApprovedTreatmentFunding__c != null && treatment.TotalTreatmentCost__c != null) {
+            availableBalance = treatment.ApprovedTreatmentFunding__c - treatment.TotalTreatmentCost__c;
+
+            if (treatment.TotalMedicationCost__c != null) {
+                Decimal medCap = availableBalance;
+                Decimal medUse = treatment.TotalMedicationCost__c;
+                availableBalance -= Math.min(medUse, medCap);
+            }
+        }
+        return availableBalance;
+    }
+
+    // Positive amounts are returned to the clinic, negative amounts are taken back from it
     public static void moveBalanceBackToClinicFromTreatment(Map<Id, Decimal> treatmentBalances) {
         if (treatmentBalances.isEmpty()) return;
         
@@ -221,7 +248,7 @@ public class CaseTriggerHandler {
         ]);
         
         // Step 4: Increment available balance
-        List<ClinicFunding__c> toUpdate = new List<ClinicFunding__c>();
+        Map<Id, ClinicFunding__c> toUpdate = new Map<Id, ClinicFunding__c>();
         
         for (Case treatment : treatments) {
             Decimal oldBalance = treatmentBalances.get(treatment.Id);
@@ -234,14 +261,14 @@ public class CaseTriggerHandler {
                     if(parent.DateOfApplicationSubmission__c >= fund.FYStartDate__c && parent.DateOfApplicationSubmission__c <= fund.FYEndDate__c){
                     fund.AvailableBalance__c += oldBalance;
                     System.debug('Fund After: ' + fund.AvailableBalance__c);
-                    toUpdate.add(fund);
+                    toUpdate.put(fund.Id, fund);
                     }
                 }
             }
         }
         
         if (!toUpdate.isEmpty()) {
-            update toUpdate;
+            update toUpdate.values();
         }
     }
 }
