@@ -1,7 +1,13 @@
 .outage-banner {
     align-items: center;
     background-color: #b8a1f2;
-    background-image: none;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #b8a1f2 0,
+        #b8a1f2 20px,
+        #a78fe0 20px,
+        #a78fe0 40px
+    );
     box-sizing: border-box;
     color: #000000;
     display: flex;
@@ -10,11 +16,16 @@
     min-height: 40px;
     padding: 4px 16px;
     text-align: center;
-    width: 100%;
+
+    /* Full-bleed: adjust 16px to the gutter you measure, or remove if not needed */
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
 }
 
 .outage-banner__icon {
-    --slds-c-icon-color-foreground-default: #8a4b00;
+    --slds-c-icon-color-foreground-default: #444444;
+    --sds-c-icon-color-foreground-default: #444444;
     flex: 0 0 auto;
 }
 
