@@ -215,6 +215,13 @@
                     <stringValue>Funding utilized</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>$User.IVF_Finance_Controls__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Clear_funding_complete_and_reason</targetReference>
             </connector>
