@@ -6,6 +6,13 @@
   "label" : "Home",
   "regions" : [ {
     "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:ivfAlertBannerOutage",
+      "id" : "567f249c-a35b-4941-ba74-8ff14a3150b9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
       "componentAttributes" : {
         "bannerBackgroundColor" : "rgb(1, 51, 102)",
         "bannerPosition" : "top",

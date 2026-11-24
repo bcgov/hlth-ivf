@@ -4,6 +4,10 @@
         <apexClass>CaseSubmitController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>IVF_CustomSettingsController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.MyClinic__c</field>
